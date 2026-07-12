@@ -17,9 +17,10 @@ export default function Footer() {
               <Wordmark />
             </Link>
             <p>
-              I rank local businesses in the top 3 of Google Maps and keep them
-              there. One operator, one system, built around a guarantee. Based in
-              the Headwaters, serving Canada.
+              I engineer the people already searching to find you, and I make sure
+              every one of them is answered, qualified and booked. One operator, one
+              loop, built around a guarantee that renews every morning. Based in the
+              Headwaters, serving Canada.
             </p>
           </div>
           <div className="foot-links">
@@ -56,7 +57,7 @@ export default function Footer() {
             {POSTAL} &nbsp;&middot;&nbsp; {PHONE_DISP}
           </span>
           <span>
-            &copy; {year} {BRAND}. Local SEO &amp; Google Business Profile ranking.
+            &copy; {year} {BRAND}. Local SEO, paid growth &amp; AI front desk systems.
           </span>
         </div>
       </div>

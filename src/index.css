@@ -1,6 +1,6 @@
-/* === HigherMindAI design system — ported verbatim from the static build === */
+/* === HigherMindAI design system - ported verbatim from the static build === */
 /* ============================================================
-   HigherMindAI — site design system
+   HigherMindAI - site design system
    Premium dark editorial. Navy + teal, used with restraint.
    Display: Montserrat (geometric sans).  Body/labels: Hanken Grotesk.
    ============================================================ */
@@ -32,7 +32,7 @@ a{color:inherit; text-decoration:none;}
 img{max-width:100%; display:block;}
 ::selection{background:transparent; color:inherit;}
 
-/* content protection (deterrent — view-source still exposes markup) */
+/* content protection (deterrent - view-source still exposes markup) */
 html, body{-webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none; -webkit-touch-callout:none;}
 input, textarea{-webkit-user-select:text; -moz-user-select:text; -ms-user-select:text; user-select:text;}
 img, canvas, .gthumb{-webkit-user-drag:none; -khtml-user-drag:none; -moz-user-drag:none; user-drag:none;}
@@ -40,7 +40,7 @@ img, canvas, .gthumb{-webkit-user-drag:none; -khtml-user-drag:none; -moz-user-dr
 .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
 .narrow{max-width:760px;}
 
-/* (neural canvas removed — quiet static depth lives on the body background) */
+/* (neural canvas removed - quiet static depth lives on the body background) */
 .page{position:relative; z-index:1;}
 /* atmospheric glow seams */
 .glow{position:absolute; border-radius:50%; filter:blur(8px); pointer-events:none; z-index:0;}
@@ -372,7 +372,7 @@ header.nav.scrolled{background:rgba(10,20,38,.9); border-bottom-color:var(--line
 .nav .links a.btn-primary, .nav .links a.btn-primary:hover{color:#06121f;}
 
 /* ============================================================
-   Refinement pass — glass offer cards, filled thumbnails,
+   Refinement pass - glass offer cards, filled thumbnails,
    quiet depth. (Layered last so these win.)
    ============================================================ */
 
@@ -414,4 +414,48 @@ header.nav.scrolled{background:rgba(10,20,38,.9); border-bottom-color:var(--line
 @media (max-width:980px){
   .offer{grid-template-columns:1fr;}
   .offer .price-side{border-right:1px solid rgba(255,255,255,.12);}
+}
+
+/* ============================================================
+   Session 1 - solo hero + the four-up rate card.
+   No new components: this reuses the existing frosted .vtile
+   system and adds a 4-column variant plus a price treatment.
+   Pure CSS, zero JS, no new network requests.
+   ============================================================ */
+
+/* hero is single-column now: the local-pack card came off it */
+.hero-grid.solo{grid-template-columns:1fr; max-width:960px;}
+.hero-grid.solo .sub{max-width:54ch;}
+
+/* the frosted tile gains a featured state and a price block */
+.vtile{position:relative; overflow:hidden;}
+.vtile.feat{
+  background:linear-gradient(180deg, rgba(63,224,181,.12), rgba(63,224,181,.035));
+  border-color:rgba(63,224,181,.34);
+  box-shadow:0 28px 70px rgba(0,0,0,.42), inset 0 1px 0 rgba(255,255,255,.10);
+}
+.vtile.feat::before{content:""; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg, transparent, var(--teal), transparent); opacity:.75;}
+.vtile.feat:hover{border-color:rgba(63,224,181,.55);}
+
+.vtile .ptag{font-family:"Montserrat",system-ui,sans-serif; font-weight:500; line-height:1;
+  font-size:clamp(30px,3.1vw,40px); color:var(--teal); margin:0 0 10px;}
+.vtile .ptag sub{font-size:14px; color:var(--muted); vertical-align:baseline; font-style:italic;
+  font-family:"Hanken Grotesk",sans-serif; margin-left:2px;}
+.vtile .pbuild{font-size:12.5px; color:var(--faint); letter-spacing:.02em;
+  padding-bottom:18px; margin-bottom:18px; border-bottom:1px solid var(--line2);}
+
+/* rate card: four abreast, highest price first, left to right */
+.vgrid.four{grid-template-columns:repeat(4,1fr);}
+
+/* the terms line and the guarantee closer: quiet, wide, given room */
+.terms-line{margin:clamp(28px,3.4vw,44px) 0 0; color:var(--muted);
+  font-size:clamp(16px,1.8vw,18px); line-height:1.6; max-width:78ch;}
+.terms-line b{color:#fff; font-weight:600;}
+
+@media (max-width:980px){
+  .vgrid.four{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:680px){
+  .vgrid.four{grid-template-columns:1fr;}
 }

@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// HigherMindAI — JSON-LD builders (answer-layer / rich-result signals)
+// HigherMindAI - JSON-LD builders (answer-layer / rich-result signals)
 // Mirrors the schema emitted by the static generator.
 // ---------------------------------------------------------------------------
 import {
@@ -19,9 +19,9 @@ export function orgSchema(): Json {
     url: BASE + '/',
     telephone: PHONE_E164,
     email: EMAIL,
-    priceRange: '$$',
+    priceRange: '$$$',
     description:
-      'Local SEO and Google Business Profile ranking for local businesses. Top 3 of the Google Map Pack, engineered and maintained.',
+      'Demand engineering welded to an AI front desk. I engineer the people already searching to find you, then answer, qualify and book every enquiry that arrives, day or night. Any enquiry that goes unanswered, that month is free.',
     founder: { '@type': 'Person', name: FOUNDER },
     address: {
       '@type': 'PostalAddress',
@@ -36,14 +36,32 @@ export function orgSchema(): Json {
       { '@type': 'Country', name: 'United States' },
       { '@type': 'Country', name: 'United Kingdom' },
     ],
+    // No price fields, deliberately. The rate card lives on the page, not in the
+    // markup. Offers are ordered highest-value first, everywhere on this site.
     makesOffer: [
       {
         '@type': 'Offer',
-        name: 'Local Ranking System',
-        price: '600',
-        priceCurrency: 'CAD',
+        name: 'The Catchment - Total',
         description:
-          'Top 3 of the Google Map Pack, engineered and maintained. First page in 60 days or you stop paying. $600/mo flat, month-to-month.',
+          'Organic and paid demand engineering welded to Cortex, the AI front desk. Every route in is covered, and every enquiry that takes one of them is answered, qualified and booked. Includes the Catchment Report on the first of every month.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'The Catchment - Paid',
+        description:
+          'Google and Meta funnels built on the language your real buyers use, conversion pages, and Cortex catching every enquiry they send.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'The Catchment - Organic',
+        description:
+          'Your Google Business Profile engineered into the top 3 of the Map Pack and held there, every winnable town built as its own ranked unit, and Cortex catching what it brings in.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Cortex - AI front desk',
+        description:
+          'An AI front desk trained on your practice. Answers from your knowledge, asks your qualifying questions, screens out timewasters and books the rest straight into your calendar. Every web enquiry answered in under 60 seconds, day or night.',
       },
     ],
   };

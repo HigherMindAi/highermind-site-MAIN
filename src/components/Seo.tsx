@@ -56,7 +56,7 @@ export default function Seo({ title, desc, path, schema = [] }: SeoProps) {
     upsertMeta('name', 'twitter:title', title);
     upsertMeta('name', 'twitter:description', desc);
 
-    // JSON-LD: clear any we added previously, then inject the current set.
+    // JSON-LD: clear any block injected previously, then inject the current set.
     document
       .querySelectorAll('script[data-hm-jsonld]')
       .forEach((n) => n.remove());

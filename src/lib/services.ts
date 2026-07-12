@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// HigherMindAI — service ladder + per-service page content (no pricing)
+// HigherMindAI - service ladder + per-service page content (no pricing)
 // Copy ported verbatim from the static build. Hyphens only, never em-dashes.
 // ---------------------------------------------------------------------------
 
@@ -14,8 +14,8 @@ export const SERVICES: ServiceListItem[] = [
   {
     slug: 'local-ranking-system',
     name: 'Local Ranking System',
-    line: 'Top 3 of the Google Map Pack, engineered and maintained. The flat-rate core, built around a 60-day guarantee.',
-    flag: true,
+    line: 'Top 3 of the Google Map Pack, engineered and held there. The organic half of the inflow, and an asset you own.',
+    flag: false,
   },
   {
     slug: 'service-area-expansion',
@@ -75,7 +75,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
       ['Weekly signals', 'Three high-authority posts a week and a weekly profile ritual - the activity that keeps you ranked once you arrive.'],
     ],
     faq: [
-      ['How fast can I rank?', 'It depends on your category and competition, which is why the guarantee exists. The work compounds - early movement, then ranking, then holding. Vanguard went from nothing to #2 in 30 days; your clock runs 60.'],
+      ['How fast can I rank?', 'It depends on your category and competition, which is why the guarantee exists. The work compounds - early movement, then ranking, then holding. My fastest build, a security systems installer in Atlantic Canada, went from a profile that did not exist to the top three in 30 days. Your clock runs 60.'],
       ['What if I am not on the first page in 60 days?', 'You stop paying the monthly and I keep working at no charge until you are ranked. Billing starts at onboarding; the 60-day clock starts when onboarding completes.'],
       ['Do you work outside your home area?', 'Yes. I am based in Erin and serve local businesses across Canada, with expansion into the US and UK. The system is location-specific - your pin and service area drive the build.'],
       ['Will this risk my Google profile?', 'No. No name-stuffing, no fake photo data, no junk-citation blasts. I hold your profile to the same clean standard I hold my own.'],

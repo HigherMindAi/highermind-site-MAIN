@@ -34,9 +34,14 @@ async function run() {
 
   for (const { route, file } of jobs) {
     const { appHtml, headHtml } = render(route);
+    // Replacer FUNCTIONS, not strings. String.prototype.replace treats $$, $&,
+    // $` and $' as special patterns inside a replacement string, so a literal
+    // "$$" in the rendered markup would silently collapse to "$". On a site
+    // whose job is to render $2,500 and $300, that is a landmine. A function
+    // replacement disables all $-pattern interpretation. Do not revert this.
     const html = template
-      .replace('<!--app-head-->', headHtml)
-      .replace('<!--app-html-->', appHtml);
+      .replace('<!--app-head-->', () => headHtml)
+      .replace('<!--app-html-->', () => appHtml);
     mkdirSync(dirname(file), { recursive: true });
     writeFileSync(file, html);
     console.log('  prerendered', route, '->', file.replace(dist, 'dist'));
