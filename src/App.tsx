@@ -5,6 +5,7 @@ import ServicesHub from './pages/ServicesHub';
 import ServicePage from './pages/ServicePage';
 import LocationsHub from './pages/LocationsHub';
 import LocationPage from './pages/LocationPage';
+import Proof from './pages/Proof';
 import Book from './pages/Book';
 import NotFound from './pages/NotFound';
 
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="services/:slug" element={<ServicePage />} />
         <Route path="local-seo" element={<LocationsHub />} />
         <Route path="local-seo/:slug" element={<LocationPage />} />
+        <Route path="proof" element={<Proof />} />
         <Route path="book" element={<Book />} />
         <Route path="*" element={<NotFound />} />
       </Route>

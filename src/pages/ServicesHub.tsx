@@ -9,8 +9,8 @@ export default function ServicesHub() {
   return (
     <main>
       <Seo
-        title="Local SEO Services in the Headwaters, Ontario | HigherMindAI"
-        desc="Local SEO and Google ranking services for local businesses: the Local Ranking System, Service Area Expansion, Website Build, Social Authority, and Paid Growth. Erin, Ontario."
+        title="Local SEO, Paid Growth & AI Front Desk Services | HigherMindAI"
+        desc="The Catchment, Cortex, the Local Ranking System, Paid Growth, AI Systems, and more. Demand engineering and an AI front desk that answers, qualifies and books every enquiry."
         path="/services/"
         schema={[
           breadcrumbs([['Home', '/'], ['Services', '/services/']]),
@@ -24,14 +24,14 @@ export default function ServicesHub() {
             <div className="crumb">
               <Link to="/">Home</Link> &nbsp;/&nbsp; Services
             </div>
-            <span className="eyebrow">Local SEO services &middot; Headwaters, Ontario</span>
+            <span className="eyebrow">Services</span>
             <h1>
-              Everything built around <span className="em">one job</span>: getting you found first.
+              Everything built around <span className="em">one job</span>: a booked appointment.
             </h1>
             <p className="sub">
-              Each service stands on its own and compounds with the rest. The Local Ranking System gets
-              you into the Map Pack. The rest of the ladder widens the lead and protects it. No tiers, no
-              padding - only what moves a customer closer to calling you.
+              The Catchment is the flagship, and it is the one I want you to take. But every piece of it
+              stands on its own, and every piece can be bought on its own. If that is genuinely what the
+              job needs, <b>I will tell you so on the first call.</b>
             </p>
           </div>
         </div>

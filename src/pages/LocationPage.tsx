@@ -2,10 +2,12 @@ import { Link, useParams } from 'react-router-dom';
 import Seo from '../components/Seo';
 import FAQ from '../components/FAQ';
 import CTAStrip from '../components/CTAStrip';
+import ServiceAreaMap from '../components/ServiceAreaMap';
 import NotFound from './NotFound';
 import { Arrow } from '../components/Icons';
 import { cityBySlug, locFaq, REGION_FULL } from '../lib/cities';
 import { PHONE_E164, PHONE_DISP, ADDRESS_STREET, POSTAL } from '../lib/site';
+import { nearestCities } from '../lib/geo';
 import { locationSchema, breadcrumbs, faqSchema } from '../lib/schema';
 
 const italicTeal = { fontStyle: 'italic', color: 'var(--teal)' } as const;
@@ -25,6 +27,10 @@ export default function LocationPage() {
     `${ADDRESS_STREET}, ${c.city}, ${c.region} ${POSTAL}`
   );
 
+  // Erin is a real, verified pin, so Erin keeps a real map. Nobody else gets one:
+  // an embed passes zero ranking signal and costs ~500KB of third-party JS on the
+  // pages where speed is the entire product. They get the survey chart instead,
+  // which is on-brand, weighs a few KB, and carries the internal links.
   const rightPanel =
     c.tier === 'home' ? (
       <div className="mapframe reveal" style={{ padding: 0 }}>
@@ -37,23 +43,10 @@ export default function LocationPage() {
         />
       </div>
     ) : (
-      <div className="termpanel reveal">
-        <div className="tp-label">Winnable terms I target in {c.city}</div>
-        <ul className="tp-list">
-          {[
-            `${c.nearby[0].toLowerCase()} near me`,
-            `best [your service] ${c.city}`,
-            `[your service] ${c.city} ${c.region}`,
-            `[your service] near me`,
-          ].map((t) => (
-            <li key={t}>{t}</li>
-          ))}
-        </ul>
-        <p className="tp-note">
-          I pin the work to the terms where your business can actually rank - not a saturated head term.
-        </p>
-      </div>
+      <ServiceAreaMap c={c} />
     );
+
+  const near = nearestCities(c);
 
   return (
     <main>
@@ -81,7 +74,7 @@ export default function LocationPage() {
             <p className="sub">{c.sub}</p>
             <div className="ctas" style={{ marginTop: 34, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
               <Link to="/#contact" className="btn btn-primary">
-                Book a call <Arrow />
+                Get your Catchment Audit <Arrow />
               </Link>
               <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
                 Call {PHONE_DISP}
@@ -146,6 +139,43 @@ export default function LocationPage() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <div className="divider" />
+
+      {/* The internal mesh. Free, and it compounds. */}
+      <section className="sec-sm">
+        <div className="wrap">
+          <div className="reveal">
+            <span className="eyebrow">Also in the {c.city} area</span>
+            <h2 style={{ marginTop: 24, fontSize: 'clamp(26px,3.2vw,38px)' }}>
+              Ranking is half of it. <span className="em">Answering is the half that pays.</span>
+            </h2>
+            <p className="lead">
+              Getting a {c.city} business into the top three is what I am known for. It is also only the
+              inflow. The Catchment welds it to an AI front desk that answers, qualifies and books every
+              enquiry it brings in, so the calls I win you do not ring out.
+            </p>
+          </div>
+          <div className="mesh reveal">
+            <span className="mesh-lab">The system</span>
+            <Link to="/services/the-catchment/">The Catchment</Link>
+            <Link to="/services/cortex/">Cortex, the AI front desk</Link>
+            <Link to="/services/local-ranking-system/">The Local Ranking System</Link>
+            <Link to="/services/service-area-expansion/">Service Area Expansion</Link>
+            <Link to="/proof/">Proof</Link>
+          </div>
+          {near.length > 0 && (
+            <div className="mesh reveal">
+              <span className="mesh-lab">Nearby markets I also rank in</span>
+              {near.map((n) => (
+                <Link key={n.city.slug} to={`/local-seo/${n.city.slug}/`}>
+                  {n.city.city} <span style={{ color: 'var(--faint)', fontSize: 12 }}>{Math.round(n.km)} km</span>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

@@ -25,8 +25,8 @@ export default function NotFound() {
               <Link to="/" className="btn btn-primary">
                 Back home <Arrow />
               </Link>
-              <Link to="/services/" className="btn btn-ghost">
-                See the services
+              <Link to="/services/the-catchment/" className="btn btn-ghost">
+                See The Catchment
               </Link>
             </div>
           </div>

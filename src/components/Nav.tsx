@@ -6,6 +6,7 @@ import { Wordmark, Hamburger, Close } from './Icons';
 function isActive(label: string, pathname: string): boolean {
   if (label === 'Services') return pathname.startsWith('/services');
   if (label === 'Locations') return pathname.startsWith('/local-seo');
+  if (label === 'Proof') return pathname.startsWith('/proof');
   return false;
 }
 
@@ -57,7 +58,7 @@ export default function Nav() {
             Call {PHONE_DISP}
           </a>
           <Link to="/#contact" className="btn btn-primary" onClick={() => setOpen(false)}>
-            Book a call
+            Get the Audit
           </Link>
         </nav>
         <button

@@ -39,6 +39,7 @@ export default function Footer() {
               <Link to="/local-seo/brampton/">Brampton</Link>
               <Link to="/local-seo/vaughan/">Vaughan</Link>
               <Link to="/local-seo/moncton/">Moncton, NB</Link>
+              <Link to="/proof/">Proof</Link>
             </div>
             <div className="foot-col">
               <h4>Contact</h4>
@@ -47,7 +48,7 @@ export default function Footer() {
               <span>
                 {ADDRESS_STREET}, {LOCALITY}, {REGION} {POSTAL}
               </span>
-              <Link to="/#contact">Book a call</Link>
+              <Link to="/#contact">Get your Catchment Audit</Link>
             </div>
           </div>
         </div>

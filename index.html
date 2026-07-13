@@ -6,10 +6,34 @@
     <!--app-head-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!--
+      Fonts load ASYNCHRONOUSLY. A plain <link rel="stylesheet"> to Google Fonts is
+      render-blocking: the browser will not paint a single pixel until it has made a
+      round trip to fonts.googleapis.com AND a second one to fonts.gstatic.com. On a
+      throttled mobile connection that was the largest single cost in our LCP, and it
+      was larger than anything else on the page.
+
+      rel="preload" as="style" fetches it off the critical path, then onload promotes
+      it to a real stylesheet. <noscript> covers the no-JS case. Combined with
+      display=swap, text paints immediately in the system fallback and swaps when
+      Montserrat and Hanken arrive.
+
+      Trimmed the weights too: 400/600/700 for Montserrat (the 500 and the 1,500 italic
+      were never used) and 400/500/600/700 for Hanken (800 was never used). Fewer font
+      files, less to download.
+    -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,600;1,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,600;1,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap"
+      />
+    </noscript>
   </head>
   <body>
     <!--

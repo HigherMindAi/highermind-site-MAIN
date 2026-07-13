@@ -18,10 +18,10 @@ export const COUNTRY = 'CA';
 
 export const NAV: ReadonlyArray<{ label: string; href: string }> = [
   { label: 'The Catchment', href: '/#system' },
-  { label: 'Pricing', href: '/#pricing' },
+  { label: 'Proof', href: '/proof/' },
+  { label: 'Guarantee', href: '/#guarantee' },
   { label: 'Services', href: '/services/' },
   { label: 'Locations', href: '/local-seo/' },
-  { label: 'Guarantee', href: '/#guarantee' },
 ];
 
 export const FOUNDER = 'Derek Train';

@@ -2,9 +2,12 @@ import { Link, useParams } from 'react-router-dom';
 import Seo from '../components/Seo';
 import FAQ from '../components/FAQ';
 import CTAStrip from '../components/CTAStrip';
+import CatchmentReport from '../components/CatchmentReport';
 import NotFound from './NotFound';
+import LocalPackCard from '../components/LocalPackCard';
 import { Arrow } from '../components/Icons';
 import { SERVICES, SERVICE_PAGES, PHASE_LABELS } from '../lib/services';
+import { CITIES } from '../lib/cities';
 import { PHONE_E164, PHONE_DISP } from '../lib/site';
 import { serviceSchema, breadcrumbs, faqSchema } from '../lib/schema';
 
@@ -46,7 +49,7 @@ export default function ServicePage() {
             <p className="sub">{d.sub}</p>
             <div className="ctas" style={{ marginTop: 34, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
               <Link to="/#contact" className="btn btn-primary">
-                Book a call <Arrow />
+                Get your Catchment Audit <Arrow />
               </Link>
               <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
                 Call {PHONE_DISP}
@@ -55,6 +58,40 @@ export default function ServicePage() {
           </div>
         </div>
       </section>
+
+      {slug === 'the-catchment' && (
+        <>
+          <div className="divider" />
+          <section className="sec">
+            <div className="wrap">
+              <div className="sec-head left reveal">
+                <span className="eyebrow">The Catchment Report</span>
+                <h2>
+                  On the first of every month. <span className="em">Here it is now, before you pay me.</span>
+                </h2>
+              </div>
+              <CatchmentReport />
+            </div>
+          </section>
+        </>
+      )}
+
+      {slug === 'local-ranking-system' && (
+        <>
+          <div className="divider" />
+          <section className="sec-sm">
+            <div className="wrap">
+              <div className="sec-head left reveal">
+                <span className="eyebrow">The box where the calls get decided</span>
+                <h2>
+                  Three results. <span className="em">Everyone else is a scroll away.</span>
+                </h2>
+              </div>
+              <LocalPackCard />
+            </div>
+          </section>
+        </>
+      )}
 
       <div className="divider" />
 
@@ -107,6 +144,37 @@ export default function ServicePage() {
             <h2>Before you call.</h2>
           </div>
           <FAQ items={d.faq} />
+        </div>
+      </section>
+
+      <div className="divider" />
+
+      {/* The reverse mesh: every service page feeds the city pages, and they feed back. */}
+      <section className="sec-sm">
+        <div className="wrap">
+          <div className="reveal">
+            <span className="eyebrow">Where I work</span>
+            <h2 style={{ marginTop: 24, fontSize: 'clamp(26px,3.2vw,38px)' }}>
+              Based in Erin. <span className="em">Ranking businesses across Canada.</span>
+            </h2>
+          </div>
+          <div className="mesh reveal">
+            <span className="mesh-lab">Local SEO by city</span>
+            {CITIES.map((c) => (
+              <Link key={c.slug} to={`/local-seo/${c.slug}/`}>
+                {c.city}
+              </Link>
+            ))}
+          </div>
+          <div className="mesh reveal">
+            <span className="mesh-lab">The rest of the system</span>
+            {SERVICES.filter((x) => x.slug !== slug).slice(0, 5).map((x) => (
+              <Link key={x.slug} to={`/services/${x.slug}/`}>
+                {x.name}
+              </Link>
+            ))}
+            <Link to="/proof/">Proof</Link>
+          </div>
         </div>
       </section>
 

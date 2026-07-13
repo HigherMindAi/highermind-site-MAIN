@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import ServiceLadder from '../components/ServiceLadder';
+import CatchmentDiagram from '../components/CatchmentDiagram';
+import CatchmentReport from '../components/CatchmentReport';
 import FAQ from '../components/FAQ';
 import ContactForm from '../components/ContactForm';
 import { Arrow } from '../components/Icons';
@@ -9,8 +11,12 @@ import { orgSchema, faqSchema } from '../lib/schema';
 
 const HOME_FAQ: [string, string][] = [
   [
+    'What does it cost?',
+    'It depends on the inflow your market needs, and I will not name a number before I have looked at it. Run the Catchment Audit first. It is free, it takes me forty minutes, and then the number means something.',
+  ],
+  [
     'Is there a contract?',
-    'Ninety days, then month-to-month with thirty days notice. The build takes two weeks and a ranking needs a fair run to compound, so ninety days is the shortest honest window in which you can judge whether this works. It is not there to trap you, and any month I fail the Catch Lock you do not pay for it regardless of the term.',
+    'Ninety days, then month-to-month with thirty days notice. The build takes two weeks and a ranking needs a fair run to compound. Ninety days is the shortest honest window to judge it. Most people in this market will lock you in for a year.',
   ],
   [
     'I already have a receptionist.',
@@ -18,69 +24,62 @@ const HOME_FAQ: [string, string][] = [
   ],
   [
     'I already have a chatbot.',
-    'You have a form that says hello. Most of them cannot tell a visitor whether you even offer the service they are asking about, cannot book, and hand everything to a human who is busy. That is not a chatbot. It is a mailbox with an avatar.',
+    'You have a form that says hello. Most of them cannot tell a visitor whether you even offer the service they are asking about, cannot book, and hand everything to a human who is busy. That is a mailbox with an avatar.',
   ],
   [
-    'Will a robot answering my phone put people off?',
-    'They want an answer. Right now, at nine at night, they get a ring tone. A voice that picks up, knows your practice, takes their details and books them in is not competing with a person. It is competing with nobody.',
+    'Will an AI answering my phone put people off?',
+    'They want an answer. Right now, at nine at night, they get a ring tone. Something that picks up, knows your practice, and books them in is not competing with a person. It is competing with nobody.',
   ],
   [
     'What exactly is the Catch Lock?',
-    'Every enquiry that arrives gets answered and offered a booking. If one goes unanswered, that month is free. Not a credit, not a discount. Free. The logs are the record and you can see them any time. It is the only guarantee I make that does not expire the day it comes true.',
+    'Every enquiry gets answered and offered a booking. If one goes unanswered, that month is free. Not a credit. Not a discount. Free. The logs are the record, and you can see them any time.',
   ],
   [
-    'How fast will I actually see results?',
-    'Cortex is live in fourteen days and starts catching enquiries the day it goes on. Ranking is slower because it compounds - early movement, then position, then holding it. The Rank Lock puts sixty days on the clock, and the clock starts the day I have what I need, not the day you sign. I have never failed it.',
-  ],
-  [
-    'What do I actually receive every month?',
-    'The Catchment Report, on the first. Every enquiry that arrived, every one that was caught, every one that came in after you had gone home, and every appointment that was booked, with the times on them. You will never have to wonder whether this is working. You will be holding the answer.',
+    'How fast does it work?',
+    'Cortex is live in fourteen days and catches enquiries from day one. Ranking compounds, so it is slower - the Rank Lock puts sixty days on the clock, starting the day I have what I need. I have never failed it.',
   ],
   [
     'Why one operator instead of an agency?',
-    'You work directly with the person doing the work. No account managers, no handoffs to a junior team learning on your profile. One operator, one system, one number to call.',
+    'You deal with the person doing the work. No account manager, no handoff to a junior team learning on your profile.',
   ],
 ];
-
-const italicTeal = { fontStyle: 'italic', color: 'var(--teal)' } as const;
 
 export default function Home() {
   return (
     <main id="top">
       <Seo
         title="Local SEO & AI Front Desk That Books Every Lead | HigherMindAI"
-        desc="I engineer the people already searching to find you, then an AI front desk answers, qualifies and books every one of them, day or night. Any enquiry missed, that month is free."
+        desc="Qualified traffic, then an AI front desk that answers, qualifies and books every enquiry, day or night. Any enquiry missed, that month is free. Free Catchment Audit."
         path="/"
         schema={[orgSchema(), faqSchema(HOME_FAQ)]}
       />
 
-      {/* 1 - HERO. The anchor is the booked appointment. */}
+      {/* 1 - HERO */}
       <section className="hero">
         <div className="wrap">
           <div className="hero-grid solo">
             <div className="reveal">
-              <span className="eyebrow">The Catchment &middot; demand engineering + an AI front desk</span>
+              <span className="eyebrow">Demand engineering + an AI front desk</span>
               <h1>
                 Every enquiry answered.{' '}
                 <span className="em">Every one worth having, booked.</span>
               </h1>
               <p className="sub">
-                Your catchment is every person nearby already searching for what you do. Right now most
-                of it drains somewhere else - either because they cannot find you, or because nobody
+                Right now your market drains somewhere else. Either they cannot find you, or nobody
                 answers when they do. <b>I close both.</b>
               </p>
               <div className="ctas">
                 <Link to="/#contact" className="btn btn-primary">
-                  Book a call <Arrow />
+                  Get your Catchment Audit <Arrow />
                 </Link>
                 <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
                   Call {PHONE_DISP}
                 </a>
               </div>
               <div className="undercta">
-                <span><span className="t">-</span> Answered in under 60 seconds</span>
-                <span><span className="t">-</span> Booked into your calendar</span>
-                <span><span className="t">-</span> Any enquiry missed, that month is free</span>
+                <span><span className="t">/</span> Answered in under 60 seconds</span>
+                <span><span className="t">/</span> Booked into your calendar</span>
+                <span><span className="t">/</span> Miss one, that month is free</span>
               </div>
             </div>
           </div>
@@ -89,40 +88,36 @@ export default function Home() {
 
       <div className="divider" />
 
-      {/* 2 - THE TWO PROBLEMS. The thesis. */}
+      {/* 2 - THE TWO HOLES */}
       <section className="sec">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">The two holes</span>
+            <span className="eyebrow">01 &middot; The two holes</span>
             <h2>
-              You are invisible to most of your market.{' '}
-              <span style={italicTeal}>And the few who find you cannot reach you.</span>
+              Invisible to most of your market.{' '}
+              <span className="em">Unreachable to the rest.</span>
             </h2>
             <p className="lead">
-              Those are two different problems, and almost every agency sells you a fix for one of them
-              and walks away from the other. I fix both, because half of this system is worthless
-              without the other half.
+              Two different problems. Most agencies sell a fix for one and walk away from the other.
             </p>
           </div>
-          <div className="steps reveal">
-            <div className="step">
+          <div className="steps">
+            <div className="step reveal">
               <div className="sn">Hole one</div>
               <h3>They never see you</h3>
               <p>
-                The top three of the Map Pack take most of the local clicks and most of the local calls.
-                If you are not in it, you are not in the conversation, and the practice two blocks away
-                that is in it takes the case that should have been yours. That is revenue you never see,
-                so you never miss it.
+                The top three of the Map Pack take most of the local calls. If you are not in it, the
+                practice down the road that is takes the case that should have been yours. You never see
+                it happen, so you never miss it.
               </p>
             </div>
-            <div className="step">
+            <div className="step reveal">
               <div className="sn">Hole two</div>
               <h3>They see you, and nobody picks up</h3>
               <p>
-                An enquiry lands at nine at night, or while your front desk is with a patient, or during
-                the hour they take for lunch. It rings out, or it sits in a form inbox until Tuesday. By
-                then that person has called two other practices and gone with whoever answered first.
-                This hole is the worse of the two, because they had already chosen you.
+                An enquiry lands at nine at night, or while your front desk is with a patient. It rings
+                out. By Tuesday that person has called two other practices and gone with whoever answered
+                first. <b>This is the worse hole. They had already chosen you.</b>
               </p>
             </div>
           </div>
@@ -131,53 +126,74 @@ export default function Home() {
 
       <div className="divider" />
 
-      {/* 3 - THE CATCHMENT. The loop. */}
+      {/* 3 - THE CATCHMENT. The flagship, but not the whole site. */}
       <section className="sec" id="system">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">The Catchment</span>
+            <span className="eyebrow">02 &middot; The Catchment &middot; the flagship</span>
             <h2>
               Demand, welded to the thing that catches it.{' '}
-              <span style={italicTeal}>One loop.</span>
+              <span className="em">One loop.</span>
             </h2>
             <p className="lead">
-              A catchment is the entire territory that drains into a single point. Yours is every person
-              nearby already searching for what you do. I engineer them toward you, and then I make sure
-              not one of them is dropped at the other end.
+              A catchment is the territory that drains into a single point. Yours is everyone nearby
+              already searching for what you do.
             </p>
           </div>
-          <div className="vgrid reveal">
-            <div className="vtile">
-              <div className="vt-n">One</div>
-              <h3>The Inflow</h3>
+
+          <CatchmentDiagram />
+
+          <div className="vgrid">
+            <div className="vtile reveal">
+              <div className="vt-n">The Inflow</div>
+              <h3>Qualified traffic</h3>
               <p>
-                Organic, paid, or both. Organic engineers your Google Business Profile into the top three
-                of the Map Pack and holds it there, and builds every winnable town around you as its own
-                ranked unit. It is an owned asset - it compounds, and it does not stop the day you stop
-                paying. Paid builds Google and Meta funnels on research into the exact language your real
-                buyers use. Faster, and you control the tap.
+                Organic, paid, or both. Top three of the Map Pack, held. Google and Meta funnels built on
+                the words your real buyers use. Not impressions - people with a wallet out.
               </p>
             </div>
-            <div className="vtile">
-              <div className="vt-n">Two</div>
-              <h3>The Catch</h3>
+            <div className="vtile feat reveal">
+              <div className="vt-n">The Catch</div>
+              <h3>Booked appointments</h3>
               <p>
-                Cortex. An AI front desk trained on your practice. It answers from your actual knowledge
-                rather than guessing. It asks your qualifying questions, in your words, and it screens out
-                the people you do not want. It books the ones you do, straight into your calendar, while
-                they are still in the conversation. Every web enquiry gets a real reply in under sixty
-                seconds. No-shows get chased.
+                Cortex. An AI front desk trained on your practice. Answers in under sixty seconds, asks
+                your qualifying questions, screens out the tyre-kickers, and books the rest straight into
+                your calendar.
               </p>
             </div>
-            <div className="vtile">
-              <div className="vt-n">Three</div>
-              <h3>The Report</h3>
+            <div className="vtile reveal">
+              <div className="vt-n">The Report</div>
+              <h3>Proof, monthly</h3>
               <p>
-                The Catchment Report, on the first of every month. Every enquiry that arrived, every one
-                that was caught, every one that came in after you had gone home, and every appointment
-                that was booked, with the times on them. You will never have to wonder whether this is
-                working. You will be holding the answer.
+                Every enquiry that arrived, every one caught, every one that came in after hours, every
+                appointment booked. With timestamps. You will never wonder whether this is working.
               </p>
+            </div>
+          </div>
+
+          {/* Scannable. What actually lands. */}
+          <div className="fit" style={{ marginTop: 26 }}>
+            <div className="col yes reveal">
+              <h3>What you get</h3>
+              <ul>
+                <li>Top-three Map Pack placement, engineered and held</li>
+                <li>Every enquiry answered in under 60 seconds, 24/7</li>
+                <li>Qualifying questions asked in your words, before it reaches you</li>
+                <li>Appointments booked straight into your calendar</li>
+                <li>No-shows chased automatically</li>
+                <li>The Catchment Report on the first of every month</li>
+              </ul>
+            </div>
+            <div className="col no reveal">
+              <h3>What you do not get</h3>
+              <ul>
+                <li>A twelve-month lock-in</li>
+                <li>An account manager between you and the work</li>
+                <li>A guarantee that only starts paying out at month six</li>
+                <li>A dashboard of impressions nobody can spend</li>
+                <li>Leads resold to three of your competitors</li>
+                <li>A junior learning on your profile</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -185,29 +201,78 @@ export default function Home() {
 
       <div className="divider" />
 
-      {/* 4 - PROOF. Numbers, then the honest turn. Client is never named. */}
+      {/* 4 - THE AUDIT. The door handle. */}
+      <section className="sec" id="audit">
+        <div className="wrap">
+          <div className="sec-head left reveal">
+            <span className="eyebrow">03 &middot; The Catchment Audit &middot; free</span>
+            <h2>
+              Before I pitch you anything,{' '}
+              <span className="em">I become your customer.</span>
+            </h2>
+            <p className="lead">
+              Not an opinion. Evidence, gathered from your own business, that you cannot argue with.
+              Forty minutes of my time. Yours to keep either way.
+            </p>
+          </div>
+          <div className="steps">
+            <div className="step reveal">
+              <div className="sn">Part one</div>
+              <h3>The Rank Read</h3>
+              <p>
+                A heatmap across your whole service area, not one pin. Every street where you do not
+                exist. And the three names sitting above you.
+              </p>
+            </div>
+            <div className="step reveal">
+              <div className="sn">Part two</div>
+              <h3>The Leak Log</h3>
+              <p>
+                Six calls to your office over five days at varied hours. Your web chat, asked a real
+                question. Your contact form, submitted. Then I wait, and I time you.
+              </p>
+            </div>
+          </div>
+          <p className="terms-line reveal">
+            <b>Nobody gets a price from me before their Audit is done.</b> Quoting you first would be a
+            guess with a number on it.
+          </p>
+          <div className="ctas reveal">
+            <Link to="/#contact" className="btn btn-primary">
+              Run my Catchment Audit <Arrow />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <div className="divider" />
+
+      {/* 5 - PROOF */}
       <section className="sec-sm">
         <div className="wrap">
           <div className="proof-grid">
             <div className="reveal">
-              <span className="eyebrow">Proof, not promises</span>
-              <h2 style={{ marginTop: 22 }}>
+              <span className="eyebrow">04 &middot; Proof, not promises</span>
+              <h2 style={{ marginTop: 24 }}>
                 A profile that did not exist.{' '}
-                <span style={italicTeal}>Number one in five months.</span>
+                <span className="em">Number one in five months.</span>
               </h2>
-              <p className="lead" style={{ margin: 0 }}>
-                No history, no reviews, no rankings. Built from nothing, on the same clock and the same
-                levers every client runs on. These are his real numbers, straight off the profile.
+              <p className="lead">
+                No history, no reviews, no rankings. Built from nothing. His real numbers, straight off
+                Google.
               </p>
+              <div className="ctas" style={{ marginTop: 30 }}>
+                <Link to="/proof/" className="btn btn-ghost">
+                  See the whole case <Arrow />
+                </Link>
+              </div>
             </div>
             <div className="vcard reveal">
               <div className="vlab">Case &middot; a security systems installer, Atlantic Canada</div>
               <div className="vbig">
                 From a profile that did not exist to <b>#1 for both money keywords</b>, and holding.
               </div>
-              <p className="vnote">
-                February to June 2026. Built from zero, ranked in five months, still there.
-              </p>
+              <p className="vnote">February to June 2026. Built from zero, ranked in five months, still there.</p>
             </div>
           </div>
         </div>
@@ -236,7 +301,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* The honest turn. This is the most persuasive thing on the page. */}
+      {/* The honest turn. Deep water. */}
       <section className="gband">
         <div className="wrap narrow reveal">
           <span className="eyebrow center">The honest part</span>
@@ -245,147 +310,97 @@ export default function Home() {
             <span className="em">and then walk away.</span>
           </h2>
           <p>
-            Those 44 calls arrived at a small business with a small team. Some were answered. Some were
-            not. Nobody knows which, because there was no system catching them. That is a real result
-            with a real hole in it, and <b>I am not selling the hole any more.</b> I am going to make it
-            ring, and then I am going to answer it.
+            Those 44 calls landed at a small business with a small team. Some were answered. Some were
+            not. Nobody knows which, because nothing was catching them. That is a real result with a
+            real hole in it, and <b>I am not selling the hole any more.</b>
           </p>
         </div>
       </section>
 
       <div className="divider" />
 
-      {/* 5 - THE LOCKS. The Catch Lock carries the weight. */}
+      {/* 6 - THE LOCKS */}
       <section className="sec" id="guarantee">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">The locks</span>
+            <span className="eyebrow">05 &middot; The locks</span>
             <h2>
               Three commitments.{' '}
-              <span style={italicTeal}>One of them renews every morning.</span>
+              <span className="em">One renews every morning.</span>
             </h2>
             <p className="lead">
-              I do not ask you to believe me. I put the risk on my side of the table and let you check
-              the logs.
+              I never say trust me. I say what happens if I miss, and I let you check the logs.
             </p>
           </div>
-          <div className="vgrid reveal">
-            <div className="vtile">
+          <div className="vgrid">
+            <div className="vtile reveal">
               <div className="vt-n">The Rank Lock</div>
               <h3>First page in 60 days</h3>
               <p>
-                First page of the Google Map Pack within 60 days of me having what I need, or you stop
-                paying the monthly and I keep working at no charge until you are there. I have never
-                failed it. My fastest build hit the top three in 30 days.
+                Or you stop paying and I keep working free until you are there. Never failed it. Fastest
+                build hit the top three in 30 days.
               </p>
             </div>
-            <div className="vtile feat">
+            <div className="vtile feat reveal">
               <div className="vt-n">The Catch Lock</div>
-              <h3>Miss one, and the month is free</h3>
+              <h3>Miss one, the month is free</h3>
               <p>
-                Every enquiry that arrives gets answered and offered a booking. If one goes unanswered,
-                that month is free. Not a credit. Not a discount. Free. The logs are the record and you
-                can see them any time.
+                Every enquiry answered and offered a booking. If one goes unanswered, that month is free.
+                Not a credit. Not a discount. Free. No conditions attached to it.
               </p>
             </div>
-            <div className="vtile">
+            <div className="vtile reveal">
               <div className="vt-n">The Launch Lock</div>
               <h3>Live in 14 days</h3>
               <p>
-                Live in 14 days, or I return your build fee in full. No conditions, no argument, no small
-                print. It removes the last excuse standing between you and a live system.
-              </p>
-            </div>
-          </div>
-          <p className="terms-line reveal" style={{ marginTop: 'clamp(32px,4vw,52px)' }}>
-            The first lock is how I win your business. <b>The second is why you will still be here in two
-            years</b> - because it is not a promise that expires the day it comes true. It is a promise I
-            have to keep every morning, forever, and if I ever stop keeping it, you stop paying.
-          </p>
-        </div>
-      </section>
-
-      <div className="divider" />
-
-      {/* 6 - PRICING. Highest first, left to right. Total featured. Never $1,000 before $2,500. */}
-      <section className="sec" id="pricing">
-        <div className="wrap">
-          <div className="sec-head left reveal">
-            <span className="eyebrow">The offer</span>
-            <h2>
-              Four ways in.{' '}
-              <span style={italicTeal}>One of them is the one I want you to take.</span>
-            </h2>
-            <p className="lead">
-              Every configuration includes Cortex, because demand without a catch is the hole I just
-              showed you. Build fees are split 50/50, half to start and half on launch.
-            </p>
-          </div>
-          <div className="vgrid four reveal">
-            <div className="vtile feat">
-              <div className="vt-n">The Catchment &middot; Total</div>
-              <div className="ptag">$2,500<sub>/mo</sub></div>
-              <div className="pbuild">$3,000 build &middot; ad spend separate</div>
-              <p>
-                Organic builds the asset underneath while paid fills the calendar on top. Every route in
-                is covered, and every person who takes one of them is caught at the other end. Bought
-                separately these two run to $3,000 a month. Together they are $2,500, because they are
-                better together and I would rather you took both.
-              </p>
-            </div>
-            <div className="vtile">
-              <div className="vt-n">The Catchment &middot; Paid</div>
-              <div className="ptag">$2,000<sub>/mo</sub></div>
-              <div className="pbuild">$2,000 build &middot; ad spend separate</div>
-              <p>
-                Google and Meta funnels built on research into the exact language your real buyers use,
-                landing pages built to convert them, and Cortex catching every enquiry they send. Faster
-                than organic, and you control the tap.
-              </p>
-            </div>
-            <div className="vtile">
-              <div className="vt-n">The Catchment &middot; Organic</div>
-              <div className="ptag">$1,000<sub>/mo</sub></div>
-              <div className="pbuild">$1,500 build</div>
-              <p>
-                Your Google Business Profile engineered into the top three and held there, every winnable
-                town around you built as its own ranked unit, and Cortex catching what it brings in. An
-                owned asset. It compounds, and it does not stop the day you stop paying.
-              </p>
-            </div>
-            <div className="vtile">
-              <div className="vt-n">Cortex &middot; standalone</div>
-              <div className="ptag">$300<sub>/mo + usage</sub></div>
-              <div className="pbuild">$1,000 build &middot; usage billed at cost</div>
-              <p>
-                The front desk on its own, for the practice that already has the traffic and cannot catch
-                it. Trained on your knowledge, asks your qualifying questions, books straight into your
-                calendar. No demand engineering, no markup on usage.
+                Or the build fee comes back in full. No conditions, no argument, no small print.
               </p>
             </div>
           </div>
           <p className="terms-line reveal">
-            <b>Month-to-month after an initial 90 days.</b> The 90 days exist because the build takes two
-            weeks and a ranking needs a fair run - not to trap anyone. Any month I fail the Catch Lock is
-            free regardless.
+            The first lock wins your business. <b>The second is why you are still here in two years</b> -
+            it does not expire the day it comes true. I have to keep it every morning, forever.
           </p>
         </div>
       </section>
 
       <div className="divider" />
 
-      {/* 7 - THE COMPONENTS. The ladder is parts, not the product. */}
+      {/* 6b - THE REPORT. The trust asset. Every competitor promises an owner
+             dashboard. None of them will show you one before you have paid. */}
+      <section className="sec" id="report">
+        <div className="wrap">
+          <div className="sec-head left reveal">
+            <span className="eyebrow">06 &middot; The Catchment Report</span>
+            <h2>
+              This lands on your desk on the first.{' '}
+              <span className="em">Here it is, before you pay me anything.</span>
+            </h2>
+            <p className="lead">
+              Everyone in this market promises you a dashboard. Nobody shows you one until after you
+              have signed. This is the whole thing, and it is also where the Catch Lock stops being a
+              slogan: if the first two numbers ever fail to match, that month is free.
+            </p>
+          </div>
+          <CatchmentReport />
+        </div>
+      </section>
+
+      <div className="divider" />
+
+      {/* 7 - EVERYTHING I DO. The Catchment leads, it does not swallow the page. */}
       <section className="sec" id="services">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">The components</span>
+            <span className="eyebrow">07 &middot; Everything I do</span>
             <h2>
-              What the inflow is built from.{' '}
-              <span style={italicTeal}>Parts, not the product.</span>
+              The Catchment is the flagship.{' '}
+              <span className="em">It is not the only thing I build.</span>
             </h2>
             <p className="lead">
-              Each of these is a component of The Catchment. Each can be bought on its own if that is
-              genuinely what the job needs. Most of the time it is not, and I will tell you so.
+              Ranking, paid funnels, AI systems, sites that convert, service-area expansion. Each one
+              stands on its own, and each one can be bought on its own. If that is genuinely what the job
+              needs, I will say so on the first call.
             </p>
           </div>
           <ServiceLadder />
@@ -394,34 +409,31 @@ export default function Home() {
 
       <div className="divider" />
 
-      {/* 8 - FIT. Written for a practice owner, not a tradesman. */}
+      {/* 8 - FIT */}
       <section className="sec">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">Straight talk</span>
+            <span className="eyebrow">08 &middot; Straight talk</span>
             <h2>Whether this is for you.</h2>
-            <p className="lead">
-              I would rather tell you up front than waste your time on a call. Here is who this fits, and
-              who it does not.
-            </p>
+            <p className="lead">A no is a perfectly good answer, and it is faster than a bad yes.</p>
           </div>
-          <div className="fit reveal">
-            <div className="col yes">
+          <div className="fit">
+            <div className="col yes reveal">
               <h3>This is for you if</h3>
               <ul>
-                <li>A new client or case is worth real money to you, not a few hundred dollars.</li>
-                <li>Your front desk is one or two people who cannot always pick up.</li>
-                <li>You already spend on marketing and cannot prove what it returns.</li>
-                <li>You want booked appointments, not impressions.</li>
+                <li>One new client is worth real money, not a few hundred dollars</li>
+                <li>Your front desk is one or two people who cannot always pick up</li>
+                <li>You spend on marketing and cannot prove what it returns</li>
+                <li>You want booked appointments, not impressions</li>
               </ul>
             </div>
-            <div className="col no">
+            <div className="col no reveal">
               <h3>This isn&rsquo;t for you if</h3>
               <ul>
-                <li>You are shopping purely on price.</li>
-                <li>You do not want to know how many enquiries you are currently missing.</li>
-                <li>You would rather keep buying leads from an aggregator than own the channel.</li>
-                <li>You want page one overnight, before the work compounds.</li>
+                <li>You are shopping purely on price</li>
+                <li>You would rather not know how many enquiries you are missing</li>
+                <li>You would rather rent leads than own the channel</li>
+                <li>You want page one overnight, before the work compounds</li>
               </ul>
             </div>
           </div>
@@ -434,8 +446,8 @@ export default function Home() {
       <section className="sec" id="faq">
         <div className="wrap">
           <div className="sec-head reveal">
-            <span className="eyebrow center">Questions</span>
-            <h2>The things people ask before they call.</h2>
+            <span className="eyebrow center">09 &middot; Questions</span>
+            <h2>Before you call.</h2>
           </div>
           <FAQ items={HOME_FAQ} />
         </div>
@@ -448,14 +460,14 @@ export default function Home() {
         <div className="wrap">
           <div className="contact-grid">
             <div className="reveal">
-              <span className="eyebrow">Find out what you are missing</span>
-              <h2 style={{ marginTop: 22 }}>
+              <span className="eyebrow">10 &middot; The Catchment Audit</span>
+              <h2 style={{ marginTop: 24 }}>
                 Tell me your practice and your city.{' '}
                 <span className="em">I will tell you what is draining away.</span>
               </h2>
               <p className="lead">
-                No pitch. A straight read on what your catchment is actually worth, how much of it you
-                are losing right now, and whether I can close the gap.
+                No pitch, no price, no obligation. I run the rank read, I run the leak log, and I send
+                you both.
               </p>
               <div className="contactline">
                 <a href={`tel:${PHONE_E164}`}><span className="ic">&#9742;</span> {PHONE_DISP}</a>

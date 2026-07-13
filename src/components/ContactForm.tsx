@@ -37,13 +37,14 @@ export default function ContactForm() {
   if (status === 'done') {
     return (
       <div className="formcard reveal">
-        <span className="eyebrow">Message received</span>
+        <span className="eyebrow">Received</span>
         <h3 style={{ fontSize: 26, margin: '20px 0 12px' }}>
-          Got it. <span style={{ fontStyle: 'italic', color: 'var(--teal)' }}>I&rsquo;ll be in touch.</span>
+          Got it. <span className="em">I&rsquo;ll start the Audit.</span>
         </h3>
         <p style={{ color: 'var(--muted)', margin: 0 }}>
-          Thanks. I reply personally, usually the same day. If it&rsquo;s urgent,
-          call me directly at 647-242-5800.
+          I run the rank read first, then the leak log across five days, then I send you both.
+          I reply personally, usually the same day. If it is urgent, call me directly at
+          647-242-5800.
         </p>
       </div>
     );
@@ -64,37 +65,37 @@ export default function ContactForm() {
             />
           </label>
         </p>
-        <label htmlFor="name">Your name</label>
+        <label htmlFor="name"><span className="ln">Your name</span></label>
         <input id="name" type="text" name="name" value={form.name} onChange={onChange} required />
-        <label htmlFor="biz">Business &amp; city</label>
+        <label htmlFor="biz"><span className="ln">Practice &amp; city</span></label>
         <input
           id="biz"
           type="text"
           name="business"
           value={form.business}
           onChange={onChange}
-          placeholder="e.g. ABC Landscaping, Guelph ON"
+          placeholder="e.g. Bay Street Dental, Toronto ON"
           required
         />
-        <label htmlFor="contact">Phone or email</label>
+        <label htmlFor="contact"><span className="ln">Phone or email</span></label>
         <input id="contact" type="text" name="contact" value={form.contact} onChange={onChange} required />
-        <label htmlFor="goal">What do you want ranked?</label>
+        <label htmlFor="goal"><span className="ln">What do you do, and where?</span></label>
         <textarea
           id="goal"
           name="goal"
           value={form.goal}
           onChange={onChange}
-          placeholder="What you do, and where you want to show up first."
+          placeholder="The service that matters most, and the area you want it from."
         />
         <button type="submit" className="btn btn-primary" disabled={status === 'submitting'}>
-          {status === 'submitting' ? 'Sending…' : <>Book my call <Arrow /></>}
+          {status === 'submitting' ? 'Sending…' : <>Send me my Catchment Audit <Arrow /></>}
         </button>
         {status === 'error' && (
           <p className="fine" style={{ color: '#e0746a' }}>
             Something went wrong sending that. Call or email me directly and I&rsquo;ll sort it.
           </p>
         )}
-        {status !== 'error' && <p className="fine">I reply personally. Usually same day.</p>}
+        {status !== 'error' && <p className="fine">Free. No pitch. Yours to keep either way.</p>}
       </form>
     </div>
   );
