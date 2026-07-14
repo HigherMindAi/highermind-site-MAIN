@@ -31,8 +31,8 @@ const HOME_FAQ: [string, string][] = [
     'They want an answer. Right now, at nine at night, they get a ring tone. Something that picks up, knows your practice, and books them in is not competing with a person. It is competing with nobody.',
   ],
   [
-    'What exactly is the Catch Lock?',
-    'Every enquiry gets answered and offered a booking. If one goes unanswered, that month is free. Not a credit. Not a discount. Free. The logs are the record, and you can see them any time.',
+    'How do I know every enquiry actually gets answered?',
+    'You do not have to take my word for it. Every enquiry that arrives is logged with a timestamp - when it came in, what was said, when it was answered, and whether it booked. You have that log at all times and it lands in a report on the first of every month. If something ever fails, you see it in the same place I do.',
   ],
   [
     'How fast does it work?',
@@ -49,7 +49,7 @@ export default function Home() {
     <main id="top">
       <Seo
         title="Local SEO & AI Front Desk That Books Every Lead | HigherMindAI"
-        desc="Qualified traffic, then an AI front desk that answers, qualifies and books every enquiry, day or night. Any enquiry missed, that month is free. Free Catchment Audit."
+        desc="Qualified traffic, then an AI front desk that answers, qualifies and books every enquiry, day or night. First page in 60 days or you stop paying. Free Catchment Audit."
         path="/"
         schema={[orgSchema(), personSchema(), faqSchema(HOME_FAQ)]}
       />
@@ -80,7 +80,7 @@ export default function Home() {
               <div className="undercta">
                 <span><span className="t">/</span> Answered and qualified</span>
                 <span><span className="t">/</span> Booked into your calendar</span>
-                <span><span className="t">/</span> Miss one, that month is free</span>
+                <span><span className="t">/</span> Every one logged and timestamped</span>
               </div>
             </div>
           </div>
@@ -336,10 +336,9 @@ export default function Home() {
                 were not. Nobody knows which, because nothing was catching them.
               </p>
               <p>
-                I have ranked eight businesses. Most reached the top three. I held every guarantee I made
-                and <b>I lost all eight inside eight days</b>, and every one of them told me they were
-                happy. A ranking is a phone ringing in an empty room. <b>So I am not selling the hole any
-                more.</b> I make it ring, and then I answer it.
+                I have ranked eight businesses and most of them reached the top three. Every one of them
+                was happy with the ranking, and a ranking on its own is still a phone ringing in an empty
+                room. <b>So I am not selling the hole any more.</b> I make it ring, and then I answer it.
               </p>
             </div>
           </div>
@@ -354,28 +353,21 @@ export default function Home() {
           <div className="sec-head left reveal">
             <span className="eyebrow">05 &middot; The locks</span>
             <h2>
-              Three commitments.{' '}
-              <span className="em">One renews every morning.</span>
+              Two guarantees.{' '}
+              <span className="em">And a record that settles the rest.</span>
             </h2>
             <p className="lead">
-              I never say trust me. I say what happens if I miss, and I let you check the logs.
+              I never say trust me. I say what happens if I miss the ranking, and I put the rest of it
+              on a log you can open without asking me first.
             </p>
           </div>
           <div className="vgrid">
-            <div className="vtile reveal">
+            <div className="vtile feat reveal">
               <div className="vt-n">The Rank Lock</div>
               <h3>First page in 60 days</h3>
               <p>
-                Or you stop paying and I keep working free until you are there. Never failed it. Fastest
-                build hit the top three in 30 days.
-              </p>
-            </div>
-            <div className="vtile feat reveal">
-              <div className="vt-n">The Catch Lock</div>
-              <h3>Miss one, the month is free</h3>
-              <p>
-                Every enquiry answered and offered a booking. If one goes unanswered, that month is free.
-                Not a credit. Not a discount. Free. No conditions attached to it.
+                Or you stop paying the monthly and I keep working at no charge until you are there. Never
+                failed it. Fastest build hit the top three in 30 days.
               </p>
             </div>
             <div className="vtile reveal">
@@ -385,10 +377,19 @@ export default function Home() {
                 Or the build fee comes back in full. No conditions, no argument, no small print.
               </p>
             </div>
+            <div className="vtile reveal">
+              <div className="vt-n">The Record</div>
+              <h3>Every enquiry, timestamped</h3>
+              <p>
+                Arrived, answered, qualified, booked - including the ones that came in after you had gone
+                home. Open it any morning. I do not ask you to trust the catch. I show it to you.
+              </p>
+            </div>
           </div>
           <p className="terms-line reveal">
-            The first lock wins your business. <b>The second is why you are still here in two years</b> -
-            it does not expire the day it comes true. I have to keep it every morning, forever.
+            The Rank Lock is how I win your business. <b>The record is why you are still here in two
+            years</b> - it does not expire the day it comes true, and you can read it any morning without
+            asking me for anything.
           </p>
         </div>
       </section>
@@ -407,8 +408,8 @@ export default function Home() {
             </h2>
             <p className="lead">
               Everyone in this market promises you a dashboard. Nobody shows you one until after you
-              have signed. This is the whole thing, and it is also where the Catch Lock stops being a
-              slogan: if the first two numbers ever fail to match, that month is free.
+              have signed. This is the whole thing, and it is the reason I never have to ask you to take
+              the catch on trust. Arrived, answered, booked, with the times on them.
             </p>
           </div>
           <CatchmentReport />

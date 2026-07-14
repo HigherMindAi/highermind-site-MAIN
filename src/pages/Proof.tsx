@@ -25,7 +25,7 @@ const PROOF_FAQ: [string, string][] = [
   ],
   [
     'Only one case?',
-    'I have ranked eight businesses and most of them reached the top three. I lost all eight, which is the reason this business changed shape. I am not going to pad this page with logos to hide that. One case, told honestly, and the reason it was not enough.',
+    'I have ranked eight businesses and most of them reached the top three. What I learned across all of them is the reason this business changed shape. I am not going to pad this page with logos to hide that. One case, told honestly, and the reason a ranking on its own was not enough.',
   ],
 ];
 
@@ -171,9 +171,9 @@ export default function Proof() {
             <b>That is a real result with a real hole in it.</b>
           </p>
           <p>
-            I ranked eight businesses. Most of them reached the top three. I held every guarantee I made
-            and I lost all eight inside eight days, and every one of them told me they were happy. A
-            ranking is a phone ringing in an empty room. So I stopped selling the ring on its own.{' '}
+            I ranked eight businesses. Most of them reached the top three. Every one of them was happy
+            with the ranking, and a ranking on its own is still a phone ringing in an empty room. So I
+            stopped selling the ring on its own.{' '}
             <b>Now I make it ring, and then I answer it.</b>
           </p>
           <div className="ctas">

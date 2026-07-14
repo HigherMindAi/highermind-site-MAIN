@@ -21,7 +21,7 @@ export function orgSchema(): Json {
     email: EMAIL,
     priceRange: '$$$',
     description:
-      'Demand engineering welded to an AI front desk. I engineer the people already searching to find you, then answer, qualify and book every enquiry that arrives, day or night. Any enquiry that goes unanswered, that month is free.',
+      'Demand engineering welded to an AI front desk. I engineer the people already searching to find you, then answer, qualify and book every enquiry that arrives, day or night. First page of the Map Pack in 60 days, or you stop paying until you are there.',
     founder: { '@type': 'Person', name: FOUNDER },
     address: {
       '@type': 'PostalAddress',

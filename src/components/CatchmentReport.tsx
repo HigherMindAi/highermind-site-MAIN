@@ -7,9 +7,9 @@
  * the practice owner's desk on the first of the month, rendered, before he has
  * given up a dollar.
  *
- * It is also where the Catch Lock stops being a slogan and becomes an audit
- * trail: the caught count and the total are the same number, and the line at the
- * bottom says what happens on the month they are not.
+ * It is also the reason the catch never has to be taken on trust: every enquiry
+ * that arrives is on it, with the time it landed and the time it was answered.
+ * The record is the proof, not a promise about the record.
  *
  * Pure SVG/CSS. Zero images, zero JS, zero network cost. The numbers are a
  * plausible month for a mid-size practice and the component is labelled as a
@@ -99,10 +99,10 @@ export default function CatchmentReport() {
       </div>
 
       <div className="rep-foot">
-        <span className="rep-lock">Catch Lock</span>
+        <span className="rep-lock">The Record</span>
         <span>
           Arrived <b>{arrived}</b> &middot; answered <b>{caught}</b> &middot; unanswered <b>0</b>.
-          Any month those first two numbers do not match, <b>you do not pay for it.</b>
+          The times are on every one of them, and <b>the log is open to you every day of the month.</b>
         </span>
       </div>
     </div>

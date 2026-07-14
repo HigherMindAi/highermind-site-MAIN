@@ -20,7 +20,7 @@ export const SERVICES: ServiceListItem[] = [
   {
     slug: 'cortex',
     name: 'Cortex',
-    line: 'An AI front desk that answers, qualifies and books every enquiry in under 60 seconds. Day or night. Miss one and the month is free.',
+    line: 'An AI front desk that answers, qualifies and books every enquiry in under 60 seconds. Day or night. Every one of them logged and timestamped.',
     flag: false,
   },
   {
@@ -76,7 +76,7 @@ export interface ServicePageData {
 export const SERVICE_PAGES: Record<string, ServicePageData> = {
   'the-catchment': {
     title: 'The Catchment: Demand Engineering + AI Front Desk | HigherMindAI',
-    desc: 'Demand engineering welded to an AI front desk. I engineer the people already searching to find you, then answer, qualify and book every one of them. Any enquiry missed, that month is free.',
+    desc: 'Demand engineering welded to an AI front desk. I engineer the people already searching to find you, then answer, qualify and book every one of them. First page in 60 days or you stop paying.',
     h1Lead: 'I make the phone ring. ',
     h1Em: 'Then I answer it.',
     sub: 'A catchment is the whole territory that drains into a single point. Yours is every person nearby already searching for what you do. Most of it drains somewhere else right now - either because they cannot find you, or because nobody picks up when they do. Those are two different problems, and almost every agency sells a fix for one and walks away from the other.',
@@ -89,12 +89,12 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
     process: [
       ['The audit', 'Before anything is quoted, I run the Catchment Audit. A rank read across your service area, and a leak log where I become your customer and time how long you take to answer. You keep it either way.'],
       ['The build', 'Two weeks. Profile rebuilt or funnels engineered, conversion pages live, and Cortex trained on your actual knowledge, your qualifying questions, your calendar. Live in 14 days or the build fee comes back in full.'],
-      ['The loop', 'The inflow runs and the catch holds. Rankings compound, enquiries arrive, and every one of them is answered and offered a booking. Any month one goes unanswered is free.'],
+      ['The loop', 'The inflow runs and the catch holds. Rankings compound, enquiries arrive, and every one of them is answered and offered a booking - logged, with the time it landed and the time it was answered.'],
       ['The report', 'The first of every month, the Catchment Report lands. You will never have to wonder whether this is working. You will be holding the answer.'],
     ],
     faq: [
       ['Do I have to take the whole thing?', 'No. Organic and paid can be bought on their own, and Cortex runs standalone for a practice that already has the traffic and cannot catch it. But every configuration includes the catch, because demand without a catch is the hole I just described.'],
-      ['What is the Catch Lock?', 'Every enquiry that arrives gets answered and offered a booking. If one goes unanswered, that month is free. Not a credit, not a discount. Free. The logs are the record and you can see them any time.'],
+      ['How do I know nothing is getting missed?', 'Because you can see it. Every enquiry that arrives is logged with a timestamp - when it landed, what was said, when it was answered, whether it booked. You have that log at all times, and it lands in a report on the first of every month.'],
       ['How long before it works?', 'Cortex is live in fourteen days and starts catching enquiries the day it goes on. Ranking is slower because it compounds - early movement, then position, then holding it. The clock is 60 days and it starts the day I have what I need, not the day you sign.'],
       ['Is there a contract?', 'Ninety days, then month-to-month with thirty days notice. The build takes two weeks and a ranking needs a fair run to compound. Ninety days is the shortest honest window in which you can judge whether this works.'],
       ['What does it cost?', 'It depends on the inflow you need, and I will not quote you a number before I have looked at your market. Run the Catchment Audit first. It is free, it takes me forty minutes, and then the number means something.'],
@@ -123,7 +123,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
       ['I already have a chatbot.', 'You have a form that says hello. Most of them cannot tell a visitor whether you even offer the service they are asking about, cannot book, and hand everything to a human who is busy. That is not a chatbot. It is a mailbox with an avatar.'],
       ['I already have a receptionist.', 'You do, and she is good. She is also one person who takes lunch, goes home at five, and cannot pick up while she is with a patient. I am not replacing her. I am covering the calls she never got the chance to take.'],
       ['What if it gets something wrong?', 'It answers from your knowledge or it hands off. It is built not to invent. Where the risk is real - anything clinical, anything legal - it is configured to escalate to a human rather than have an opinion.'],
-      ['What happens if it misses an enquiry?', 'That month is free. That is the Catch Lock, and it is the only guarantee I make that does not expire the day it comes true. I have to keep it every morning, forever.'],
+      ['How would I know if it missed one?', 'You would see it, in the same place I do. Every enquiry is logged with the time it arrived and the time it was answered. There is no dashboard you cannot open. If something fails it fails in front of both of us, and I fix it.'],
     ],
   },
   'ai-systems': {

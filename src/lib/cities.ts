@@ -139,7 +139,7 @@ export function locFaq(c: City): [string, string][] {
   return [
     [`Do you only work with businesses in ${city}?`, q1],
     [`How is ranking in ${city} different?`, q2],
-    ['What is the guarantee here?', 'The same one everywhere. First page of the Map Pack in 60 days on a winnable term, or you stop paying the monthly and I keep working at no charge until you are ranked. Billing starts at onboarding; the 60-day clock starts when onboarding completes. And every enquiry that arrives gets answered and offered a booking - if one goes unanswered, that month is free.'],
+    ['What is the guarantee here?', 'The same one everywhere. First page of the Map Pack in 60 days on a winnable term, or you stop paying the monthly and I keep working at no charge until you are ranked. Billing starts at onboarding; the 60-day clock starts when onboarding completes.'],
   ];
 }
 
