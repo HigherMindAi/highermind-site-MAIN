@@ -67,6 +67,36 @@ export function orgSchema(): Json {
   };
 }
 
+export function personSchema(): Json {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Derek',
+    jobTitle: 'Demand Engineer & AI Systems Operator',
+    image: `${BASE}/derek.webp`,
+    url: BASE + '/',
+    telephone: PHONE_E164,
+    email: EMAIL,
+    worksFor: { '@type': 'ProfessionalService', name: BIZ_NAME, url: BASE + '/' },
+    homeLocation: {
+      '@type': 'Place',
+      address: { '@type': 'PostalAddress', addressLocality: LOCALITY, addressRegion: REGION, addressCountry: COUNTRY },
+    },
+    knowsAbout: [
+      'Local SEO',
+      'Google Business Profile ranking',
+      'Google Map Pack',
+      'AI receptionist',
+      'AI front desk',
+      'Conversational AI',
+      'Paid search and social advertising',
+      'Marketing automation',
+    ],
+    description:
+      'Sole operator of HigherMindAI. Engineers local demand and welds it to an AI front desk that answers, qualifies and books every enquiry. Based in Erin, Ontario; works with practices across Canada, the US and the UK.',
+  };
+}
+
 export function breadcrumbs(trail: [string, string][]): Json {
   return {
     '@context': 'https://schema.org',

@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import Nav from './Nav';
 import Footer from './Footer';
 import { useReveal } from '../lib/useReveal';
+import { useParallax } from '../lib/useParallax';
 
 const NAV_OFFSET = 92; // sticky-nav height + breathing room
 
@@ -34,6 +35,7 @@ function ScrollManager() {
 export default function Layout() {
   const { pathname } = useLocation();
   useReveal(pathname);
+  useParallax();
 
   // content-protection deterrent (ported from network.js); inputs stay usable
   useEffect(() => {

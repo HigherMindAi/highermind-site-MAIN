@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import ServiceLadder from '../components/ServiceLadder';
-import CatchmentDiagram from '../components/CatchmentDiagram';
+import HeroField from '../components/HeroField';
 import CatchmentReport from '../components/CatchmentReport';
 import FAQ from '../components/FAQ';
 import ContactForm from '../components/ContactForm';
 import { Arrow } from '../components/Icons';
 import { PHONE_E164, PHONE_DISP, EMAIL } from '../lib/site';
-import { orgSchema, faqSchema } from '../lib/schema';
+import { orgSchema, faqSchema, personSchema } from '../lib/schema';
 
 const HOME_FAQ: [string, string][] = [
   [
@@ -51,11 +51,12 @@ export default function Home() {
         title="Local SEO & AI Front Desk That Books Every Lead | HigherMindAI"
         desc="Qualified traffic, then an AI front desk that answers, qualifies and books every enquiry, day or night. Any enquiry missed, that month is free. Free Catchment Audit."
         path="/"
-        schema={[orgSchema(), faqSchema(HOME_FAQ)]}
+        schema={[orgSchema(), personSchema(), faqSchema(HOME_FAQ)]}
       />
 
       {/* 1 - HERO */}
       <section className="hero">
+        <HeroField />
         <div className="wrap">
           <div className="hero-grid solo">
             <div className="reveal">
@@ -77,7 +78,7 @@ export default function Home() {
                 </a>
               </div>
               <div className="undercta">
-                <span><span className="t">/</span> Answered in under 60 seconds</span>
+                <span><span className="t">/</span> Answered and qualified</span>
                 <span><span className="t">/</span> Booked into your calendar</span>
                 <span><span className="t">/</span> Miss one, that month is free</span>
               </div>
@@ -141,8 +142,6 @@ export default function Home() {
             </p>
           </div>
 
-          <CatchmentDiagram />
-
           <div className="vgrid">
             <div className="vtile reveal">
               <div className="vt-n">The Inflow</div>
@@ -177,7 +176,7 @@ export default function Home() {
               <h3>What you get</h3>
               <ul>
                 <li>Top-three Map Pack placement, engineered and held</li>
-                <li>Every enquiry answered in under 60 seconds, 24/7</li>
+                <li>Every enquiry answered and qualified, 24/7</li>
                 <li>Qualifying questions asked in your words, before it reaches you</li>
                 <li>Appointments booked straight into your calendar</li>
                 <li>No-shows chased automatically</li>
@@ -301,19 +300,49 @@ export default function Home() {
         </div>
       </section>
 
-      {/* The honest turn. Deep water. */}
-      <section className="gband">
-        <div className="wrap narrow reveal">
-          <span className="eyebrow center">The honest part</span>
-          <h2>
-            I am not going to make your phone ring{' '}
-            <span className="em">and then walk away.</span>
-          </h2>
-          <p>
-            Those 44 calls landed at a small business with a small team. Some were answered. Some were
-            not. Nobody knows which, because nothing was catching them. That is a real result with a
-            real hole in it, and <b>I am not selling the hole any more.</b>
-          </p>
+      {/* The honest turn. The face belongs here, next to the admission - not in
+             the footer, where it would only be decoration. */}
+      <section className="gband who">
+        <div className="wrap">
+          <div className="who-grid reveal">
+            <div>
+              <figure className="who-shot">
+                <img
+                  src="/derek.webp"
+                  srcSet="/derek-sm.webp 360w, /derek.webp 720w"
+                  sizes="(max-width: 900px) 240px, 300px"
+                  width={720}
+                  height={882}
+                  loading="lazy"
+                  decoding="async"
+                  alt="Derek, the operator behind HigherMindAI, based in Erin, Ontario"
+                />
+              </figure>
+              <div className="who-name">
+                <b>Derek</b>
+                HigherMindAI &middot; Erin, Ontario
+                <br />
+                One operator. No account managers.
+              </div>
+            </div>
+            <div>
+              <span className="eyebrow">The honest part</span>
+              <h2 style={{ marginTop: 24 }}>
+                I am not going to make your phone ring{' '}
+                <span className="em">and then walk away.</span>
+              </h2>
+              <p>
+                Those 44 calls landed at a small business with a small team. Some were answered. Some
+                were not. Nobody knows which, because nothing was catching them.
+              </p>
+              <p>
+                I have ranked eight businesses. Most reached the top three. I held every guarantee I made
+                and <b>I lost all eight inside eight days</b>, and every one of them told me they were
+                happy. A ranking is a phone ringing in an empty room. <b>So I am not selling the hole any
+                more.</b> I make it ring, and then I answer it.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

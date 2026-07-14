@@ -3,6 +3,7 @@ import Seo from '../components/Seo';
 import FAQ from '../components/FAQ';
 import CTAStrip from '../components/CTAStrip';
 import CatchmentReport from '../components/CatchmentReport';
+import CatchmentDiagram from '../components/CatchmentDiagram';
 import NotFound from './NotFound';
 import LocalPackCard from '../components/LocalPackCard';
 import { Arrow } from '../components/Icons';
@@ -61,6 +62,19 @@ export default function ServicePage() {
 
       {slug === 'the-catchment' && (
         <>
+          <div className="divider" />
+          <section className="sec-sm">
+            <div className="wrap">
+              <div className="sec-head left reveal">
+                <span className="eyebrow">The loop, drawn</span>
+                <h2>
+                  Every channel in. <span className="em">One that never arrives.</span>
+                </h2>
+              </div>
+              <CatchmentDiagram />
+            </div>
+          </section>
+
           <div className="divider" />
           <section className="sec">
             <div className="wrap">

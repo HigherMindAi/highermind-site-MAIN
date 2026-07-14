@@ -3,7 +3,7 @@ import Seo from '../components/Seo';
 import CTAStrip from '../components/CTAStrip';
 import { Arrow } from '../components/Icons';
 import { PHONE_E164, PHONE_DISP } from '../lib/site';
-import { breadcrumbs, faqSchema } from '../lib/schema';
+import { breadcrumbs, faqSchema, personSchema } from '../lib/schema';
 
 /**
  * The proof page.
@@ -41,6 +41,7 @@ export default function Proof() {
             ['Home', '/'],
             ['Proof', '/proof/'],
           ]),
+          personSchema(),
           faqSchema(PROOF_FAQ),
         ]}
       />

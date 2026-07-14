@@ -19,9 +19,22 @@ export default function Footer() {
             <p>
               I engineer the people already searching to find you, and I make sure
               every one of them is answered, qualified and booked. One operator, one
-              loop, built around a guarantee that renews every morning. Based in the
-              Headwaters, serving Canada.
+              loop, built around a guarantee that renews every morning.
             </p>
+            <div className="op">
+              <img
+                src="/derek-sm.webp"
+                width={46}
+                height={46}
+                loading="lazy"
+                decoding="async"
+                alt="Derek, operator, HigherMindAI"
+              />
+              <div>
+                <b>Derek</b>
+                Operator &middot; Erin, Ontario
+              </div>
+            </div>
           </div>
           <div className="foot-links">
             <div className="foot-col">
