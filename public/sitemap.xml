@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://highermindai.com/</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://highermindai.com/the-watershed</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://highermindai.com/law-firm-intake</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://highermindai.com/law-firm-seo</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://highermindai.com/about</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://highermindai.com/contact</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://highermindai.com/book/</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://highermindai.com/proof/</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://highermindai.com/services/</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://highermindai.com/services/the-catchment/</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://highermindai.com/services/cortex/</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://highermindai.com/services/ai-systems/</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://highermindai.com/services/local-ranking-system/</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://highermindai.com/services/service-area-expansion/</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://highermindai.com/services/website-build/</loc><changefreq>weekly</changefreq></url>
   <url><loc>https://highermindai.com/services/social-authority/</loc><changefreq>weekly</changefreq></url>

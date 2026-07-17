@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import {
-  BRAND, BIZ_NAME, PHONE_E164, PHONE_DISP, EMAIL,
-  ADDRESS_STREET, POSTAL, LOCALITY, REGION,
+  BRAND, BIZ_NAME, PHONE_E164, PHONE_DISP, EMAIL, LOCALITY, REGION,
 } from '../lib/site';
 import { SERVICES } from '../lib/services';
 import { Wordmark } from './Icons';
@@ -17,9 +16,9 @@ export default function Footer() {
               <Wordmark />
             </Link>
             <p>
-              I engineer the people already searching to find you, and I make sure
-              every one of them is answered, qualified and booked. One operator, one
-              loop, built around a guarantee that renews every morning.
+              I rank your firm so clients find it, then answer every call and message
+              24/7, screen it, and book the consultation. One operator, one loop, built
+              from inside the justice system.
             </p>
             <div className="op">
               <img
@@ -28,17 +27,24 @@ export default function Footer() {
                 height={46}
                 loading="lazy"
                 decoding="async"
-                alt="Derek, operator, HigherMindAI"
+                alt="Derek, founder, HigherMindAI"
               />
               <div>
                 <b>Derek</b>
-                Operator &middot; Erin, Ontario
+                Founder &middot; Ontario, Canada
               </div>
             </div>
           </div>
           <div className="foot-links">
             <div className="foot-col">
-              <h4>Services</h4>
+              <h4>The Watershed</h4>
+              <Link to="/the-watershed">The full system</Link>
+              <Link to="/law-firm-intake">AI intake desk</Link>
+              <Link to="/law-firm-seo">Ranking &amp; leads</Link>
+              <Link to="/about">About</Link>
+            </div>
+            <div className="foot-col">
+              <h4>Also available</h4>
               {SERVICES.map((s) => (
                 <Link key={s.slug} to={`/services/${s.slug}/`}>
                   {s.name}
@@ -46,32 +52,21 @@ export default function Footer() {
               ))}
             </div>
             <div className="foot-col">
-              <h4>Locations</h4>
-              <Link to="/local-seo/">All locations</Link>
-              <Link to="/local-seo/mississauga/">Mississauga</Link>
-              <Link to="/local-seo/brampton/">Brampton</Link>
-              <Link to="/local-seo/vaughan/">Vaughan</Link>
-              <Link to="/local-seo/moncton/">Moncton, NB</Link>
-              <Link to="/proof/">Proof</Link>
-            </div>
-            <div className="foot-col">
               <h4>Contact</h4>
               <a href={`tel:${PHONE_E164}`}>{PHONE_DISP}</a>
               <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
-              <span>
-                {ADDRESS_STREET}, {LOCALITY}, {REGION} {POSTAL}
-              </span>
-              <Link to="/#contact">Get your Catchment Audit</Link>
+              <span>{LOCALITY}, {REGION}, Canada</span>
+              <Link to="/contact">Book a Watershed Audit</Link>
             </div>
           </div>
         </div>
         <div className="foot-bottom">
           <span className="nap">
-            {BIZ_NAME} &nbsp;&middot;&nbsp; {ADDRESS_STREET}, {LOCALITY}, {REGION}{' '}
-            {POSTAL} &nbsp;&middot;&nbsp; {PHONE_DISP}
+            {BIZ_NAME} &nbsp;&middot;&nbsp; {LOCALITY}, {REGION}, Canada &nbsp;&middot;&nbsp;{' '}
+            {PHONE_DISP} &nbsp;&middot;&nbsp; {EMAIL}
           </span>
           <span>
-            &copy; {year} {BRAND}. Local SEO, paid growth &amp; AI front desk systems.
+            &copy; {year} {BRAND}. AI client intake &amp; lead generation for law firms.
           </span>
         </div>
       </div>

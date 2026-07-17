@@ -1,3 +1,35 @@
+# robots.txt for highermindai.com
+# Standard search
+User-agent: Googlebot
+Allow: /
+User-agent: Bingbot
+Allow: /
+
+# AI answer + retrieval crawlers (make the site eligible for AI citations)
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+User-agent: GoogleOther
+Allow: /
+
+# AI training crawlers (allowed for long-term visibility; switch to Disallow to opt out)
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
 User-agent: *
 Allow: /
+
 Sitemap: https://highermindai.com/sitemap.xml

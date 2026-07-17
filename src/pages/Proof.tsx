@@ -65,7 +65,7 @@ export default function Proof() {
             </p>
             <div className="ctas">
               <Link to="/#contact" className="btn btn-primary">
-                Get your Catchment Audit <Arrow />
+                Book a Watershed Audit <Arrow />
               </Link>
               <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
                 Call {PHONE_DISP}
@@ -177,7 +177,7 @@ export default function Proof() {
             <b>Now I make it ring, and then I answer it.</b>
           </p>
           <div className="ctas">
-            <Link to="/services/the-catchment/" className="btn btn-primary">
+            <Link to="/the-watershed" className="btn btn-primary">
               What I sell now <Arrow />
             </Link>
           </div>
@@ -196,7 +196,7 @@ export default function Proof() {
             </h2>
             <p className="lead">
               His numbers are his. Yours are the ones that matter, and I will go and get them before I
-              ever quote you. The Catchment Audit is a rank read across your service area and a leak log
+              ever quote you. The Watershed Audit is a rank read across your service area and a leak log
               where I become your customer and time how long you take to answer. Forty minutes of my
               time, free, and yours to keep whether or not you ever hire me.
             </p>
@@ -215,7 +215,7 @@ export default function Proof() {
             Find out what <span className="em">your</span> profile is really doing.
           </>
         }
-        sub="Tell me your practice and your city. I will run the rank read and the leak log, and send you both. No pitch attached."
+        sub="Tell me your firm and your city. I will run the rank read and the leak log, and send you both. No pitch attached."
       />
     </main>
   );

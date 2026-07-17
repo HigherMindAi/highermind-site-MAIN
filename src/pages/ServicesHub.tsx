@@ -9,8 +9,8 @@ export default function ServicesHub() {
   return (
     <main>
       <Seo
-        title="Local SEO, Paid Growth & AI Front Desk Services | HigherMindAI"
-        desc="The Catchment, Cortex, the Local Ranking System, Paid Growth, AI Systems, and more. Demand engineering and an AI front desk that answers, qualifies and books every enquiry."
+        title="Ranking, Paid Growth & AI Intake for Law Firms | HigherMindAI"
+        desc="The Watershed, the AI intake desk, Google ranking, paid growth and more. Lead generation welded to a 24/7 AI intake desk that answers, screens and books every enquiry for your firm."
         path="/services/"
         schema={[
           breadcrumbs([['Home', '/'], ['Services', '/services/']]),
@@ -29,7 +29,7 @@ export default function ServicesHub() {
               Everything built around <span className="em">one job</span>: a booked appointment.
             </h1>
             <p className="sub">
-              The Catchment is the flagship, and it is the one I want you to take. But every piece of it
+              The Watershed is the flagship, and it is the one I want you to take. But every piece of it
               stands on its own, and every piece can be bought on its own. If that is genuinely what the
               job needs, <b>I will tell you so on the first call.</b>
             </p>

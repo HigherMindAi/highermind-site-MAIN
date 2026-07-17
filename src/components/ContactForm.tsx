@@ -67,7 +67,7 @@ export default function ContactForm() {
         </p>
         <label htmlFor="name"><span className="ln">Your name</span></label>
         <input id="name" type="text" name="name" value={form.name} onChange={onChange} required />
-        <label htmlFor="biz"><span className="ln">Practice &amp; city</span></label>
+        <label htmlFor="biz"><span className="ln">Firm &amp; city</span></label>
         <input
           id="biz"
           type="text"
@@ -88,7 +88,7 @@ export default function ContactForm() {
           placeholder="The service that matters most, and the area you want it from."
         />
         <button type="submit" className="btn btn-primary" disabled={status === 'submitting'}>
-          {status === 'submitting' ? 'Sending…' : <>Send me my Catchment Audit <Arrow /></>}
+          {status === 'submitting' ? 'Sending…' : <>Send me my Watershed Audit <Arrow /></>}
         </button>
         {status === 'error' && (
           <p className="fine" style={{ color: '#e0746a' }}>

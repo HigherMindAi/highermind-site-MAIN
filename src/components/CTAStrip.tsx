@@ -17,8 +17,8 @@ export default function CTAStrip({ head, sub }: CtaStripProps) {
           <h2>{head}</h2>
           <p>{sub}</p>
           <div className="ctas">
-            <Link to="/#contact" className="btn btn-primary">
-              Get your Catchment Audit <Arrow />
+            <Link to="/contact" className="btn btn-primary">
+              Book a Watershed Audit <Arrow />
             </Link>
             <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
               Call {PHONE_DISP}

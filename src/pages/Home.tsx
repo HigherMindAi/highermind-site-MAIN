@@ -2,85 +2,51 @@ import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import ServiceLadder from '../components/ServiceLadder';
 import HeroField from '../components/HeroField';
-import CatchmentReport from '../components/CatchmentReport';
 import FAQ from '../components/FAQ';
 import ContactForm from '../components/ContactForm';
 import { Arrow } from '../components/Icons';
-import { PHONE_E164, PHONE_DISP, EMAIL } from '../lib/site';
+import { PHONE_E164, PHONE_DISP, FOUNDER } from '../lib/site';
+import { LAW_FAQ } from '../lib/services';
 import { orgSchema, faqSchema, personSchema } from '../lib/schema';
-
-const HOME_FAQ: [string, string][] = [
-  [
-    'What does it cost?',
-    'It depends on the inflow your market needs, and I will not name a number before I have looked at it. Run the Catchment Audit first. It is free, it takes me forty minutes, and then the number means something.',
-  ],
-  [
-    'Is there a contract?',
-    'Ninety days, then month-to-month with thirty days notice. The build takes two weeks and a ranking needs a fair run to compound. Ninety days is the shortest honest window to judge it. Most people in this market will lock you in for a year.',
-  ],
-  [
-    'I already have a receptionist.',
-    'You do, and she is good. She is also one person who takes lunch, goes home at five, and cannot pick up while she is with a patient. I am not replacing her. I am covering the calls she never got the chance to take.',
-  ],
-  [
-    'I already have a chatbot.',
-    'You have a form that says hello. Most of them cannot tell a visitor whether you even offer the service they are asking about, cannot book, and hand everything to a human who is busy. That is a mailbox with an avatar.',
-  ],
-  [
-    'Will an AI answering my phone put people off?',
-    'They want an answer. Right now, at nine at night, they get a ring tone. Something that picks up, knows your practice, and books them in is not competing with a person. It is competing with nobody.',
-  ],
-  [
-    'How do I know every enquiry actually gets answered?',
-    'You do not have to take my word for it. Every enquiry that arrives is logged with a timestamp - when it came in, what was said, when it was answered, and whether it booked. You have that log at all times and it lands in a report on the first of every month. If something ever fails, you see it in the same place I do.',
-  ],
-  [
-    'How fast does it work?',
-    'Cortex is live in fourteen days and catches enquiries from day one. Ranking compounds, so it is slower - the Rank Lock puts sixty days on the clock, starting the day I have what I need. I have never failed it.',
-  ],
-  [
-    'Why one operator instead of an agency?',
-    'You deal with the person doing the work. No account manager, no handoff to a junior team learning on your profile.',
-  ],
-];
 
 export default function Home() {
   return (
     <main id="top">
       <Seo
-        title="Local SEO & AI Front Desk That Books Every Lead | HigherMindAI"
-        desc="Qualified traffic, then an AI front desk that answers, qualifies and books every enquiry, day or night. First page in 60 days or you stop paying. Free Catchment Audit."
+        title="AI Intake & Lead Generation for Law Firms | HigherMindAI"
+        desc="An AI intake desk that answers every call and message for your law firm 24/7, screens it, and books the consultation. Live in 14 days. First page of Google Maps in 60 days or you stop paying."
         path="/"
-        schema={[orgSchema(), personSchema(), faqSchema(HOME_FAQ)]}
+        schema={[orgSchema(), personSchema(), faqSchema(LAW_FAQ)]}
       />
 
-      {/* 1 - HERO */}
+      {/* HERO */}
       <section className="hero">
         <HeroField />
         <div className="wrap">
           <div className="hero-grid solo">
             <div className="reveal">
-              <span className="eyebrow">Demand engineering + an AI front desk</span>
+              <span className="eyebrow">AI intake + lead generation for law firms</span>
               <h1>
-                Every enquiry answered.{' '}
-                <span className="em">Every one worth having, booked.</span>
+                The clients you're missing{' '}
+                <span className="em">are calling right now.</span>
               </h1>
               <p className="sub">
-                Right now your market drains somewhere else. Either they cannot find you, or nobody
-                answers when they do. <b>I close both.</b>
+                I engineer the people searching for a lawyer to find your firm, then put an AI intake
+                desk on the other end that answers every call and message, screens it, and books the
+                consultation - day, night, and weekend.
               </p>
               <div className="ctas">
-                <Link to="/#contact" className="btn btn-primary">
-                  Get your Catchment Audit <Arrow />
+                <Link to="/contact" className="btn btn-primary">
+                  Book a free Watershed Audit <Arrow />
                 </Link>
                 <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
                   Call {PHONE_DISP}
                 </a>
               </div>
               <div className="undercta">
-                <span><span className="t">/</span> Answered and qualified</span>
-                <span><span className="t">/</span> Booked into your calendar</span>
-                <span><span className="t">/</span> Every one logged and timestamped</span>
+                <span><span className="t">/</span> First page in 60 days or you stop paying</span>
+                <span><span className="t">/</span> Live in 14 days</span>
+                <span><span className="t">/</span> Built from inside the justice system</span>
               </div>
             </div>
           </div>
@@ -89,156 +55,26 @@ export default function Home() {
 
       <div className="divider" />
 
-      {/* 2 - THE TWO HOLES */}
+      {/* ANSWER-FIRST INTRO / THE PROBLEM */}
       <section className="sec">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">01 &middot; The two holes</span>
+            <span className="eyebrow">01 &middot; The problem</span>
             <h2>
-              Invisible to most of your market.{' '}
-              <span className="em">Unreachable to the rest.</span>
+              If you run a small firm,{' '}
+              <span className="em">you are losing signed files to voicemail.</span>
             </h2>
-            <p className="lead">
-              Two different problems. Most agencies sell a fix for one and walk away from the other.
-            </p>
           </div>
-          <div className="steps">
-            <div className="step reveal">
-              <div className="sn">Hole one</div>
-              <h3>They never see you</h3>
-              <p>
-                The top three of the Map Pack take most of the local calls. If you are not in it, the
-                practice down the road that is takes the case that should have been yours. You never see
-                it happen, so you never miss it.
-              </p>
-            </div>
-            <div className="step reveal">
-              <div className="sn">Hole two</div>
-              <h3>They see you, and nobody picks up</h3>
-              <p>
-                An enquiry lands at nine at night, or while your front desk is with a patient. It rings
-                out. By Tuesday that person has called two other practices and gone with whoever answered
-                first. <b>This is the worse hole. They had already chosen you.</b>
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="divider" />
-
-      {/* 3 - THE CATCHMENT. The flagship, but not the whole site. */}
-      <section className="sec" id="system">
-        <div className="wrap">
-          <div className="sec-head left reveal">
-            <span className="eyebrow">02 &middot; The Catchment &middot; the flagship</span>
-            <h2>
-              Demand, welded to the thing that catches it.{' '}
-              <span className="em">One loop.</span>
-            </h2>
-            <p className="lead">
-              A catchment is the territory that drains into a single point. Yours is everyone nearby
-              already searching for what you do.
-            </p>
-          </div>
-
-          <div className="vgrid">
-            <div className="vtile reveal">
-              <div className="vt-n">The Inflow</div>
-              <h3>Qualified traffic</h3>
-              <p>
-                Organic, paid, or both. Top three of the Map Pack, held. Google and Meta funnels built on
-                the words your real buyers use. Not impressions - people with a wallet out.
-              </p>
-            </div>
-            <div className="vtile feat reveal">
-              <div className="vt-n">The Catch</div>
-              <h3>Booked appointments</h3>
-              <p>
-                Cortex. An AI front desk trained on your practice. Answers in under sixty seconds, asks
-                your qualifying questions, screens out the tyre-kickers, and books the rest straight into
-                your calendar.
-              </p>
-            </div>
-            <div className="vtile reveal">
-              <div className="vt-n">The Report</div>
-              <h3>Proof, monthly</h3>
-              <p>
-                Every enquiry that arrived, every one caught, every one that came in after hours, every
-                appointment booked. With timestamps. You will never wonder whether this is working.
-              </p>
-            </div>
-          </div>
-
-          {/* Scannable. What actually lands. */}
-          <div className="fit" style={{ marginTop: 26 }}>
-            <div className="col yes reveal">
-              <h3>What you get</h3>
-              <ul>
-                <li>Top-three Map Pack placement, engineered and held</li>
-                <li>Every enquiry answered and qualified, 24/7</li>
-                <li>Qualifying questions asked in your words, before it reaches you</li>
-                <li>Appointments booked straight into your calendar</li>
-                <li>No-shows chased automatically</li>
-                <li>The Catchment Report on the first of every month</li>
-              </ul>
-            </div>
-            <div className="col no reveal">
-              <h3>What you do not get</h3>
-              <ul>
-                <li>A twelve-month lock-in</li>
-                <li>An account manager between you and the work</li>
-                <li>A guarantee that only starts paying out at month six</li>
-                <li>A dashboard of impressions nobody can spend</li>
-                <li>Leads resold to three of your competitors</li>
-                <li>A junior learning on your profile</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="divider" />
-
-      {/* 4 - THE AUDIT. The door handle. */}
-      <section className="sec" id="audit">
-        <div className="wrap">
-          <div className="sec-head left reveal">
-            <span className="eyebrow">03 &middot; The Catchment Audit &middot; free</span>
-            <h2>
-              Before I pitch you anything,{' '}
-              <span className="em">I become your customer.</span>
-            </h2>
-            <p className="lead">
-              Not an opinion. Evidence, gathered from your own business, that you cannot argue with.
-              Forty minutes of my time. Yours to keep either way.
-            </p>
-          </div>
-          <div className="steps">
-            <div className="step reveal">
-              <div className="sn">Part one</div>
-              <h3>The Rank Read</h3>
-              <p>
-                A heatmap across your whole service area, not one pin. Every street where you do not
-                exist. And the three names sitting above you.
-              </p>
-            </div>
-            <div className="step reveal">
-              <div className="sn">Part two</div>
-              <h3>The Leak Log</h3>
-              <p>
-                Six calls to your office over five days at varied hours. Your web chat, asked a real
-                question. Your contact form, submitted. Then I wait, and I time you.
-              </p>
-            </div>
-          </div>
-          <p className="terms-line reveal">
-            <b>Nobody gets a price from me before their Audit is done.</b> Quoting you first would be a
-            guess with a number on it.
+          <p className="lead reveal">
+            A person who has just been injured, arrested, or served calls three firms in ten minutes
+            and retains whoever picks up. The Watershed makes sure that firm is yours: it ranks you
+            so they find you, and it answers, screens, and books every enquiry the moment it arrives -
+            24/7. Missed intake is not a missed call. It is a lost case, and the client never knew you
+            existed.
           </p>
           <div className="ctas reveal">
-            <Link to="/#contact" className="btn btn-primary">
-              Run my Catchment Audit <Arrow />
+            <Link to="/the-watershed" className="btn btn-primary">
+              See the full system <Arrow />
             </Link>
           </div>
         </div>
@@ -246,99 +82,39 @@ export default function Home() {
 
       <div className="divider" />
 
-      {/* 5 - PROOF */}
-      <section className="sec-sm">
+      {/* THE SYSTEM - 3 cards */}
+      <section className="sec" id="system">
         <div className="wrap">
-          <div className="proof-grid">
-            <div className="reveal">
-              <span className="eyebrow">04 &middot; Proof, not promises</span>
-              <h2 style={{ marginTop: 24 }}>
-                A profile that did not exist.{' '}
-                <span className="em">Number one in five months.</span>
-              </h2>
-              <p className="lead">
-                No history, no reviews, no rankings. Built from nothing. His real numbers, straight off
-                Google.
-              </p>
-              <div className="ctas" style={{ marginTop: 30 }}>
-                <Link to="/proof/" className="btn btn-ghost">
-                  See the whole case <Arrow />
-                </Link>
-              </div>
-            </div>
-            <div className="vcard reveal">
-              <div className="vlab">Case &middot; a security systems installer, Atlantic Canada</div>
-              <div className="vbig">
-                From a profile that did not exist to <b>#1 for both money keywords</b>, and holding.
-              </div>
-              <p className="vnote">February to June 2026. Built from zero, ranked in five months, still there.</p>
-            </div>
+          <div className="sec-head left reveal">
+            <span className="eyebrow">02 &middot; The Watershed</span>
+            <h2>
+              Two halves, welded into one loop.{' '}
+              <span className="em">Nothing gets in without being answered.</span>
+            </h2>
           </div>
-        </div>
-      </section>
-
-      <section className="sec-sm" style={{ paddingTop: 0 }}>
-        <div className="wrap">
-          <div className="stats reveal">
-            <div className="s">
-              <div className="n">18 &rarr; 96</div>
-              <div className="l">monthly profile interactions</div>
-            </div>
-            <div className="s">
-              <div className="n">44</div>
-              <div className="l">calls straight off the profile</div>
-            </div>
-            <div className="s">
-              <div className="n">184</div>
-              <div className="l">clicks through to the site</div>
-            </div>
-            <div className="s">
-              <div className="n"><em>#1</em></div>
-              <div className="l">both money keywords</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* The honest turn. The face belongs here, next to the admission - not in
-             the footer, where it would only be decoration. */}
-      <section className="gband who">
-        <div className="wrap">
-          <div className="who-grid reveal">
-            <div>
-              <figure className="who-shot">
-                <img
-                  src="/derek.webp"
-                  srcSet="/derek-sm.webp 360w, /derek.webp 720w"
-                  sizes="(max-width: 900px) 240px, 300px"
-                  width={720}
-                  height={882}
-                  loading="lazy"
-                  decoding="async"
-                  alt="Derek, the operator behind HigherMindAI, based in Erin, Ontario"
-                />
-              </figure>
-              <div className="who-name">
-                <b>Derek</b>
-                HigherMindAI &middot; Erin, Ontario
-                <br />
-                One operator. No account managers.
-              </div>
-            </div>
-            <div>
-              <span className="eyebrow">The honest part</span>
-              <h2 style={{ marginTop: 24 }}>
-                I am not going to make your phone ring{' '}
-                <span className="em">and then walk away.</span>
-              </h2>
+          <div className="vgrid">
+            <Link to="/law-firm-seo" className="vtile reveal">
+              <div className="vt-n">The Inflow</div>
+              <h3>They find your firm</h3>
               <p>
-                Those 44 calls landed at a small business with a small team. Some were answered. Some
-                were not. Nobody knows which, because nothing was catching them.
+                Managed Google ranking into the Map Pack top three, plus paid campaigns on the
+                highest-intent legal searches. The person searching for a lawyer lands on you.
               </p>
+            </Link>
+            <Link to="/law-firm-intake" className="vtile feat reveal">
+              <div className="vt-n">The Intake</div>
+              <h3>You answer every one</h3>
               <p>
-                I have ranked eight businesses and most of them reached the top three. Every one of them
-                was happy with the ranking, and a ranking on its own is still a phone ringing in an empty
-                room. <b>So I am not selling the hole any more.</b> I make it ring, and then I answer it.
+                A 24/7 AI intake desk on the phone and the web. It answers, runs your screening
+                questions, captures the file, and books the consultation live.
+              </p>
+            </Link>
+            <div className="vtile reveal">
+              <div className="vt-n">The Report</div>
+              <h3>Proof, monthly</h3>
+              <p>
+                Every enquiry that arrived, every one that came in after hours, and every consultation
+                booked, with the times on them. You hold the answer to whether it works.
               </p>
             </div>
           </div>
@@ -347,91 +123,111 @@ export default function Home() {
 
       <div className="divider" />
 
-      {/* 6 - THE LOCKS */}
-      <section className="sec" id="guarantee">
+      {/* THE FIVE THINGS THE INTAKE DESK DOES */}
+      <section className="sec" id="does">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">05 &middot; The locks</span>
-            <h2>
-              Two guarantees.{' '}
-              <span className="em">And a record that settles the rest.</span>
-            </h2>
-            <p className="lead">
-              I never say trust me. I say what happens if I miss the ranking, and I put the rest of it
-              on a log you can open without asking me first.
-            </p>
+            <span className="eyebrow">03 &middot; What the intake desk does</span>
+            <h2>Five jobs, on every enquiry, without a day off.</h2>
           </div>
-          <div className="vgrid">
-            <div className="vtile feat reveal">
-              <div className="vt-n">The Rank Lock</div>
-              <h3>First page in 60 days</h3>
-              <p>
-                Or you stop paying the monthly and I keep working at no charge until you are there. Never
-                failed it. Fastest build hit the top three in 30 days.
-              </p>
-            </div>
-            <div className="vtile reveal">
-              <div className="vt-n">The Launch Lock</div>
-              <h3>Live in 14 days</h3>
-              <p>
-                Or the build fee comes back in full. No conditions, no argument, no small print.
-              </p>
-            </div>
-            <div className="vtile reveal">
-              <div className="vt-n">The Record</div>
-              <h3>Every enquiry, timestamped</h3>
-              <p>
-                Arrived, answered, qualified, booked - including the ones that came in after you had gone
-                home. Open it any morning. I do not ask you to trust the catch. I show it to you.
-              </p>
-            </div>
+          <div className="vgrid five">
+            {[
+              ['Answer', 'On the first ring or first message, at any hour. A real answer, not a voicemail box.'],
+              ['Screen', 'Your questions, in your words - conflicts, practice area, urgency, jurisdiction.'],
+              ['Capture', 'Written into your case system as a clean intake record, not a note someone means to type up later.'],
+              ['Book', 'The consultation goes in your calendar while the caller is still on the line.'],
+              ['Follow up', 'No-shows and cold enquiries worked automatically, so a missed connection is not a lost file.'],
+            ].map(([h, b]) => (
+              <div className="vtile reveal" key={h}>
+                <h3>{h}</h3>
+                <p>{b}</p>
+              </div>
+            ))}
           </div>
-          <p className="terms-line reveal">
-            The Rank Lock is how I win your business. <b>The record is why you are still here in two
-            years</b> - it does not expire the day it comes true, and you can read it any morning without
-            asking me for anything.
+          <p className="note reveal">
+            The intake desk performs administrative intake only. It never gives legal advice or
+            implies a solicitor-client relationship - the lawyer stays the responsible licensee.
           </p>
         </div>
       </section>
 
       <div className="divider" />
 
-      {/* 6b - THE REPORT. The trust asset. Every competitor promises an owner
-             dashboard. None of them will show you one before you have paid. */}
-      <section className="sec" id="report">
+      {/* WHO IT IS FOR */}
+      <section className="sec" id="who">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">06 &middot; The Catchment Report</span>
-            <h2>
-              This lands on your desk on the first.{' '}
-              <span className="em">Here it is, before you pay me anything.</span>
-            </h2>
-            <p className="lead">
-              Everyone in this market promises you a dashboard. Nobody shows you one until after you
-              have signed. This is the whole thing, and it is the reason I never have to ask you to take
-              the catch on trust. Arrived, answered, booked, with the times on them.
-            </p>
+            <span className="eyebrow">04 &middot; Who it is for</span>
+            <h2>Urgent, high-value work where the first firm to answer gets retained.</h2>
           </div>
-          <CatchmentReport />
+          <div className="vgrid">
+            {[
+              ['Personal injury', 'Someone just injured is calling from a hospital corridor. Whoever answers gets the file.'],
+              ['Family & divorce', 'The call comes at night, after a decision that could not wait for business hours.'],
+              ['Criminal defence', 'An arrest does not keep office hours. Neither can intake.'],
+              ['Immigration', 'Deadlines, status, and fear - the firm that answers calmly at 9pm is the one retained.'],
+            ].map(([h, b]) => (
+              <div className="vtile reveal" key={h}>
+                <h3>{h}</h3>
+                <p>{b}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       <div className="divider" />
 
-      {/* 7 - EVERYTHING I DO. The Catchment leads, it does not swallow the page. */}
+      {/* FOUNDER CREDIBILITY STRIP */}
+      <section className="gband who">
+        <div className="wrap">
+          <div className="who-grid reveal">
+            <div className="who-shot">
+              <img
+                src="/derek.webp"
+                width={300}
+                height={300}
+                loading="lazy"
+                decoding="async"
+                alt={`${FOUNDER}, founder of HigherMindAI`}
+              />
+              <div className="who-name">
+                <b>{FOUNDER}</b>
+                Founder &middot; Ontario, Canada
+              </div>
+            </div>
+            <div>
+              <span className="eyebrow">Why this is built right</span>
+              <h2 style={{ marginTop: 24 }}>
+                Built by someone who lived in the file,{' '}
+                <span className="em">not a marketer who read about it.</span>
+              </h2>
+              <p>
+                Before HigherMindAI, I spent the better part of a decade inside the justice system -
+                in courtrooms and in federal case files. I know what a real intake looks like, and why
+                the first firm to pick up is usually the firm that gets retained.
+              </p>
+              <div className="ctas">
+                <Link to="/about" className="btn btn-primary">
+                  The full story <Arrow />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="divider" />
+
+      {/* ALSO AVAILABLE - service ladder */}
       <section className="sec" id="services">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">07 &middot; Everything I do</span>
+            <span className="eyebrow">05 &middot; Also available</span>
             <h2>
-              The Catchment is the flagship.{' '}
-              <span className="em">It is not the only thing I build.</span>
+              The Watershed leads.{' '}
+              <span className="em">Each half also stands on its own.</span>
             </h2>
-            <p className="lead">
-              Ranking, paid funnels, AI systems, sites that convert, service-area expansion. Each one
-              stands on its own, and each one can be bought on its own. If that is genuinely what the job
-              needs, I will say so on the first call.
-            </p>
           </div>
           <ServiceLadder />
         </div>
@@ -439,74 +235,34 @@ export default function Home() {
 
       <div className="divider" />
 
-      {/* 8 - FIT */}
-      <section className="sec">
-        <div className="wrap">
-          <div className="sec-head left reveal">
-            <span className="eyebrow">08 &middot; Straight talk</span>
-            <h2>Whether this is for you.</h2>
-            <p className="lead">A no is a perfectly good answer, and it is faster than a bad yes.</p>
-          </div>
-          <div className="fit">
-            <div className="col yes reveal">
-              <h3>This is for you if</h3>
-              <ul>
-                <li>One new client is worth real money, not a few hundred dollars</li>
-                <li>Your front desk is one or two people who cannot always pick up</li>
-                <li>You spend on marketing and cannot prove what it returns</li>
-                <li>You want booked appointments, not impressions</li>
-              </ul>
-            </div>
-            <div className="col no reveal">
-              <h3>This isn&rsquo;t for you if</h3>
-              <ul>
-                <li>You are shopping purely on price</li>
-                <li>You would rather not know how many enquiries you are missing</li>
-                <li>You would rather rent leads than own the channel</li>
-                <li>You want page one overnight, before the work compounds</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="divider" />
-
-      {/* 9 - FAQ */}
+      {/* FAQ */}
       <section className="sec" id="faq">
-        <div className="wrap">
-          <div className="sec-head reveal">
-            <span className="eyebrow center">09 &middot; Questions</span>
-            <h2>Before you call.</h2>
+        <div className="wrap narrow">
+          <div className="sec-head left reveal">
+            <span className="eyebrow">06 &middot; Questions</span>
+            <h2>Answered plainly.</h2>
           </div>
-          <FAQ items={HOME_FAQ} />
+          <FAQ items={LAW_FAQ} />
         </div>
       </section>
 
       <div className="divider" />
 
-      {/* 10 - CONTACT. Netlify form "lead", honeypot on. Mechanics unchanged. */}
+      {/* CONTACT */}
       <section className="sec" id="contact">
-        <div className="wrap">
-          <div className="contact-grid">
-            <div className="reveal">
-              <span className="eyebrow">10 &middot; The Catchment Audit</span>
-              <h2 style={{ marginTop: 24 }}>
-                Tell me your practice and your city.{' '}
-                <span className="em">I will tell you what is draining away.</span>
-              </h2>
-              <p className="lead">
-                No pitch, no price, no obligation. I run the rank read, I run the leak log, and I send
-                you both.
-              </p>
-              <div className="contactline">
-                <a href={`tel:${PHONE_E164}`}><span className="ic">&#9742;</span> {PHONE_DISP}</a>
-                <a href={`mailto:${EMAIL}`}><span className="ic">&#9993;</span> {EMAIL}</a>
-                <Link to="/local-seo/erin/"><span className="ic">&#9678;</span> Erin, Ontario &middot; serving Canada, US &amp; UK</Link>
-              </div>
-            </div>
-            <ContactForm />
+        <div className="wrap narrow">
+          <div className="sec-head left reveal">
+            <span className="eyebrow">07 &middot; Book the audit</span>
+            <h2>
+              See your own leak first.{' '}
+              <span className="em">Fifteen minutes, no pitch.</span>
+            </h2>
+            <p className="lead">
+              I will show you where your firm ranks across its service area, and the log of what
+              happened when I contacted your firm as a client.
+            </p>
           </div>
+          <ContactForm />
         </div>
       </section>
     </main>

@@ -2,10 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import Seo from '../components/Seo';
 import FAQ from '../components/FAQ';
 import CTAStrip from '../components/CTAStrip';
-import CatchmentReport from '../components/CatchmentReport';
-import CatchmentDiagram from '../components/CatchmentDiagram';
 import NotFound from './NotFound';
-import LocalPackCard from '../components/LocalPackCard';
 import { Arrow } from '../components/Icons';
 import { SERVICES, SERVICE_PAGES, PHASE_LABELS } from '../lib/services';
 import { CITIES } from '../lib/cities';
@@ -49,8 +46,8 @@ export default function ServicePage() {
             </h1>
             <p className="sub">{d.sub}</p>
             <div className="ctas" style={{ marginTop: 34, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-              <Link to="/#contact" className="btn btn-primary">
-                Get your Catchment Audit <Arrow />
+              <Link to="/contact" className="btn btn-primary">
+                Book a Watershed Audit <Arrow />
               </Link>
               <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
                 Call {PHONE_DISP}
@@ -59,53 +56,6 @@ export default function ServicePage() {
           </div>
         </div>
       </section>
-
-      {slug === 'the-catchment' && (
-        <>
-          <div className="divider" />
-          <section className="sec-sm">
-            <div className="wrap">
-              <div className="sec-head left reveal">
-                <span className="eyebrow">The loop, drawn</span>
-                <h2>
-                  Every channel in. <span className="em">One that never arrives.</span>
-                </h2>
-              </div>
-              <CatchmentDiagram />
-            </div>
-          </section>
-
-          <div className="divider" />
-          <section className="sec">
-            <div className="wrap">
-              <div className="sec-head left reveal">
-                <span className="eyebrow">The Catchment Report</span>
-                <h2>
-                  On the first of every month. <span className="em">Here it is now, before you pay me.</span>
-                </h2>
-              </div>
-              <CatchmentReport />
-            </div>
-          </section>
-        </>
-      )}
-
-      {slug === 'local-ranking-system' && (
-        <>
-          <div className="divider" />
-          <section className="sec-sm">
-            <div className="wrap">
-              <div className="sec-head left reveal">
-                <span className="eyebrow">The box where the calls get decided</span>
-                <h2>
-                  Three results. <span className="em">Everyone else is a scroll away.</span>
-                </h2>
-              </div>
-              <LocalPackCard />
-            </div>
-          </section>
-        </>
-      )}
 
       <div className="divider" />
 

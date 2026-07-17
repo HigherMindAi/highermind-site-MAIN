@@ -1,1 +1,7 @@
+# Law-firm repivot 301s - old flagship + legacy paths to new canonical URLs.
+/services/the-catchment/   /the-watershed      301!
+/services/cortex/          /law-firm-intake    301!
+/services/local-ranking-system/   /law-firm-seo   301!
+
+# SPA fallback (must stay last)
 /*    /index.html   200

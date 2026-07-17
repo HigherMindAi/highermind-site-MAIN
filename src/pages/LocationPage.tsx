@@ -6,7 +6,7 @@ import ServiceAreaMap from '../components/ServiceAreaMap';
 import NotFound from './NotFound';
 import { Arrow } from '../components/Icons';
 import { cityBySlug, locFaq, REGION_FULL } from '../lib/cities';
-import { PHONE_E164, PHONE_DISP, ADDRESS_STREET, POSTAL } from '../lib/site';
+import { PHONE_E164, PHONE_DISP } from '../lib/site';
 import { nearestCities } from '../lib/geo';
 import { locationSchema, breadcrumbs, faqSchema } from '../lib/schema';
 
@@ -23,9 +23,7 @@ export default function LocationPage() {
 
   // Home pin gets a live map. Once the GBP is verified, swap this query-based
   // embed for the official "Embed a map" place URL from the Business Profile.
-  const mapQuery = encodeURIComponent(
-    `${ADDRESS_STREET}, ${c.city}, ${c.region} ${POSTAL}`
-  );
+  const mapQuery = encodeURIComponent(`${c.city}, ${c.region}, Canada`);
 
   // Erin is a real, verified pin, so Erin keeps a real map. Nobody else gets one:
   // an embed passes zero ranking signal and costs ~500KB of third-party JS on the
@@ -74,7 +72,7 @@ export default function LocationPage() {
             <p className="sub">{c.sub}</p>
             <div className="ctas" style={{ marginTop: 34, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
               <Link to="/#contact" className="btn btn-primary">
-                Get your Catchment Audit <Arrow />
+                Book a Watershed Audit <Arrow />
               </Link>
               <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
                 Call {PHONE_DISP}
@@ -113,7 +111,7 @@ export default function LocationPage() {
           <div className="sec-head left reveal">
             <span className="eyebrow">Why local search wins here</span>
             <h2>
-              The customers are already searching. <span style={italicTeal}>The question is who they find.</span>
+              The clients are already searching. <span style={italicTeal}>The question is who they find.</span>
             </h2>
           </div>
           <div className="vgrid">
@@ -154,14 +152,14 @@ export default function LocationPage() {
             </h2>
             <p className="lead">
               Getting a {c.city} business into the top three is what I am known for. It is also only the
-              inflow. The Catchment welds it to an AI front desk that answers, qualifies and books every
+              inflow. The Watershed welds it to a 24/7 AI intake desk that answers, screens and books every
               enquiry it brings in, so the calls I win you do not ring out.
             </p>
           </div>
           <div className="mesh reveal">
             <span className="mesh-lab">The system</span>
-            <Link to="/services/the-catchment/">The Catchment</Link>
-            <Link to="/services/cortex/">Cortex, the AI front desk</Link>
+            <Link to="/the-watershed">The Watershed</Link>
+            <Link to="/law-firm-intake">The AI intake desk</Link>
             <Link to="/services/local-ranking-system/">The Local Ranking System</Link>
             <Link to="/services/service-area-expansion/">Service Area Expansion</Link>
             <Link to="/proof/">Proof</Link>

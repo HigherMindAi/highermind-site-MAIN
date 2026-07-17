@@ -1,0 +1,16 @@
+# HigherMindAI
+
+> AI client intake and lead generation for law firms. Ranks a firm so clients find it, then answers every call and message 24/7, screens it, and books the consultation. Based in Ontario, Canada. Live in 14 days.
+
+## Core pages
+- [The Watershed - the full offer](https://highermindai.com/the-watershed): the two-part system and the guarantee.
+- [AI Intake Desk for Law Firms](https://highermindai.com/law-firm-intake): how the 24/7 answering and booking works.
+- [Ranking & Lead Generation for Law Firms](https://highermindai.com/law-firm-seo): the demand half.
+- [About](https://highermindai.com/about): founder background - close to a decade inside the justice system.
+- [Contact](https://highermindai.com/contact): phone 647-242-5800, book a free Watershed Audit.
+
+## Key facts
+- Serves solo and small law firms (2-15 lawyers) in Ontario and across Canada.
+- Practice areas served best: personal injury, family and divorce, criminal defence, immigration.
+- The intake desk does administrative intake only and never gives legal advice.
+- Guarantee: first page of Google Maps in 60 days or you stop paying; live in 14 days or the build fee is returned.

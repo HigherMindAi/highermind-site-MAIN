@@ -12,24 +12,6 @@ export interface ServiceListItem {
 
 export const SERVICES: ServiceListItem[] = [
   {
-    slug: 'the-catchment',
-    name: 'The Catchment',
-    line: 'Demand engineering welded to an AI front desk. I make the phone ring, and then I answer it. The whole loop, one operator.',
-    flag: true,
-  },
-  {
-    slug: 'cortex',
-    name: 'Cortex',
-    line: 'An AI front desk that answers, qualifies and books every enquiry in under 60 seconds. Day or night. Every one of them logged and timestamped.',
-    flag: false,
-  },
-  {
-    slug: 'local-ranking-system',
-    name: 'Local Ranking System',
-    line: 'Top 3 of the Google Map Pack, engineered and held there. The organic half of the inflow, and an asset you own outright.',
-    flag: false,
-  },
-  {
     slug: 'paid-growth',
     name: 'Paid Growth',
     line: 'Engineered ad funnels built on the language your real buyers use. Spend that compounds into pipeline, not a gamble.',
@@ -50,7 +32,7 @@ export const SERVICES: ServiceListItem[] = [
   {
     slug: 'website-build',
     name: 'Website Build',
-    line: 'Not a brochure - a salesperson. A fast, conversion-built site that turns the people already searching into booked appointments.',
+    line: 'Not a brochure - a salesperson. A fast, conversion-built site that turns the people already searching into booked consultations.',
     flag: false,
   },
   {
@@ -74,67 +56,15 @@ export interface ServicePageData {
 }
 
 export const SERVICE_PAGES: Record<string, ServicePageData> = {
-  'the-catchment': {
-    title: 'The Catchment: Demand Engineering + AI Front Desk | HigherMindAI',
-    desc: 'Demand engineering welded to an AI front desk. I engineer the people already searching to find you, then answer, qualify and book every one of them. First page in 60 days or you stop paying.',
-    h1Lead: 'I make the phone ring. ',
-    h1Em: 'Then I answer it.',
-    sub: 'A catchment is the whole territory that drains into a single point. Yours is every person nearby already searching for what you do. Most of it drains somewhere else right now - either because they cannot find you, or because nobody picks up when they do. Those are two different problems, and almost every agency sells a fix for one and walks away from the other.',
-    eyebrow: 'The Catchment',
-    values: [
-      ['The inflow', 'Organic, paid, or both. Organic engineers your Google Business Profile into the top three of the Map Pack and holds it there. It is an asset you own - it compounds, and it does not stop the day you stop paying. Paid builds Google and Meta funnels on research into the exact words your real buyers use. Faster, and you control the tap.'],
-      ['The catch', 'Cortex. An AI front desk trained on your practice. It answers from your knowledge rather than guessing, asks your qualifying questions, screens out the people you do not want, and books the ones you do while they are still in the conversation. Every enquiry answered in under sixty seconds, day or night.'],
-      ['The report', 'The Catchment Report, on the first of every month. Every enquiry that arrived, every one that was caught, every one that came in after you had gone home, and every appointment booked, with the times on them. The work never goes invisible again.'],
-    ],
-    process: [
-      ['The audit', 'Before anything is quoted, I run the Catchment Audit. A rank read across your service area, and a leak log where I become your customer and time how long you take to answer. You keep it either way.'],
-      ['The build', 'Two weeks. Profile rebuilt or funnels engineered, conversion pages live, and Cortex trained on your actual knowledge, your qualifying questions, your calendar. Live in 14 days or the build fee comes back in full.'],
-      ['The loop', 'The inflow runs and the catch holds. Rankings compound, enquiries arrive, and every one of them is answered and offered a booking - logged, with the time it landed and the time it was answered.'],
-      ['The report', 'The first of every month, the Catchment Report lands. You will never have to wonder whether this is working. You will be holding the answer.'],
-    ],
-    faq: [
-      ['Do I have to take the whole thing?', 'No. Organic and paid can be bought on their own, and Cortex runs standalone for a practice that already has the traffic and cannot catch it. But every configuration includes the catch, because demand without a catch is the hole I just described.'],
-      ['How do I know nothing is getting missed?', 'Because you can see it. Every enquiry that arrives is logged with a timestamp - when it landed, what was said, when it was answered, whether it booked. You have that log at all times, and it lands in a report on the first of every month.'],
-      ['How long before it works?', 'Cortex is live in fourteen days and starts catching enquiries the day it goes on. Ranking is slower because it compounds - early movement, then position, then holding it. The clock is 60 days and it starts the day I have what I need, not the day you sign.'],
-      ['Is there a contract?', 'Ninety days, then month-to-month with thirty days notice. The build takes two weeks and a ranking needs a fair run to compound. Ninety days is the shortest honest window in which you can judge whether this works.'],
-      ['What does it cost?', 'It depends on the inflow you need, and I will not quote you a number before I have looked at your market. Run the Catchment Audit first. It is free, it takes me forty minutes, and then the number means something.'],
-    ],
-  },
-  cortex: {
-    title: 'Cortex: AI Receptionist & Front Desk for Practices | HigherMindAI',
-    desc: 'An AI front desk that answers your phone, your web chat and your forms in under 60 seconds, day or night. Trained on your practice. It qualifies, it books, and it never guesses.',
-    h1Lead: 'The call that came in at nine at night ',
-    h1Em: 'went somewhere.',
-    sub: 'It went to whoever answered first. Cortex is an AI front desk trained on your practice - it answers from your own knowledge, asks your qualifying questions in your words, screens out the people you do not want, and books the ones you do straight into your calendar. It is not a chatbot that guesses. It answers from your truth or it hands off cleanly.',
-    eyebrow: 'Cortex',
-    values: [
-      ['It answers from your truth', 'Built on your actual knowledge - your services, your prices, your policies, the things you say a hundred times a week. When it does not know, it hands off to a human rather than inventing an answer. A bot that guesses about a medical procedure is worse than no bot.'],
-      ['It qualifies before it books', 'Your qualifying questions, asked in your words. The people who are not a fit get a courteous no. The people who are get a slot in your calendar while they are still in the conversation, before they think to call anybody else.'],
-      ['It never sleeps, and it never gets busy', 'Nine at night, Saturday morning, or while your front desk is with a patient. Every enquiry answered in under sixty seconds. Your receptionist is good. She is also one person, and she goes home.'],
-    ],
-    process: [
-      ['Ground it', 'About thirty minutes of your time. Your knowledge, your qualifying questions, your calendar, your escalation rules - the edge where it stops and hands off to you.'],
-      ['Build it', 'Trained, tested against the real questions your customers ask, and tuned until it sounds like your practice rather than a machine.'],
-      ['Deploy it', 'Live on your site and one more channel inside 14 days, or the build fee comes back in full. No conditions.'],
-      ['Prove it', 'The Catchment Report, on the first of every month. Every enquiry, every catch, every after-hours arrival, every booking, with the times on them.'],
-    ],
-    faq: [
-      ['Will an AI answering my phone put people off?', 'They want an answer. Right now, at nine at night, they get a ring tone. A voice that picks up, knows your practice, takes their details and books them in is not competing with a person. It is competing with nobody.'],
-      ['I already have a chatbot.', 'You have a form that says hello. Most of them cannot tell a visitor whether you even offer the service they are asking about, cannot book, and hand everything to a human who is busy. That is not a chatbot. It is a mailbox with an avatar.'],
-      ['I already have a receptionist.', 'You do, and she is good. She is also one person who takes lunch, goes home at five, and cannot pick up while she is with a patient. I am not replacing her. I am covering the calls she never got the chance to take.'],
-      ['What if it gets something wrong?', 'It answers from your knowledge or it hands off. It is built not to invent. Where the risk is real - anything clinical, anything legal - it is configured to escalate to a human rather than have an opinion.'],
-      ['How would I know if it missed one?', 'You would see it, in the same place I do. Every enquiry is logged with the time it arrived and the time it was answered. There is no dashboard you cannot open. If something fails it fails in front of both of us, and I fix it.'],
-    ],
-  },
   'ai-systems': {
-    title: 'Custom AI Systems & Automation for Practices | HigherMindAI',
+    title: 'Custom AI Systems & Automation for Law Firms | HigherMindAI',
     desc: 'Custom AI built on your own knowledge. Intake, triage, qualifying, quoting, follow-up. It answers from your truth or it hands off cleanly. It never guesses, and it never invents.',
     h1Lead: 'The same forty answers, ',
     h1Em: 'a hundred times a week.',
-    sub: 'Every practice runs on one signature motion - an intake, a triage, a quote, a match, a follow-up - and it eats the day. I build the AI that runs it, on your own knowledge, so it answers from your truth rather than a plausible guess. Where the stakes are real, it hands off to a human instead of having an opinion.',
+    sub: 'Every firm runs on one signature motion - an intake, a conflict check, a screen, a booking, a follow-up - and it eats the day. I build the AI that runs it, on your own knowledge, so it answers from your truth rather than a plausible guess. Where the stakes are real, it hands off to a human instead of having an opinion.',
     eyebrow: 'AI Systems',
     values: [
-      ['Grounded in your knowledge', 'It answers from the truth of your practice - your services, your criteria, your policies - or it hands off. It is engineered not to invent, because an invented answer in a medical or legal context is not a bug, it is a liability.'],
+      ['Grounded in your knowledge', 'It answers from the truth of your firm - your services, your criteria, your policies - or it hands off. It is engineered not to invent, because an invented answer in a medical or legal context is not a bug, it is a liability.'],
       ['Built around one signature motion', 'Not a generic assistant. The one thing your business actually lives on: the intake form, the eligibility check, the quote, the triage. I build that, and I build it properly.'],
       ['It hands off at the edge', 'The most important thing an AI system does is know where it stops. Yours will have a hard edge, and a human on the other side of it.'],
     ],
@@ -145,35 +75,10 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
       ['Ship it', 'Live in 14 days, or the build fee comes back in full.'],
     ],
     faq: [
-      ['How is this different from Cortex?', 'Cortex is the front desk - it answers, qualifies and books. AI Systems is everything behind it: the intake, the triage, the quote, the follow-up. Most practices need the front desk first.'],
+      ['How is this different from Cortex?', 'Cortex is the intake desk - it answers, qualifies and books. AI Systems is everything behind it: the intake, the triage, the quote, the follow-up. Most firms need the intake desk first.'],
       ['Will it make things up?', 'It is built not to. It answers from your grounded knowledge or it hands off to a human. In a clinical or legal setting that boundary is the whole design, not a feature.'],
       ['How much of my time does it take?', 'About thirty minutes of real input, then I build it. You approve it before it goes anywhere near a customer.'],
       ['What if I do not actually need this?', 'Then I will say so. I would rather tell you on the first call than take your money and watch you leave in three months. I have already had that year.'],
-    ],
-  },
-  'local-ranking-system': {
-    title: 'Google Maps Ranking & Local SEO | HigherMindAI',
-    desc: 'Get your business into the top 3 of the Google Map Pack and keep it there. The Local Ranking System, engineered and maintained. First page in 60 days or you stop paying.',
-    h1Lead: 'Google Maps ranking & local SEO ',
-    h1Em: 'that holds.',
-    sub: 'Your Google Business Profile is the single most powerful tool you have for capturing local customers - the people already searching, ready to call. Most businesses claim it, fill in the basics, and walk away. I engineer it into a top-3 position in the Map Pack, then keep it there.',
-    eyebrow: 'The Local Ranking System',
-    values: [
-      ['Built on the levers Google rewards', 'Primary category, proximity signals, review velocity, citation consistency, behavioural signals. No guesswork, no tricks that risk your profile - the deliberate-upgrade standard.'],
-      ['Measured on a locked heatmap', 'A 7x7 grid on your exact search term, run at day 0, 30, 40, and 60. You see the trend, not a vibe - the same before/after I show on my own profile.'],
-      ['Held to a real guarantee', 'First page in 60 days on a winnable term, or you stop paying until you are there. The risk sits with me, where it belongs.'],
-    ],
-    process: [
-      ['Audit & rebuild', 'Full teardown of your profile and your top three competitors, then a rebuild engineered for maximum local relevance.'],
-      ['Citations & authority', 'Deep-tier citation cleanup across the directories Google uses to verify a business, plus the answer-layer foundations that feed AI search.'],
-      ['Reviews that rank', 'A structured, policy-clean system for consistent 5-star reviews, each responded to with service and city woven in.'],
-      ['Weekly signals', 'Three high-authority posts a week and a weekly profile ritual - the activity that keeps you ranked once you arrive.'],
-    ],
-    faq: [
-      ['How fast can I rank?', 'It depends on your category and competition, which is why the guarantee exists. The work compounds - early movement, then ranking, then holding. My fastest build, a security systems installer in Atlantic Canada, went from a profile that did not exist to the top three in 30 days. Your clock runs 60.'],
-      ['What if I am not on the first page in 60 days?', 'You stop paying the monthly and I keep working at no charge until you are ranked. Billing starts at onboarding; the 60-day clock starts when onboarding completes.'],
-      ['Do you work outside your home area?', 'Yes. I am based in Erin and serve local businesses across Canada, with expansion into the US and UK. The system is location-specific - your pin and service area drive the build.'],
-      ['Will this risk my Google profile?', 'No. No name-stuffing, no fake photo data, no junk-citation blasts. I hold your profile to the same clean standard I hold my own.'],
     ],
   },
   'service-area-expansion': {
@@ -244,34 +149,62 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
     ],
     faq: [
       ['Will you promise me followers or going viral?', 'No. I never promise followers, reach, or virality. The job is a credible, active, searchable profile that passes the trust check and confirms your ranking.'],
-      ['Which platforms?', 'The ones your customers actually check before calling. I start where it matters most for your category.'],
+      ['Which platforms?', 'The ones your callers actually check before calling. I start where it matters most for your category.'],
       ['Do I need this if I am already ranking?', 'Ranking gets you found; social closes the trust gap. The two compound - a ranked profile plus a credible page closes more of the calls you earn.'],
     ],
   },
   'paid-growth': {
     title: 'Google & Meta Ads Management, Headwaters | HigherMindAI',
-    desc: 'Engineered ad funnels built on the exact language your real customers use. Ad spend that compounds into a pipeline you can count on, not a monthly gamble.',
+    desc: 'Engineered ad funnels built on the exact language your real clients use. Ad spend that compounds into a pipeline you can count on, not a monthly gamble.',
     h1Lead: 'Ad spend that compounds ',
     h1Em: 'into pipeline.',
     sub: 'Most ad spend is guesswork with a dashboard. Money goes in, impressions come out, and nobody can tell you why it worked or why it quietly stopped. I engineer the entire path a buyer travels - from a stranger\u2019s first scroll to a booked sale.',
     eyebrow: 'Paid Growth',
     values: [
-      ['Built on real customer language', 'Every headline, image, and page is built on the words your real customers use and the proven structures of the top players in your category.'],
+      ['Built on real customer language', 'Every headline, image, and page is built on the words your real clients use and the proven structures of the top players in your category.'],
       ['The whole path, not just the click', 'From first scroll to booked sale - the ad, the page, and the follow-through engineered as one system, so you know which lever to pull when something moves.'],
       ['Aligned incentives', 'Structured as a performance share - I win when you win. Spend that builds a pipeline you can count on, not a gamble you re-roll and hope on.'],
     ],
     process: [
-      ['Research', 'Your real customers\u2019 language and the top performers in your category, decoded.'],
+      ['Research', 'Your real clients\u2019 language and the top performers in your category, decoded.'],
       ['Build', 'Ad, audience, and landing page engineered as one path to a booked sale.'],
       ['Launch', 'Live with clear tracking on the metric that matters - booked work, not impressions.'],
       ['Optimize', 'Every result reads as a lever. When something moves, I know precisely why.'],
     ],
     faq: [
       ['How is pricing structured?', 'Paid Growth is structured as a performance share, so the incentives line up - I am paid to make your spend work, not to spend it.'],
-      ['Google or Meta?', 'Whichever fits how your customers buy. Often both, built as one funnel rather than two disconnected campaigns.'],
+      ['Google or Meta?', 'Whichever fits how your callers buy. Often both, built as one funnel rather than two disconnected campaigns.'],
       ['Do I need ranking first?', 'Not necessarily, but ranking and ads compound. Organic builds a durable base; ads add controllable volume on top.'],
     ],
   },
 };
 
 export const PHASE_LABELS = ['Phase one', 'Phase two', 'Phase three', 'Phase four'];
+
+// The six answer-first law-firm FAQs. Visible text + FAQPage schema must match.
+export const LAW_FAQ: [string, string][] = [
+  [
+    'How can a law firm stop missing new client calls after hours?',
+    'An AI intake desk answers every call and web message 24/7, screens it against the firm\u2019s criteria, and books the consultation - so the person who calls at 2am is captured instead of lost to the next firm.',
+  ],
+  [
+    'What does AI client intake involve for a small law firm?',
+    'It answers every call and message the moment it arrives, day or night, runs the firm\u2019s screening questions, captures the enquiry into the case system, and books the consultation. The firm goes live in 14 days, and one signed file typically covers the year.',
+  ],
+  [
+    'Does an AI intake desk give legal advice?',
+    'No. It performs administrative intake only - it answers, screens, captures the enquiry into the firm\u2019s case-management system, and books a consultation. It never gives legal advice or implies a solicitor-client relationship; the lawyer stays the responsible licensee.',
+  ],
+  [
+    'Can AI answer a law firm\u2019s phone and book consultations?',
+    'Yes. A voice intake desk answers on the first ring day or night, runs the firm\u2019s screening questions, checks the calendar, and books the consultation live on the call.',
+  ],
+  [
+    'How do law firms rank higher on Google Maps?',
+    'With a managed Google Business Profile - correct category, complete practice-area services, consistent name, address and phone across directories, steady reviews, and local content - engineered into the Map Pack top three and held there.',
+  ],
+  [
+    'Which practice areas is this best for?',
+    'Highest impact for personal injury, family and divorce, criminal defence, and immigration - urgent, high-value work where the first firm to answer usually gets retained.',
+  ],
+];

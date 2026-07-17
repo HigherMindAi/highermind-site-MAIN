@@ -7,14 +7,14 @@ import { orgSchema, breadcrumbs } from '../lib/schema';
 /**
  * /book/ is the Google Business Profile appointment link. The URL never changes.
  * The copy did: it was still selling the Local Ranking System and a 60-day Map
- * Pack promise. It now asks for the Catchment Audit, like every other surface.
+ * Pack promise. It now asks for the Watershed Audit, like every other surface.
  */
 export default function Book() {
   return (
     <main>
       <Seo
         title="Book a Call | HigherMindAI"
-        desc="Book a call, or take the free Catchment Audit first. I map where you vanish across your service area, then I become your customer and time how long you take to answer."
+        desc="Book a call, or take the free Watershed Audit first. I map where your firm vanishes across its service area, then I become your caller and time how long you take to answer."
         path="/book/"
         schema={[orgSchema(), breadcrumbs([['Home', '/'], ['Book a call', '/book/']])]}
       />
