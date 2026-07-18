@@ -53,8 +53,8 @@ export default function LawFirmSeo() {
             "injury lawyer near me" at 11pm is inside your market. This is how they land on you.
           </p>
           <div className="ctas reveal">
-            <Link to="/contact" className="btn btn-primary">
-              Book a free Watershed Audit <Arrow />
+            <Link to="/book/" className="btn btn-primary">
+              Book a call <Arrow />
             </Link>
             <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
               Call {PHONE_DISP}
@@ -124,7 +124,7 @@ export default function LawFirmSeo() {
 
       <CTAStrip
         head={<>See where your firm actually ranks.</>}
-        sub="The free Watershed Audit includes a rank read across your service area - exactly where your firm shows from every corner of the map, and where it does not."
+        sub="On a fifteen-minute call I will read you exactly where your firm shows from every corner of your service area, and where it does not."
       />
     </main>
   );

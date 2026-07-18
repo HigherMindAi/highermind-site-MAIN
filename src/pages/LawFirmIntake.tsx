@@ -57,8 +57,8 @@ export default function LawFirmIntake() {
             list. A person in a legal crisis retains whoever picks up first. This is what picks up.
           </p>
           <div className="ctas reveal">
-            <Link to="/contact" className="btn btn-primary">
-              Book a free Watershed Audit <Arrow />
+            <Link to="/book/" className="btn btn-primary">
+              Book a call <Arrow />
             </Link>
             <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
               Call {PHONE_DISP}
@@ -113,7 +113,7 @@ export default function LawFirmIntake() {
 
       <CTAStrip
         head={<>Hear it answer your firm's phone.</>}
-        sub="Book a free Watershed Audit and I will show you the log of what happened when I called your firm as a client - the calls, the chat, the form, and how long it took anyone to come back."
+        sub="On a fifteen-minute call I will tell you what happened when I contacted your firm as a client - the call, the chat, the form, and how long it took anyone to come back."
       />
     </main>
   );

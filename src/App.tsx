@@ -4,6 +4,8 @@ import Home from './pages/Home';
 import Watershed from './pages/Watershed';
 import LawFirmIntake from './pages/LawFirmIntake';
 import LawFirmSeo from './pages/LawFirmSeo';
+import AiSearch from './pages/AiSearch';
+import Solutions from './pages/Solutions';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import ServicesHub from './pages/ServicesHub';
@@ -22,6 +24,8 @@ export default function App() {
         <Route path="the-watershed" element={<Watershed />} />
         <Route path="law-firm-intake" element={<LawFirmIntake />} />
         <Route path="law-firm-seo" element={<LawFirmSeo />} />
+        <Route path="ai-search-optimization" element={<AiSearch />} />
+        <Route path="solutions" element={<Solutions />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
         <Route path="services" element={<ServicesHub />} />

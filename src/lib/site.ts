@@ -16,11 +16,12 @@ export const REGION = 'ON';
 export const COUNTRY = 'CA';
 
 export const NAV: ReadonlyArray<{ label: string; href: string }> = [
-  { label: 'The Watershed', href: '/the-watershed' },
-  { label: 'Intake Desk', href: '/law-firm-intake' },
+  { label: 'AI Intake Desk', href: '/law-firm-intake' },
+  { label: 'AI Search', href: '/ai-search-optimization' },
   { label: 'Ranking', href: '/law-firm-seo' },
+  { label: 'The Watershed', href: '/the-watershed' },
+  { label: 'Who I Help', href: '/solutions' },
   { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' },
 ];
 
 export const FOUNDER = 'Derek Train';

@@ -6,15 +6,15 @@ import { orgSchema, breadcrumbs } from '../lib/schema';
 
 /**
  * /book/ is the Google Business Profile appointment link. The URL never changes.
- * The copy did: it was still selling the Local Ranking System and a 60-day Map
- * Pack promise. It now asks for the Watershed Audit, like every other surface.
+ * Rewritten to lead with the call rather than the audit, and to speak with the
+ * confidence of someone who already knows what he is going to find.
  */
 export default function Book() {
   return (
     <main>
       <Seo
         title="Book a Call | HigherMindAI"
-        desc="Book a call, or take the free Watershed Audit first. I map where your firm vanishes across its service area, then I become your caller and time how long you take to answer."
+        desc="Book a fifteen-minute call. I will tell you what is costing you clients, what I would build, and how fast it goes live. No pitch, no obligation."
         path="/book/"
         schema={[orgSchema(), breadcrumbs([['Home', '/'], ['Book a call', '/book/']])]}
       />
@@ -27,13 +27,21 @@ export default function Book() {
             </div>
             <span className="eyebrow">Book a call</span>
             <h1>
-              Fifteen minutes. <span className="em">No pitch.</span>
+              Fifteen minutes. <span className="em">You will know exactly where you stand.</span>
             </h1>
             <p className="sub">
-              I will ask what a new client is worth to you, what happens to a call at seven in the
-              evening, and where you show up when somebody nearby searches. Then I tell you straight
-              whether I can win your market. <b>If I cannot, I will say so.</b>
+              I have already seen what your market looks like, because I look before every call. So
+              we skip the discovery theatre. I will tell you what a missed enquiry is costing you,
+              what I would build, and how fast it goes live. <b>Then you decide.</b>
             </p>
+            <div className="ctas">
+              <a href={`tel:${PHONE_E164}`} className="btn btn-primary">
+                Call {PHONE_DISP}
+              </a>
+              <a href="#contact" className="btn btn-ghost">
+                Send it in writing
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -43,31 +51,44 @@ export default function Book() {
       <section className="sec-sm">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">Better than a call</span>
+            <span className="eyebrow">What happens on it</span>
             <h2>
-              Take the Audit first. <span className="em">It costs you nothing.</span>
+              Three questions, straight answers,{' '}
+              <span className="em">and a decision either way.</span>
             </h2>
-            <p className="lead">
-              Most people book a call and spend the first ten minutes describing their own business to
-              me. Skip it. I will go and find out for myself, so the call starts from facts instead of
-              a description of them.
-            </p>
           </div>
           <div className="steps">
             <div className="step reveal">
-              <div className="sn">The Rank Read</div>
-              <h3>Where you vanish</h3>
+              <div className="sn">The number</div>
+              <h3>What a client is worth</h3>
               <p>
-                A heatmap across your whole service area, not one pin. Plus the three names sitting
-                above you in the box where the calls get decided.
+                One question sets the whole conversation. If a signed file is worth real money to
+                you, everything after this is arithmetic rather than opinion.
               </p>
             </div>
             <div className="step reveal">
-              <div className="sn">The Leak Log</div>
-              <h3>How long you take to answer</h3>
+              <div className="sn">The gap</div>
+              <h3>What happens at seven at night</h3>
               <p>
-                I become your customer. Six calls over five days at varied hours, your web chat, your
-                contact form. Then I wait, and I time you. Timestamps on all of it.
+                Where the enquiries currently go when nobody is there, and where you appear when
+                somebody nearby goes looking - on Google and inside the AI systems they now ask.
+              </p>
+            </div>
+            <div className="step reveal">
+              <div className="sn">The build</div>
+              <h3>What I would put in, and when</h3>
+              <p>
+                Exactly what I would build, in what order, and the date it goes live. Fourteen days
+                from a yes, and the guarantees are on my side of the table, not yours.
+              </p>
+            </div>
+            <div className="step reveal">
+              <div className="sn">The answer</div>
+              <h3>Yes, or a clean no</h3>
+              <p>
+                If your market is not winnable, or the numbers do not work, I will say so on the call
+                and tell you what I would do instead. A fast no is worth more to both of us than a
+                slow maybe.
               </p>
             </div>
           </div>
@@ -76,7 +97,7 @@ export default function Book() {
 
       <div className="divider" />
 
-      <section className="sec">
+      <section className="sec" id="contact">
         <div className="wrap">
           <div className="contact-grid">
             <div className="reveal">
@@ -85,13 +106,20 @@ export default function Book() {
                 One operator. <span className="em">One number.</span>
               </h2>
               <p className="lead">
-                You deal with the person doing the work. No account manager, no junior team learning on
-                your profile. I reply personally, usually the same day.
+                You deal with the person doing the work. No account manager, no junior team learning
+                on your profile, no handoff after you sign. I reply personally, usually the same day.
               </p>
               <div className="contactline">
-                <a href={`tel:${PHONE_E164}`}><span className="ic">&#9742;</span> {PHONE_DISP}</a>
-                <a href={`mailto:${EMAIL}`}><span className="ic">&#9993;</span> {EMAIL}</a>
-                <Link to="/local-seo/erin/"><span className="ic">&#9678;</span> Erin, Ontario &middot; serving Canada, US &amp; UK</Link>
+                <a href={`tel:${PHONE_E164}`}>
+                  <span className="ic">&#9742;</span> {PHONE_DISP}
+                </a>
+                <a href={`mailto:${EMAIL}`}>
+                  <span className="ic">&#9993;</span> {EMAIL}
+                </a>
+                <Link to="/solutions">
+                  <span className="ic">&#9678;</span> Ontario, Canada &middot; serving firms
+                  Canada-wide
+                </Link>
               </div>
             </div>
             <ContactForm />

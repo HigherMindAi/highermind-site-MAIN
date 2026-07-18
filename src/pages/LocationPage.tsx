@@ -72,7 +72,7 @@ export default function LocationPage() {
             <p className="sub">{c.sub}</p>
             <div className="ctas" style={{ marginTop: 34, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
               <Link to="/#contact" className="btn btn-primary">
-                Book a Watershed Audit <Arrow />
+                Book a call <Arrow />
               </Link>
               <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
                 Call {PHONE_DISP}

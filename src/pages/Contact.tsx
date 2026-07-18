@@ -8,13 +8,13 @@ import { faqSchema, breadcrumbs, orgSchema } from '../lib/schema';
 const URL = '/contact';
 
 const DESC =
-  'Book a free Watershed Audit for your law firm. Phone 647-242-5800, or send a message. AI client intake and Google ranking, live in 14 days.';
+  'Book a call with HigherMindAI. Phone 647-242-5800, or send a message. AI client intake, AI search visibility and Google ranking - live in 14 days.';
 
 export default function Contact() {
   return (
     <main>
       <Seo
-        title="Contact - Book a Free Watershed Audit | HigherMindAI"
+        title="Contact - Book a Call | HigherMindAI"
         desc={DESC}
         path={URL}
         schema={[
@@ -28,7 +28,7 @@ export default function Contact() {
         <div className="wrap">
           <span className="eyebrow reveal">Contact</span>
           <h1 className="reveal">
-            Book a free Watershed Audit. <span className="em">Fifteen minutes, no pitch.</span>
+            Book a call. <span className="em">Fifteen minutes, no pitch.</span>
           </h1>
           <p className="sub reveal">
             I will show you where your firm ranks across its service area, and the log of what

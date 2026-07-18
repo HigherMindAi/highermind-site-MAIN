@@ -37,10 +37,12 @@ export default function Footer() {
           </div>
           <div className="foot-links">
             <div className="foot-col">
-              <h4>The Watershed</h4>
-              <Link to="/the-watershed">The full system</Link>
+              <h4>What I build</h4>
               <Link to="/law-firm-intake">AI intake desk</Link>
+              <Link to="/ai-search-optimization">AI search visibility</Link>
               <Link to="/law-firm-seo">Ranking &amp; leads</Link>
+              <Link to="/the-watershed">The Watershed</Link>
+              <Link to="/solutions">Who I help</Link>
               <Link to="/about">About</Link>
             </div>
             <div className="foot-col">
@@ -56,7 +58,7 @@ export default function Footer() {
               <a href={`tel:${PHONE_E164}`}>{PHONE_DISP}</a>
               <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
               <span>{LOCALITY}, {REGION}, Canada</span>
-              <Link to="/contact">Book a Watershed Audit</Link>
+              <Link to="/book/">Book a call</Link>
             </div>
           </div>
         </div>

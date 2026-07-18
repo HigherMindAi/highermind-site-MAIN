@@ -65,7 +65,7 @@ export default function Proof() {
             </p>
             <div className="ctas">
               <Link to="/#contact" className="btn btn-primary">
-                Book a Watershed Audit <Arrow />
+                Book a call <Arrow />
               </Link>
               <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
                 Call {PHONE_DISP}
@@ -177,7 +177,7 @@ export default function Proof() {
             <b>Now I make it ring, and then I answer it.</b>
           </p>
           <div className="ctas">
-            <Link to="/the-watershed" className="btn btn-primary">
+            <Link to="/book/" className="btn btn-primary">
               What I sell now <Arrow />
             </Link>
           </div>
@@ -195,14 +195,14 @@ export default function Proof() {
               <span className="em">than a case study about somebody else.</span>
             </h2>
             <p className="lead">
-              His numbers are his. Yours are the ones that matter, and I will go and get them before I
-              ever quote you. The Watershed Audit is a rank read across your service area and a leak log
-              where I become your customer and time how long you take to answer. Forty minutes of my
-              time, free, and yours to keep whether or not you ever hire me.
+              His numbers are his. Yours are the ones that matter, and I go and get them before I ever
+              quote you. On the call I read you where your firm actually shows across its service area,
+              and what happened when I contacted you as a client. Fifteen minutes, and you keep
+              whatever I find whether or not you ever hire me.
             </p>
             <div className="ctas" style={{ marginTop: 30 }}>
-              <Link to="/#audit" className="btn btn-ghost">
-                How the Audit works <Arrow />
+              <Link to="/book/" className="btn btn-ghost">
+                Book a call <Arrow />
               </Link>
             </div>
           </div>
@@ -215,7 +215,7 @@ export default function Proof() {
             Find out what <span className="em">your</span> profile is really doing.
           </>
         }
-        sub="Tell me your firm and your city. I will run the rank read and the leak log, and send you both. No pitch attached."
+        sub="Tell me your firm and your city. I will read you where you actually show, and what happens to an enquiry that lands after hours. No pitch attached."
       />
     </main>
   );

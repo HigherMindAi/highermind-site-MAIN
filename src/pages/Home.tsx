@@ -1,50 +1,77 @@
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
-import ServiceLadder from '../components/ServiceLadder';
 import HeroField from '../components/HeroField';
 import FAQ from '../components/FAQ';
-import ContactForm from '../components/ContactForm';
 import { Arrow } from '../components/Icons';
 import { PHONE_E164, PHONE_DISP, FOUNDER } from '../lib/site';
 import { LAW_FAQ } from '../lib/services';
 import { orgSchema, faqSchema, personSchema } from '../lib/schema';
 
+/** One product band. Numbered, claimed, measured, then the concrete things. */
+function Product({
+  n, eyebrow, head, em, lead, stats, points, href, cta,
+}: {
+  n: string; eyebrow: string; head: string; em: string; lead: string;
+  stats: [string, string][]; points: string[]; href: string; cta: string;
+}) {
+  return (
+    <section className="sec prod">
+      <div className="wrap">
+        <div className="prod-top">
+          <div className="reveal">
+            <span className="pnum">Product {n} &middot; {eyebrow}</span>
+            <h2>{head} <span className="em">{em}</span></h2>
+          </div>
+          <p className="lead reveal">{lead}</p>
+        </div>
+        <div className="stats three tight reveal">
+          {stats.map(([v, l]) => (
+            <div className="s" key={l}>
+              <div className="n"><em>{v}</em></div>
+              <div className="l">{l}</div>
+            </div>
+          ))}
+        </div>
+        <ul className="plist reveal" style={{ marginTop: 34 }}>
+          {points.map((p) => <li key={p}>{p}</li>)}
+        </ul>
+        <div className="pfoot reveal">
+          <Link to={href} className="btn btn-primary">{cta} <Arrow /></Link>
+          <Link to="/book/" className="btn btn-ghost">Book a call</Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   return (
     <main id="top">
       <Seo
-        title="AI Intake & Lead Generation for Law Firms | HigherMindAI"
-        desc="An AI intake desk that answers every call and message for your law firm 24/7, screens it, and books the consultation. Live in 14 days. First page of Google Maps in 60 days or you stop paying."
+        title="AI Intake, AI Search & Lead Generation for Law Firms | HigherMindAI"
+        desc="An AI intake desk that answers every call and message 24/7, AI search visibility so you get named by ChatGPT and Google AI, and Google ranking that brings the demand. Built for law firms. Live in 14 days."
         path="/"
         schema={[orgSchema(), personSchema(), faqSchema(LAW_FAQ)]}
       />
 
-      {/* HERO */}
       <section className="hero">
         <HeroField />
         <div className="wrap">
           <div className="hero-grid solo">
             <div className="reveal">
-              <span className="eyebrow">AI intake + lead generation for law firms</span>
-              <h1>
-                The clients you're missing{' '}
-                <span className="em">are calling right now.</span>
-              </h1>
+              <span className="eyebrow">AI intake &middot; AI search visibility &middot; lead generation</span>
+              <h1>The clients you're missing <span className="em">are calling right now.</span></h1>
               <p className="sub">
-                I engineer the people searching for a lawyer to find your firm, then put an AI intake
-                desk on the other end that answers every call and message, screens it, and books the
-                consultation - day, night, and weekend.
+                I build the AI that answers them. An intake desk that picks up every call and message
+                24/7, screens it, and books it - plus the visibility work that makes people find you in
+                the first place, on Google and inside the AI systems they now ask instead.
               </p>
               <div className="ctas">
-                <Link to="/contact" className="btn btn-primary">
-                  Book a free Watershed Audit <Arrow />
-                </Link>
-                <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
-                  Call {PHONE_DISP}
-                </a>
+                <Link to="/book/" className="btn btn-primary">Book a call <Arrow /></Link>
+                <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">Call {PHONE_DISP}</a>
               </div>
               <div className="undercta">
-                <span><span className="t">/</span> First page in 60 days or you stop paying</span>
+                <span><span className="t">/</span> Answered in under 60 seconds</span>
                 <span><span className="t">/</span> Live in 14 days</span>
                 <span><span className="t">/</span> Built from inside the justice system</span>
               </div>
@@ -55,162 +82,164 @@ export default function Home() {
 
       <div className="divider" />
 
-      {/* ANSWER-FIRST INTRO / THE PROBLEM */}
       <section className="sec">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">01 &middot; The problem</span>
-            <h2>
-              If you run a small firm,{' '}
-              <span className="em">you are losing signed files to voicemail.</span>
-            </h2>
+            <span className="eyebrow">The problem</span>
+            <h2>Two things lose you the client. <span className="em">They never find you, or nobody answers.</span></h2>
           </div>
           <p className="lead reveal">
-            A person who has just been injured, arrested, or served calls three firms in ten minutes
-            and retains whoever picks up. The Watershed makes sure that firm is yours: it ranks you
-            so they find you, and it answers, screens, and books every enquiry the moment it arrives -
-            24/7. Missed intake is not a missed call. It is a lost case, and the client never knew you
-            existed.
+            Someone in a crisis calls three firms in ten minutes and retains whoever picks up. If you
+            are not in the answer they were given, you never got the call. If you were, and it rang out
+            at nine at night, you lost it to whoever did answer. I close both ends - and the second one
+            is the one nobody else will sell you.
           </p>
+        </div>
+      </section>
+
+      <div className="divider" />
+
+      <Product
+        n="01"
+        eyebrow="AI Intake Desk"
+        head="Every call answered."
+        em="Screened, booked, 24/7."
+        lead="An AI intake desk on your phone and your website. It answers the moment an enquiry lands, runs your screening questions in your words, captures the file, and books the consultation while the caller is still on the line."
+        stats={[['<60s', 'Response, every channel'], ['24/7', 'Nights, weekends, holidays'], ['14 days', 'From yes to live']]}
+        points={[
+          'Answers from your knowledge and your process, never a generic script - and hands off to a human rather than guessing.',
+          'Screens on the things that actually matter: conflicts, practice area, urgency, jurisdiction, location.',
+          'Books straight into your calendar, then chases no-shows and cold enquiries automatically.',
+          'Administrative intake only. It never gives legal advice and never implies a solicitor-client relationship.',
+        ]}
+        href="/law-firm-intake"
+        cta="See the intake desk"
+      />
+
+      <div className="divider" />
+
+      <Product
+        n="02"
+        eyebrow="AI Search Visibility &middot; GEO"
+        head="Get named by the AI"
+        em="people now ask instead of Google."
+        lead="Your buyers have started asking ChatGPT, Claude, Gemini and Perplexity for a recommendation. They get one answer with two or three names in it. I do the entity, evidence and access work that makes you one of them."
+        stats={[['1 answer', 'No page two to be on'], ['6+', 'AI systems targeted'], ['30-60d', 'Structural signals register']]}
+        points={[
+          'A structured entity graph so the models know exactly who you are, what you do and where you do it.',
+          'Answer-first pages and matching markup, written so a model can lift a clean quote and attribute it to you.',
+          'Explicit crawler access and an llms.txt summary - most sites have never opened the door, and some have accidentally shut it.',
+          'A monthly log of the same questions re-asked, showing whether you got named and what changed.',
+        ]}
+        href="/ai-search-optimization"
+        cta="See AI search visibility"
+      />
+
+      <div className="divider" />
+
+      <Product
+        n="03"
+        eyebrow="Ranking & Local Leads"
+        head="Found first on Google,"
+        em="and it stays yours."
+        lead="The demand half. A managed Google Business Profile engineered into the top three of the Map Pack and held there, plus paid campaigns where you want volume faster than ranking can compound."
+        stats={[['Top 3', 'Map Pack target'], ['60 days', 'Or you stop paying'], ['Owned', 'An asset, not rent']]}
+        points={[
+          'Profile rebuilt properly: correct category, complete services, consistent details everywhere they appear.',
+          'Review velocity, citation authority and local content - the signals that decide who holds the top three.',
+          'Every winnable town around you built as its own ranked unit, so you own more than one pin.',
+          'The Rank Lock: first page in 60 days or you stop paying the monthly and I keep working at no charge.',
+        ]}
+        href="/law-firm-seo"
+        cta="See the ranking work"
+      />
+
+      <div className="divider" />
+
+      <Product
+        n="04"
+        eyebrow="Custom AI Systems"
+        head="The job that eats your week,"
+        em="running by itself."
+        lead="Every business has one motion that consumes the day - intake, triage, quoting, follow-up, scheduling. I build custom AI on your own knowledge to run it, so it answers from your truth instead of a plausible guess."
+        stats={[['Your data', 'Never a generic model'], ['Hands off', 'When stakes are real'], ['Built once', 'Runs every day']]}
+        points={[
+          'Trained on your documents, your policies and your process - it answers from your truth or it escalates.',
+          'Wired into the tools you already run, so nothing needs re-typing into a second system.',
+          'Guardrails first: a do-not-say list, and a human handoff wherever the stakes justify one.',
+        ]}
+        href="/services/ai-systems/"
+        cta="See custom AI systems"
+      />
+
+      <div className="divider" />
+
+      <section className="gband">
+        <div className="wrap">
+          <div className="sec-head left reveal">
+            <span className="eyebrow">The flagship</span>
+            <h2>The Watershed is all of it, welded together. <span className="em">Demand in, booked consultations out.</span></h2>
+            <p className="lead">
+              Each piece above stands on its own and can be bought on its own. Together they are a
+              closed loop: visibility brings the enquiry, the intake desk answers it, and the report on
+              the first of the month proves both. Nothing gets in without being caught.
+            </p>
+          </div>
           <div className="ctas reveal">
-            <Link to="/the-watershed" className="btn btn-primary">
-              See the full system <Arrow />
-            </Link>
+            <Link to="/the-watershed" className="btn btn-primary">See the full system <Arrow /></Link>
+            <Link to="/book/" className="btn btn-ghost">Book a call</Link>
           </div>
         </div>
       </section>
 
       <div className="divider" />
 
-      {/* THE SYSTEM - 3 cards */}
-      <section className="sec" id="system">
+      <section className="sec">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">02 &middot; The Watershed</span>
-            <h2>
-              Two halves, welded into one loop.{' '}
-              <span className="em">Nothing gets in without being answered.</span>
-            </h2>
+            <span className="eyebrow">Who I help</span>
+            <h2>Law firms are the specialty. <span className="em">They are not the only door.</span></h2>
+            <p className="lead">
+              I build for law firms first, because legal intake is the hardest version of the problem
+              and I spent close to a decade inside the justice system before building any of this. But
+              a missed enquiry costs the same in any business where one client is worth real money.
+            </p>
           </div>
-          <div className="vgrid">
-            <Link to="/law-firm-seo" className="vtile reveal">
-              <div className="vt-n">The Inflow</div>
-              <h3>They find your firm</h3>
-              <p>
-                Managed Google ranking into the Map Pack top three, plus paid campaigns on the
-                highest-intent legal searches. The person searching for a lawyer lands on you.
-              </p>
-            </Link>
-            <Link to="/law-firm-intake" className="vtile feat reveal">
-              <div className="vt-n">The Intake</div>
-              <h3>You answer every one</h3>
-              <p>
-                A 24/7 AI intake desk on the phone and the web. It answers, runs your screening
-                questions, captures the file, and books the consultation live.
-              </p>
-            </Link>
-            <div className="vtile reveal">
-              <div className="vt-n">The Report</div>
-              <h3>Proof, monthly</h3>
-              <p>
-                Every enquiry that arrived, every one that came in after hours, and every consultation
-                booked, with the times on them. You hold the answer to whether it works.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="divider" />
-
-      {/* THE FIVE THINGS THE INTAKE DESK DOES */}
-      <section className="sec" id="does">
-        <div className="wrap">
-          <div className="sec-head left reveal">
-            <span className="eyebrow">03 &middot; What the intake desk does</span>
-            <h2>Five jobs, on every enquiry, without a day off.</h2>
-          </div>
-          <div className="vgrid five">
-            {[
-              ['Answer', 'On the first ring or first message, at any hour. A real answer, not a voicemail box.'],
-              ['Screen', 'Your questions, in your words - conflicts, practice area, urgency, jurisdiction.'],
-              ['Capture', 'Written into your case system as a clean intake record, not a note someone means to type up later.'],
-              ['Book', 'The consultation goes in your calendar while the caller is still on the line.'],
-              ['Follow up', 'No-shows and cold enquiries worked automatically, so a missed connection is not a lost file.'],
-            ].map(([h, b]) => (
-              <div className="vtile reveal" key={h}>
-                <h3>{h}</h3>
-                <p>{b}</p>
-              </div>
+          <div className="inds reveal">
+            <span className="ind lead-ind">Law firms - the specialty</span>
+            {['Accountants','Dental & orthodontic','Medical clinics','Veterinary','Insurance brokers','Real estate','HVAC & plumbing','Electrical & roofing','Auto service','Any appointment-led practice'].map((i) => (
+              <span className="ind" key={i}>{i}</span>
             ))}
           </div>
-          <p className="note reveal">
-            The intake desk performs administrative intake only. It never gives legal advice or
-            implies a solicitor-client relationship - the lawyer stays the responsible licensee.
-          </p>
-        </div>
-      </section>
-
-      <div className="divider" />
-
-      {/* WHO IT IS FOR */}
-      <section className="sec" id="who">
-        <div className="wrap">
-          <div className="sec-head left reveal">
-            <span className="eyebrow">04 &middot; Who it is for</span>
-            <h2>Urgent, high-value work where the first firm to answer gets retained.</h2>
-          </div>
-          <div className="vgrid">
-            {[
-              ['Personal injury', 'Someone just injured is calling from a hospital corridor. Whoever answers gets the file.'],
-              ['Family & divorce', 'The call comes at night, after a decision that could not wait for business hours.'],
-              ['Criminal defence', 'An arrest does not keep office hours. Neither can intake.'],
-              ['Immigration', 'Deadlines, status, and fear - the firm that answers calmly at 9pm is the one retained.'],
-            ].map(([h, b]) => (
-              <div className="vtile reveal" key={h}>
-                <h3>{h}</h3>
-                <p>{b}</p>
-              </div>
-            ))}
+          <div className="pfoot reveal">
+            <Link to="/solutions" className="btn btn-ghost">Who I help <Arrow /></Link>
           </div>
         </div>
       </section>
 
       <div className="divider" />
 
-      {/* FOUNDER CREDIBILITY STRIP */}
       <section className="gband who">
         <div className="wrap">
           <div className="who-grid reveal">
             <div className="who-shot">
-              <img
-                src="/derek.webp"
-                width={300}
-                height={300}
-                loading="lazy"
-                decoding="async"
-                alt={`${FOUNDER}, founder of HigherMindAI`}
-              />
-              <div className="who-name">
-                <b>{FOUNDER}</b>
-                Founder &middot; Ontario, Canada
-              </div>
+              <img src="/derek.webp" width={300} height={300} loading="lazy" decoding="async"
+                alt={`${FOUNDER}, founder of HigherMindAI`} />
+              <div className="who-name"><b>{FOUNDER}</b>Founder &middot; Ontario, Canada</div>
             </div>
             <div>
               <span className="eyebrow">Why this is built right</span>
               <h2 style={{ marginTop: 24 }}>
-                Built by someone who lived in the file,{' '}
-                <span className="em">not a marketer who read about it.</span>
+                Built by someone who lived in the file, <span className="em">not a marketer who read about it.</span>
               </h2>
               <p>
-                Before HigherMindAI, I spent the better part of a decade inside the justice system -
-                in courtrooms and in federal case files. I know what a real intake looks like, and why
-                the first firm to pick up is usually the firm that gets retained.
+                Before HigherMindAI, I spent the better part of a decade inside the justice system - in
+                courtrooms and in federal case files. I know what a real intake looks like, and why the
+                first firm to pick up is usually the firm that gets retained. One operator, start to
+                finish. No account manager between you and the work.
               </p>
               <div className="ctas">
-                <Link to="/about" className="btn btn-primary">
-                  The full story <Arrow />
-                </Link>
+                <Link to="/about" className="btn btn-primary">The full story <Arrow /></Link>
               </div>
             </div>
           </div>
@@ -219,27 +248,10 @@ export default function Home() {
 
       <div className="divider" />
 
-      {/* ALSO AVAILABLE - service ladder */}
-      <section className="sec" id="services">
-        <div className="wrap">
-          <div className="sec-head left reveal">
-            <span className="eyebrow">05 &middot; Also available</span>
-            <h2>
-              The Watershed leads.{' '}
-              <span className="em">Each half also stands on its own.</span>
-            </h2>
-          </div>
-          <ServiceLadder />
-        </div>
-      </section>
-
-      <div className="divider" />
-
-      {/* FAQ */}
       <section className="sec" id="faq">
         <div className="wrap narrow">
           <div className="sec-head left reveal">
-            <span className="eyebrow">06 &middot; Questions</span>
+            <span className="eyebrow">Questions</span>
             <h2>Answered plainly.</h2>
           </div>
           <FAQ items={LAW_FAQ} />
@@ -248,21 +260,20 @@ export default function Home() {
 
       <div className="divider" />
 
-      {/* CONTACT */}
-      <section className="sec" id="contact">
-        <div className="wrap narrow">
-          <div className="sec-head left reveal">
-            <span className="eyebrow">07 &middot; Book the audit</span>
-            <h2>
-              See your own leak first.{' '}
-              <span className="em">Fifteen minutes, no pitch.</span>
-            </h2>
+      <section className="ctastrip" id="contact">
+        <div className="wrap">
+          <div className="sec-head reveal">
+            <h2>Fifteen minutes. <span className="em">No pitch.</span></h2>
             <p className="lead">
-              I will show you where your firm ranks across its service area, and the log of what
-              happened when I contacted your firm as a client.
+              I will ask what a new client is worth to you, what happens to a call at seven in the
+              evening, and where you show up when somebody nearby goes looking. Then I tell you
+              straight what I would build and what it would take.
             </p>
           </div>
-          <ContactForm />
+          <div className="ctas reveal">
+            <Link to="/book/" className="btn btn-primary">Book a call <Arrow /></Link>
+            <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">Call {PHONE_DISP}</a>
+          </div>
         </div>
       </section>
     </main>

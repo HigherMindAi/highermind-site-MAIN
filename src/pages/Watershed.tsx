@@ -42,8 +42,8 @@ export default function Watershed() {
             The Watershed is what answers.
           </p>
           <div className="ctas reveal">
-            <Link to="/contact" className="btn btn-primary">
-              Book a free Watershed Audit <Arrow />
+            <Link to="/book/" className="btn btn-primary">
+              Book a call <Arrow />
             </Link>
             <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
               Call {PHONE_DISP}
@@ -194,7 +194,7 @@ export default function Watershed() {
 
       <CTAStrip
         head={<>See exactly what your firm is missing.</>}
-        sub="I will run a free Watershed Audit - where you rank across your service area, and a log of what happened when I called your firm as a client. Fifteen minutes, no pitch."
+        sub="Fifteen minutes on the phone. I will tell you what a missed enquiry is costing you, what I would build, and the date it goes live. No pitch, and a clean no if it is not a fit."
       />
     </main>
   );

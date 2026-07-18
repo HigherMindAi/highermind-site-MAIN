@@ -4,9 +4,12 @@ import { NAV, PHONE_E164, PHONE_DISP, BRAND } from '../lib/site';
 import { Wordmark, Hamburger, Close } from './Icons';
 
 function isActive(label: string, pathname: string): boolean {
-  if (label === 'Services') return pathname.startsWith('/services');
-  if (label === 'Locations') return pathname.startsWith('/local-seo');
-  if (label === 'Proof') return pathname.startsWith('/proof');
+  if (label === 'Who I Help') return pathname.startsWith('/solutions');
+  if (label === 'AI Search') return pathname.startsWith('/ai-search-optimization');
+  if (label === 'AI Intake Desk') return pathname.startsWith('/law-firm-intake');
+  if (label === 'Ranking') return pathname.startsWith('/law-firm-seo');
+  if (label === 'The Watershed') return pathname.startsWith('/the-watershed');
+  if (label === 'About') return pathname.startsWith('/about');
   return false;
 }
 
@@ -57,8 +60,8 @@ export default function Nav() {
           <a href={`tel:${PHONE_E164}`} className="mobcall" onClick={() => setOpen(false)}>
             Call {PHONE_DISP}
           </a>
-          <Link to="/#contact" className="btn btn-primary" onClick={() => setOpen(false)}>
-            Get the Audit
+          <Link to="/book/" className="btn btn-primary" onClick={() => setOpen(false)}>
+            Book a Call
           </Link>
         </nav>
         <button

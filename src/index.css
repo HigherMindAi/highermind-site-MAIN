@@ -673,3 +673,75 @@ h3{font-size:20.5px;letter-spacing:-.02em;line-height:1.25}
   .cx-leak-flow{opacity:0}
 }
 @media (max-width:680px){.cx-legend{flex-direction:column;align-items:flex-start;gap:10px}}
+
+/* ============================================================ PRODUCT BANDS
+   Each service gets its own stop on the way down the page: a numbered label,
+   a claim, a row of hard numbers, and the three things it actually does.
+   Added with the services-forward rebuild. Additive only - nothing above
+   this line changes. */
+
+.vgrid.five{grid-template-columns:repeat(5,1fr)}
+.vgrid.five .vtile{padding:30px 24px}
+.vgrid.five .vtile h3{font-size:18px}
+.vgrid.five .vtile p{font-size:14.5px}
+
+.stats.three{grid-template-columns:repeat(3,1fr)}
+.stats.tight{border-bottom:0}
+.stats.tight .s{padding:30px 24px}
+
+/* the product band shell */
+.prod{position:relative}
+.prod .pnum{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--teal);font-weight:600;display:inline-flex;align-items:center;gap:12px}
+.prod .pnum::before{content:"";width:26px;height:1px;background:var(--teal);opacity:.6}
+.prod-top{display:grid;grid-template-columns:1.15fr .85fr;gap:54px;align-items:end;margin-bottom:44px}
+.prod-top h2{margin:18px 0 0}
+.prod-top .lead{margin:0}
+.prod .plist{display:flex;flex-direction:column;gap:14px;margin:0;padding:0;list-style:none}
+.prod .plist li{
+  position:relative;padding-left:28px;color:var(--muted);font-size:15.5px;line-height:1.6}
+.prod .plist li::before{
+  content:"";position:absolute;left:0;top:9px;width:9px;height:9px;border-radius:50%;
+  background:var(--teal);box-shadow:0 0 14px rgba(63,224,181,.55)}
+.prod .pfoot{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:center;margin-top:36px}
+
+/* who I help - industry chips */
+.inds{display:flex;flex-wrap:wrap;gap:11px;margin-top:8px}
+.ind{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:11px 18px;border:1px solid var(--line);border-radius:100px;
+  background:var(--panel);color:var(--muted);font-size:14.5px;
+  transition:border-color .25s ease,color .25s ease,transform .25s ease}
+.ind:hover{border-color:rgba(63,224,181,.45);color:#fff;transform:translateY(-2px)}
+.ind.lead-ind{border-color:rgba(63,224,181,.55);color:#fff;background:var(--panel-2)}
+.ind.lead-ind::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);
+  box-shadow:0 0 12px rgba(63,224,181,.7)}
+
+/* comparison table - SEO vs AI search */
+.cmp{width:100%;border-collapse:collapse;margin-top:8px;
+  border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.cmp th,.cmp td{padding:17px 20px;text-align:left;font-size:15px;
+  border-bottom:1px solid var(--line-2);vertical-align:top}
+.cmp thead th{
+  font-family:var(--f-mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--faint);background:var(--panel);font-weight:600}
+.cmp thead th:last-child{color:var(--teal)}
+.cmp td{color:var(--muted)}
+.cmp td:first-child{color:#fff;font-weight:500}
+.cmp tbody tr:last-child td{border-bottom:0}
+.cmp td:last-child{color:#dfe9f2}
+
+@media(max-width:1020px){
+  .prod-top{grid-template-columns:1fr;gap:26px;align-items:start}
+  .vgrid.five{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:860px){
+  .stats.three{grid-template-columns:1fr}
+  .stats.three .s{border-left:0;border-top:1px solid var(--line-2);padding-left:0}
+  .stats.three .s:first-child{border-top:0}
+  .cmp th,.cmp td{padding:13px 14px;font-size:14px}
+}
+@media(max-width:640px){
+  .vgrid.five{grid-template-columns:1fr}
+}

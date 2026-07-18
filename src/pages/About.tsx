@@ -88,8 +88,8 @@ export default function About() {
       </section>
 
       <CTAStrip
-        head={<>Let me show you your own leak first.</>}
-        sub="Before you decide anything, I will run a free Watershed Audit - where your firm ranks across its service area, and what happened when I contacted you as a client. Fifteen minutes."
+        head={<>Let me show you what it is costing you.</>}
+        sub="Fifteen minutes on the phone. Where your firm ranks across its service area, what happened when I contacted you as a client, and what I would build. No pitch."
       />
     </main>
   );

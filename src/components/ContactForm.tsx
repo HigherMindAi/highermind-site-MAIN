@@ -42,7 +42,7 @@ export default function ContactForm() {
           Got it. <span className="em">I&rsquo;ll start the Audit.</span>
         </h3>
         <p style={{ color: 'var(--muted)', margin: 0 }}>
-          I run the rank read first, then the leak log across five days, then I send you both.
+          Tell me what you do and where. I will come back with what I would build and when it goes live.
           I reply personally, usually the same day. If it is urgent, call me directly at
           647-242-5800.
         </p>
@@ -88,7 +88,7 @@ export default function ContactForm() {
           placeholder="The service that matters most, and the area you want it from."
         />
         <button type="submit" className="btn btn-primary" disabled={status === 'submitting'}>
-          {status === 'submitting' ? 'Sending…' : <>Send me my Watershed Audit <Arrow /></>}
+          {status === 'submitting' ? 'Sending…' : <>Book my call <Arrow /></>}
         </button>
         {status === 'error' && (
           <p className="fine" style={{ color: '#e0746a' }}>
