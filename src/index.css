@@ -836,7 +836,7 @@ h3{font-size:20.5px;letter-spacing:-.02em;line-height:1.25}
    aware, all a few kilobytes. */
 
 .deep{position:fixed;inset:0;z-index:0;pointer-events:none}
-.rain-fixed{position:fixed;inset:0;opacity:.22;
+.rain-fixed{position:fixed;inset:0;opacity:.34;
   -webkit-mask-image:linear-gradient(to bottom,transparent,#000 7%);
   mask-image:linear-gradient(to bottom,transparent,#000 7%)}
 .caustic{position:absolute;width:52vw;height:52vw;border-radius:50%;

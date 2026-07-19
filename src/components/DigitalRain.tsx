@@ -28,7 +28,7 @@ export default function DigitalRain({ fixed = false }: { fixed?: boolean }) {
     const resize = () => {
       cv.width = cv.offsetWidth;
       cv.height = cv.offsetHeight;
-      const cols = Math.max(8, Math.floor(cv.width / (fixed ? 26 : CELL)));
+      const cols = Math.max(8, Math.floor(cv.width / (fixed ? 23 : CELL)));
       drops = Array.from({ length: cols }, () => Math.random() * -cv.height);
       speeds = Array.from({ length: cols }, () => 0.35 + Math.random() * 0.55);
     };
@@ -54,8 +54,8 @@ export default function DigitalRain({ fixed = false }: { fixed?: boolean }) {
           if (y < -CELL || y > cv.height + CELL) continue;
           cx.fillStyle =
             k === 0
-              ? 'rgba(63,224,181,.38)'
-              : `rgba(63,224,181,${0.13 - k * 0.02})`;
+              ? 'rgba(63,224,181,.52)'
+              : `rgba(63,224,181,${0.18 - k * 0.024})`;
           cx.fillText(GLYPHS[Math.floor((i * 7 + k * 3 + t / 900) % GLYPHS.length)], x, y);
         }
         drops[i] += speeds[i] * CELL * 0.45;
