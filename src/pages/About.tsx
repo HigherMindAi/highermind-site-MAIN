@@ -39,15 +39,17 @@ export default function About() {
       <section className="sec">
         <div className="wrap narrow">
           <div className="who-grid reveal">
-            <div className="who-shot">
-              <img
-                src="/derek.webp"
-                width={360}
-                height={360}
-                loading="lazy"
-                decoding="async"
-                alt={`${FOUNDER}, founder of HigherMindAI`}
-              />
+            <div>
+              <div className="who-shot">
+                <img
+                  src="/derek.webp"
+                  width={360}
+                  height={360}
+                  loading="lazy"
+                  decoding="async"
+                  alt={`${FOUNDER}, founder of HigherMindAI`}
+                />
+              </div>
               <div className="who-name">
                 <b>{FOUNDER}</b>
                 Founder &middot; Ontario, Canada

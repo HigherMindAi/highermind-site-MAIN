@@ -1,43 +1,107 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
-import HeroField from '../components/HeroField';
+import RecordTicker from '../components/RecordTicker';
+import { IntakeStage, SearchStage, RankStage, SystemsStage, CalendarStage } from '../components/Stages';
+import ServiceLadder from '../components/ServiceLadder';
 import FAQ from '../components/FAQ';
 import { Arrow } from '../components/Icons';
 import { PHONE_E164, PHONE_DISP, FOUNDER } from '../lib/site';
 import { LAW_FAQ } from '../lib/services';
 import { orgSchema, faqSchema, personSchema } from '../lib/schema';
 
-/** One product band. Numbered, claimed, measured, then the concrete things. */
+/** Count-up for stats: final value ships in the HTML (crawlers read it);
+ *  the animation runs client-side when the band scrolls into view. */
+function useCountUp() {
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const els = Array.from(document.querySelectorAll<HTMLElement>('[data-count]'));
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          const el = e.target as HTMLElement;
+          io.unobserve(el);
+          const target = Number(el.dataset.count);
+          const pre = el.dataset.pre ?? '';
+          const suf = el.dataset.suf ?? '';
+          const t0 = performance.now();
+          const step = (t: number) => {
+            const p = Math.min(1, (t - t0) / 900);
+            el.textContent = pre + Math.round(target * (1 - Math.pow(1 - p, 3))) + suf;
+            if (p < 1) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+        });
+      },
+      { threshold: 0.6 }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+}
+
+const RAIL = ['01', '02', '03', '04'] as const;
+
+/** One product band: depth-rail on the left, claim, hard numbers, the work. */
 function Product({
-  n, eyebrow, head, em, lead, stats, points, href, cta,
+  n, eyebrow, head, em, lead, stats, points, href, cta, stage,
 }: {
   n: string; eyebrow: string; head: string; em: string; lead: string;
-  stats: [string, string][]; points: string[]; href: string; cta: string;
+  stats: [string, string, { c?: number; pre?: string; suf?: string }?][];
+  points: string[]; href: string; cta: string; stage: React.ReactNode;
 }) {
   return (
     <section className="sec prod">
       <div className="wrap">
-        <div className="prod-top">
-          <div className="reveal">
-            <span className="pnum">Product {n} &middot; {eyebrow}</span>
-            <h2>{head} <span className="em">{em}</span></h2>
+        <div className="prod-body">
+          <div className="drail reveal" aria-hidden="true">
+            {RAIL.map((m, i) => (
+              <span key={m} className="dcell">
+                <span className={'dm' + (m === n ? ' on' : '')}>{m}</span>
+                {i < RAIL.length - 1 && (
+                  <span className={'dline' + (m === n ? ' fill' : '')} />
+                )}
+              </span>
+            ))}
           </div>
-          <p className="lead reveal">{lead}</p>
-        </div>
-        <div className="stats three tight reveal">
-          {stats.map(([v, l]) => (
-            <div className="s" key={l}>
-              <div className="n"><em>{v}</em></div>
-              <div className="l">{l}</div>
+          <div>
+            <div className="prod-top">
+              <div className="reveal">
+                <span className="pnum">Product {n} &middot; {eyebrow}</span>
+                <h2>{head} <span className="em">{em}</span></h2>
+              </div>
+              <p className="lead reveal">{lead}</p>
             </div>
-          ))}
-        </div>
-        <ul className="plist reveal" style={{ marginTop: 34 }}>
-          {points.map((p) => <li key={p}>{p}</li>)}
-        </ul>
-        <div className="pfoot reveal">
-          <Link to={href} className="btn btn-primary">{cta} <Arrow /></Link>
-          <Link to="/book/" className="btn btn-ghost">Book a call</Link>
+            <div className="prod-cols">
+              <div>
+                <div className="stats three tight reveal">
+                  {stats.map(([v, l, cnt]) => (
+                    <div className="s" key={l}>
+                      <div className="n">
+                        {cnt ? (
+                          <em data-count={cnt.c} data-pre={cnt.pre ?? ''} data-suf={cnt.suf ?? ''}>
+                            {v}
+                          </em>
+                        ) : (
+                          <em>{v}</em>
+                        )}
+                      </div>
+                      <div className="l">{l}</div>
+                    </div>
+                  ))}
+                </div>
+                <ul className="plist reveal" style={{ marginTop: 30 }}>
+                  {points.map((p) => <li key={p}>{p}</li>)}
+                </ul>
+                <div className="pfoot reveal">
+                  <Link to={href} className="btn btn-primary">{cta} <Arrow /></Link>
+                  <Link to="/book/" className="btn btn-ghost">Book a call</Link>
+                </div>
+              </div>
+              <div className="stg-wrap reveal">{stage}</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -45,6 +109,7 @@ function Product({
 }
 
 export default function Home() {
+  useCountUp();
   return (
     <main id="top">
       <Seo
@@ -55,16 +120,16 @@ export default function Home() {
       />
 
       <section className="hero">
-        <HeroField />
         <div className="wrap">
-          <div className="hero-grid solo">
+          <div className="hero-grid">
             <div className="reveal">
               <span className="eyebrow">AI intake &middot; AI search visibility &middot; lead generation</span>
               <h1>The clients you're missing <span className="em">are calling right now.</span></h1>
               <p className="sub">
-                I build the AI that answers them. An intake desk that picks up every call and message
-                24/7, screens it, and books it - plus the visibility work that makes people find you in
-                the first place, on Google and inside the AI systems they now ask instead.
+                I build the AI that answers them. An intake desk that picks up every call and
+                message 24/7, screens it, and books it - plus the visibility work that makes people
+                find you first, on Google and inside the AI systems they now ask instead. The panel
+                on the right is that promise, in motion.
               </p>
               <div className="ctas">
                 <Link to="/book/" className="btn btn-primary">Book a call <Arrow /></Link>
@@ -76,6 +141,7 @@ export default function Home() {
                 <span><span className="t">/</span> Built from inside the justice system</span>
               </div>
             </div>
+            <RecordTicker />
           </div>
         </div>
       </section>
@@ -105,7 +171,11 @@ export default function Home() {
         head="Every call answered."
         em="Screened, booked, 24/7."
         lead="An AI intake desk on your phone and your website. It answers the moment an enquiry lands, runs your screening questions in your words, captures the file, and books the consultation while the caller is still on the line."
-        stats={[['<60s', 'Response, every channel'], ['24/7', 'Nights, weekends, holidays'], ['14 days', 'From yes to live']]}
+        stats={[
+          ['<60s', 'Response, every channel', { c: 60, pre: '<', suf: 's' }],
+          ['24/7', 'Nights, weekends, holidays', { c: 24, suf: '/7' }],
+          ['14 days', 'From yes to live', { c: 14, suf: ' days' }],
+        ]}
         points={[
           'Answers from your knowledge and your process, never a generic script - and hands off to a human rather than guessing.',
           'Screens on the things that actually matter: conflicts, practice area, urgency, jurisdiction, location.',
@@ -114,6 +184,7 @@ export default function Home() {
         ]}
         href="/law-firm-intake"
         cta="See the intake desk"
+        stage={<IntakeStage />}
       />
 
       <div className="divider" />
@@ -124,7 +195,11 @@ export default function Home() {
         head="Get named by the AI"
         em="people now ask instead of Google."
         lead="Your buyers have started asking ChatGPT, Claude, Gemini and Perplexity for a recommendation. They get one answer with two or three names in it. I do the entity, evidence and access work that makes you one of them."
-        stats={[['1 answer', 'No page two to be on'], ['6+', 'AI systems targeted'], ['30-60d', 'Structural signals register']]}
+        stats={[
+          ['1 answer', 'No page two to be on', { c: 1, suf: ' answer' }],
+          ['6+', 'AI systems targeted', { c: 6, suf: '+' }],
+          ['30-60d', 'Structural signals register'],
+        ]}
         points={[
           'A structured entity graph so the models know exactly who you are, what you do and where you do it.',
           'Answer-first pages and matching markup, written so a model can lift a clean quote and attribute it to you.',
@@ -133,6 +208,7 @@ export default function Home() {
         ]}
         href="/ai-search-optimization"
         cta="See AI search visibility"
+        stage={<SearchStage />}
       />
 
       <div className="divider" />
@@ -143,7 +219,11 @@ export default function Home() {
         head="Found first on Google,"
         em="and it stays yours."
         lead="The demand half. A managed Google Business Profile engineered into the top three of the Map Pack and held there, plus paid campaigns where you want volume faster than ranking can compound."
-        stats={[['Top 3', 'Map Pack target'], ['60 days', 'Or you stop paying'], ['Owned', 'An asset, not rent']]}
+        stats={[
+          ['Top 3', 'Map Pack target', { c: 3, pre: 'Top ' }],
+          ['60 days', 'Or you stop paying', { c: 60, suf: ' days' }],
+          ['Owned', 'An asset, not rent'],
+        ]}
         points={[
           'Profile rebuilt properly: correct category, complete services, consistent details everywhere they appear.',
           'Review velocity, citation authority and local content - the signals that decide who holds the top three.',
@@ -152,6 +232,7 @@ export default function Home() {
         ]}
         href="/law-firm-seo"
         cta="See the ranking work"
+        stage={<RankStage />}
       />
 
       <div className="divider" />
@@ -162,7 +243,11 @@ export default function Home() {
         head="The job that eats your week,"
         em="running by itself."
         lead="Every business has one motion that consumes the day - intake, triage, quoting, follow-up, scheduling. I build custom AI on your own knowledge to run it, so it answers from your truth instead of a plausible guess."
-        stats={[['Your data', 'Never a generic model'], ['Hands off', 'When stakes are real'], ['Built once', 'Runs every day']]}
+        stats={[
+          ['Your data', 'Never a generic model'],
+          ['Hands off', 'When stakes are real'],
+          ['Built once', 'Runs every day'],
+        ]}
         points={[
           'Trained on your documents, your policies and your process - it answers from your truth or it escalates.',
           'Wired into the tools you already run, so nothing needs re-typing into a second system.',
@@ -170,25 +255,45 @@ export default function Home() {
         ]}
         href="/services/ai-systems/"
         cta="See custom AI systems"
+        stage={<SystemsStage />}
       />
 
       <div className="divider" />
 
       <section className="gband">
         <div className="wrap">
+          <div className="flag-grid">
+            <div>
+              <div className="sec-head left reveal" style={{ marginBottom: 28 }}>
+                <span className="eyebrow">The flagship</span>
+                <h2>The Watershed is all of it, welded together. <span className="em">Demand in, booked consultations out.</span></h2>
+                <p className="lead">
+                  Each piece above stands on its own and can be bought on its own. Together they are
+                  a closed loop: visibility brings the enquiry, the intake desk answers it, and the
+                  report on the first of the month proves both. Nothing gets in without being caught.
+                </p>
+              </div>
+              <div className="ctas reveal">
+                <Link to="/the-watershed" className="btn btn-primary">See the full system <Arrow /></Link>
+                <Link to="/book/" className="btn btn-ghost">Book a call</Link>
+              </div>
+            </div>
+            <div className="stg-wrap reveal">
+              <CalendarStage />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="divider" />
+
+      <section className="sec" id="services">
+        <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">The flagship</span>
-            <h2>The Watershed is all of it, welded together. <span className="em">Demand in, booked consultations out.</span></h2>
-            <p className="lead">
-              Each piece above stands on its own and can be bought on its own. Together they are a
-              closed loop: visibility brings the enquiry, the intake desk answers it, and the report on
-              the first of the month proves both. Nothing gets in without being caught.
-            </p>
+            <span className="eyebrow">Also available</span>
+            <h2>Every piece, <span className="em">on its own if that is what the job needs.</span></h2>
           </div>
-          <div className="ctas reveal">
-            <Link to="/the-watershed" className="btn btn-primary">See the full system <Arrow /></Link>
-            <Link to="/book/" className="btn btn-ghost">Book a call</Link>
-          </div>
+          <ServiceLadder />
         </div>
       </section>
 
@@ -222,9 +327,11 @@ export default function Home() {
       <section className="gband who">
         <div className="wrap">
           <div className="who-grid reveal">
-            <div className="who-shot">
-              <img src="/derek.webp" width={300} height={300} loading="lazy" decoding="async"
-                alt={`${FOUNDER}, founder of HigherMindAI`} />
+            <div>
+              <div className="who-shot">
+                <img src="/derek.webp" width={300} height={300} loading="lazy" decoding="async"
+                  alt={`${FOUNDER}, founder of HigherMindAI`} />
+              </div>
               <div className="who-name"><b>{FOUNDER}</b>Founder &middot; Ontario, Canada</div>
             </div>
             <div>

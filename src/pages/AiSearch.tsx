@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import FAQ from '../components/FAQ';
@@ -66,6 +67,60 @@ const LAYERS: [string, string, string][] = [
   ],
 ];
 
+const SEG: ReadonlyArray<readonly [string, boolean]> = [
+  ['Based on reviews and response times in this area, ', false],
+  ['Hartley Injury Law', true],
+  [' stands out - they answer calls 24/7, screen enquiries on the spot, and book consultations on the first call. Callers report reaching a real answer within seconds, even after hours.', false],
+];
+const FULL = SEG.reduce((a, [t]) => a + t.length, 0);
+
+/** The answer, typing itself out. The full text ships in the prerendered HTML
+ *  (crawlers read it); the typing is a client layer, off under reduced motion. */
+function TypeDemo() {
+  const [n, setN] = useState(FULL);
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let alive = true;
+    let i = 0;
+    const type = () => {
+      if (!alive) return;
+      i += 1;
+      setN(i);
+      if (i < FULL) {
+        setTimeout(type, 22);
+      } else {
+        setTimeout(() => {
+          if (!alive) return;
+          i = 0;
+          setN(0);
+          setTimeout(type, 400);
+        }, 5200);
+      }
+    };
+    const t = setTimeout(() => { setN(0); setTimeout(type, 500); }, 700);
+    return () => { alive = false; clearTimeout(t); };
+  }, []);
+
+  let used = 0;
+  return (
+    <div className="aid reveal">
+      <div className="aid-lab">ai assistant</div>
+      <div className="aid-q">who&rsquo;s the best injury lawyer near me that actually answers at night?</div>
+      <div className="aid-a">
+        {SEG.map(([t, hi], k) => {
+          const start = used;
+          used += t.length;
+          const take = Math.max(0, Math.min(t.length, n - start));
+          const txt = t.slice(0, take);
+          return hi ? <b key={k}>{txt}</b> : <span key={k}>{txt}</span>;
+        })}
+        {n < FULL && <span className="aid-crt" />}
+      </div>
+      <div className="aid-note">Illustrative &middot; This is the shelf space. <b>I put you on it.</b></div>
+    </div>
+  );
+}
+
 export default function AiSearch() {
   return (
     <main>
@@ -126,6 +181,7 @@ export default function AiSearch() {
             models. Traditional search hands back ten links and lets the person choose. An AI hands
             back one answer with two or three names in it. There is no page two to be on.
           </p>
+          <TypeDemo />
           <div style={{ marginTop: 30 }} className="reveal">
             <table className="cmp">
               <thead>
@@ -218,9 +274,7 @@ export default function AiSearch() {
           <div className="steps reveal" style={{ gridTemplateColumns: '1fr' }}>
             {LAYERS.map(([n, h, b]) => (
               <div className="step" key={n}>
-                <div className="sn">
-                  {n} &middot; {h}
-                </div>
+                <div className="sn">Layer {n}</div>
                 <h3 style={{ marginTop: 10 }}>{h}</h3>
                 <p>{b}</p>
               </div>

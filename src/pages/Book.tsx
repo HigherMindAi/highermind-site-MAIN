@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import ContactForm from '../components/ContactForm';
+import CalEmbed from '../components/CalEmbed';
 import { PHONE_E164, PHONE_DISP, EMAIL } from '../lib/site';
 import { orgSchema, breadcrumbs } from '../lib/schema';
 
@@ -35,11 +36,11 @@ export default function Book() {
               what I would build, and how fast it goes live. <b>Then you decide.</b>
             </p>
             <div className="ctas">
-              <a href={`tel:${PHONE_E164}`} className="btn btn-primary">
-                Call {PHONE_DISP}
+              <a href="#book-cal" className="btn btn-primary">
+                Pick a time
               </a>
-              <a href="#contact" className="btn btn-ghost">
-                Send it in writing
+              <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
+                Call {PHONE_DISP}
               </a>
             </div>
           </div>
@@ -92,6 +93,20 @@ export default function Book() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <div className="divider" />
+
+      <section className="sec-sm" id="book-cal">
+        <div className="wrap">
+          <div className="sec-head left reveal">
+            <span className="eyebrow">Pick a time</span>
+            <h2>
+              Straight into my calendar. <span className="em">No back and forth.</span>
+            </h2>
+          </div>
+          <CalEmbed />
         </div>
       </section>
 
