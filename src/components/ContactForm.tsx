@@ -9,6 +9,11 @@ function encode(data: Record<string, string>) {
     .join('&');
 }
 
+/**
+ * The write-in form. Netlify mechanics untouched (form name, field names,
+ * honeypot) - this is a presentation rebuild: two-column rows, a header that
+ * sets expectations, and a success card that promises a reply, not an audit.
+ */
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>('idle');
   const [form, setForm] = useState({ name: '', business: '', contact: '', goal: '' });
@@ -39,12 +44,12 @@ export default function ContactForm() {
       <div className="formcard reveal">
         <span className="eyebrow">Received</span>
         <h3 style={{ fontSize: 26, margin: '20px 0 12px' }}>
-          Got it. <span className="em">I&rsquo;ll start the Audit.</span>
+          Got it. <span className="em">You&rsquo;ll hear from me today.</span>
         </h3>
         <p style={{ color: 'var(--muted)', margin: 0 }}>
-          Tell me what you do and where. I will come back with what I would build and when it goes live.
-          I reply personally, usually the same day. If it is urgent, call me directly at
-          647-242-5800.
+          I read these personally and reply the same day, usually within a few hours. I&rsquo;ll come
+          back with what I would build for you and when it goes live. If it&rsquo;s urgent, call me
+          directly at 647-242-5800.
         </p>
       </div>
     );
@@ -52,6 +57,10 @@ export default function ContactForm() {
 
   return (
     <div className="formcard reveal">
+      <div className="formhead">
+        <span className="ln" style={{ marginBottom: 6 }}>Send it in writing</span>
+        <p>Four fields, thirty seconds. I reply personally, usually the same day.</p>
+      </div>
       <form name="lead" onSubmit={onSubmit}>
         <p className="hp">
           <label>
@@ -65,28 +74,38 @@ export default function ContactForm() {
             />
           </label>
         </p>
-        <label htmlFor="name"><span className="ln">Your name</span></label>
-        <input id="name" type="text" name="name" value={form.name} onChange={onChange} required />
-        <label htmlFor="biz"><span className="ln">Firm &amp; city</span></label>
-        <input
-          id="biz"
-          type="text"
-          name="business"
-          value={form.business}
-          onChange={onChange}
-          placeholder="e.g. Bay Street Dental, Toronto ON"
-          required
-        />
-        <label htmlFor="contact"><span className="ln">Phone or email</span></label>
-        <input id="contact" type="text" name="contact" value={form.contact} onChange={onChange} required />
-        <label htmlFor="goal"><span className="ln">What do you do, and where?</span></label>
-        <textarea
-          id="goal"
-          name="goal"
-          value={form.goal}
-          onChange={onChange}
-          placeholder="The service that matters most, and the area you want it from."
-        />
+        <div className="frow">
+          <label htmlFor="name">
+            <span className="ln">Your name</span>
+            <input id="name" type="text" name="name" value={form.name} onChange={onChange} autoComplete="name" required />
+          </label>
+          <label htmlFor="contact">
+            <span className="ln">Phone or email</span>
+            <input id="contact" type="text" name="contact" value={form.contact} onChange={onChange} autoComplete="tel" required />
+          </label>
+        </div>
+        <label htmlFor="biz">
+          <span className="ln">Your firm &amp; city</span>
+          <input
+            id="biz"
+            type="text"
+            name="business"
+            value={form.business}
+            onChange={onChange}
+            placeholder="e.g. Hartley Family Law, Brampton ON"
+            required
+          />
+        </label>
+        <label htmlFor="goal">
+          <span className="ln">What should the phone be doing that it is not?</span>
+          <textarea
+            id="goal"
+            name="goal"
+            value={form.goal}
+            onChange={onChange}
+            placeholder="Missed after-hours calls, a quiet Google profile, no time for intake - whatever is costing you clients."
+          />
+        </label>
         <button type="submit" className="btn btn-primary" disabled={status === 'submitting'}>
           {status === 'submitting' ? 'Sending…' : <>Book my call <Arrow /></>}
         </button>
@@ -95,7 +114,7 @@ export default function ContactForm() {
             Something went wrong sending that. Call or email me directly and I&rsquo;ll sort it.
           </p>
         )}
-        {status !== 'error' && <p className="fine">Free. No pitch. Yours to keep either way.</p>}
+        {status !== 'error' && <p className="fine">Free. No pitch. A fast no if it&rsquo;s not a fit.</p>}
       </form>
     </div>
   );

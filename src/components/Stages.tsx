@@ -174,9 +174,26 @@ export function SystemsStage() {
         <span className="stg-chip">running</span>
       </div>
       <div className="stg-flow">
-        <span className="sf-line">
-          <span className="sf-pulse" />
-        </span>
+        <svg className="sf-path" viewBox="0 0 400 64" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="sfg" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stopColor="#3FE0B5" stopOpacity="0" />
+              <stop offset="0.5" stopColor="#3FE0B5" />
+              <stop offset="1" stopColor="#9BF4DD" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          <path
+            className="sf-route"
+            d="M0 40 C 55 16, 105 52, 160 33 S 265 12, 320 35 S 382 46, 400 30"
+            fill="none"
+          />
+          <path
+            className="sf-dash"
+            d="M0 40 C 55 16, 105 52, 160 33 S 265 12, 320 35 S 382 46, 400 30"
+            fill="none"
+            stroke="url(#sfg)"
+          />
+        </svg>
         {NODES.map((s, i) => (
           <span key={s} className="sf-node" style={{ animationDelay: `${i * 1.1}s` }}>
             {s}

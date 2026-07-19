@@ -128,8 +128,7 @@ export default function Home() {
               <p className="sub">
                 I build the AI that answers them. An intake desk that picks up every call and
                 message 24/7, screens it, and books it - plus the visibility work that makes people
-                find you first, on Google and inside the AI systems they now ask instead. The panel
-                on the right is that promise, in motion.
+                find you first, on Google and inside the AI systems they now ask instead.
               </p>
               <div className="ctas">
                 <Link to="/book/" className="btn btn-primary">Book a call <Arrow /></Link>
@@ -312,7 +311,7 @@ export default function Home() {
           </div>
           <div className="inds reveal">
             <span className="ind lead-ind">Law firms - the specialty</span>
-            {['Accountants','Dental & orthodontic','Medical clinics','Veterinary','Insurance brokers','Real estate','HVAC & plumbing','Electrical & roofing','Auto service','Any appointment-led practice'].map((i) => (
+            {['Accountants','Dentists & orthodontists','Medical clinics','Veterinary','Insurance brokers','Real estate','HVAC & plumbing','Electrical & roofing','Auto service','Any appointment-led practice'].map((i) => (
               <span className="ind" key={i}>{i}</span>
             ))}
           </div>

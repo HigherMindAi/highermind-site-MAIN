@@ -39,7 +39,7 @@ const LEGAL: [string, string][] = [
 
 const OTHERS: string[] = [
   'Accountants & bookkeepers',
-  'Dental & orthodontic',
+  'Dentists & orthodontists',
   'Medical & specialist clinics',
   'Veterinary',
   'Insurance brokers',
