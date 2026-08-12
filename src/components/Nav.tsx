@@ -3,12 +3,20 @@ import { Link, useLocation } from 'react-router-dom';
 import { NAV, PHONE_E164, PHONE_DISP, BRAND } from '../lib/site';
 import { Wordmark, Hamburger, Close } from './Icons';
 
+const LEGAL_PATHS = ['/the-watershed', '/law-firm-intake', '/law-firm-seo'];
+
 function isActive(label: string, pathname: string): boolean {
-  if (label === 'Who I Help') return pathname.startsWith('/solutions');
-  if (label === 'AI Search') return pathname.startsWith('/ai-search-optimization');
-  if (label === 'AI Intake Desk') return pathname.startsWith('/law-firm-intake');
-  if (label === 'Ranking') return pathname.startsWith('/law-firm-seo');
-  if (label === 'The Watershed') return pathname.startsWith('/the-watershed');
+  if (label === 'Property Management')
+    return (
+      pathname === '/property-management' ||
+      pathname.startsWith('/property-management/') ||
+      pathname.startsWith('/condominium-management-marketing') ||
+      pathname.startsWith('/local-seo')
+    );
+  if (label === 'The Keystone') return pathname.startsWith('/the-keystone');
+  if (label === 'Ranking') return pathname.startsWith('/property-management-seo');
+  if (label === 'Intake') return pathname.startsWith('/property-management-intake');
+  if (label === 'Law Firms') return LEGAL_PATHS.some((p) => pathname.startsWith(p));
   if (label === 'About') return pathname.startsWith('/about');
   return false;
 }

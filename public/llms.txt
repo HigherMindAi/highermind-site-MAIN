@@ -1,19 +1,32 @@
 # HigherMindAI
 
-> AI client intake, AI search visibility and lead generation. I build an AI intake desk that answers every call and message 24/7, screens it and books the consultation - plus the visibility work that gets a business found on Google and named inside AI answers. Law firms are the specialty. Based in Ontario, Canada. Live in 14 days.
+> Local ranking and AI intake systems for property and condominium management firms across Canada, with law firms as a second book. I rank a firm so owners searching for a manager find it, put a desk on the other end that answers and qualifies every enquiry, and hand over a timestamped record of every contact. Operated by one person. Based in Erin, Ontario. Live in 14 to 21 days.
 
-## Core pages
+## Property & condominium management - the specialty
+- [Property Management](https://highermindai.com/property-management): the track hub. Four engines - ranking, intake, the record, reputation - and the arithmetic on a single door.
+- [The Keystone](https://highermindai.com/the-keystone): the full system. All four engines welded together, plus the configurator and published rates.
+- [Property Management SEO](https://highermindai.com/property-management-seo): Google Business Profile rebuilt and held in the local pack for the terms owners actually type.
+- [Property Management Intake](https://highermindai.com/property-management-intake): Cortex on the site and The Operator on the line, with the scope limits published in full.
+- [The Record](https://highermindai.com/property-management/the-record): every contact logged with the time it came in and the time it was answered, plus a monthly report written to be tabled at a board meeting unedited.
+- [Condominium Management Marketing](https://highermindai.com/condominium-management-marketing): the board track. Reputation and record first, ranking third and defensive.
+- [Cities](https://highermindai.com/local-seo/): per-city ranking pages across the Headwaters, the GTA, Southwestern Ontario and Greater Moncton.
+
+## Law firms - the second book
+- [The Watershed](https://highermindai.com/the-watershed): the legal flagship. Intake first, because a person in a crisis retains whoever picks up.
 - [AI Intake Desk](https://highermindai.com/law-firm-intake): 24/7 answering, screening and booking on phone and web.
+- [Ranking & Lead Generation](https://highermindai.com/law-firm-seo): Google Business Profile into the local pack top three, plus paid campaigns.
+
+## Shared
 - [AI Search Optimization / GEO](https://highermindai.com/ai-search-optimization): getting named by ChatGPT, Claude, Gemini, Perplexity, Copilot and Google AI Overviews.
-- [Ranking & Lead Generation](https://highermindai.com/law-firm-seo): Google Business Profile into the Map Pack top three, plus paid campaigns.
-- [The Watershed](https://highermindai.com/the-watershed): the full system - all of the above welded into one loop.
-- [Who I Help](https://highermindai.com/solutions): law firms first; also accountants, clinics, trades, real estate and other appointment-led businesses.
-- [About](https://highermindai.com/about): founder background - close to a decade inside the justice system.
+- [Who I Help](https://highermindai.com/solutions): property and condominium management is the specialty, law firms second; also accountants, clinics, veterinary, insurance brokers and other appointment-led businesses.
+- [About](https://highermindai.com/about): founder background - general manager of a property management company and its maintenance operation, and close to a decade inside the justice system before that.
 - [Book a call](https://highermindai.com/book/): phone 647-242-5800.
 
 ## Key facts
 - Operated by a single practitioner, not an agency. The person who sells the work does the work.
-- Practice areas served best: personal injury, family and divorce, criminal defence, immigration.
-- The intake desk does administrative intake only and never gives legal advice.
-- Guarantees: first page of Google Maps in 60 days or you stop paying; live in 14 days or the build fee is returned.
+- Property side: rental and investor-owner portfolios win through search; condominium corporations win through RFPs, where search is defensive rather than lead-generating.
+- The intake desk performs administrative intake only. It answers from the corporation's own documents, triages on the corporation's own criteria, logs, routes to a licensed manager, and stops. Where a jurisdiction licenses management - the CMRAO in Ontario - it never performs a licensed function.
+- Guarantees: first page inside 60 days on the agreed primary term, or the monthly pauses until it lands, with a 90-day provision for Toronto, Vancouver and Montreal agreed at kickoff; live in 14 to 21 days or the launch half of the build is not owed.
+- No promise of a number of doors. That depends on the firm's fees, close rate and capacity.
+- Published rates for the property track are on the pages themselves. Rates are never placed in structured data.
 - Serves clients across Canada.

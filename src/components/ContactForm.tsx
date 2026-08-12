@@ -92,7 +92,7 @@ export default function ContactForm() {
             name="business"
             value={form.business}
             onChange={onChange}
-            placeholder="e.g. Hartley Family Law, Brampton ON"
+            placeholder="e.g. your firm name, and the city"
             required
           />
         </label>

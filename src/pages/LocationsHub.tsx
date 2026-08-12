@@ -9,8 +9,8 @@ export default function LocationsHub() {
   return (
     <main>
       <Seo
-        title="Local SEO Locations across Ontario & Canada | HigherMindAI"
-        desc="Local SEO and Google Maps ranking for businesses across the Headwaters, the Greater Toronto Area, Southwestern Ontario, and Greater Moncton. First page in 60 days or you stop paying."
+        title="Property Management SEO by City, Canada | HigherMindAI"
+        desc="Google ranking for property management firms across the Headwaters, the Greater Toronto Area, Southwestern Ontario and Greater Moncton. First page in 60 days or the monthly pauses."
         path="/local-seo/"
         schema={[
           breadcrumbs([['Home', '/'], ['Locations', '/local-seo/']]),
@@ -24,16 +24,16 @@ export default function LocationsHub() {
             <div className="crumb">
               <Link to="/">Home</Link> &nbsp;/&nbsp; Locations
             </div>
-            <span className="eyebrow">Local SEO across Canada</span>
+            <span className="eyebrow">Property management SEO across Canada</span>
             <h1>
-              Where I rank <span className="em">local businesses.</span>
+              Where I rank <span className="em">property management firms.</span>
             </h1>
             <p className="sub">
-              Home turf is the Headwaters - Erin, Orangeville, Caledon. From there I rank businesses
-              across Ontario and into the Maritimes. Local SEO is delivered to your Google profile, so
-              distance is no barrier - what matters is whether I can out-rank the businesses around you.
-              These are the markets I am actively building in; more go live as I take on clients in new
-              cities.
+              Home turf is the Headwaters - Erin, Orangeville, Caledon. From there I rank firms across
+              Ontario and into the Maritimes. The work is delivered to your Google profile, so distance
+              is no barrier - what matters is whether I can out-rank the firms around you. These are the
+              markets I am actively building in, and each city page is built to rank on the term an owner
+              actually types. Search your own city term and see where you sit.
             </p>
           </div>
         </div>
@@ -71,7 +71,7 @@ export default function LocationsHub() {
 
       <CTAStrip
         head={<>Don&rsquo;t see <span className="em">your city?</span></>}
-        sub="I work with local businesses across Canada. Tell me where you are and what you do - I will tell you if I can win it."
+        sub="I work with property management firms across Canada, including Alberta, the Prairies and Atlantic Canada. Tell me your city and how many doors you carry - I will tell you straight whether I can win it."
       />
     </main>
   );

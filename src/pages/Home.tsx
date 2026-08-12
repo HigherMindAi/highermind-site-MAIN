@@ -2,12 +2,16 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import RecordTicker from '../components/RecordTicker';
-import { IntakeStage, SearchStage, RankStage, SystemsStage, CalendarStage } from '../components/Stages';
+import {
+  SearchStage, SystemsStage,
+  InflowStage, NightShiftStage, KeystoneArchStage,
+} from '../components/Stages';
 import ServiceLadder from '../components/ServiceLadder';
 import FAQ from '../components/FAQ';
 import { Arrow } from '../components/Icons';
 import { PHONE_E164, PHONE_DISP, FOUNDER } from '../lib/site';
 import { LAW_FAQ } from '../lib/services';
+import { PROPERTY_FAQ } from '../lib/property';
 import { orgSchema, faqSchema, personSchema } from '../lib/schema';
 
 /** Count-up for stats: final value ships in the HTML (crawlers read it);
@@ -113,31 +117,32 @@ export default function Home() {
   return (
     <main id="top">
       <Seo
-        title="AI Intake, AI Search & Lead Generation for Law Firms | HigherMindAI"
-        desc="An AI intake desk that answers every call and message 24/7, AI search visibility so you get named by ChatGPT and Google AI, and Google ranking that brings the demand. Built for law firms. Live in 14 days."
+        title="Property Management Marketing & AI Intake, Canada | HigherMindAI"
+        desc="I rank property management firms so owners find them, answer and qualify every enquiry that lands, and hand over the record of both. Systems from $900 a month, across Canada."
         path="/"
-        schema={[orgSchema(), personSchema(), faqSchema(LAW_FAQ)]}
+        schema={[orgSchema(), personSchema(), faqSchema([...PROPERTY_FAQ, ...LAW_FAQ])]}
       />
 
       <section className="hero">
         <div className="wrap">
           <div className="hero-grid">
             <div className="reveal">
-              <span className="eyebrow">AI intake &middot; AI search visibility &middot; lead generation</span>
-              <h1>The clients you're missing <span className="em">are calling right now.</span></h1>
+              <span className="eyebrow">Property management &middot; local visibility, intake, the record</span>
+              <h1>The doors you never knew <span className="em">you lost.</span></h1>
               <p className="sub">
-                I build the AI that answers them. An intake desk that picks up every call and
-                message 24/7, screens it, and books it - plus the visibility work that makes people
-                find you first, on Google and inside the AI systems they now ask instead.
+                Two ways it happens. They never find you, or nobody answers. I build ranking and
+                intake for property and condominium management firms, and hand you a timestamped
+                record of every contact - so responsiveness stops being a thing you claim and
+                becomes a number you can put in front of an owner or a board.
               </p>
               <div className="ctas">
                 <Link to="/book/" className="btn btn-primary">Book a call <Arrow /></Link>
                 <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">Call {PHONE_DISP}</a>
               </div>
               <div className="undercta">
-                <span><span className="t">/</span> Answered in under 60 seconds</span>
-                <span><span className="t">/</span> Live in 14 days</span>
-                <span><span className="t">/</span> Built from inside the justice system</span>
+                <span><span className="t">/</span> Answered and qualified</span>
+                <span><span className="t">/</span> Live in 14-21 days</span>
+                <span><span className="t">/</span> One operator, start to finish</span>
               </div>
             </div>
             <RecordTicker />
@@ -151,14 +156,58 @@ export default function Home() {
         <div className="wrap">
           <div className="sec-head left reveal">
             <span className="eyebrow">The problem</span>
-            <h2>Two things lose you the client. <span className="em">They never find you, or nobody answers.</span></h2>
+            <h2>Two things lose you the door. <span className="em">They never find you, or nobody answers.</span></h2>
           </div>
           <p className="lead reveal">
-            Someone in a crisis calls three firms in ten minutes and retains whoever picks up. If you
-            are not in the answer they were given, you never got the call. If you were, and it rang out
-            at nine at night, you lost it to whoever did answer. I close both ends - and the second one
-            is the one nobody else will sell you.
+            An owner who has just decided to stop managing it himself reads the first three results
+            and calls two of them. If you are not in that pack you were never in the running, and you
+            will never learn the enquiry existed. If you were, and it rang out at seven in the
+            evening, that door went to whoever answered - permanently. I close both ends, and the
+            second one is the one nobody else will sell you.
           </p>
+        </div>
+      </section>
+
+
+      <div className="divider" />
+
+      <section className="sec" id="doors">
+        <div className="wrap">
+          <div className="sec-head left reveal">
+            <span className="eyebrow">Two books</span>
+            <h2>Pick the one <span className="em">you are.</span></h2>
+            <p className="lead">
+              Property management is the specialty and where nearly all of my work goes. Law firms
+              are the second book, still live and still built. Both lose work the same two ways, but
+              they lose it in a different order - so they get built in a different order.
+            </p>
+          </div>
+          <div className="steps">
+            <div className="step reveal">
+              <div className="sn">The specialty &middot; Property &amp; condominium management</div>
+              <h3>The Keystone</h3>
+              <p>
+                Ranking first, because an owner who has just decided to stop managing it himself is
+                already searching. Then the desk that answers him, the record that proves it, and the
+                reputation work that keeps board packages coming. Rental portfolios and condominium
+                corporations.
+              </p>
+              <div className="ctas" style={{ marginTop: 22 }}>
+                <Link to="/property-management" className="btn btn-primary">The Keystone <Arrow /></Link>
+              </div>
+            </div>
+            <div className="step reveal">
+              <div className="sn">The second book &middot; Law firms</div>
+              <h3>The Watershed</h3>
+              <p>
+                Intake first, because a person in a crisis retains the firm that picks up. Personal
+                injury, family, criminal defence, immigration.
+              </p>
+              <div className="ctas" style={{ marginTop: 22 }}>
+                <Link to="/the-watershed" className="btn btn-primary">The Watershed <Arrow /></Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -166,30 +215,54 @@ export default function Home() {
 
       <Product
         n="01"
-        eyebrow="AI Intake Desk"
-        head="Every call answered."
-        em="Screened, booked, 24/7."
-        lead="An AI intake desk on your phone and your website. It answers the moment an enquiry lands, runs your screening questions in your words, captures the file, and books the consultation while the caller is still on the line."
+        eyebrow="Ranking & Local Leads"
+        head="Found first by the owner searching,"
+        em="and it stays yours."
+        lead="The demand half, and the engine every firm understands first. A managed Google Business Profile engineered into the top three of the local pack and held there, plus paid campaigns where you want volume faster than ranking can compound. Organic is a well, paid is a tap - I build the well first."
         stats={[
-          ['<60s', 'Response, every channel', { c: 60, pre: '<', suf: 's' }],
-          ['24/7', 'Nights, weekends, holidays', { c: 24, suf: '/7' }],
-          ['14 days', 'From yes to live', { c: 14, suf: ' days' }],
+          ['Top 3', 'Map Pack target', { c: 3, pre: 'Top ' }],
+          ['60 days', 'Or the monthly pauses'],
+          ['Owned', 'An asset, not rent'],
         ]}
         points={[
-          'Answers from your knowledge and your process, never a generic script - and hands off to a human rather than guessing.',
-          'Screens on the things that actually matter: conflicts, practice area, urgency, jurisdiction, location.',
-          'Books straight into your calendar, then chases no-shows and cold enquiries automatically.',
-          'Administrative intake only. It never gives legal advice and never implies a solicitor-client relationship.',
+          'Profile rebuilt properly: correct category, complete services, consistent details everywhere they appear.',
+          'Review velocity, citation authority and local content - the signals that decide who holds the top three.',
+          'Every winnable town around you built as its own ranked unit, so you own more than one pin.',
+          'The Rank Lock: first page inside 60 days on the agreed primary term, or the monthly pauses until it lands. Toronto, Vancouver and Montreal carry a 90-day provision agreed at kickoff.',
         ]}
-        href="/law-firm-intake"
-        cta="See the intake desk"
-        stage={<IntakeStage />}
+        href="/property-management-seo"
+        cta="See the ranking work"
+        stage={<InflowStage />}
       />
 
       <div className="divider" />
 
       <Product
         n="02"
+        eyebrow="AI Intake Desk"
+        head="Every call answered."
+        em="Screened, booked, 24/7."
+        lead="An AI intake desk on your phone and your website. It answers the moment an enquiry lands, runs your screening questions in your words, captures the file, and books the consultation while the caller is still on the line."
+        stats={[
+          ['Every one', 'Answered and qualified'],
+          ['24/7', 'Nights, weekends, holidays', { c: 24, suf: '/7' }],
+          ['14-21 days', 'From yes to live'],
+        ]}
+        points={[
+          'Answers from your knowledge and your process, never a generic script - and hands off to a human rather than guessing.',
+          'Screens on the things that actually matter: is it an owner enquiry, how many doors, which city, and is it urgent.',
+          'Books straight into your calendar, then chases no-shows and cold enquiries automatically.',
+          'Administrative intake only. It routes to a licensed manager and stops - the published scope limits say exactly where.',
+        ]}
+        href="/property-management-intake"
+        cta="See the intake desk"
+        stage={<NightShiftStage />}
+      />
+
+      <div className="divider" />
+
+      <Product
+        n="03"
         eyebrow="AI Search Visibility &middot; GEO"
         head="Get named by the AI"
         em="people now ask instead of Google."
@@ -208,30 +281,6 @@ export default function Home() {
         href="/ai-search-optimization"
         cta="See AI search visibility"
         stage={<SearchStage />}
-      />
-
-      <div className="divider" />
-
-      <Product
-        n="03"
-        eyebrow="Ranking & Local Leads"
-        head="Found first on Google,"
-        em="and it stays yours."
-        lead="The demand half. A managed Google Business Profile engineered into the top three of the Map Pack and held there, plus paid campaigns where you want volume faster than ranking can compound."
-        stats={[
-          ['Top 3', 'Map Pack target', { c: 3, pre: 'Top ' }],
-          ['60 days', 'Or you stop paying', { c: 60, suf: ' days' }],
-          ['Owned', 'An asset, not rent'],
-        ]}
-        points={[
-          'Profile rebuilt properly: correct category, complete services, consistent details everywhere they appear.',
-          'Review velocity, citation authority and local content - the signals that decide who holds the top three.',
-          'Every winnable town around you built as its own ranked unit, so you own more than one pin.',
-          'The Rank Lock: first page in 60 days or you stop paying the monthly and I keep working at no charge.',
-        ]}
-        href="/law-firm-seo"
-        cta="See the ranking work"
-        stage={<RankStage />}
       />
 
       <div className="divider" />
@@ -265,20 +314,22 @@ export default function Home() {
             <div>
               <div className="sec-head left reveal" style={{ marginBottom: 28 }}>
                 <span className="eyebrow">The flagship</span>
-                <h2>The Watershed is all of it, welded together. <span className="em">Demand in, booked consultations out.</span></h2>
+                <h2>Welded together, it is one loop. <span className="em">Demand in, booked owners out.</span></h2>
                 <p className="lead">
                   Each piece above stands on its own and can be bought on its own. Together they are
-                  a closed loop: visibility brings the enquiry, the intake desk answers it, and the
-                  report on the first of the month proves both. Nothing gets in without being caught.
+                  a closed loop: visibility brings the owner enquiry, the desk answers and qualifies
+                  it, and the report on the first of the month proves both. It is called The Keystone
+                  for a property management company and The Watershed for a law firm - same loop,
+                  different order of build, because the two books leak differently.
                 </p>
               </div>
               <div className="ctas reveal">
-                <Link to="/the-watershed" className="btn btn-primary">See the full system <Arrow /></Link>
-                <Link to="/book/" className="btn btn-ghost">Book a call</Link>
+                <Link to="/the-keystone" className="btn btn-primary">The Keystone <Arrow /></Link>
+                <Link to="/the-watershed" className="btn btn-ghost">The Watershed</Link>
               </div>
             </div>
             <div className="stg-wrap reveal">
-              <CalendarStage />
+              <KeystoneArchStage />
             </div>
           </div>
         </div>
@@ -302,16 +353,17 @@ export default function Home() {
         <div className="wrap">
           <div className="sec-head left reveal">
             <span className="eyebrow">Who I help</span>
-            <h2>Law firms are the specialty. <span className="em">They are not the only door.</span></h2>
+            <h2>Property management is the specialty. <span className="em">It is not the only door.</span></h2>
             <p className="lead">
-              I build for law firms first, because legal intake is the hardest version of the problem
-              and I spent close to a decade inside the justice system before building any of this. But
-              a missed enquiry costs the same in any business where one client is worth real money.
+              Property management first, because a door pays every month for years and one won owner
+              carries the whole system. Law firms second, because legal intake is the hardest version
+              of the same problem and I spent close to a decade inside the justice system. A missed
+              enquiry costs the same in any business where one client is worth having.
             </p>
           </div>
           <div className="inds reveal">
-            <span className="ind lead-ind">Law firms - the specialty</span>
-            {['Accountants','Dentists & orthodontists','Medical clinics','Veterinary','Insurance brokers','Real estate','HVAC & plumbing','Electrical & roofing','Auto service','Any appointment-led practice'].map((i) => (
+            <span className="ind lead-ind">Property &amp; condominium management - the specialty</span>
+            {['Law firms - the second book','Accountants','Dentists & orthodontists','Medical clinics','Veterinary','Insurance brokers','Any appointment-led practice'].map((i) => (
               <span className="ind" key={i}>{i}</span>
             ))}
           </div>
@@ -339,10 +391,12 @@ export default function Home() {
                 Built by someone who lived in the file, <span className="em">not a marketer who read about it.</span>
               </h2>
               <p>
-                Before HigherMindAI, I spent the better part of a decade inside the justice system - in
-                courtrooms and in federal case files. I know what a real intake looks like, and why the
-                first firm to pick up is usually the firm that gets retained. One operator, start to
-                finish. No account manager between you and the work.
+                Before this I was general manager of a property management company and the maintenance
+                operation that served it - rent rolls, arrears, turnovers, board meetings, and calls at
+                eleven at night. Before that, close to a decade inside the justice system, in
+                courtrooms and federal case files, where I learned that an incident is only ever as
+                good as the record of it. One operator, start to finish. No account manager between
+                you and the work.
               </p>
               <div className="ctas">
                 <Link to="/about" className="btn btn-primary">The full story <Arrow /></Link>
@@ -360,6 +414,9 @@ export default function Home() {
             <span className="eyebrow">Questions</span>
             <h2>Answered plainly.</h2>
           </div>
+          <h3 className="sn" style={{ marginBottom: 18 }}>Property &amp; condominium management</h3>
+          <FAQ items={PROPERTY_FAQ} />
+          <h3 className="sn" style={{ margin: '40px 0 18px' }}>Law firms</h3>
           <FAQ items={LAW_FAQ} />
         </div>
       </section>
@@ -369,11 +426,11 @@ export default function Home() {
       <section className="ctastrip" id="contact">
         <div className="wrap">
           <div className="sec-head reveal">
-            <h2>Fifteen minutes. <span className="em">No pitch.</span></h2>
+            <h2>Nine minutes. <span className="em">No pitch.</span></h2>
             <p className="lead">
-              I will ask what a new client is worth to you, what happens to a call at seven in the
-              evening, and where you show up when somebody nearby goes looking. Then I tell you
-              straight what I would build and what it would take.
+              I will ask what a door is worth to you, what happens to an owner enquiry that lands at
+              seven in the evening, and where you show up when somebody nearby goes looking. Then I
+              tell you straight what I would build and what it would take.
             </p>
           </div>
           <div className="ctas reveal">

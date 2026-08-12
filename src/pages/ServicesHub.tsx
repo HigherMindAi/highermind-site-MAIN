@@ -9,8 +9,8 @@ export default function ServicesHub() {
   return (
     <main>
       <Seo
-        title="Ranking, Paid Growth & AI Intake for Law Firms | HigherMindAI"
-        desc="The Watershed, the AI intake desk, Google ranking, paid growth and more. Lead generation welded to a 24/7 AI intake desk that answers, screens and books every enquiry for your firm."
+        title="Ranking, Paid Growth & AI Intake by Service | HigherMindAI"
+        desc="The Keystone, the intake desk, Google ranking, paid growth and more. Every piece on its own, or welded into one loop that answers and qualifies every enquiry your firm receives."
         path="/services/"
         schema={[
           breadcrumbs([['Home', '/'], ['Services', '/services/']]),

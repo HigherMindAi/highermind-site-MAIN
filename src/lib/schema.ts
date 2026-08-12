@@ -1,7 +1,9 @@
 // ---------------------------------------------------------------------------
 // HigherMindAI - JSON-LD builders (answer-layer / rich-result signals)
-// Law-firm positioning. NO pricing in any block, deliberately - the rate card
-// lives on the page, never in the markup. Hyphens only, never em-dashes.
+// Two books: law firms and property management. NO pricing in any block,
+// deliberately. Published figures live in visible copy only - a price in
+// structured data can be cached into a rich result against me, and visible
+// copy changes in one deploy. Hyphens only, never em-dashes.
 // ---------------------------------------------------------------------------
 import {
   BASE, BIZ_NAME, PHONE_E164, EMAIL, LOCALITY, REGION, COUNTRY, FOUNDER,
@@ -37,11 +39,11 @@ export function orgSchema(): Json {
       {
         '@type': 'ProfessionalService',
         '@id': SERVICE_ID,
-        name: 'HigherMindAI - AI Intake & Lead Generation for Law Firms',
+        name: 'HigherMindAI - Property Management Marketing & AI Intake',
         url: BASE + '/',
         image: `${BASE}/og.png`,
         description:
-          'An AI intake desk and lead-generation system for law firms. It ranks a firm so clients find it, then answers every call and message 24/7, screens it, captures it, and books the consultation.',
+          'Local ranking and AI intake systems for property and condominium management firms across Canada, and for law firms as a second book. I rank a firm so owners find it, answer and qualify every enquiry that lands, and hand over a timestamped record of both.',
         telephone: PHONE_E164,
         email: EMAIL,
         areaServed: [
@@ -82,6 +84,10 @@ export function personSchema(): Json {
       },
     },
     knowsAbout: [
+      'property management marketing',
+      'condominium management marketing',
+      'property management lead generation',
+      'property management answering service',
       'legal client intake',
       'law firm marketing',
       'local SEO',
@@ -91,7 +97,7 @@ export function personSchema(): Json {
       'the justice system',
     ],
     description:
-      'Founder of HigherMindAI. Spent close to a decade inside the justice system - courtrooms and federal casework - before building AI intake and ranking systems for law firms. Based in Ontario, Canada.',
+      'Founder of HigherMindAI. General manager of a property management company and its maintenance operation, and close to a decade inside the justice system before that, in courtrooms and federal casework. Now builds local ranking and AI intake systems for property and condominium management firms across Canada. Based in Erin, Ontario, Canada.',
   };
 }
 
@@ -169,21 +175,21 @@ export function locationSchema(c: City, url: string): Json {
       },
       geo: { '@type': 'GeoCoordinates', latitude: c.geo[0], longitude: c.geo[1] },
       areaServed: HOME_AREA_SERVED.map((t) => ({ '@type': 'City', name: t })),
-      description: `AI client intake and Google ranking for law firms in ${c.city} and across ${rfull}.`,
+      description: `Google ranking and AI intake systems for property management firms in ${c.city} and across ${rfull}.`,
     };
   }
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    serviceType: 'Law firm lead generation and AI intake',
-    name: `Law firm lead generation in ${c.city}, ${c.region}`,
+    serviceType: 'Property management lead generation and AI intake',
+    name: `Property management lead generation in ${c.city}, ${c.region}`,
     url: BASE + url,
     areaServed: {
       '@type': 'City',
       name: c.city,
       containedInPlace: { '@type': 'AdministrativeArea', name: rfull },
     },
-    description: `Google ranking and a 24/7 AI intake desk for law firms in ${c.city}, ${rfull}. First page of Google Maps in 60 days or you stop paying.`,
+    description: `Google ranking and a 24/7 AI intake desk for property management firms in ${c.city}, ${rfull}. First page in 60 days on the agreed primary term, or the monthly pauses until it lands.`,
     provider: { '@id': ORG_ID },
   };
 }
@@ -195,7 +201,7 @@ export function locationsItemList(cities: City[]): Json {
     itemListElement: cities.map((c, i) => ({
       '@type': 'ListItem',
       position: i + 1,
-      name: `Law firm lead generation in ${c.city}, ${REGION_FULL[c.region]}`,
+      name: `Property management lead generation in ${c.city}, ${REGION_FULL[c.region]}`,
       url: `${BASE}/local-seo/${c.slug}/`,
     })),
   };

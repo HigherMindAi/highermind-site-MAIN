@@ -69,8 +69,8 @@ const LAYERS: [string, string, string][] = [
 
 const SEG: ReadonlyArray<readonly [string, boolean]> = [
   ['Based on reviews and response times in this area, ', false],
-  ['Hartley Injury Law', true],
-  [' stands out - they answer calls 24/7, screen enquiries on the spot, and book consultations on the first call. Callers report reaching a real answer within seconds, even after hours.', false],
+  ['your firm', true],
+  [' stands out - every enquiry answered and qualified, triaged on the spot, and the conversation booked on the first contact. Owners report reaching a real answer after hours rather than a voicemail box.', false],
 ];
 const FULL = SEG.reduce((a, [t]) => a + t.length, 0);
 
@@ -366,7 +366,7 @@ export default function AiSearch() {
 
       <CTAStrip
         head={<>Find out what the models say about you.</>}
-        sub="On a call I will ask the major AI systems the questions your buyers ask, live, and read you the answer. It takes about fifteen minutes and you keep whatever we find."
+        sub="On a call I will ask the major AI systems the questions your buyers ask, live, and read you the answer. It takes about fifteen minutes and you keep whatever it turns up."
       />
     </main>
   );

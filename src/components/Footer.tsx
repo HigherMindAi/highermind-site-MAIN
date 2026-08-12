@@ -16,9 +16,9 @@ export default function Footer() {
               <Wordmark />
             </Link>
             <p>
-              I rank your firm so clients find it, then answer every call and message
-              24/7, screen it, and book the consultation. One operator, one loop, built
-              from inside the justice system.
+              I rank your firm so owners find it, answer and qualify every enquiry that
+              lands, then hand you a record of what came in and how fast it was answered.
+              Property management first, law firms second, one operator, one loop.
             </p>
             <div className="op">
               <img
@@ -37,11 +37,21 @@ export default function Footer() {
           </div>
           <div className="foot-links">
             <div className="foot-col">
-              <h4>What I build</h4>
-              <Link to="/law-firm-intake">AI intake desk</Link>
-              <Link to="/ai-search-optimization">AI search visibility</Link>
-              <Link to="/law-firm-seo">Ranking &amp; leads</Link>
+              <h4>Property management</h4>
+              <Link to="/property-management">Property management</Link>
+              <Link to="/the-keystone">The Keystone</Link>
+              <Link to="/property-management-seo">Ranking &amp; visibility</Link>
+              <Link to="/property-management-intake">The intake desk</Link>
+              <Link to="/property-management/the-record">The Record</Link>
+              <Link to="/condominium-management-marketing">Condominium boards</Link>
+              <Link to="/local-seo/">Cities I rank in</Link>
+            </div>
+            <div className="foot-col">
+              <h4>Law firms</h4>
               <Link to="/the-watershed">The Watershed</Link>
+              <Link to="/law-firm-intake">AI intake desk</Link>
+              <Link to="/law-firm-seo">Ranking &amp; leads</Link>
+              <Link to="/ai-search-optimization">AI search visibility</Link>
               <Link to="/solutions">Who I help</Link>
               <Link to="/about">About</Link>
             </div>
@@ -68,7 +78,8 @@ export default function Footer() {
             {PHONE_DISP} &nbsp;&middot;&nbsp; {EMAIL}
           </span>
           <span>
-            &copy; {year} {BRAND}. AI client intake &amp; lead generation for law firms.
+            &copy; {year} {BRAND}. Local ranking, AI intake and lead generation for
+            property management companies and law firms.
           </span>
         </div>
       </div>

@@ -39,41 +39,11 @@ function usePlayhead(steps: number, ms: number, rest = 4200) {
   return n;
 }
 
-/* ------------------------------------------------ 01 · the intake desk */
-const CHAT: { k: 'in' | 'out' | 'tag' | 'book'; t: string }[] = [
-  { k: 'in', t: 'I was rear-ended an hour ago. Is anyone there?' },
-  { k: 'out', t: "I'm here, and I can help. Are you safe right now?" },
-  { k: 'in', t: "Yes - just shaken. I know it's late." },
-  { k: 'out', t: 'Late is fine. Which city are you in, and were you the driver?' },
-  { k: 'tag', t: 'Screened · qualified · no conflict' },
-  { k: 'book', t: 'Consultation booked · Thu 10:30 am' },
-];
-
-export function IntakeStage() {
-  const n = usePlayhead(CHAT.length, 1050);
-  return (
-    <div className="stg" aria-label="Illustrative after-hours intake conversation">
-      <div className="stg-top">
-        <span className="stg-lab">10:41 pm &middot; after hours</span>
-        <span className="stg-chip">answered in 3s</span>
-      </div>
-      <div className="stg-chat">
-        {CHAT.map((r, i) => (
-          <div key={i} className={`sc sc-${r.k}${i < n ? ' on' : ''}`}>
-            {r.t}
-          </div>
-        ))}
-      </div>
-      <div className="stg-note">Illustrative</div>
-    </div>
-  );
-}
-
-/* ------------------------------------------- 02 · the ai search answer */
+/* ---------------------------------------- the ai search answer, typing */
 const SEG: ReadonlyArray<readonly [string, boolean]> = [
-  ['For after-hours response and client reviews, ', false],
-  ['Hartley Family Law', true],
-  [' is the standout - they pick up 24/7 and book the consultation on the first call.', false],
+  ['For after-hours response and owner reviews, ', false],
+  ['your firm', true],
+  [' is where I would start - every enquiry answered and qualified, and the owner call booked on the first contact.', false],
 ];
 const FULL = SEG.reduce((a, [t]) => a + t.length, 0);
 
@@ -107,12 +77,12 @@ export function SearchStage() {
   }, []);
   let used = 0;
   return (
-    <div className="stg" aria-label="Illustrative AI answer naming a firm">
+    <div className="stg" aria-label="Illustrative AI answer naming your firm">
       <div className="stg-top">
         <span className="stg-lab">ai assistant</span>
         <span className="stg-chip">one answer</span>
       </div>
-      <div className="stg-q">best family lawyer near me that answers at night?</div>
+      <div className="stg-q">who manages rental property near me and actually answers?</div>
       <div className="stg-a">
         {SEG.map(([t, hi], k) => {
           const s = used;
@@ -128,42 +98,7 @@ export function SearchStage() {
   );
 }
 
-/* --------------------------------------------- 03 · the map pack climb */
-export function RankStage() {
-  const n = usePlayhead(7, 520, 4400);
-  const pos = Math.max(1, 7 - n);
-  const others = ['National chain', 'Aggregator listing', 'Legacy firm'];
-  const list: { name: string; you?: boolean }[] = others.map((o) => ({ name: o }));
-  if (pos <= 3) list.splice(pos - 1, 0, { name: 'Your firm', you: true });
-  const top3 = list.slice(0, 3);
-  return (
-    <div className="stg" aria-label="Illustrative Google Maps ranking climb">
-      <div className="stg-top">
-        <span className="stg-lab">google maps &middot; &ldquo;injury lawyer&rdquo;</span>
-        <span className="stg-chip">{pos <= 3 ? 'in the pack' : 'climbing'}</span>
-      </div>
-      <div className="stg-pack">
-        {top3.map((r, i) => (
-          <div key={r.name} className={'sp' + (r.you ? ' you' : '')}>
-            <span className="sp-n">{i + 1}</span>
-            <span className="sp-name">{r.name}</span>
-            {r.you && <span className="sp-tag">that&rsquo;s you</span>}
-          </div>
-        ))}
-        {pos > 3 && (
-          <div className="sp dim you">
-            <span className="sp-n">{pos}</span>
-            <span className="sp-name">Your firm</span>
-            <span className="sp-tag">rising</span>
-          </div>
-        )}
-      </div>
-      <div className="stg-note">Illustrative &middot; 60 days or you stop paying</div>
-    </div>
-  );
-}
-
-/* -------------------------------------------- 04 · the signature motion */
+/* -------------------------------------------- the signature motion */
 const NODES = ['Enquiry', 'Screen', 'Book', 'Follow up'];
 
 export function SystemsStage() {
@@ -205,40 +140,343 @@ export function SystemsStage() {
   );
 }
 
-/* ------------------------------------- the watershed · calendar filling */
-const BOOKINGS: [number, number, string][] = [
-  [0, 1, '10:30'], [2, 0, '9:15'], [1, 2, '4:00'], [4, 0, '11:00'], [3, 1, '2:30'],
-  [0, 2, '6:45'], [2, 2, '5:15'], [4, 1, '3:00'], [1, 0, '8:30'],
-];
-const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
 
-export function CalendarStage() {
-  const n = usePlayhead(BOOKINGS.length, 620, 4400);
-  const set = new Set(BOOKINGS.slice(0, n).map(([d, s]) => `${d}-${s}`));
-  const label = new Map(BOOKINGS.map(([d, s, t]) => [`${d}-${s}`, t]));
+/* ===========================================================================
+   THE ARGUMENT STAGES
+   ---------------------------------------------------------------------------
+   The stages above are mock interfaces: a chat window, a ranked list, a week
+   of a calendar. They show what the product looks like. These five show what
+   the product CLAIMS - the argument drawn rather than the screen photographed.
+
+   Every one of them renders its finished state in the prerendered HTML, so a
+   crawler and a no-JS reader get the whole thing; the playback is a client
+   layer over the top, and all of it stands down under prefers-reduced-motion.
+
+   No timing claims anywhere. Nothing here states a response duration.
+   =========================================================================== */
+
+/* ------------------------------------------- the inflow · the well and the tap
+   The central argument of the property book, drawn: paid demand is a tap that
+   stops the day the spend stops, organic is a well that keeps rising. Twelve
+   months across, with the moment the spend stops marked. */
+
+const WELL_D = 'M6 118 C 60 112, 104 96, 148 78 S 236 44, 300 22';
+const TAP_D = 'M6 118 L 30 62 L 74 56 L 118 60 L 162 55 L 196 58 L 197 118 Z';
+
+export function InflowStage() {
+  const n = usePlayhead(2, 1400, 4600);
   return (
-    <div className="stg stg-cal" aria-label="Illustrative week of booked consultations">
+    <div className="stg" aria-label="Illustrative comparison: organic position compounds, paid demand stops when spend stops">
       <div className="stg-top">
-        <span className="stg-lab">your calendar &middot; this week</span>
-        <span className="stg-chip">{n} booked</span>
+        <span className="stg-lab">twelve months of demand</span>
+        <span className="stg-chip">the well and the tap</span>
       </div>
-      <div className="cal-grid">
-        {DAYS.map((d, di) => (
-          <div key={d} className="cal-day">
-            <span className="cal-dl">{d}</span>
-            {[0, 1, 2].map((s) => {
-              const k = `${di}-${s}`;
-              const bk = set.has(k);
+
+      <div className="ifl">
+        <svg viewBox="0 0 306 132" className="ifl-svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="ifl-tap" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stopColor="#8DA2A6" stopOpacity=".22" />
+              <stop offset="1" stopColor="#8DA2A6" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+
+          {/* baseline */}
+          <line x1="6" y1="118" x2="300" y2="118" className="ifl-base" />
+
+          {/* the tap: fills fast, holds, then stops dead */}
+          <path d={TAP_D} className={'ifl-tap' + (n >= 1 ? ' on' : '')} fill="url(#ifl-tap)" />
+
+          {/* the moment the spend stops */}
+          <line x1="197" y1="26" x2="197" y2="118" className={'ifl-cut' + (n >= 1 ? ' on' : '')} />
+
+          {/* the well: slower, and it does not stop */}
+          <path d={WELL_D} className={'ifl-well' + (n >= 2 ? ' on' : '')} fill="none" />
+        </svg>
+
+        <span className="ifl-cutlab">spend stops</span>
+
+        <div className="ifl-key">
+          <span className="ifl-k ifl-k-well">Organic · the well</span>
+          <span className="ifl-k ifl-k-tap">Paid · the tap</span>
+        </div>
+      </div>
+
+      <div className="stg-note">Illustrative &middot; the well is the part you keep</div>
+    </div>
+  );
+}
+
+/* ------------------------------------------------ the intake · the night shift
+   A day of arrivals across twenty-four hours, run twice. The same arrivals,
+   with the desk and without it. The office window is the lit band; everything
+   outside it is the argument. */
+
+// hour of arrival, 0-24
+const ARRIVALS = [8.4, 10.1, 11.6, 13.2, 15.5, 17.4, 18.9, 20.2, 21.7, 23.1, 1.4, 6.8];
+const OPEN_FROM = 9;
+const OPEN_TO = 18;
+const AFTER = ARRIVALS.filter((h) => h < OPEN_FROM || h > OPEN_TO).length;
+
+export function NightShiftStage() {
+  const n = usePlayhead(3, 1500, 4400);
+  const pct = (h: number) => (h / 24) * 100;
+  return (
+    <div className="stg" aria-label="Illustrative day of enquiry arrivals, with and without an intake desk">
+      <div className="stg-top">
+        <span className="stg-lab">one day &middot; 24 hours</span>
+        <span className="stg-chip">
+          {AFTER} of {ARRIVALS.length} arrive outside hours
+        </span>
+      </div>
+
+      <div className="nsh">
+        <div className="nsh-row">
+          <span className="nsh-lab">No desk</span>
+          <div className="nsh-band">
+            <span className="nsh-open" style={{ left: `${pct(OPEN_FROM)}%`, width: `${pct(OPEN_TO - OPEN_FROM)}%` }} />
+            {ARRIVALS.map((h, i) => {
+              const out = h < OPEN_FROM || h > OPEN_TO;
               return (
-                <span key={s} className={'cal-cell' + (bk ? ' bk' : '')}>
-                  {bk ? label.get(k) : ''}
-                </span>
+                <span
+                  key={i}
+                  className={'nsh-dot' + (out ? ' out' : '') + (n >= 2 && out ? ' gone' : '') + (n >= 1 ? ' shown' : '')}
+                  style={{ left: `${pct(h)}%`, transitionDelay: `${i * 55}ms` }}
+                />
               );
             })}
           </div>
-        ))}
+          <span className="nsh-out">{n >= 2 ? `${ARRIVALS.length - AFTER} caught` : '\u2014'}</span>
+        </div>
+
+        <div className="nsh-row">
+          <span className="nsh-lab">With the desk</span>
+          <div className="nsh-band">
+            <span className="nsh-open" style={{ left: `${pct(OPEN_FROM)}%`, width: `${pct(OPEN_TO - OPEN_FROM)}%` }} />
+            {ARRIVALS.map((h, i) => (
+              <span
+                key={i}
+                className={'nsh-dot held' + (n >= 3 ? ' shown' : '')}
+                style={{ left: `${pct(h)}%`, transitionDelay: `${i * 55}ms` }}
+              />
+            ))}
+          </div>
+          <span className={'nsh-out' + (n >= 3 ? ' ok' : '')}>
+            {n >= 3 ? `${ARRIVALS.length} caught` : '\u2014'}
+          </span>
+        </div>
+
+        <div className="nsh-axis">
+          <span />
+          <span className="nsh-ticks">
+            <span>midnight</span>
+            <span className="nsh-ax-lit">9 to 6</span>
+            <span>midnight</span>
+          </span>
+          <span />
+        </div>
       </div>
-      <div className="stg-note">Illustrative &middot; demand in, booked consultations out</div>
+
+      <div className="stg-note">
+        Illustrative &middot; the lit band is when somebody is at the desk
+      </div>
+    </div>
+  );
+}
+
+/* ------------------------------------------ the record · the report, as artifact
+   Not a log list - the hero ticker already does that. This is the monthly
+   Keystone Report as a thing you hand across a board table: the shape of the
+   month, the totals, and the stamp that says it went out unedited. */
+
+const HIST: number[] = [3, 2, 1, 1, 2, 4, 7, 9, 8, 6, 5, 7, 9, 8, 6, 5, 4, 3];
+
+export function RecordStage() {
+  const n = usePlayhead(HIST.length + 2, 105, 4200);
+  const max = Math.max(...HIST);
+  return (
+    <div className="stg" aria-label="Illustrative monthly report: arrivals by hour, totals, and the record of every contact">
+      <div className="stg-top">
+        <span className="stg-lab">the keystone report &middot; monthly</span>
+        <span className="stg-chip">forwarded unedited</span>
+      </div>
+
+      <div className="rcd">
+        <div className="rcd-head">
+          <span className="rcd-t">When they arrived</span>
+          <span className="rcd-s">every contact, logged</span>
+        </div>
+
+        <div className="rcd-hist">
+          {HIST.map((v, i) => (
+            <span
+              key={i}
+              className={'rcd-bar' + (i < n ? ' on' : '')}
+              style={{ height: `${(v / max) * 100}%` }}
+            />
+          ))}
+        </div>
+        <div className="rcd-axis">
+          <span>6a</span>
+          <span>noon</span>
+          <span>6p</span>
+          <span>midnight</span>
+        </div>
+
+        <div className="rcd-tot">
+          <span>
+            arrived <b>84</b>
+          </span>
+          <span>
+            answered <b className="tl">84</b>
+          </span>
+          <span>
+            booked <b>31</b>
+          </span>
+          <span>
+            missed <b>0</b>
+          </span>
+        </div>
+
+        <div className={'rcd-stamp' + (n >= HIST.length + 2 ? ' on' : '')}>
+          On the record
+        </div>
+      </div>
+
+      <div className="stg-note">
+        Illustrative &middot; written to be tabled at a board meeting without editing
+      </div>
+    </div>
+  );
+}
+
+/* ----------------------------------------- the trust · the average, rewritten
+   The structural problem, drawn: the people most motivated to review a
+   management firm are not the people who pay it. Two populations, one average.
+   Nothing here is gated or filtered - the volume simply changes hands. */
+
+type Dist = [number, number, number]; // stars, tenant count, owner count
+const BEFORE: Dist[] = [[5, 1, 0], [4, 1, 0], [3, 1, 0], [2, 3, 0], [1, 5, 0]];
+const AFTER_D: Dist[] = [[5, 1, 71], [4, 1, 38], [3, 1, 9], [2, 3, 2], [1, 5, 1]];
+
+function avg(d: Dist[]) {
+  let n = 0;
+  let t = 0;
+  d.forEach(([s, a, b]) => {
+    n += a + b;
+    t += s * (a + b);
+  });
+  return { n, a: t / n };
+}
+
+export function TrustStage() {
+  const n = usePlayhead(2, 1500, 4600);
+  const set = n >= 2 ? AFTER_D : BEFORE;
+  const { n: count, a } = avg(set);
+  const peak = Math.max(...AFTER_D.map(([, x, y]) => x + y));
+  return (
+    <div className="stg" aria-label="Illustrative review distribution: tenant reviews versus owner reviews and the resulting average">
+      <div className="stg-top">
+        <span className="stg-lab">who actually writes the reviews</span>
+        <span className="stg-chip">{count} reviews</span>
+      </div>
+
+      <div className="trs">
+        <div className="trs-score">
+          <span className="trs-n">{a.toFixed(1)}</span>
+          <span className="trs-of">average, out of five</span>
+        </div>
+
+        <div className="trs-rows">
+          {set.map(([s, ten, own]) => (
+            <div className="trs-row" key={s}>
+              <span className="trs-s">{s}</span>
+              <span className="trs-track">
+                <span className="trs-ten" style={{ width: `${(ten / peak) * 100}%` }} />
+                <span className="trs-own" style={{ width: `${(own / peak) * 100}%` }} />
+              </span>
+            </div>
+          ))}
+        </div>
+
+        <div className="trs-key">
+          <span className="trs-k trs-k-ten">Tenant, worst week</span>
+          <span className="trs-k trs-k-own">Owner, quietly happy</span>
+        </div>
+      </div>
+
+      <div className="stg-note">
+        Illustrative &middot; volume and timing only. Nothing written, gated or filtered
+      </div>
+    </div>
+  );
+}
+
+/* -------------------------------------------------- the keystone · the arch
+   The brand mark, assembling. Voussoirs rise from both springs, the keystone
+   drops in last, and only then does the load run across the span. Take it out
+   and both sides come down - which is the whole reason for the name. */
+
+const VOUSSOIRS: { d: string; side: 'l' | 'r' | 'k'; i: number }[] = [
+  { side: 'l', i: 0, d: 'M20 120 L20 92 L48 82 L52 110 Z' },
+  { side: 'l', i: 1, d: 'M50 108 L46 80 L79 62 L88 88 Z' },
+  { side: 'l', i: 2, d: 'M86 86 L77 60 L114 48 L119 76 Z' },
+  { side: 'r', i: 0, d: 'M244 120 L244 92 L216 82 L212 110 Z' },
+  { side: 'r', i: 1, d: 'M214 108 L218 80 L185 62 L176 88 Z' },
+  { side: 'r', i: 2, d: 'M178 86 L187 60 L150 48 L145 76 Z' },
+  { side: 'k', i: 3, d: 'M117 74 L112 46 L152 46 L147 74 Z' },
+];
+
+export function KeystoneArchStage() {
+  // 0 springs, 1-3 courses rise, 4 keystone lands, 5 load runs
+  const n = usePlayhead(5, 620, 4200);
+  return (
+    <div className="stg" aria-label="Illustrative arch assembling, with the keystone set last">
+      <div className="stg-top">
+        <span className="stg-lab">the keystone</span>
+        <span className="stg-chip">{n >= 4 ? 'the span holds' : 'setting the stones'}</span>
+      </div>
+
+      <div className="ksa">
+        <svg viewBox="0 0 264 136" className="ksa-svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="ksa-load" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stopColor="#3FE0B5" stopOpacity="0" />
+              <stop offset=".5" stopColor="#7DF5DD" />
+              <stop offset="1" stopColor="#3FE0B5" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+
+          {/* the ground the springs sit on */}
+          <line x1="8" y1="120.5" x2="256" y2="120.5" className="ksa-ground" />
+
+          {VOUSSOIRS.map((v) => (
+            <path
+              key={v.side + v.i}
+              d={v.d}
+              className={
+                'ksa-v ksa-' + v.side + (n >= (v.side === 'k' ? 4 : v.i + 1) ? ' set' : '')
+              }
+            />
+          ))}
+
+          {/* the load only runs once the keystone is in */}
+          <path
+            d="M24 92 C 60 40, 96 30, 132 30 S 204 40, 240 92"
+            className={'ksa-load' + (n >= 5 ? ' on' : '')}
+            fill="none"
+            stroke="url(#ksa-load)"
+          />
+        </svg>
+
+        <p className="ksa-cap">
+          {n >= 4
+            ? 'The span carries. Take the keystone out and both sides come down.'
+            : 'Four engines rising. Nothing carries until the last stone is in.'}
+        </p>
+      </div>
+
+      <div className="stg-note">Illustrative &middot; ranking, intake, the record, the trust</div>
     </div>
   );
 }

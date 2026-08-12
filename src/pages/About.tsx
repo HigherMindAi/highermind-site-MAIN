@@ -8,13 +8,13 @@ import { personSchema, orgSchema, breadcrumbs } from '../lib/schema';
 const URL = '/about';
 
 const DESC =
-  'HigherMindAI is built by someone who spent close to a decade inside the justice system - courtrooms and federal casework - before building AI intake and ranking systems for law firms.';
+  'I was general manager of a property management company, and before that I spent close to a decade inside the justice system. Now I build local ranking and AI intake systems for law firms and property management companies across Canada.';
 
 export default function About() {
   return (
     <main>
       <Seo
-        title="About - Built From Inside the Justice System | HigherMindAI"
+        title="About - I Managed Property Before I Marketed It | HigherMindAI"
         desc={DESC}
         path={URL}
         schema={[
@@ -57,18 +57,31 @@ export default function About() {
             </div>
             <div className="who-copy">
               <p>
-                Before HigherMindAI, I spent the better part of a decade inside the justice system -
-                in courtrooms and in federal case files. I am not a marketer who read a blog about
-                your world. I worked inside it. I know what a real intake looks like, and why the
-                first firm to pick up is usually the firm that gets retained.
+                Before any of this I managed property. I was general manager of a property
+                management company and the maintenance operation that served it. Rent rolls,
+                arrears, turnovers that had to be filled before the month closed, board meetings
+                where the question was never what happened but who was told and when, and calls at
+                eleven at night from a resident with water coming through a ceiling. That was the
+                job. It is the reason I talk about doors and corporations instead of impressions
+                and engagement.
+              </p>
+              <p>
+                Before that I spent the better part of a decade inside the justice system - in
+                courtrooms and in federal case files. That is where I learned that an incident is
+                only ever as good as the record of it, which is why every system I build logs what
+                came in and when it was answered. I am not a marketer who read a blog about your
+                world. I worked inside both of them. I know what a real intake looks like, and why
+                the first firm to pick up is usually the firm that gets retained.
               </p>
               <p>
                 That is the whole idea behind what I build. A person who has just been injured,
                 arrested, or served does not shop carefully. They call three firms in ten minutes and
                 retain whoever answers. After five o'clock, that is almost never the small firm -
-                not because the small firm is worse, but because there is no one at the desk. I close
-                that gap: I rank the firm so clients find it, and I put an intake desk on the other
-                end that answers, screens, and books every enquiry the moment it arrives.
+                not because the small firm is worse, but because there is no one at the desk. An
+                owner with a rental to hand over behaves the same way: he reads three results and
+                calls two of them. I close that gap in both books. I rank the firm so people find
+                it, I put a desk on the other end that answers and qualifies every enquiry the
+                moment it arrives, and I hand over the record of both.
               </p>
               <p className="credential">Former RCMP.</p>
               <p>

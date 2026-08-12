@@ -9,7 +9,7 @@ import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 const URL = '/law-firm-seo';
 
 const DESC =
-  'Google ranking and lead generation for law firms: a managed Google Business Profile engineered into the Map Pack top three, plus paid campaigns on the highest-intent legal searches. First page in 60 days or you stop paying.';
+  'Google ranking and lead generation for law firms: a managed Google Business Profile engineered into the Map Pack top three, plus paid campaigns on the highest-intent legal searches. First page in 60 days or the monthly pauses.';
 
 const SEO_FAQ: [string, string][] = [
   [
@@ -18,7 +18,7 @@ const SEO_FAQ: [string, string][] = [
   ],
   [
     'How long does it take a law firm to rank?',
-    'The Rank Lock puts 60 days on the clock, starting the day I have what I need. If your firm is not on the first page of the Map Pack by then, you stop paying the monthly and I keep working at no charge until you are there.',
+    'The Rank Lock puts 60 days on the clock, starting the day I have what I need. If your firm is not on the first page of the Map Pack by then, the monthly pauses until it lands and I keep working at no charge until you are there. Toronto, Vancouver and Montreal carry a 90-day provision, agreed at kickoff.',
   ],
   [
     'Which practice areas is this best for?',
@@ -61,7 +61,7 @@ export default function LawFirmSeo() {
             </a>
           </div>
           <p className="trustline reveal">
-            First page of Google Maps in 60 days or you stop paying &middot; The ranking is an asset
+            First page in 60 days or the monthly pauses &middot; The ranking is an asset
             you own &middot; Paired with the intake desk that answers what it brings in.
           </p>
         </div>

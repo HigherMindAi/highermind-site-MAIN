@@ -9,16 +9,16 @@ import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 const URL = '/solutions';
 
 const DESC =
-  'Who I build for. Law firms are the specialty - personal injury, family, criminal defence and immigration. The same AI intake and visibility system works for any business where a missed call is a lost job.';
+  'Who I build for. Property and condominium management is the specialty, with law firms as the second book. The same ranking and intake system works for any business where a missed enquiry is lost money.';
 
 const SOL_FAQ: [string, string][] = [
   [
-    'Do you only work with law firms?',
-    'Law firms are the specialty and where the system is sharpest, because legal intake has conflict checks, jurisdiction and urgency baked into it. But the underlying problem - demand arriving when nobody can answer - is not a legal problem. I build the same system for any business where one missed call is real money.',
+    'Do you only work with property management firms?',
+    'No. Property and condominium management is the specialty and where most of my work goes. Law firms are the second book. Both are versions of the same problem - an urgent enquiry arriving when nobody can answer, worth real recurring money to whoever catches it. The underlying system is the same and I build it for other appointment-led businesses too.',
   ],
   [
-    'Why specialise in law firms at all?',
-    'Because depth beats breadth. Legal intake has rules a general answering service gets wrong, and I spent close to a decade inside the justice system before building any of this. Specialising means the screening questions, the language and the handoffs are right on day one instead of after three months of correction.',
+    'Why specialise at all?',
+    'Because depth beats breadth. Legal intake has rules a general answering service gets wrong, and I spent close to a decade inside the justice system before building any of this. Property management has its own set - CMRAO licensing, escalation orders, common element questions - and I was the general manager of a property management company. Specialising means the screening questions, the language and the handoffs are right on day one instead of after three months of correction.',
   ],
   [
     'What makes a business a good fit?',
@@ -37,17 +37,19 @@ const LEGAL: [string, string][] = [
   ['Immigration', 'Deadlines, status and fear. The firm that answers calmly at 9pm is the one retained.'],
 ];
 
+const PROPERTY: [string, string][] = [
+  ['Rental portfolios', 'An owner deciding to stop managing it himself reads three results and calls two of them. Position decides whether you are one.'],
+  ['Condominium boards', 'Three names go to the board and somebody searches all three that evening. What they find decides who receives the package.'],
+  ['Mixed firms', 'Two businesses under one roof with two different problems. Sequenced rental-first, because that side produces a number you can feel.'],
+  ['Solo managers', 'Under forty doors, answering your own phone. A one-time rebuild rather than a retained system, and I will say so.'],
+];
+
 const OTHERS: string[] = [
   'Accountants & bookkeepers',
   'Dentists & orthodontists',
   'Medical & specialist clinics',
   'Veterinary',
   'Insurance brokers',
-  'Real estate',
-  'HVAC & plumbing',
-  'Electrical & roofing',
-  'Restoration & emergency trades',
-  'Auto service',
   'Financial advisers',
   'Any appointment-led practice',
 ];
@@ -56,7 +58,7 @@ export default function Solutions() {
   return (
     <main>
       <Seo
-        title="Who I Help - Law Firms First, Not Law Firms Only | HigherMindAI"
+        title="Who I Help - Property Management First, Not Only | HigherMindAI"
         desc={DESC}
         path={URL}
         schema={[
@@ -70,14 +72,15 @@ export default function Solutions() {
         <div className="wrap">
           <span className="eyebrow reveal">Who I help</span>
           <h1 className="reveal">
-            Law firms are the specialty. <span className="em">They are not the only door.</span>
+            Property management is the specialty.{' '}
+            <span className="em">It is not the only door.</span>
           </h1>
           <p className="sub reveal">
-            I build for law firms first because legal intake is the hardest version of the problem -
-            conflict checks, jurisdiction, urgency, and a caller in the worst week of their life who
-            retains whoever picks up. Solve it there and it is solved nearly everywhere else. If you
-            are not a law firm, the system does not change shape. It is built on your knowledge, your
-            screening rules, and your words.
+            Property and condominium management first, because a door pays every month for years and
+            one won owner carries the whole system. Law firms second, because legal intake is the
+            hardest version of the same problem and I worked inside the justice system for close to a
+            decade. If you are neither, the system does not change shape. It is built on your
+            knowledge, your screening rules, and your words.
           </p>
           <div className="ctas reveal">
             <Link to="/book/" className="btn btn-primary">
@@ -96,6 +99,35 @@ export default function Solutions() {
         <div className="wrap">
           <div className="sec-head left reveal">
             <span className="eyebrow">The specialty</span>
+            <h2>
+              Property &amp; condominium management,{' '}
+              <span className="em">built by someone who managed it.</span>
+            </h2>
+            <p className="lead">
+              I was general manager of a property management company and the maintenance operation
+              that served it. Rent rolls, arrears, turnovers, board meetings, and calls at eleven at
+              night. A door is worth more to you than a job is worth to anyone else, which is why the
+              build order is different here.{' '}
+              <Link to="/property-management">See the property track</Link>.
+            </p>
+          </div>
+          <div className="vgrid four reveal">
+            {PROPERTY.map(([h, b]) => (
+              <div className="vtile" key={h}>
+                <h3>{h}</h3>
+                <p>{b}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div className="divider" />
+
+      <section className="sec">
+        <div className="wrap">
+          <div className="sec-head left reveal">
+            <span className="eyebrow">The second book</span>
             <h2>
               Legal intake, <span className="em">built by someone who worked inside it.</span>
             </h2>
@@ -134,7 +166,8 @@ export default function Solutions() {
             </p>
           </div>
           <div className="inds reveal">
-            <span className="ind lead-ind">Law firms - the specialty</span>
+            <span className="ind lead-ind">Property &amp; condominium management - the specialty</span>
+            <span className="ind lead-ind">Law firms - the second book</span>
             {OTHERS.map((o) => (
               <span className="ind" key={o}>
                 {o}

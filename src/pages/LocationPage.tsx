@@ -49,8 +49,8 @@ export default function LocationPage() {
   return (
     <main>
       <Seo
-        title={`Local SEO & Google Maps Ranking in ${c.city}, ${rfull} | HigherMindAI`}
-        desc={`Get found first in ${c.city}, ${rfull}. I rank local businesses into the top 3 of Google Maps and keep them there. First page in 60 days or you stop paying.`}
+        title={`Property Management SEO in ${c.city}, ${rfull} | HigherMindAI`}
+        desc={`Rank for "property management company ${c.city}" and get found by owners looking for a manager. Profile rebuilt and held in the local pack. First page in 60 days or the monthly pauses.`}
         path={url}
         schema={[
           locationSchema(c, url),
@@ -65,13 +65,14 @@ export default function LocationPage() {
             <div className="crumb">
               <Link to="/">Home</Link> &nbsp;/&nbsp; <Link to="/local-seo/">Locations</Link> &nbsp;/&nbsp; {c.city}, {rfull}
             </div>
-            <span className="eyebrow">Local SEO &middot; {c.city}, {rfull}</span>
+            <span className="eyebrow">Property management SEO &middot; {c.city}, {rfull}</span>
             <h1>
-              Local SEO &amp; Google Maps ranking <span className="em">in {c.city}.</span>
+              Owners searching for a manager in {c.city}{}
+              <span className="em">should find your firm first.</span>
             </h1>
             <p className="sub">{c.sub}</p>
             <div className="ctas" style={{ marginTop: 34, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-              <Link to="/#contact" className="btn btn-primary">
+              <Link to="/book/" className="btn btn-primary">
                 Book a call <Arrow />
               </Link>
               <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
@@ -111,7 +112,7 @@ export default function LocationPage() {
           <div className="sec-head left reveal">
             <span className="eyebrow">Why local search wins here</span>
             <h2>
-              The clients are already searching. <span style={italicTeal}>The question is who they find.</span>
+              The owners are already searching. <span style={italicTeal}>The question is who they find.</span>
             </h2>
           </div>
           <div className="vgrid">
@@ -122,18 +123,20 @@ export default function LocationPage() {
             </div>
             <div className="vtile reveal">
               <div className="vt-n">02</div>
-              <h3>Winnable terms, not vanity</h3>
+              <h3>The term owners actually type</h3>
               <p>
-                I pin the work to &ldquo;your service + {c.city}&rdquo; - the term where you can actually
-                rank and the calls are real - not a saturated regional head term.
+                I pin the work to &ldquo;property management company {c.city}&rdquo; and the variants around
+                it - the terms where an owner with a unit to hand over is actually looking - not a
+                saturated regional head term nobody converts on.
               </p>
             </div>
             <div className="vtile reveal">
               <div className="vt-n">03</div>
               <h3>The answer layer</h3>
               <p>
-                Beyond the Map Pack, I build the citations and reviews that get a business named when
-                someone asks an AI for the best in the {c.city} area.
+                Beyond the local pack, I build the citations and reviews that get a firm named when an
+                owner - or a board director doing due diligence - asks an AI who manages property in
+                the {c.city} area.
               </p>
             </div>
           </div>
@@ -151,16 +154,19 @@ export default function LocationPage() {
               Ranking is half of it. <span className="em">Answering is the half that pays.</span>
             </h2>
             <p className="lead">
-              Getting a {c.city} business into the top three is what I am known for. It is also only the
-              inflow. The Watershed welds it to a 24/7 AI intake desk that answers, screens and books every
-              enquiry it brings in, so the calls I win you do not ring out.
+              Getting a {c.city} firm into the top three is what I am known for. It is also only the
+              inflow - an owner enquiry that arrives at seven in the evening and rings out is a door
+              lost permanently, and you never learn it existed. The Keystone welds the ranking to a desk
+              that answers and qualifies every enquiry it brings in, then hands you the record of it.
             </p>
           </div>
           <div className="mesh reveal">
             <span className="mesh-lab">The system</span>
-            <Link to="/the-watershed">The Watershed</Link>
-            <Link to="/law-firm-intake">The AI intake desk</Link>
-            <Link to="/services/local-ranking-system/">The Local Ranking System</Link>
+            <Link to="/the-keystone">The Keystone</Link>
+            <Link to="/property-management-seo">Ranking &amp; visibility</Link>
+            <Link to="/property-management-intake">The intake desk</Link>
+            <Link to="/property-management/the-record">The Record</Link>
+            <Link to="/condominium-management-marketing">Condominium boards</Link>
             <Link to="/services/service-area-expansion/">Service Area Expansion</Link>
             <Link to="/proof/">Proof</Link>
           </div>
@@ -190,8 +196,8 @@ export default function LocationPage() {
       </section>
 
       <CTAStrip
-        head={<>Get your {c.city} business <span className="em">into the top 3.</span></>}
-        sub={`Tell me what you do and where in the ${c.city} area you want to show up first. I will tell you if I can win it.`}
+        head={<>Get your {c.city} firm <span className="em">into the top 3.</span></>}
+        sub={`Nine minutes. I will read you where you actually show across the ${c.city} area, which three firms sit above you, and what happens to an owner enquiry that lands at seven in the evening.`}
       />
     </main>
   );

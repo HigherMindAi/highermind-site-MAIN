@@ -10,7 +10,7 @@ import { orgSchema, serviceSchema, faqSchema, breadcrumbs } from '../lib/schema'
 const URL = '/the-watershed';
 
 const WATERSHED_DESC =
-  'A done-for-you system for law firms: engineered demand so clients find the firm, plus a 24/7 AI intake desk that answers, screens, captures, and books consultations. Live in 14 days, first page of Google Maps in 60 days or you stop paying.';
+  'A done-for-you system for law firms: engineered demand so clients find the firm, plus a 24/7 AI intake desk that answers, screens, captures, and books consultations. Live in 14 days, first page in 60 days or the monthly pauses until it lands.';
 
 export default function Watershed() {
   return (
@@ -50,7 +50,7 @@ export default function Watershed() {
             </a>
           </div>
           <p className="trustline reveal">
-            First page of Google Maps in 60 days or you stop paying &middot; Live in 14 days &middot;
+            First page in 60 days or the monthly pauses &middot; Live in 14 days &middot;
             Built by someone who spent a decade inside the justice system.
           </p>
         </div>
@@ -167,8 +167,9 @@ export default function Watershed() {
               <div className="vt-n">The Rank Lock</div>
               <h3>First page in 60 days</h3>
               <p>
-                Or you stop paying the monthly and I keep working at no charge until you are there.
-                The clock starts the day I have what I need, not the day you sign.
+                Or the monthly pauses until it lands, and I keep working at no charge until you are there.
+                The clock starts the day I have what I need, not the day you sign. Toronto,
+                Vancouver and Montreal carry a 90-day provision, agreed at kickoff.
               </p>
             </div>
             <div className="vtile reveal">

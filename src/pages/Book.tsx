@@ -32,7 +32,7 @@ export default function Book() {
             </h1>
             <p className="sub">
               I have already seen what your market looks like, because I look before every call. So
-              we skip the discovery theatre. I will tell you what a missed enquiry is costing you,
+              there is no discovery theatre. I will tell you what a missed enquiry is costing you,
               what I would build, and how fast it goes live. <b>Then you decide.</b>
             </p>
             <div className="ctas">

@@ -57,7 +57,7 @@ export interface ServicePageData {
 
 export const SERVICE_PAGES: Record<string, ServicePageData> = {
   'ai-systems': {
-    title: 'Custom AI Systems & Automation for Law Firms | HigherMindAI',
+    title: 'Custom AI Systems & Business Automation | HigherMindAI',
     desc: 'Custom AI built on your own knowledge. Intake, triage, qualifying, quoting, follow-up. It answers from your truth or it hands off cleanly. It never guesses, and it never invents.',
     h1Lead: 'The same forty answers, ',
     h1Em: 'a hundred times a week.',
