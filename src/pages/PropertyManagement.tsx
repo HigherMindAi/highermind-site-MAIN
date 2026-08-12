@@ -107,8 +107,8 @@ export default function PropertyManagement() {
             </a>
           </div>
           <p className="trustline reveal">
-            Answered and qualified &middot; {LAUNCH_WINDOW} &middot; I managed property before I
-            marketed it.
+            Answered and qualified &middot; {LAUNCH_WINDOW} &middot; Built from inside a property
+            operation.
           </p>
         </div>
       </section>
@@ -406,10 +406,12 @@ export default function PropertyManagement() {
           </div>
           <p className="note reveal">
             I do not name clients on my own website. Every figure above is from a live dashboard
-            and I will walk you through the screens on a call. Before any of this I was general
-            manager of a property management company and the maintenance operation that served it,
-            which is why this page talks about doors and corporations instead of impressions and
-            engagement. <Link to="/about">The full story</Link>.
+            and I will walk you through the screens on a call. Before any of this I spent ten
+            months contracted inside a property management operation, on the enquiry and CRM side,
+            which is why this page talks about doors and work orders instead of impressions and
+            engagement. I have never held a licence or managed a corporation, and I say so plainly
+            rather than let a title do work it cannot do.{' '}
+            <Link to="/about">The full story</Link>.
           </p>
         </div>
       </section>

@@ -97,7 +97,7 @@ export function personSchema(): Json {
       'the justice system',
     ],
     description:
-      'Founder of HigherMindAI. General manager of a property management company and its maintenance operation, and close to a decade inside the justice system before that, in courtrooms and federal casework. Now builds local ranking and AI intake systems for property and condominium management firms across Canada. Based in Erin, Ontario, Canada.',
+      'Founder of HigherMindAI. Spent ten months contracted inside a property management operation on the sales, CRM and maintenance side, and close to a decade inside the justice system before that, in courtrooms and federal casework. Now builds local ranking and AI intake systems for property and condominium management firms across Canada. Based in Erin, Ontario, Canada.',
   };
 }
 

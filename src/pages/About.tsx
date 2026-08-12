@@ -8,13 +8,13 @@ import { personSchema, orgSchema, breadcrumbs } from '../lib/schema';
 const URL = '/about';
 
 const DESC =
-  'I was general manager of a property management company, and before that I spent close to a decade inside the justice system. Now I build local ranking and AI intake systems for law firms and property management companies across Canada.';
+  'I spent ten months contracted inside a property management operation, and close to a decade inside the justice system before that. Now I build local ranking and AI intake systems for property management firms across Canada.';
 
 export default function About() {
   return (
     <main>
       <Seo
-        title="About - I Managed Property Before I Marketed It | HigherMindAI"
+        title="About - Built From Inside the Work | HigherMindAI"
         desc={DESC}
         path={URL}
         schema={[
@@ -57,21 +57,27 @@ export default function About() {
             </div>
             <div className="who-copy">
               <p>
-                Before any of this I managed property. I was general manager of a property
-                management company and the maintenance operation that served it. Rent rolls,
-                arrears, turnovers that had to be filled before the month closed, board meetings
-                where the question was never what happened but who was told and when, and calls at
-                eleven at night from a resident with water coming through a ceiling. That was the
-                job. It is the reason I talk about doors and corporations instead of impressions
-                and engagement.
+                Before any of this I spent ten months contracted to a property management
+                company - the sales and CRM side of it, and the maintenance operation that serviced
+                the portfolio they managed. Owner enquiries arriving at the wrong moment, work
+                orders, coordinating trades against units that had to turn before the month closed,
+                and the internal paperwork that had to hold up afterwards. It is the reason I talk
+                about doors and work orders instead of impressions and engagement.
               </p>
               <p>
-                Before that I spent the better part of a decade inside the justice system - in
-                courtrooms and in federal case files. That is where I learned that an incident is
-                only ever as good as the record of it, which is why every system I build logs what
-                came in and when it was answered. I am not a marketer who read a blog about your
-                world. I worked inside both of them. I know what a real intake looks like, and why
-                the first firm to pick up is usually the firm that gets retained.
+                I am not going to inflate that into more than it was, so here it is plainly: I was
+                a contractor, not an employee. I have never held a CMRAO licence, never managed a
+                corporation, and never sat in a board meeting. What I had was a seat at the exact
+                point where enquiries arrive and get handled or dropped - which happens to be the
+                only part of your business I am selling anything about.
+              </p>
+              <p>
+                The decade before that is the part I will stand on without a caveat. I spent the
+                better part of ten years inside the justice system, as a sworn officer across a
+                number of units, in courtrooms and in federal case files. That is where I learned
+                that an incident is only ever as good as the record of it, which is why every system
+                I build logs what came in and when it was answered. I know what a real intake looks
+                like, and why the first firm to pick up is usually the firm that gets retained.
               </p>
               <p>
                 That is the whole idea behind what I build. A person who has just been injured,

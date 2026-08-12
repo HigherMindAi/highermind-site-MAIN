@@ -18,7 +18,7 @@ const SOL_FAQ: [string, string][] = [
   ],
   [
     'Why specialise at all?',
-    'Because depth beats breadth. Legal intake has rules a general answering service gets wrong, and I spent close to a decade inside the justice system before building any of this. Property management has its own set - CMRAO licensing, escalation orders, common element questions - and I was the general manager of a property management company. Specialising means the screening questions, the language and the handoffs are right on day one instead of after three months of correction.',
+    'Because depth beats breadth. Legal intake has rules a general answering service gets wrong, and I spent close to a decade inside the justice system before building any of this. Property management has its own set - CMRAO licensing, escalation orders, common element questions - and I spent ten months contracted inside a property operation learning where they bite. Specialising means the screening questions, the language and the handoffs are right on day one instead of after three months of correction.',
   ],
   [
     'What makes a business a good fit?',
@@ -104,10 +104,10 @@ export default function Solutions() {
               <span className="em">built by someone who managed it.</span>
             </h2>
             <p className="lead">
-              I was general manager of a property management company and the maintenance operation
-              that served it. Rent rolls, arrears, turnovers, board meetings, and calls at eleven at
-              night. A door is worth more to you than a job is worth to anyone else, which is why the
-              build order is different here.{' '}
+              I spent ten months contracted inside a property management operation - the sales and
+              CRM side, and the maintenance arm that serviced the portfolio. Owner enquiries, work
+              orders, and units that had to turn before the month closed. A door is worth more to you
+              than a job is worth to anyone else, which is why the build order is different here.{' '}
               <Link to="/property-management">See the property track</Link>.
             </p>
           </div>

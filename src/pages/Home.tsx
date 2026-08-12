@@ -391,12 +391,12 @@ export default function Home() {
                 Built by someone who lived in the file, <span className="em">not a marketer who read about it.</span>
               </h2>
               <p>
-                Before this I was general manager of a property management company and the maintenance
-                operation that served it - rent rolls, arrears, turnovers, board meetings, and calls at
-                eleven at night. Before that, close to a decade inside the justice system, in
-                courtrooms and federal case files, where I learned that an incident is only ever as
-                good as the record of it. One operator, start to finish. No account manager between
-                you and the work.
+                Before this I spent ten months contracted inside a property management operation -
+                the sales and CRM side, and the maintenance arm that serviced the portfolio. Not
+                licensed, not in the boardroom, and I say so on the about page. Before that, the
+                better part of ten years inside the justice system, where I learned that an incident
+                is only ever as good as the record of it. One operator, start to finish. No account
+                manager between you and the work.
               </p>
               <div className="ctas">
                 <Link to="/about" className="btn btn-primary">The full story <Arrow /></Link>
