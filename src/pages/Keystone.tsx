@@ -323,7 +323,9 @@ export default function Keystone() {
           <p className="note reveal">
             I am one person. There is no account manager, no junior and no pod. You deal with the
             person who builds it, every time, which is the reason the founding terms are capped
-            rather than sold to as many firms as will sign.
+            rather than sold to as many firms as will sign. If you want to see where your firm
+            currently sits, start with{' '}
+            <Link to="/local-seo/">your own city page</Link>.
           </p>
         </div>
       </section>

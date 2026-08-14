@@ -50,7 +50,7 @@ export default function LocationPage() {
     <main>
       <Seo
         title={`Property Management SEO in ${c.city}, ${rfull} | HigherMindAI`}
-        desc={`Rank for "property management company ${c.city}" and get found by owners looking for a manager. Profile rebuilt and held in the local pack. First page in 60 days or the monthly pauses.`}
+        desc={`Rank for "property management company ${c.city}" and get found by owners looking for a manager. First page in 60 days, or the monthly pauses.`}
         path={url}
         schema={[
           locationSchema(c, url),

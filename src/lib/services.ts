@@ -58,7 +58,7 @@ export interface ServicePageData {
 export const SERVICE_PAGES: Record<string, ServicePageData> = {
   'ai-systems': {
     title: 'Custom AI Systems & Business Automation | HigherMindAI',
-    desc: 'Custom AI built on your own knowledge. Intake, triage, qualifying, quoting, follow-up. It answers from your truth or it hands off cleanly. It never guesses, and it never invents.',
+    desc: 'Custom AI built on your own knowledge: intake, triage, qualifying, quoting, follow-up. It answers from your truth or it hands off. It never guesses.',
     h1Lead: 'The same forty answers, ',
     h1Em: 'a hundred times a week.',
     sub: 'Every firm runs on one signature motion - an intake, a conflict check, a screen, a booking, a follow-up - and it eats the day. I build the AI that runs it, on your own knowledge, so it answers from your truth rather than a plausible guess. Where the stakes are real, it hands off to a human instead of having an opinion.',
@@ -131,7 +131,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
   },
   'social-authority': {
     title: 'Social Media Authority for Local Business | HigherMindAI',
-    desc: 'Google decides if they find you. Your profile decides if they trust you. A searchable, always-credible storefront that confirms the decision the search already started.',
+    desc: 'Google decides if they find you. Your profile decides if they trust you. A searchable, always-credible storefront that confirms the search.',
     h1Lead: 'The trust check, ',
     h1Em: 'passed before they call.',
     sub: 'A customer searches, lands on you, and does one more thing before they call: they open your Instagram to see if you are real, active, and worth trusting. If the last post was eighteen months ago, the call you earned on Google quietly goes to whoever looked alive.',

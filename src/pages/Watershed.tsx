@@ -10,7 +10,7 @@ import { orgSchema, serviceSchema, faqSchema, breadcrumbs } from '../lib/schema'
 const URL = '/the-watershed';
 
 const WATERSHED_DESC =
-  'A done-for-you system for law firms: engineered demand so clients find the firm, plus a 24/7 AI intake desk that answers, screens, captures, and books consultations. Live in 14 days, first page in 60 days or the monthly pauses until it lands.';
+  'The full system for law firms: demand engineered so clients find the firm, and a 24/7 intake desk that answers, screens and books every consultation.';
 
 export default function Watershed() {
   return (

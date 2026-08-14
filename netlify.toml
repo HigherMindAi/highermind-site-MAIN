@@ -2,8 +2,18 @@
   command = "npm run build"
   publish = "dist"
 
-# SPA fallback: every route serves the app shell, React Router takes over.
+# Every real route is prerendered to its own index.html, so Netlify serves
+# those directly and this rule is only reached by URLs that do not exist.
+# It MUST return a real 404. The previous version served the prerendered
+# homepage with status 200, which made every junk URL a duplicate of "/".
+# React Router still handles in-app navigation; it never touches the server.
 [[redirects]]
   from = "/*"
-  to = "/index.html"
-  status = 200
+  to = "/404.html"
+  status = 404
+
+# Long-cache the fingerprinted build assets. Netlify already no-caches HTML.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

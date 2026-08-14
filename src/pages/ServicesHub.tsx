@@ -10,7 +10,7 @@ export default function ServicesHub() {
     <main>
       <Seo
         title="Ranking, Paid Growth & AI Intake by Service | HigherMindAI"
-        desc="The Keystone, the intake desk, Google ranking, paid growth and more. Every piece on its own, or welded into one loop that answers and qualifies every enquiry your firm receives."
+        desc="The Keystone, the intake desk, ranking, paid growth and more. Every piece on its own, or welded into one loop that answers every enquiry you receive."
         path="/services/"
         schema={[
           breadcrumbs([['Home', '/'], ['Services', '/services/']]),

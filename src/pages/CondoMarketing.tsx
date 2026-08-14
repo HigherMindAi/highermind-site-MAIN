@@ -11,7 +11,7 @@ import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 const URL = '/condominium-management-marketing';
 
 const DESC =
-  'Boards do not find you through search. They shortlist you and then look you up, and what they find decides who receives the package. Reputation and record, built properly.';
+  'Boards shortlist you, then look you up - and what they find decides who receives the package. Reputation and record for condominium management firms.';
 
 const CONDO_FAQ: [string, string][] = [
   [
@@ -239,6 +239,12 @@ export default function CondoMarketing() {
             </div>
           </div>
           <p className="note reveal">{CMRAO_LINE}</p>
+          <p className="note reveal">
+            Board work is regional, and so is the search that follows a shortlist.{' '}
+            <Link to="/local-seo/">See the cities I build in</Link>, or read how the{' '}
+            <Link to="/property-management/the-record">record</Link> answers the retention and
+            responsiveness questions a selection committee actually asks.
+          </p>
         </div>
       </section>
 

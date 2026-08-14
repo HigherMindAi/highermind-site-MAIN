@@ -21,7 +21,7 @@ const PROOF_FAQ: [string, string][] = [
   ],
   [
     'Can I verify any of this?',
-    'The profile is live and public and I will walk you through it on a call. The screenshots come straight out of Google Business Profile insights. I do not publish a number I cannot show you the source of.',
+    'The profile is live and public, and I will walk you through it on a call along with the insights screenshots and their dates. I do not publish a number I cannot show you the source of.',
   ],
   [
     'Only one case?',
@@ -34,7 +34,7 @@ export default function Proof() {
     <main>
       <Seo
         title="Proof: A Profile That Did Not Exist, Ranked #1 | HigherMindAI"
-        desc="A security systems installer in Atlantic Canada. From a Google profile that did not exist to #1 for both money keywords in five months. Real numbers, and the honest hole in them."
+        desc="From a Google profile that did not exist to first for both money keywords in five months. Real numbers, and the honest hole in them."
         path="/proof/"
         schema={[
           breadcrumbs([

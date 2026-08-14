@@ -118,7 +118,7 @@ export default function Home() {
     <main id="top">
       <Seo
         title="Property Management Marketing & AI Intake, Canada | HigherMindAI"
-        desc="I rank property management firms so owners find them, answer and qualify every enquiry that lands, and hand over the record of both. Systems from $900 a month, across Canada."
+        desc="I rank property management firms so owners find them, answer every enquiry that lands, and hand over the record of both. Systems from $900 a month."
         path="/"
         schema={[orgSchema(), personSchema(), faqSchema([...PROPERTY_FAQ, ...LAW_FAQ])]}
       />

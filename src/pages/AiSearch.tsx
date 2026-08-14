@@ -10,7 +10,7 @@ import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 const URL = '/ai-search-optimization';
 
 const DESC =
-  'AI Search Optimization and GEO: get named when someone asks ChatGPT, Claude, Gemini, Perplexity or Google AI for a firm like yours. Entity, evidence, answers and access - built so AI can find, trust and cite you.';
+  'Get named when someone asks ChatGPT, Claude, Gemini, Perplexity or Google AI for a firm like yours. Entity, evidence, answers and access, built properly.';
 
 const AIS_FAQ: [string, string][] = [
   [

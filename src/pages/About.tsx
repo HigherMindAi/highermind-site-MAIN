@@ -8,7 +8,7 @@ import { personSchema, orgSchema, breadcrumbs } from '../lib/schema';
 const URL = '/about';
 
 const DESC =
-  'I spent ten months contracted inside a property management operation, and close to a decade inside the justice system before that. Now I build local ranking and AI intake systems for property management firms across Canada.';
+  'Ten months contracted inside a property management operation, and close to a decade in the justice system before that. One operator, no account manager.';
 
 export default function About() {
   return (

@@ -10,7 +10,7 @@ export default function LocationsHub() {
     <main>
       <Seo
         title="Property Management SEO by City, Canada | HigherMindAI"
-        desc="Google ranking for property management firms across the Headwaters, the Greater Toronto Area, Southwestern Ontario and Greater Moncton. First page in 60 days or the monthly pauses."
+        desc="Google ranking for property management firms across the Headwaters, the GTA, Southwestern Ontario and Greater Moncton. Every city built separately."
         path="/local-seo/"
         schema={[
           breadcrumbs([['Home', '/'], ['Locations', '/local-seo/']]),

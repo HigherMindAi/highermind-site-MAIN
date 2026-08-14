@@ -9,7 +9,7 @@ import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 const URL = '/law-firm-intake';
 
 const DESC =
-  'An AI intake desk that answers every call and message for your law firm 24/7, screens it, captures it into your case system, and books the consultation. Live in 14 days.';
+  'An AI intake desk that answers every call and message for your law firm 24/7, screens it, captures it into your case system, and books the consultation.';
 
 const INTAKE_FAQ: [string, string][] = [
   [

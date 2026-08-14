@@ -9,7 +9,7 @@ import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 const URL = '/solutions';
 
 const DESC =
-  'Who I build for. Property and condominium management is the specialty, with law firms as the second book. The same ranking and intake system works for any business where a missed enquiry is lost money.';
+  'Property and condominium management is the specialty, law firms the second book. The same ranking and intake system fits any appointment-led practice.';
 
 const SOL_FAQ: [string, string][] = [
   [

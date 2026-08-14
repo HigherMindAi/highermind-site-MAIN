@@ -9,7 +9,7 @@ import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 const URL = '/law-firm-seo';
 
 const DESC =
-  'Google ranking and lead generation for law firms: a managed Google Business Profile engineered into the Map Pack top three, plus paid campaigns on the highest-intent legal searches. First page in 60 days or the monthly pauses.';
+  'Ranking and lead generation for law firms: a managed Google Business Profile engineered into the Map Pack top three, plus high-intent paid campaigns.';
 
 const SEO_FAQ: [string, string][] = [
   [

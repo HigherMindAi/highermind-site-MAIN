@@ -100,17 +100,12 @@ export const PROPERTY_PROOF: { head: string; body: string; note: string }[] = [
   {
     head: 'A property management firm, Moncton, New Brunswick',
     body: 'Ranks first for property management in its city. 4.9 stars across 57 reviews. Between February and June: 1,098 profile interactions, 88 calls, 743 website clicks.',
-    note: 'The honest note: year over year, interactions are down about eight percent and clicks about seventeen. The position and the volume are real. The trend is not a straight line, and I would rather you hear that from me now than find it later.',
+    note: 'The honest note: year over year, interactions are down about eight percent and clicks about seventeen. The position and the volume are real. The trend is not a straight line, and I would rather you hear that from me now than find it later. This is a live engagement and the dashboard is open on a call.',
   },
   {
     head: 'A security systems installer, Atlantic Canada',
-    body: 'Built from a profile that did not exist to number two in Google Maps within thirty days, and to first for both primary terms by June. 5.0 stars across 14 reviews. Monthly interactions climbed from roughly 18 to roughly 96 over five months.',
-    note: 'Different industry, same engine. It is the cleanest evidence I have of a profile going from nothing to first, which is the position most firms I speak to are actually in.',
-  },
-  {
-    head: 'A property management firm, Greater Toronto Area',
-    body: 'Appears in its region\u2019s property and condominium management packs. 3.7 stars across 93 reviews. Not yet top-ranked, and the work is ongoing.',
-    note: 'Included deliberately. It is the exact profile shape this page describes - real volume, real reviews, and an average written by the wrong audience. It is what the Trust Engine exists for.',
+    body: 'From a profile that did not exist to number two in Google Maps inside thirty days, and to first for both primary terms by the fifth month. 5.0 stars across 14 reviews. Monthly profile interactions climbed from roughly 18 to roughly 96 over that period, and the profile is live today.',
+    note: 'Different industry, same engine, and it is the cleanest evidence I have of a profile going from nothing to first - which is the position most firms I speak to are actually in. It also beat the 60-day guarantee by a month, which is over-delivery on one build rather than a promise I will repeat to you.',
   },
 ];
 

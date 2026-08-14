@@ -9,6 +9,7 @@ import {
   RANK_LOCK, LAUNCH_LOCK, RECORD_LOCK, NO_DOORS_PROMISE, LAUNCH_WINDOW,
 } from '../lib/property';
 import { TrustStage } from '../components/Stages';
+import { CITIES } from '../lib/cities';
 import { orgSchema, serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 
 const URL = '/property-management';
@@ -391,8 +392,8 @@ export default function PropertyManagement() {
           <div className="sec-head left reveal">
             <span className="eyebrow">Why you should believe any of this</span>
             <h2>
-              Not a portfolio. Three profiles I can show you the dashboards for,{' '}
-              <span className="em">including the one that is not entirely flattering.</span>
+              Not a portfolio. Two builds I can show you the dashboards for,{' '}
+              <span className="em">including the number that is going the wrong way.</span>
             </h2>
           </div>
           <div className="vgrid">
@@ -405,13 +406,50 @@ export default function PropertyManagement() {
             ))}
           </div>
           <p className="note reveal">
-            I do not name clients on my own website. Every figure above is from a live dashboard
-            and I will walk you through the screens on a call. Before any of this I spent ten
+            I do not name clients on my own website - a client did not ask to be a case study, and
+            his competitors read the internet too. That rule protects him, and it is the same rule
+            that will protect you. I would also rather show you two builds I can stand behind than
+            pad this out with logos: former clients come off this page, they do not stay on it as
+            decoration. Every figure above comes out of Google Business Profile insights and I will
+            walk you through the screens on a call. Before any of this I spent ten
             months contracted inside a property management operation, on the enquiry and CRM side,
             which is why this page talks about doors and work orders instead of impressions and
             engagement. I have never held a licence or managed a corporation, and I say so plainly
             rather than let a title do work it cannot do.{' '}
             <Link to="/about">The full story</Link>.
+          </p>
+        </div>
+      </section>
+
+      <div className="divider" />
+
+      {/* ------------------------------------------------------- the cities */}
+      <section className="sec" id="cities">
+        <div className="wrap">
+          <div className="sec-head left reveal">
+            <span className="eyebrow">Where I build</span>
+            <h2>
+              Every winnable town{' '}
+              <span className="em">built as its own ranked unit.</span>
+            </h2>
+            <p className="lead">
+              &ldquo;Property management company&rdquo; plus a city name is what an owner actually
+              types, and it is the term the Rank Lock is measured on. Each town is built and
+              measured separately, so you own more than one pin. Search your own city and see where
+              you currently sit.
+            </p>
+          </div>
+          <div className="loclist reveal">
+            {CITIES.map((c) => (
+              <Link key={c.slug} to={`/local-seo/${c.slug}/`} className="loclink">
+                {c.city}
+              </Link>
+            ))}
+          </div>
+          <p className="note reveal">
+            I also work firms across the Prairies, Alberta and Atlantic Canada. The work is
+            delivered to your Google profile, so distance is no barrier to it.{' '}
+            <Link to="/local-seo/">See every city</Link>.
           </p>
         </div>
       </section>
