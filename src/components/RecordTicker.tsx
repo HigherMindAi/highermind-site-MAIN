@@ -8,6 +8,10 @@ import { useEffect, useState } from 'react';
  * No response-time claims in any row. Status reads "Answered" or "Booked" -
  * never a duration. That is a permanent copy rule, not a style preference.
  */
+// Property is the default because it is the site's primary book. A call site
+// that forgets the prop should fail toward property, not toward the second
+// book - which is exactly the bug that put criminal defence and immigration
+// rows in the homepage hero.
 type Variant = 'legal' | 'property';
 
 const LEGAL: [string, string, string, string][] = [
@@ -47,7 +51,7 @@ interface Props {
   variant?: Variant;
 }
 
-export default function RecordTicker({ variant = 'legal' }: Props) {
+export default function RecordTicker({ variant = 'property' }: Props) {
   const rows = variant === 'property' ? PROPERTY : LEGAL;
   const n = rows.length;
   const [head, setHead] = useState(3);

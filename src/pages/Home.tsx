@@ -145,7 +145,7 @@ export default function Home() {
                 <span><span className="t">/</span> One operator, start to finish</span>
               </div>
             </div>
-            <RecordTicker />
+            <RecordTicker variant="property" />
           </div>
         </div>
       </section>
