@@ -10,8 +10,7 @@ function isActive(label: string, pathname: string): boolean {
     return (
       pathname === '/property-management' ||
       pathname.startsWith('/property-management/') ||
-      pathname.startsWith('/condominium-management-marketing') ||
-      pathname.startsWith('/local-seo')
+      pathname.startsWith('/condominium-management-marketing')
     );
   if (label === 'The Keystone') return pathname.startsWith('/the-keystone');
   if (label === 'Ranking') return pathname.startsWith('/property-management-seo');

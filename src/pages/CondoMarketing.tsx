@@ -7,6 +7,7 @@ import { PHONE_E164, PHONE_DISP } from '../lib/site';
 import { SCOPE_DOES, SCOPE_STOPS, CMRAO_LINE, LAUNCH_WINDOW } from '../lib/property';
 import { TrustStage } from '../components/Stages';
 import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
+import { LOCATIONS_HUB } from '../lib/cities';
 
 const URL = '/condominium-management-marketing';
 
@@ -241,7 +242,7 @@ export default function CondoMarketing() {
           <p className="note reveal">{CMRAO_LINE}</p>
           <p className="note reveal">
             Board work is regional, and so is the search that follows a shortlist.{' '}
-            <Link to="/local-seo/">See the cities I build in</Link>, or read how the{' '}
+            <Link to={LOCATIONS_HUB}>See the cities I build in</Link>, or read how the{' '}
             <Link to="/property-management/the-record">record</Link> answers the retention and
             responsiveness questions a selection committee actually asks.
           </p>

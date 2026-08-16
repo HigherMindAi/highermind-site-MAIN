@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import CTAStrip from '../components/CTAStrip';
 import { LinkArrow } from '../components/Icons';
-import { CITIES, CITY_GROUPS, REGION_FULL } from '../lib/cities';
+import { CITIES, CITY_GROUPS, REGION_FULL, cityPath, LOCATIONS_HUB } from '../lib/cities';
 import { breadcrumbs, locationsItemList } from '../lib/schema';
 
 export default function LocationsHub() {
@@ -11,9 +11,9 @@ export default function LocationsHub() {
       <Seo
         title="Property Management SEO by City | HigherMindAI"
         desc="Google ranking for property management firms across the Headwaters, the GTA, Southwestern Ontario and Greater Moncton. Every city built separately."
-        path="/local-seo/"
+        path={LOCATIONS_HUB}
         schema={[
-          breadcrumbs([['Home', '/'], ['Locations', '/local-seo/']]),
+          breadcrumbs([['Home', '/'], ['Ranking', '/property-management-seo'], ['Locations', LOCATIONS_HUB]]),
           locationsItemList(CITIES),
         ]}
       />
@@ -52,7 +52,7 @@ export default function LocationsHub() {
                 <h3>{g}</h3>
                 <div className="loclist">
                   {inGroup.map((c) => (
-                    <Link key={c.slug} to={`/local-seo/${c.slug}/`} className="loclink">
+                    <Link key={c.slug} to={cityPath(c.slug)} className="loclink">
                       <span className="ln">
                         {c.city}
                         <span className="lr">

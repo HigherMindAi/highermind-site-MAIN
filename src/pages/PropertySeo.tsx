@@ -7,7 +7,7 @@ import { PHONE_E164, PHONE_DISP } from '../lib/site';
 import { PRICE, PRICE_FOOTNOTE, RANK_LOCK, RANK_LOCK_SHORT } from '../lib/property';
 import { InflowStage } from '../components/Stages';
 import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
-import { CITIES } from '../lib/cities';
+import { CITIES, cityPath } from '../lib/cities';
 
 const URL = '/property-management-seo';
 
@@ -221,7 +221,7 @@ export default function PropertySeo() {
           </div>
           <div className="loclist reveal">
             {ontario.map((c) => (
-              <Link key={c.slug} to={`/local-seo/${c.slug}/`} className="loclink">
+              <Link key={c.slug} to={cityPath(c.slug)} className="loclink">
                 {c.city}
               </Link>
             ))}

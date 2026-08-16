@@ -2,11 +2,48 @@
   command = "npm run build"
   publish = "dist"
 
+# ---------------------------------------------------------------------------
+# AUGUST 2026 - /local-seo/* moved to /property-management-seo/*
+#
+# City pages were at /local-seo/. That path was agency jargon nobody searches,
+# and it read as vendor-speak to the property management principal the pages are
+# actually written for. They now nest under the ranking service page, which is
+# what they sell.
+#
+# ORDER IS LOAD-BEARING. Netlify evaluates redirects top to bottom and stops at
+# the first match. Every one of these MUST stay above the /* catch-all below, or
+# the 404 rule swallows them and eleven indexed URLs die instead of moving.
+#
+# 301, not 302. These are permanent and the equity has to transfer.
+# Do not delete these when the old URLs stop appearing in Search Console -
+# external links and anyone's bookmarks outlive Google's index.
+# ---------------------------------------------------------------------------
+[[redirects]]
+  from = "/local-seo"
+  to = "/property-management-seo/locations/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/local-seo/"
+  to = "/property-management-seo/locations/"
+  status = 301
+  force = true
+
+# Splat catches every city in one rule, including any added later.
+[[redirects]]
+  from = "/local-seo/*"
+  to = "/property-management-seo/:splat"
+  status = 301
+  force = true
+
 # Every real route is prerendered to its own index.html, so Netlify serves
 # those directly and this rule is only reached by URLs that do not exist.
 # It MUST return a real 404. The previous version served the prerendered
 # homepage with status 200, which made every junk URL a duplicate of "/".
 # React Router still handles in-app navigation; it never touches the server.
+#
+# THIS RULE STAYS LAST. Anything added below it is unreachable.
 [[redirects]]
   from = "/*"
   to = "/404.html"

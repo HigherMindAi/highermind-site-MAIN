@@ -5,7 +5,7 @@ import CTAStrip from '../components/CTAStrip';
 import ServiceAreaMap from '../components/ServiceAreaMap';
 import NotFound from './NotFound';
 import { Arrow } from '../components/Icons';
-import { cityBySlug, locFaq, REGION_FULL } from '../lib/cities';
+import { cityBySlug, locFaq, REGION_FULL, cityPath, LOCATIONS_HUB } from '../lib/cities';
 import { PHONE_E164, PHONE_DISP } from '../lib/site';
 import { nearestCities } from '../lib/geo';
 import { locationSchema, breadcrumbs, faqSchema } from '../lib/schema';
@@ -18,7 +18,7 @@ export default function LocationPage() {
   if (!c) return <NotFound />;
 
   const rfull = REGION_FULL[c.region];
-  const url = `/local-seo/${c.slug}/`;
+  const url = cityPath(c.slug);
   const faq = locFaq(c);
 
   // Home pin gets a live map. Once the GBP is verified, swap this query-based
@@ -54,7 +54,7 @@ export default function LocationPage() {
         path={url}
         schema={[
           locationSchema(c, url),
-          breadcrumbs([['Home', '/'], ['Locations', '/local-seo/'], [`${c.city}, ${rfull}`, url]]),
+          breadcrumbs([['Home', '/'], ['Ranking', '/property-management-seo'], ['Locations', LOCATIONS_HUB], [`${c.city}, ${rfull}`, url]]),
           faqSchema(faq),
         ]}
       />
@@ -63,7 +63,7 @@ export default function LocationPage() {
         <div className="wrap">
           <div className="reveal">
             <div className="crumb">
-              <Link to="/">Home</Link> &nbsp;/&nbsp; <Link to="/local-seo/">Locations</Link> &nbsp;/&nbsp; {c.city}, {rfull}
+              <Link to="/">Home</Link> &nbsp;/&nbsp; <Link to={LOCATIONS_HUB}>Locations</Link> &nbsp;/&nbsp; {c.city}, {rfull}
             </div>
             <span className="eyebrow">Property management SEO &middot; {c.city}, {rfull}</span>
             <h1>
@@ -166,7 +166,7 @@ export default function LocationPage() {
             <div className="mesh reveal">
               <span className="mesh-lab">Nearby markets I also rank in</span>
               {near.map((n) => (
-                <Link key={n.city.slug} to={`/local-seo/${n.city.slug}/`}>
+                <Link key={n.city.slug} to={cityPath(n.city.slug)}>
                   {n.city.city} <span style={{ color: 'var(--faint)', fontSize: 12 }}>{Math.round(n.km)} km</span>
                 </Link>
               ))}

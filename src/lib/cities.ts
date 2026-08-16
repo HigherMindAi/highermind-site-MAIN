@@ -2,12 +2,16 @@
 // HigherMindAI - multi-city location system
 // tier: "home" (verified pin, GBP embed) | "turf" (local/adjacent) | "served"
 //
-// PROPERTY-FIRST. These pages target the consumer-side term - "property
-// management company [city]" - because that is what an owner actually types and
-// it is the term the Rank Lock is measured on. But the copy is written to the
-// property MANAGER reading it, because he is the buyer. That distinction is why
-// these pages double as sales collateral: a prospect searches his own city to
-// see where he sits, and lands here.
+// WHO THESE PAGES ARE FOR. The buyer is the property management principal, and
+// the page's working job is sales collateral: he searches his own market to see
+// where his firm sits, finds this, and reads an argument about his city written
+// by somebody who clearly knows it.
+//
+// These pages do NOT chase "property management company [city]". That SERP
+// belongs to property management firms, and the traffic on it is owners looking
+// for a manager - worthless here. The copy discusses that term because it is the
+// term I rank a CLIENT on and the term the Rank Lock is measured on. Ranking for
+// it myself would be both impossible and pointless.
 //
 // Honesty rules: never claim a local address I do not have; non-home pages are
 // framed as "I rank YOUR [city] firm". Every city carries distinct copy.
@@ -188,6 +192,19 @@ export const CITIES: City[] = [
     q2: "Moncton is early in a way no Ontario market is. The field is still catching up on local search, the citation base is thin, and the bilingual layer is almost entirely unclaimed - so work that takes six months to show in Brampton shows faster here. That window closes as the market matures, which is an argument for moving now rather than a promise that it stays open.",
   },
 ];
+
+// ---------------------------------------------------------------------------
+// PATHS. Single source of truth. City pages live under the ranking service page
+// because ranking is what they sell - the intake desk is not geographic, which
+// is why /the-keystone and /property-management-intake have no city variants.
+//
+// They were at /local-seo/ until August 2026. That path was agency jargon nobody
+// searches, and it read as vendor-speak to the principal it was written for.
+// Every old URL 301s to the new one in netlify.toml.
+// ---------------------------------------------------------------------------
+export const LOC_BASE = '/property-management-seo';
+export const LOCATIONS_HUB = `${LOC_BASE}/locations/`;
+export const cityPath = (slug: string) => `${LOC_BASE}/${slug}/`;
 
 export function cityBySlug(slug: string): City | undefined {
   return CITIES.find((c) => c.slug === slug);

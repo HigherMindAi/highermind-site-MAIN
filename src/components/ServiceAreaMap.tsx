@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { City, REGION_FULL } from '../lib/cities';
+import { City, REGION_FULL, cityPath } from '../lib/cities';
 import { nearestCities, projectAround } from '../lib/geo';
 
 /**
@@ -69,7 +69,7 @@ export default function ServiceAreaMap({ c }: { c: City }) {
 
         {/* the neighbours. Each one is a real link. */}
         {pts.map((p) => (
-          <Link key={p.n.city.slug} to={`/local-seo/${p.n.city.slug}/`} className="samap-node">
+          <Link key={p.n.city.slug} to={cityPath(p.n.city.slug)} className="samap-node">
             <circle className="samap-hit" cx={p.x} cy={p.y} r="26" />
             <circle className="samap-dot" cx={p.x} cy={p.y} r="5" />
             <text className="samap-name" x={p.x} y={p.y - 14} textAnchor="middle">

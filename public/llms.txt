@@ -9,7 +9,7 @@
 - [Property Management Intake](https://highermindai.com/property-management-intake): Cortex on the site and The Operator on the line, with the scope limits published in full.
 - [The Record](https://highermindai.com/property-management/the-record): every contact logged with the time it came in and the time it was answered, plus a monthly report written to be tabled at a board meeting unedited.
 - [Condominium Management Marketing](https://highermindai.com/condominium-management-marketing): the board track. Reputation and record first, ranking third and defensive.
-- [Cities](https://highermindai.com/local-seo/): per-city ranking pages across the Headwaters, the GTA, Southwestern Ontario and Greater Moncton.
+- [Cities](https://highermindai.com/property-management-seo/locations/): per-city ranking pages across the Headwaters, the GTA, Southwestern Ontario and Greater Moncton.
 
 ## Law firms - the second book
 - [The Watershed](https://highermindai.com/the-watershed): the legal flagship. Intake first, because a person in a crisis retains whoever picks up.

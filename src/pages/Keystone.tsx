@@ -10,6 +10,7 @@ import {
 } from '../lib/property';
 import { KeystoneArchStage, TrustStage } from '../components/Stages';
 import { orgSchema, serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
+import { LOCATIONS_HUB } from '../lib/cities';
 
 const URL = '/the-keystone';
 
@@ -325,7 +326,7 @@ export default function Keystone() {
             person who builds it, every time, which is the reason the founding terms are capped
             rather than sold to as many firms as will sign. If you want to see where your firm
             currently sits, start with{' '}
-            <Link to="/local-seo/">your own city page</Link>.
+            <Link to={LOCATIONS_HUB}>your own city page</Link>.
           </p>
         </div>
       </section>

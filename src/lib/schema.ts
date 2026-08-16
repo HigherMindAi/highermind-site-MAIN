@@ -8,7 +8,7 @@
 import {
   BASE, BIZ_NAME, PHONE_E164, EMAIL, LOCALITY, REGION, COUNTRY, FOUNDER,
 } from './site';
-import { City, REGION_FULL, HOME_AREA_SERVED } from './cities';
+import { City, REGION_FULL, HOME_AREA_SERVED, cityPath } from './cities';
 import { AREA_SERVED } from './coverage';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -200,7 +200,7 @@ export function locationsItemList(cities: City[]): Json {
       '@type': 'ListItem',
       position: i + 1,
       name: `Property management lead generation in ${c.city}, ${REGION_FULL[c.region]}`,
-      url: `${BASE}/local-seo/${c.slug}/`,
+      url: BASE + cityPath(c.slug),
     })),
   };
 }

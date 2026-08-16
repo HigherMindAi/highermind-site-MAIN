@@ -44,8 +44,8 @@ export default function App() {
         <Route path="contact" element={<Contact />} />
         <Route path="services" element={<ServicesHub />} />
         <Route path="services/:slug" element={<ServicePage />} />
-        <Route path="local-seo" element={<LocationsHub />} />
-        <Route path="local-seo/:slug" element={<LocationPage />} />
+        <Route path="property-management-seo/locations" element={<LocationsHub />} />
+        <Route path="property-management-seo/:slug" element={<LocationPage />} />
         <Route path="coverage" element={<Coverage />} />
         <Route path="scope-limits" element={<ScopeLimits />} />
         <Route path="proof" element={<Proof />} />

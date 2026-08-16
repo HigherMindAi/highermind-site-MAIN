@@ -4,6 +4,7 @@ import {
 } from '../lib/site';
 import { SERVICES } from '../lib/services';
 import { Wordmark } from './Icons';
+import { LOCATIONS_HUB } from '../lib/cities';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -46,7 +47,7 @@ export default function Footer() {
               <Link to="/condominium-management-marketing">Condominium boards</Link>
               <Link to="/scope-limits">Where the desk stops</Link>
               <Link to="/coverage">Where I work</Link>
-              <Link to="/local-seo/">Cities I rank in</Link>
+              <Link to={LOCATIONS_HUB}>Cities I rank in</Link>
             </div>
             <div className="foot-col">
               <h4>Law firms</h4>

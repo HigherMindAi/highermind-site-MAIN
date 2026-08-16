@@ -14,6 +14,7 @@ import {
   Market,
 } from '../lib/coverage';
 import { breadcrumbs, serviceSchema, faqSchema } from '../lib/schema';
+import { LOCATIONS_HUB } from '../lib/cities';
 
 const URL = '/coverage';
 
@@ -182,7 +183,7 @@ export default function Coverage() {
             <Link to="/property-management/the-record">The Record</Link>
             <Link to="/scope-limits">Where the desk stops</Link>
             <Link to="/condominium-management-marketing">Condominium boards</Link>
-            <Link to="/local-seo/">Cities I build in</Link>
+            <Link to={LOCATIONS_HUB}>Cities I build in</Link>
           </div>
         </div>
       </section>

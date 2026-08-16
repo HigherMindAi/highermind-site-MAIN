@@ -9,7 +9,7 @@ import {
   RANK_LOCK, LAUNCH_LOCK, RECORD_LOCK, NO_DOORS_PROMISE, LAUNCH_WINDOW,
 } from '../lib/property';
 import { TrustStage } from '../components/Stages';
-import { CITIES } from '../lib/cities';
+import { CITIES, cityPath, LOCATIONS_HUB } from '../lib/cities';
 import { orgSchema, serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 
 const URL = '/property-management';
@@ -441,7 +441,7 @@ export default function PropertyManagement() {
           </div>
           <div className="loclist reveal">
             {CITIES.map((c) => (
-              <Link key={c.slug} to={`/local-seo/${c.slug}/`} className="loclink">
+              <Link key={c.slug} to={cityPath(c.slug)} className="loclink">
                 {c.city}
               </Link>
             ))}
@@ -449,7 +449,7 @@ export default function PropertyManagement() {
           <p className="note reveal">
             I also work firms across the Prairies, Alberta and Atlantic Canada. The work is
             delivered to your Google profile, so distance is no barrier to it.{' '}
-            <Link to="/local-seo/">See every city</Link>.
+            <Link to={LOCATIONS_HUB}>See every city</Link>.
           </p>
         </div>
       </section>

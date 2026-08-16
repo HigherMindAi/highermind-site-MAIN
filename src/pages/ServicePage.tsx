@@ -5,7 +5,7 @@ import CTAStrip from '../components/CTAStrip';
 import NotFound from './NotFound';
 import { Arrow } from '../components/Icons';
 import { SERVICES, SERVICE_PAGES, PHASE_LABELS } from '../lib/services';
-import { CITIES } from '../lib/cities';
+import { CITIES, cityPath } from '../lib/cities';
 import { PHONE_E164, PHONE_DISP } from '../lib/site';
 import { serviceSchema, breadcrumbs, faqSchema } from '../lib/schema';
 
@@ -125,7 +125,7 @@ export default function ServicePage() {
           <div className="mesh reveal">
             <span className="mesh-lab">Local SEO by city</span>
             {CITIES.map((c) => (
-              <Link key={c.slug} to={`/local-seo/${c.slug}/`}>
+              <Link key={c.slug} to={cityPath(c.slug)}>
                 {c.city}
               </Link>
             ))}
