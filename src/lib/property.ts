@@ -53,8 +53,11 @@ export const PRICE = {
   from: 'from $900 a month',
 } as const;
 
+// Geo-scoped deliberately. These are Canadian rates in Canadian dollars, and a
+// US reader who converts them and then hears a USD number on a call would be
+// right to ask why. Saying it first is cheaper than being asked.
 export const PRICE_FOOTNOTE =
-  'All figures CAD. Annual prepay is charged as ten months. Where paid demand is configured, ad spend is separate and paid directly by you to the platform - I never hold it or mark it up.';
+  'All figures CAD, and they are the rates for Canadian firms. US firms are priced separately in USD - different market, different rate, and I will give you the number on the call rather than make you convert this one. Annual prepay is charged as ten months. Where paid demand is configured, ad spend is separate and paid directly by you to the platform - I never hold it or mark it up.';
 
 export const KEYSTONE_WHOLE_NOTE =
   'The whole Keystone is bundled below the sum of the parts, on founding terms held twelve months, for the first four firms only. What it comes to depends on how many corporations the desk carries, so I will give you the number on the call rather than guess at it here.';

@@ -132,8 +132,8 @@ export default function Book() {
                   <span className="ic">&#9993;</span> {EMAIL}
                 </a>
                 <Link to="/solutions">
-                  <span className="ic">&#9678;</span> Ontario, Canada &middot; serving firms
-                  Canada-wide
+                  <span className="ic">&#9678;</span> Erin, Ontario &middot; serving firms across the
+                  US and Canada
                 </Link>
               </div>
             </div>

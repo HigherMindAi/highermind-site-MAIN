@@ -13,6 +13,8 @@ import ServicePage from './pages/ServicePage';
 import LocationsHub from './pages/LocationsHub';
 import LocationPage from './pages/LocationPage';
 import Proof from './pages/Proof';
+import Coverage from './pages/Coverage';
+import ScopeLimits from './pages/ScopeLimits';
 import Book from './pages/Book';
 import PropertyManagement from './pages/PropertyManagement';
 import Keystone from './pages/Keystone';
@@ -44,6 +46,8 @@ export default function App() {
         <Route path="services/:slug" element={<ServicePage />} />
         <Route path="local-seo" element={<LocationsHub />} />
         <Route path="local-seo/:slug" element={<LocationPage />} />
+        <Route path="coverage" element={<Coverage />} />
+        <Route path="scope-limits" element={<ScopeLimits />} />
         <Route path="proof" element={<Proof />} />
         <Route path="book" element={<Book />} />
         <Route path="*" element={<NotFound />} />

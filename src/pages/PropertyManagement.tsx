@@ -15,12 +15,12 @@ import { orgSchema, serviceSchema, faqSchema, breadcrumbs } from '../lib/schema'
 const URL = '/property-management';
 
 const DESC =
-  'Ranking, intake, records and reviews for property management firms across Canada. Own the channel instead of renting leads. Systems from $900 a month.';
+  'Ranking, intake, records and reviews for property management firms across the US and Canada. Own the channel instead of renting leads. One firm per market.';
 
 // Schema description carries NO rate. A figure in structured data can be cached
 // into a rich result against me; visible copy changes in one deploy. See property.ts.
 const SCHEMA_DESC =
-  'Ranking, intake, records and reviews for property and condominium management firms across Canada. Local visibility, an intake desk that answers and qualifies every owner enquiry, a timestamped record of every contact, and reputation work.';
+  'Ranking, intake, records and reviews for property and community association management firms across the United States and Canada. Local visibility, an intake desk that answers and qualifies every owner enquiry, a timestamped record of every contact, and reputation work.';
 
 const ENGINES: [string, string, string, string][] = [
   [

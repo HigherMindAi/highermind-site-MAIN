@@ -44,6 +44,8 @@ export default function Footer() {
               <Link to="/property-management-intake">The intake desk</Link>
               <Link to="/property-management/the-record">The Record</Link>
               <Link to="/condominium-management-marketing">Condominium boards</Link>
+              <Link to="/scope-limits">Where the desk stops</Link>
+              <Link to="/coverage">Where I work</Link>
               <Link to="/local-seo/">Cities I rank in</Link>
             </div>
             <div className="foot-col">

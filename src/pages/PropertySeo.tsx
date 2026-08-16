@@ -16,7 +16,7 @@ const DESC =
 
 // No rate in schema. See property.ts.
 const SCHEMA_DESC =
-  'Google Business Profile and local search visibility for property management firms across Canada. The profile claimed and rebuilt, services named the way owners search, service area mapped, and position held in the local pack.';
+  'Google Business Profile and local search visibility for property management firms across the United States and Canada. The profile claimed and rebuilt, services named the way owners search, service area mapped, and position held in the local pack.';
 
 const SEO_FAQ: [string, string][] = [
   [
@@ -58,7 +58,7 @@ export default function PropertySeo() {
   return (
     <main>
       <Seo
-        title="Property Management SEO Canada, Google Ranking | HigherMindAI"
+        title="Property Management SEO, Google Ranking | HigherMindAI"
         desc={DESC}
         path={URL}
         schema={[
@@ -227,7 +227,7 @@ export default function PropertySeo() {
             ))}
           </div>
           <p className="note reveal">
-            I also work firms in Atlantic Canada and across the Prairies and Alberta. Ranking is
+            I also work firms across eight US states, Atlantic Canada, the Prairies and Alberta. Ranking is
             delivered to your profile, so distance is no barrier to the work - only to my coffee
             budget.
           </p>

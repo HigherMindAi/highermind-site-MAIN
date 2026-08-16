@@ -124,20 +124,12 @@ export default function LocationPage() {
             <div className="vtile reveal">
               <div className="vt-n">02</div>
               <h3>The term owners actually type</h3>
-              <p>
-                I pin the work to &ldquo;property management company {c.city}&rdquo; and the variants around
-                it - the terms where an owner with a unit to hand over is actually looking - not a
-                saturated regional head term nobody converts on.
-              </p>
+              <p>{c.termNote}</p>
             </div>
             <div className="vtile reveal">
               <div className="vt-n">03</div>
               <h3>The answer layer</h3>
-              <p>
-                Beyond the local pack, I build the citations and reviews that get a firm named when an
-                owner - or a board director doing due diligence - asks an AI who manages property in
-                the {c.city} area.
-              </p>
+              <p>{c.answerNote}</p>
             </div>
           </div>
         </div>
@@ -149,14 +141,14 @@ export default function LocationPage() {
       <section className="sec-sm">
         <div className="wrap">
           <div className="reveal">
-            <span className="eyebrow">Also in the {c.city} area</span>
+            <span className="eyebrow">The rest of the system</span>
             <h2 style={{ marginTop: 24, fontSize: 'clamp(26px,3.2vw,38px)' }}>
               Ranking is half of it. <span className="em">Answering is the half that pays.</span>
             </h2>
             <p className="lead">
-              Getting a {c.city} firm into the top three is what I am known for. It is also only the
-              inflow - an owner enquiry that arrives at seven in the evening and rings out is a door
-              lost permanently, and you never learn it existed. The Keystone welds the ranking to a desk
+              Getting a firm into the top three is what I am known for. It is also only the inflow - an
+              owner enquiry that arrives at seven in the evening and rings out is a door lost
+              permanently, and you never learn it existed. The Keystone welds the ranking to a desk
               that answers and qualifies every enquiry it brings in, then hands you the record of it.
             </p>
           </div>

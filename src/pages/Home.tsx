@@ -117,7 +117,7 @@ export default function Home() {
   return (
     <main id="top">
       <Seo
-        title="Property Management Marketing & AI Intake, Canada | HigherMindAI"
+        title="Property Management Marketing & AI Intake, US & Canada | HigherMindAI"
         desc="I rank property management firms so owners find them, answer every enquiry that lands, and hand over the record of both. Systems from $900 a month."
         path="/"
         schema={[orgSchema(), personSchema(), faqSchema([...PROPERTY_FAQ, ...LAW_FAQ])]}
@@ -142,7 +142,7 @@ export default function Home() {
               <div className="undercta">
                 <span><span className="t">/</span> Answered and qualified</span>
                 <span><span className="t">/</span> Live in 14-21 days</span>
-                <span><span className="t">/</span> One operator, start to finish</span>
+                <span><span className="t">/</span> One firm per market, US and Canada</span>
               </div>
             </div>
             <RecordTicker variant="property" />
@@ -408,6 +408,33 @@ export default function Home() {
 
       <div className="divider" />
 
+      <section className="sec-sm">
+        <div className="wrap">
+          <div className="reveal">
+            <span className="eyebrow">Coverage</span>
+            <h2 style={{ marginTop: 24, fontSize: 'clamp(26px,3.2vw,38px)' }}>
+              Eight US states, five Canadian regions.{' '}
+              <span className="em">One firm in each of them.</span>
+            </h2>
+            <p className="lead">
+              I take one property management firm per market, which means the honest answer to
+              &ldquo;do you work in my area&rdquo; is sometimes no. The full list is one page, and it
+              takes about three seconds to check.
+            </p>
+            <div className="ctas" style={{ marginTop: 26 }}>
+              <Link to="/coverage" className="btn btn-primary">
+                See where I work <Arrow />
+              </Link>
+              <Link to="/scope-limits" className="btn btn-ghost">
+                Where the desk stops
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="divider" />
+
       <section className="sec" id="faq">
         <div className="wrap narrow">
           <div className="sec-head left reveal">
@@ -430,7 +457,9 @@ export default function Home() {
             <p className="lead">
               I will ask what a door is worth to you, what happens to an owner enquiry that lands at
               seven in the evening, and where you show up when somebody nearby goes looking. Then I
-              tell you straight what I would build and what it would take.
+              tell you straight what I would build and what it would take. First question is which
+              market you are in, because I take one firm in each - if yours is taken, you hear it
+              then rather than after you have spent an hour.
             </p>
           </div>
           <div className="ctas reveal">

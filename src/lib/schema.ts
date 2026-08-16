@@ -9,6 +9,7 @@ import {
   BASE, BIZ_NAME, PHONE_E164, EMAIL, LOCALITY, REGION, COUNTRY, FOUNDER,
 } from './site';
 import { City, REGION_FULL, HOME_AREA_SERVED } from './cities';
+import { AREA_SERVED } from './coverage';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 type Json = Record<string, any>;
@@ -43,13 +44,10 @@ export function orgSchema(): Json {
         url: BASE + '/',
         image: `${BASE}/og.png`,
         description:
-          'Local ranking and AI intake systems for property and condominium management firms across Canada, and for law firms as a second book. I rank a firm so owners find it, answer and qualify every enquiry that lands, and hand over a timestamped record of both.',
+          'Local ranking and AI intake systems for property and community association management firms across Canada and the United States, and for law firms as a second book. I rank a firm so owners find it, answer and qualify every enquiry that lands, and hand over a timestamped record of both. One firm per market.',
         telephone: PHONE_E164,
         email: EMAIL,
-        areaServed: [
-          { '@type': 'AdministrativeArea', name: 'Ontario, Canada' },
-          { '@type': 'Country', name: 'Canada' },
-        ],
+        areaServed: AREA_SERVED,
         address: {
           '@type': 'PostalAddress',
           addressLocality: LOCALITY,
@@ -97,7 +95,7 @@ export function personSchema(): Json {
       'the justice system',
     ],
     description:
-      'Founder of HigherMindAI. Spent ten months contracted inside a property management operation on the sales, CRM and maintenance side, and close to a decade inside the justice system before that, in courtrooms and federal casework. Now builds local ranking and AI intake systems for property and condominium management firms across Canada. Based in Erin, Ontario, Canada.',
+      'Founder of HigherMindAI. Spent ten months contracted inside a property management operation on the sales, CRM and maintenance side, and close to a decade inside the justice system before that, in courtrooms and federal casework. Now builds local ranking and AI intake systems for property and community association management firms across Canada and the United States. Based in Erin, Ontario, Canada.',
   };
 }
 
@@ -136,7 +134,7 @@ export function serviceSchema(name: string, desc: string, url: string): Json {
     name,
     description: desc,
     url: BASE + url,
-    areaServed: { '@type': 'Country', name: 'Canada' },
+    areaServed: AREA_SERVED,
     provider: { '@id': ORG_ID },
   };
 }

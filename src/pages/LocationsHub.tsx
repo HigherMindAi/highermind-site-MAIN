@@ -9,7 +9,7 @@ export default function LocationsHub() {
   return (
     <main>
       <Seo
-        title="Property Management SEO by City, Canada | HigherMindAI"
+        title="Property Management SEO by City | HigherMindAI"
         desc="Google ranking for property management firms across the Headwaters, the GTA, Southwestern Ontario and Greater Moncton. Every city built separately."
         path="/local-seo/"
         schema={[
@@ -32,8 +32,9 @@ export default function LocationsHub() {
               Home turf is the Headwaters - Erin, Orangeville, Caledon. From there I rank firms across
               Ontario and into the Maritimes. The work is delivered to your Google profile, so distance
               is no barrier - what matters is whether I can out-rank the firms around you. These are the
-              markets I am actively building in, and each city page is built to rank on the term an owner
-              actually types. Search your own city term and see where you sit.
+              Canadian cities I have built a page for; the full market list, including the eight US
+              states, is on the <Link to="/coverage">coverage page</Link>. Search your own city term
+              and see where you sit.
             </p>
           </div>
         </div>
@@ -71,7 +72,7 @@ export default function LocationsHub() {
 
       <CTAStrip
         head={<>Don&rsquo;t see <span className="em">your city?</span></>}
-        sub="I work with property management firms across Canada, including Alberta, the Prairies and Atlantic Canada. Tell me your city and how many doors you carry - I will tell you straight whether I can win it."
+        sub="A city without a page here is not a city I cannot work - it is one I have not written up yet. I work firms across eight US states and five Canadian regions. Tell me your city and how many doors you carry, and I will tell you straight whether I can win it."
       />
     </main>
   );
