@@ -3,5 +3,23 @@
 /services/cortex/          /law-firm-intake    301!
 /services/local-ranking-system/   /law-firm-seo   301!
 
+# ---------------------------------------------------------------------------
+# AUGUST 2026 - /local-seo/* moved to /property-management-seo/*
+#
+# These are duplicated in netlify.toml on purpose. Whichever file Netlify
+# resolves first, the redirect fires. Do not "clean up" the duplication -
+# it is the belt and braces that stopped eleven URLs 404ing once already.
+#
+# ORDER IS LOAD-BEARING. These MUST stay above the /* fallback below, because
+# Netlify stops at the first match. Anything under that line is unreachable.
+#
+# 301 with ! (force) so it wins even against a matching static file.
+# Do not delete these when the old URLs leave Search Console - external links
+# and bookmarks outlive Google's index.
+# ---------------------------------------------------------------------------
+/local-seo                 /property-management-seo/locations/   301!
+/local-seo/                /property-management-seo/locations/   301!
+/local-seo/*               /property-management-seo/:splat       301!
+
 # SPA fallback (must stay last)
 /*    /index.html   200
