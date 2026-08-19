@@ -37,6 +37,203 @@
   status = 301
   force = true
 
+
+# ---------------------------------------------------------------------------
+# AUGUST 2026 - product rename (Dominion v8.0/v9.0, Republic v2.0)
+#
+# The canonical URLs do NOT change. They stay keyword-bearing because that is
+# what they are ranked on and they were migrated once already this month; a
+# second churn would cost re-crawl for no search gain. These are BRAND ALIASES
+# so a product name spoken on a call, printed in a kit, or typed from memory
+# lands on the right page instead of a 404.
+#
+# Retired names are aliased too: /cortex/ and /operator/ both go to the intake
+# page, because The Desk is one product now and a "which one do I need"
+# splitter page would reintroduce the question the merge removed.
+#
+# ORDER IS LOAD-BEARING. These MUST stay above the /* rule below.
+# ---------------------------------------------------------------------------
+
+[[redirects]]
+  from = "/the-well"
+  to = "/property-management-seo"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-well/"
+  to = "/property-management-seo"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/seo-engine"
+  to = "/property-management-seo"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/seo-engine/"
+  to = "/property-management-seo"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-desk"
+  to = "/property-management-intake"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-desk/"
+  to = "/property-management-intake"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/cortex"
+  to = "/property-management-intake"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/cortex/"
+  to = "/property-management-intake"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/operator"
+  to = "/property-management-intake"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/operator/"
+  to = "/property-management-intake"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/ai-receptionist"
+  to = "/property-management-intake"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/ai-receptionist/"
+  to = "/property-management-intake"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-record"
+  to = "/property-management/the-record"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-record/"
+  to = "/property-management/the-record"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-tap"
+  to = "/services/paid-growth/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-tap/"
+  to = "/services/paid-growth/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/demand-engine"
+  to = "/services/paid-growth/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/demand-engine/"
+  to = "/services/paid-growth/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-catchment"
+  to = "/services/service-area-expansion/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-catchment/"
+  to = "/services/service-area-expansion/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/territory"
+  to = "/services/service-area-expansion/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/territory/"
+  to = "/services/service-area-expansion/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-watermark"
+  to = "/services/social-authority/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-watermark/"
+  to = "/services/social-authority/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/trust-engine"
+  to = "/services/social-authority/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/trust-engine/"
+  to = "/services/social-authority/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-landing"
+  to = "/services/website-build/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-landing/"
+  to = "/services/website-build/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/launchpad"
+  to = "/services/website-build/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/launchpad/"
+  to = "/services/website-build/"
+  status = 301
+  force = true
+
 # Every real route is prerendered to its own index.html, so Netlify serves
 # those directly and this rule is only reached by URLs that do not exist.
 # It MUST return a real 404. The previous version served the prerendered

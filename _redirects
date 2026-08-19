@@ -21,5 +21,47 @@
 /local-seo/                /property-management-seo/locations/   301!
 /local-seo/*               /property-management-seo/:splat       301!
 
+
+# ---------------------------------------------------------------------------
+# AUGUST 2026 - product rename brand aliases (Dominion v8.0/v9.0, Republic v2.0)
+#
+# Canonical URLs are unchanged and stay keyword-bearing. These exist so a
+# product name from a kit, a call, or a business card resolves rather than
+# 404s. /cortex/ and /operator/ both land on the intake page - The Desk is one
+# product with two channels now, and there is no splitter page by design.
+#
+# Duplicated in netlify.toml on purpose. MUST stay above the /* fallback.
+# ---------------------------------------------------------------------------
+/the-well                  /property-management-seo             301!
+/the-well/                 /property-management-seo             301!
+/seo-engine                /property-management-seo             301!
+/seo-engine/               /property-management-seo             301!
+/the-desk                  /property-management-intake          301!
+/the-desk/                 /property-management-intake          301!
+/cortex                    /property-management-intake          301!
+/cortex/                   /property-management-intake          301!
+/operator                  /property-management-intake          301!
+/operator/                 /property-management-intake          301!
+/ai-receptionist           /property-management-intake          301!
+/ai-receptionist/          /property-management-intake          301!
+/the-record                /property-management/the-record      301!
+/the-record/               /property-management/the-record      301!
+/the-tap                   /services/paid-growth/               301!
+/the-tap/                  /services/paid-growth/               301!
+/demand-engine             /services/paid-growth/               301!
+/demand-engine/            /services/paid-growth/               301!
+/the-catchment             /services/service-area-expansion/    301!
+/the-catchment/            /services/service-area-expansion/    301!
+/territory                 /services/service-area-expansion/    301!
+/territory/                /services/service-area-expansion/    301!
+/the-watermark             /services/social-authority/          301!
+/the-watermark/            /services/social-authority/          301!
+/trust-engine              /services/social-authority/          301!
+/trust-engine/             /services/social-authority/          301!
+/the-landing               /services/website-build/             301!
+/the-landing/              /services/website-build/             301!
+/launchpad                 /services/website-build/             301!
+/launchpad/                /services/website-build/             301!
+
 # SPA fallback (must stay last)
 /*    /index.html   200

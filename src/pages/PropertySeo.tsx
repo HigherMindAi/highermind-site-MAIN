@@ -28,8 +28,8 @@ const SEO_FAQ: [string, string][] = [
     'The Rank Lock puts 60 days on the clock, starting the day I have what I need rather than the day you sign. If you are not on the first page for the agreed primary term by then, the monthly pauses until it lands. Toronto, Vancouver and Montreal carry a 90-day provision, agreed at kickoff rather than argued afterwards.',
   ],
   [
-    'What is the difference between the SEO Engine and the Optimization Sprint?',
-    'The Engine is managed and ongoing - position built, then held, because local ranking is not a thing you finish. The Sprint is a one-time rebuild: the profile corrected, services named properly, service area mapped, and the on-page work done once, then it is yours to maintain. The Sprint suits a solo manager under forty doors. The Engine suits a firm that intends to keep taking doors. Both rates are published further up this page.',
+    'What is the difference between The Well and the Optimization Sprint?',
+    'The Well is managed and ongoing - position built, then held, because local ranking is not a thing you finish. The Sprint is a one-time rebuild: the profile corrected, services named properly, service area mapped, and the on-page work done once, then it is yours to maintain. The Sprint suits a solo manager under forty doors. The Well suits a firm that intends to keep taking doors. Both rates are published further up this page.',
   ],
   [
     'Is ranking worth it if my leads come from referrals?',
@@ -44,7 +44,7 @@ const BUILD: [string, string][] = [
   ],
   [
     'Reviews and authority',
-    'Review velocity and recency are part of what decides local pack position, so the Trust Engine pays directly into this one. Add citation consistency and local content and you have the short list of things that actually move a pin.',
+    'Review velocity and recency are part of what decides local pack position, so The Watermark pays directly into this one. Add citation consistency and local content and you have the short list of things that actually move a pin.',
   ],
   [
     'Owned, not rented',
@@ -74,13 +74,13 @@ export default function PropertySeo() {
 
       <section className="phero">
         <div className="wrap">
-          <span className="eyebrow reveal">The Inflow - the demand engine</span>
+          <span className="eyebrow reveal">The Well - the organic half of The Inflow</span>
           <h1 className="reveal">
             Owners are searching for a manager{' '}
             <span className="em">in your city right now.</span>
           </h1>
           <p className="sub reveal">
-            The Inflow puts you in the three results they actually read. Your Google Business
+            The Well puts you in the three results they actually read. Your Google Business
             Profile claimed and rebuilt, every service named the way owners search for it, your
             real service area mapped properly, and a site you own. Organic first because it
             compounds and you keep it - paid over the top when you need volume faster than ranking
@@ -95,7 +95,7 @@ export default function PropertySeo() {
             </a>
           </div>
           <p className="trustline reveal">
-            {RANK_LOCK_SHORT} &middot; {PRICE.seoMonthly} managed, or {PRICE.seoSprint} once
+            {RANK_LOCK_SHORT} &middot; {PRICE.wellMonthly} managed, or {PRICE.wellSprint} once
             &middot; The position is an asset you keep.
           </p>
         </div>
@@ -160,12 +160,12 @@ export default function PropertySeo() {
               <div className="tp-label">What it costs</div>
               <ul className="tp-list">
                 <li>
-                  <b>The SEO Engine</b> &nbsp;&middot;&nbsp; {PRICE.seoMonthly}
+                  <b>The Well</b> &nbsp;&middot;&nbsp; {PRICE.wellMonthly}
                   <br />
                   <span style={{ opacity: 0.62 }}>Managed. Position built, then held.</span>
                 </li>
                 <li>
-                  <b>The Optimization Sprint</b> &nbsp;&middot;&nbsp; {PRICE.seoSprint}
+                  <b>The Optimization Sprint</b> &nbsp;&middot;&nbsp; {PRICE.wellSprint}
                   <br />
                   <span style={{ opacity: 0.62 }}>
                     One-time rebuild. Suits a solo manager under forty doors.

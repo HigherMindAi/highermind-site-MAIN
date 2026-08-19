@@ -1,6 +1,17 @@
 // ---------------------------------------------------------------------------
 // HigherMindAI - service ladder + per-service page content (no pricing)
-// Copy ported verbatim from the static build. Hyphens only, never em-dashes.
+//
+// These pages are read by both books, property and law. They stay price-free
+// on purpose: the property rates are published on the property pages, and the
+// legal track carries no published pricing at all. A shared page cannot print
+// one without breaking the other.
+//
+// Component names follow the kits: The Tap, The Catchment, The Landing, The
+// Watermark. AI Systems is deliberately NOT given a proper noun - every name
+// is a term the reader has to learn before he can buy, and nine is the ceiling.
+// The slugs stay keyword-bearing; the brand name lives in the copy.
+//
+// Hyphens only, never em-dashes. Solo first person.
 // ---------------------------------------------------------------------------
 
 export interface ServiceListItem {
@@ -13,32 +24,32 @@ export interface ServiceListItem {
 export const SERVICES: ServiceListItem[] = [
   {
     slug: 'paid-growth',
-    name: 'Paid Growth',
-    line: 'Engineered ad funnels built on the language your real buyers use. Spend that compounds into pipeline, not a gamble.',
+    name: 'The Tap',
+    line: 'Paid demand, engineered. Volume from day one while the organic position is still being built underneath it. Turn it up, turn it down, turn it off.',
     flag: false,
   },
   {
     slug: 'ai-systems',
     name: 'AI Systems',
-    line: 'Custom AI built on your own knowledge. Intake, triage, qualifying, follow-up. It answers from your truth or it hands off. It never guesses.',
+    line: 'Custom AI built on your own knowledge, behind the desk rather than in front of it. It answers from your truth or it hands off. It never guesses.',
     flag: false,
   },
   {
     slug: 'service-area-expansion',
-    name: 'Service Area Expansion',
+    name: 'The Catchment',
     line: 'Own more than your home city. Each target town built as its own ranked unit - you only invest in places I can win.',
     flag: false,
   },
   {
     slug: 'website-build',
-    name: 'Website Build',
-    line: 'Not a brochure - a salesperson. A fast, conversion-built site that turns the people already searching into booked consultations.',
+    name: 'The Landing',
+    line: 'A site with two jobs: keep the routine off your phone line, and survive a board shortlist. Not a brochure.',
     flag: false,
   },
   {
     slug: 'social-authority',
-    name: 'Social Authority',
-    line: 'Google decides if they find you. Your profile decides if they trust you. A searchable, always-credible storefront.',
+    name: 'The Watermark',
+    line: 'Reviews and citations as due diligence. What a director finds when he looks your firm up before he defends the shortlist.',
     flag: false,
   },
 ];
@@ -57,7 +68,7 @@ export interface ServicePageData {
 
 export const SERVICE_PAGES: Record<string, ServicePageData> = {
   'ai-systems': {
-    title: 'Custom AI Systems & Business Automation | HigherMindAI',
+    title: 'Custom AI Systems for Management Firms | HigherMindAI',
     desc: 'Custom AI built on your own knowledge: intake, triage, qualifying, quoting, follow-up. It answers from your truth or it hands off. It never guesses.',
     h1Lead: 'The same forty answers, ',
     h1Em: 'a hundred times a week.',
@@ -75,23 +86,23 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
       ['Ship it', 'Live in 14 days, or the build fee comes back in full.'],
     ],
     faq: [
-      ['How is this different from Cortex?', 'Cortex is the intake desk - it answers, qualifies and books. AI Systems is everything behind it: the intake, the triage, the quote, the follow-up. Most firms need the intake desk first.'],
+      ['How is this different from The Desk?', 'The Desk is the intake desk - it answers, qualifies, triages and logs, on the web channel or the voice channel. AI Systems is everything behind it: the status certificate request, the eligibility check, the follow-up, the routine that eats your office. Most firms need the desk first.'],
       ['Will it make things up?', 'It is built not to. It answers from your grounded knowledge or it hands off to a human. In a clinical or legal setting that boundary is the whole design, not a feature.'],
       ['How much of my time does it take?', 'About thirty minutes of real input, then I build it. You approve it before it goes anywhere near a customer.'],
       ['What if I do not actually need this?', 'Then I will say so. I would rather tell you on the first call than take your money and watch you leave in three months. I have already had that year.'],
     ],
   },
   'service-area-expansion': {
-    title: 'Service Area SEO Expansion, Headwaters Ontario | HigherMindAI',
+    title: 'The Catchment - Service Area SEO Expansion | HigherMindAI',
     desc: 'Rank in more than your home city. Each target town is built as its own ranked unit with dedicated infrastructure - you only invest in places I can win.',
     h1Lead: 'Rank in every town you serve, ',
     h1Em: 'not just your own.',
     sub: 'Your Map Pack ranking is tied to where your pin sits. To win calls in the next town over, you need dedicated infrastructure built for that place - not your existing page spread thin across a map. Each target city is built to win on its own merits.',
-    eyebrow: 'Service Area Expansion',
+    eyebrow: 'The Catchment',
     values: [
       ['Winnability first', 'Before you commit a dollar, I assess the competition in the target town - search density, competitor strength, realistic ranking potential. You only invest in cities I can win.'],
       ['A dedicated unit per town', 'Each city gets its own purpose-built landing page with genuine local detail - neighbourhoods, landmarks, service-area language - engineered to rank for the service in that place.'],
-      ['Compounds with your core ranking', 'Expansion sits on top of the Local Ranking System. Your home base stays strong while new territory comes online, one winnable town at a time.'],
+      ['Compounds with your core ranking', 'The Catchment sits on top of The Well. Your home city stays strong while new ground comes online, one winnable town at a time.'],
     ],
     process: [
       ['Assess', 'Competition and winnability scored for each target town before anything is built.'],
@@ -102,79 +113,79 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
     faq: [
       ['How is this different from just adding cities to my profile?', 'Stuffing extra cities into one profile or page dilutes everything. I build each town as its own ranked unit so each one competes on its own merits.'],
       ['Which towns should I target first?', 'The winnable ones. I score competition and search density before recommending where to expand, so your investment goes where it can rank.'],
-      ['Do I need the Local Ranking System first?', 'Expansion builds on a strong home base. I get your core profile ranked, then widen the footprint town by town.'],
+      ['Do I need The Well first?', 'The Catchment builds on a strong home base. I get your core profile ranked first, then widen the footprint town by town.'],
     ],
   },
   'website-build': {
-    title: 'Conversion Website Design, Headwaters Ontario | HigherMindAI',
-    desc: 'A fast, conversion-built website that turns the people already searching for you into phone calls and booked jobs. Not a brochure - a salesperson.',
-    h1Lead: 'A website that earns the call, ',
-    h1Em: 'not just the visit.',
-    sub: 'A pretty site nobody calls is a cost. A fast, focused site that turns a stranger on their phone into a call, a booking, or a quote is an asset. Every section earns its place against one question - does it move a visitor closer to contacting you?',
-    eyebrow: 'Website Build',
+    title: 'The Landing - Property Management Website Build | HigherMindAI',
+    desc: 'A management firm site with two jobs: an owner portal that keeps the routine off your phone line, and a board-facing page that survives a shortlist.',
+    h1Lead: 'Your site has two jobs, ',
+    h1Em: 'and looking nice is neither.',
+    sub: 'A management firm\u2019s website does two things that matter. It takes the routine off your phone line - fob requests, status certificates, work orders, moving bookings - so your office is not re-handling them by voice all day. And it holds up when a director opens it at ten at night with two other firms in the other tabs. Every section earns its place against one of those two jobs.',
+    eyebrow: 'The Landing',
     values: [
-      ['Built for the phone call', 'Click-to-call that works on mobile, your offer and number above the fold, real trust signals - reviews, licensing, the guarantee. Nothing decorative for its own sake.'],
-      ['Fast and findable', 'Built clean and quick, tuned to the same on-page SEO standard I rank profiles on - title, schema, NAP, a page per service. The site supports the ranking, not just the eye.'],
-      ['Approve it before it goes live', 'You see the finished site and sign off before launch. The work is done right the first time, on a clear, fixed scope.'],
+      ['An owner portal that absorbs the routine', 'Fob and parking requests, status certificate requests, work order intake, moving and amenity bookings - logged, timestamped and routed to the right manager instead of arriving at reception as a phone call. Built as modules, so nothing holds up the launch.'],
+      ['A page that survives a shortlist', 'When three names go to the board, somebody looks all three up that evening. That page needs your record, your scope, your licensing position and your response standard on it - in the language a director has to repeat back to the rest of the board.'],
+      ['Fast and findable', 'Built clean and quick, tuned to the same on-page standard I rank profiles on - title, schema, consistent name and phone, a page per service. The site supports The Well rather than sitting beside it.'],
     ],
     process: [
-      ['Map the path', 'The exact route a buyer travels from landing to calling - structured before a pixel is placed.'],
-      ['Build', 'A fast, conversion-built site with your offer, proof, and call-to-action where they convert.'],
-      ['Tune for search', 'On-page SEO to the W2 standard - title, H1, schema, NAP, a page per service.'],
-      ['Launch', 'You approve it, it goes live, and ongoing care keeps it fast and secure.'],
+      ['Map the two paths', 'What an owner does on your site, and what a director does on it. They are different journeys and most firm sites serve neither.'],
+      ['Build', 'The site, plus whichever portal modules your office actually needs. You send buildings and communities, amenity and common areas, the team, the office.'],
+      ['Tune for search', 'On-page work to the same standard the profile is held to - title, H1, schema, consistent name and phone, a page per service.'],
+      ['Launch', 'You approve it, it goes live, and ongoing care keeps it fast, secure and current.'],
     ],
     faq: [
-      ['Is the website enough to get me ranked?', 'The site supports ranking but the Map Pack is its own system. The strongest results come from the website and the Local Ranking System working together.'],
-      ['Will I be able to make edits?', 'Care and hosting keep the site fast, secure, and updated. Tell me what you need changed and it gets handled.'],
-      ['How long does a build take?', 'A focused launch site moves quickly. Timeline depends on content and approvals, both of which I keep tight.'],
+      ['Is the website enough to get me ranked?', 'No. The site supports ranking, but the local pack is its own system. The Landing and The Well work together; on its own the site is the destination, not the reason anyone arrives at it.'],
+      ['Do I have to take the portal modules?', 'No. They are priced and built separately, and a firm whose office is not drowning in routine requests does not need them. I would rather tell you that than sell you a portal nobody logs into.'],
+      ['Will I be able to make edits?', 'Care and hosting keep the site fast, secure and current. Tell me what needs changing and it gets handled.'],
     ],
   },
   'social-authority': {
-    title: 'Social Media Authority for Local Business | HigherMindAI',
-    desc: 'Google decides if they find you. Your profile decides if they trust you. A searchable, always-credible storefront that confirms the search.',
-    h1Lead: 'The trust check, ',
-    h1Em: 'passed before they call.',
-    sub: 'A customer searches, lands on you, and does one more thing before they call: they open your Instagram to see if you are real, active, and worth trusting. If the last post was eighteen months ago, the call you earned on Google quietly goes to whoever looked alive.',
-    eyebrow: 'Social Authority',
+    title: 'The Watermark - Reviews & Reputation for Managers | HigherMindAI',
+    desc: 'What a board director finds when he looks your firm up the night before he defends a shortlist. Reviews and citations as due diligence, not decoration.',
+    h1Lead: 'A director has to defend ',
+    h1Em: 'putting you on the list.',
+    sub: 'Three names go to the board. That evening somebody looks all three up, and what he finds is what he repeats in the room - and what he answers owners with when they ask him why. Your rating, your review recency, your response to the bad ones, and whether your firm appears consistently wherever it appears at all. This is due diligence he is performing on you, and it is winnable.',
+    eyebrow: 'The Watermark',
     values: [
-      ['A searchable storefront', 'Optimized bio, name, and highlights, with a sustaining content rhythm - so the profile confirms the decision the search started, every time.'],
-      ['Credible, not viral', 'This is not a go-viral service and it does not dance for an algorithm. It is the same discipline behind your ranking, pointed at trust.'],
-      ['Managed, not abandoned', 'DMs and comments handled so no interested customer is left on read. The page reads active and real because it is.'],
+      ['The structural problem, addressed directly', 'The people most motivated to review a management firm are not the people who pay it. A tenant mid-complaint writes four paragraphs; an owner collecting rent quietly for three years writes nothing. A structured ask to the owners and the satisfied outgoing tenants is what corrects an average built from complaints.'],
+      ['The response is the artefact', 'A negative review is read by the next owner and the next director, not by the person who wrote it. Every one gets a proper, plain, non-defensive response written for that reader. That is the piece most firms skip and the piece that reads loudest.'],
+      ['Consistent wherever you appear', 'Same firm name, same phone, same service area across the directories and profiles a director will land on. Inconsistency does not just cost ranking - it makes a firm look smaller and less permanent than it is.'],
     ],
     process: [
-      ['Foundation', 'The searchable, always-credible profile - bio, name, highlights, set up to be found.'],
-      ['Rhythm', 'A sustaining content cadence that keeps the page reading active and on-brand.'],
-      ['Engage', 'DMs and comments managed so earned attention turns into conversation.'],
-      ['Build', 'Authority layered on over time as the work justifies moving up a tier.'],
+      ['Audit', 'What a director actually finds tonight - rating, recency, the unanswered ones, and every place your firm appears with the wrong details.'],
+      ['Ask', 'A structured, compliant request to the owners and satisfied outgoing tenants who would never think to leave one.'],
+      ['Respond', 'Every review answered, and the negative ones answered properly, for the reader rather than the writer.'],
+      ['Sustain', 'A rhythm that keeps the profiles reading active and current, plus the professional layer where your buyers and referrers actually are.'],
     ],
     faq: [
-      ['Will you promise me followers or going viral?', 'No. I never promise followers, reach, or virality. The job is a credible, active, searchable profile that passes the trust check and confirms your ranking.'],
-      ['Which platforms?', 'The ones your callers actually check before calling. I start where it matters most for your category.'],
-      ['Do I need this if I am already ranking?', 'Ranking gets you found; social closes the trust gap. The two compound - a ranked profile plus a credible page closes more of the calls you earn.'],
+      ['Will you write reviews or filter who gets asked?', 'No. I will not write them, incentivise them, gate them, or pick who gets asked based on how they are likely to answer. All of it is against platform rules and all of it is detectable. The levers are volume, timing and response quality, which is slower and is the only version that survives contact with Google.'],
+      ['Does this help on the condominium side?', 'It is the whole game on that side. Boards do not find a manager through search - they run an RFP. What decides who stays on the shortlist is what the committee finds when it looks each name up, which is exactly what this work governs.'],
+      ['Do I need this if I am already ranking?', 'Ranking decides whether you are found. This decides whether being found does you any good. Review velocity and recency also feed local pack position, so the two compound rather than compete.'],
     ],
   },
   'paid-growth': {
-    title: 'Google & Meta Ads Management, Headwaters | HigherMindAI',
-    desc: 'Engineered ad funnels built on the exact language your real clients use. Ad spend that compounds into a pipeline you can count on, not a monthly gamble.',
-    h1Lead: 'Ad spend that compounds ',
-    h1Em: 'into pipeline.',
-    sub: 'Most ad spend is guesswork with a dashboard. Money goes in, impressions come out, and nobody can tell you why it worked or why it quietly stopped. I engineer the entire path a buyer travels - from a stranger\u2019s first scroll to a booked sale.',
-    eyebrow: 'Paid Growth',
+    title: 'The Tap - Google & Meta Ads for Management Firms | HigherMindAI',
+    desc: 'Paid demand, engineered end to end. Volume from day one while organic position is still being built underneath it. Turn it up, turn it down, turn it off.',
+    h1Lead: 'Organic is a well. ',
+    h1Em: 'This is the tap.',
+    sub: 'The Well compounds and you keep it, but it does not fill on the day you sign. The Tap does. Paid carries the first ninety days while position is being built underneath it, and it is the right answer whenever you need volume faster than ranking can deliver. It is also the half that stops the day the spend stops, and I would rather say that here than at renewal.',
+    eyebrow: 'The Tap',
     values: [
-      ['Built on real customer language', 'Every headline, image, and page is built on the words your real clients use and the proven structures of the top players in your category.'],
-      ['The whole path, not just the click', 'From first scroll to booked sale - the ad, the page, and the follow-through engineered as one system, so you know which lever to pull when something moves.'],
-      ['Aligned incentives', 'Structured as a performance share - I win when you win. Spend that builds a pipeline you can count on, not a gamble you re-roll and hope on.'],
+      ['Built on the language owners actually use', 'Every headline, image and landing page is built on the words an investor-owner types when he has a unit to hand over, not on the words a marketing department would choose.'],
+      ['The whole path, not just the click', 'The ad, the page and the desk that answers what the page produces, engineered as one path - so when something moves you know which lever moved it.'],
+      ['Structured so it can be switched off', 'A one-time build, then a monthly management rate, and the ad spend paid directly by you to Google or Meta. I never hold it and I never mark it up. Turn the tap down or off and nothing about your organic position changes.'],
     ],
     process: [
-      ['Research', 'Your real clients\u2019 language and the top performers in your category, decoded.'],
-      ['Build', 'Ad, audience, and landing page engineered as one path to a booked sale.'],
-      ['Launch', 'Live with clear tracking on the metric that matters - booked work, not impressions.'],
-      ['Optimize', 'Every result reads as a lever. When something moves, I know precisely why.'],
+      ['Research', 'The language owners and directors actually search with, and what the firms already spending in your market are running.'],
+      ['Build', 'Ad, audience and landing page engineered as one path to a booked owner enquiry.'],
+      ['Launch', 'Live with tracking on the metric that matters - qualified enquiries, not impressions.'],
+      ['Optimize', 'Every result reads as a lever, and the first ninety days are deliberately priced low because nothing is proven yet.'],
     ],
     faq: [
-      ['How is pricing structured?', 'Paid Growth is structured as a performance share, so the incentives line up - I am paid to make your spend work, not to spend it.'],
-      ['Google or Meta?', 'Whichever fits how your callers buy. Often both, built as one funnel rather than two disconnected campaigns.'],
-      ['Do I need ranking first?', 'Not necessarily, but ranking and ads compound. Organic builds a durable base; ads add controllable volume on top.'],
+      ['How is pricing structured?', 'A one-time build, then a monthly management rate that is deliberately low for the first ninety days because nothing is proven yet, and a standing rate after that - stated at the start so day ninety is not a surprise. Ad spend is separate and paid by you directly to the platform. The figures for the property track are on the call, and they are in the agreement before anything goes live.'],
+      ['Google or Meta?', 'Whichever fits how your buyers actually search. Often both, built as one funnel rather than two campaigns that do not know about each other.'],
+      ['Do I need The Well first?', 'Not necessarily, and this is the one case where paid genuinely comes first - it carries the volume while the organic position is still being built. But I build the well, because the tap stops and the well does not.'],
     ],
   },
 };
@@ -197,7 +208,7 @@ export const LAW_FAQ: [string, string][] = [
   ],
   [
     'Can AI answer a law firm\u2019s phone and book consultations?',
-    'Yes. A voice intake desk answers on the first ring day or night, runs the firm\u2019s screening questions, checks the calendar, and books the consultation live on the call.',
+    'Yes. A voice intake desk answers day or night, runs the firm\u2019s screening questions, checks the calendar, and books the consultation live on the call. Answered and qualified, with a timestamp in and a timestamp answered on every contact.',
   ],
   [
     'How do law firms rank higher on Google Maps?',

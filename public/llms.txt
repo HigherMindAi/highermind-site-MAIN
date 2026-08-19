@@ -1,12 +1,12 @@
 # HigherMindAI
 
-> Local ranking and AI intake systems for property and condominium management firms across Canada, with law firms as a second book. I rank a firm so owners searching for a manager find it, put a desk on the other end that answers and qualifies every enquiry, and hand over a timestamped record of every contact. Operated by one person. Based in Erin, Ontario. Live in 14 to 21 days.
+> Local ranking and AI intake systems for property and community association management firms across the United States and Canada, with law firms as a second book. I rank a firm so owners searching for a manager find it, put a desk on the other end that answers and qualifies every enquiry, and hand over a timestamped record of every contact. Operated by one person. Based in Erin, Ontario. Live in 14 to 21 days.
 
 ## Property & condominium management - the specialty
-- [Property Management](https://highermindai.com/property-management): the track hub. Four engines - ranking, intake, the record, reputation - and the arithmetic on a single door.
+- [Property Management](https://highermindai.com/property-management): the track hub. Four engines - The Inflow (ranking and paid demand), The Desk (intake), The Record, The Watermark (reputation) - and the arithmetic on a single door.
 - [The Keystone](https://highermindai.com/the-keystone): the full system. All four engines welded together, plus the configurator and published rates.
-- [Property Management SEO](https://highermindai.com/property-management-seo): Google Business Profile rebuilt and held in the local pack for the terms owners actually type.
-- [Property Management Intake](https://highermindai.com/property-management-intake): Cortex on the site and The Operator on the line, with the scope limits published in full.
+- [The Well](https://highermindai.com/property-management-seo): the organic half of The Inflow. Google Business Profile rebuilt and held in the local pack for the terms owners actually type. The Tap is the paid half.
+- [The Desk](https://highermindai.com/property-management-intake): one intake desk on two channels, the web and the phone, with the scope limits published in full. Either channel alone or both; adding the second later costs what it would have cost on day one.
 - [The Record](https://highermindai.com/property-management/the-record): every contact logged with the time it came in and the time it was answered, plus a monthly report written to be tabled at a board meeting unedited.
 - [Condominium Management Marketing](https://highermindai.com/condominium-management-marketing): the board track. Reputation and record first, ranking third and defensive.
 - [Cities](https://highermindai.com/property-management-seo/locations/): per-city ranking pages across the Headwaters, the GTA, Southwestern Ontario and Greater Moncton.
@@ -29,4 +29,4 @@
 - Guarantees: first page inside 60 days on the agreed primary term, or the monthly pauses until it lands, with a 90-day provision for Toronto, Vancouver and Montreal agreed at kickoff; live in 14 to 21 days or the launch half of the build is not owed.
 - No promise of a number of doors. That depends on the firm's fees, close rate and capacity.
 - Published rates for the property track are on the pages themselves. Rates are never placed in structured data.
-- Serves clients across Canada.
+- Serves firms across eight US states and five Canadian regions, one property management firm per market. Published rates are Canadian, in CAD, for Canadian firms; US firms are priced separately in USD and the figure is given on the call.

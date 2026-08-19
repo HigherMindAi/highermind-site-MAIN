@@ -215,10 +215,10 @@ export default function Home() {
 
       <Product
         n="01"
-        eyebrow="Ranking & Local Leads"
+        eyebrow="The Inflow - ranking and local demand"
         head="Found first by the owner searching,"
         em="and it stays yours."
-        lead="The demand half, and the engine every firm understands first. A managed Google Business Profile engineered into the top three of the local pack and held there, plus paid campaigns where you want volume faster than ranking can compound. Organic is a well, paid is a tap - I build the well first."
+        lead="The traffic half, and the one every firm understands first. It has two ways in. The Well is organic: a managed Google Business Profile engineered into the top three of the local pack and held there. The Tap is paid, where you want volume faster than ranking can compound. Organic is a well, paid is a tap - I build the well first."
         stats={[
           ['Top 3', 'Map Pack target', { c: 3, pre: 'Top ' }],
           ['60 days', 'Or the monthly pauses'],
@@ -231,7 +231,7 @@ export default function Home() {
           'The Rank Lock: first page inside 60 days on the agreed primary term, or the monthly pauses until it lands. Toronto, Vancouver and Montreal carry a 90-day provision agreed at kickoff.',
         ]}
         href="/property-management-seo"
-        cta="See the ranking work"
+        cta="See The Well"
         stage={<InflowStage />}
       />
 
@@ -239,10 +239,10 @@ export default function Home() {
 
       <Product
         n="02"
-        eyebrow="AI Intake Desk"
+        eyebrow="The Desk - the half that answers"
         head="Every call answered."
         em="Screened, booked, 24/7."
-        lead="An AI intake desk on your phone and your website. It answers the moment an enquiry lands, runs your screening questions in your words, captures the file, and books the consultation while the caller is still on the line."
+        lead="One intake desk on two channels, the web and the phone. It answers when an enquiry lands, runs your screening questions in your words, captures the file, and books the consultation while the caller is still on the line. Start on one channel and add the other whenever you want it, at what it would have cost on day one."
         stats={[
           ['Every one', 'Answered and qualified'],
           ['24/7', 'Nights, weekends, holidays', { c: 24, suf: '/7' }],
@@ -255,7 +255,7 @@ export default function Home() {
           'Administrative intake only. It routes to a licensed manager and stops - the published scope limits say exactly where.',
         ]}
         href="/property-management-intake"
-        cta="See the intake desk"
+        cta="See The Desk"
         stage={<NightShiftStage />}
       />
 

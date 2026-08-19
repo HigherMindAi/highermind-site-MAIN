@@ -25,13 +25,13 @@ const SCHEMA_DESC =
 const ENGINES: [string, string, string, string][] = [
   [
     'The Inflow',
-    'Ranking and local visibility. Make it rain.',
-    'Your Google Business Profile claimed and rebuilt. Every service you offer, named the way owners actually search for it. Your real service area, mapped properly. A site you own. Organic position first because it compounds and you keep it; paid demand layered over the top when volume is needed faster than ranking can deliver.',
+    'The Well and The Tap. Make it rain.',
+    'The traffic half, with two ways into it. The Well is organic: your Google Business Profile claimed and rebuilt, every service named the way owners actually search for it, your real service area mapped properly, and a site you own. The Tap is paid, layered over the top when volume is needed faster than ranking can deliver. Organic first because it compounds and you keep it.',
     '/property-management-seo',
   ],
   [
-    'The Intake',
-    'Cortex and The Operator. Catch it.',
+    'The Desk',
+    'One desk, two channels. Catch it.',
     'Ranking creates enquiries. It does not answer them, and in this industry that gap is wider than in almost any other, because a large share of your inbound arrives outside office hours from people who have a problem rather than a question. Answered and qualified from your own documents, triaged on your criteria, logged, and routed to a licensed manager.',
     '/property-management-intake',
   ],
@@ -42,7 +42,7 @@ const ENGINES: [string, string, string, string][] = [
     '/property-management/the-record',
   ],
   [
-    'The Trust',
+    'The Watermark',
     'Reviews and response. Keep it.',
     'Property management has a structural reputation problem almost no other industry shares: the people most motivated to review you are not the people who pay you. A tenant with a maintenance complaint writes four paragraphs. A satisfied owner collecting rent quietly for three years writes nothing at all. The engine is volume, timing and response quality.',
     '/the-keystone',
@@ -235,10 +235,10 @@ export default function PropertyManagement() {
             </div>
           </div>
           <p className="note reveal">
-            The Inflow is the engine that gets bought first, and that is fine - everybody
+            The Inflow is the half that gets bought first, and that is fine - everybody
             understands what page one is worth. It is also the least valuable of the four on its
             own, which is the honest thing to tell you at the start rather than at renewal. Organic
-            is a well. Paid is a tap. I build the well first.
+            is The Well. Paid is The Tap. I build the well first.
           </p>
         </div>
       </section>
@@ -274,7 +274,7 @@ export default function PropertyManagement() {
                 <tr>
                   <td>Lead engine</td>
                   <td>The Inflow</td>
-                  <td>The Trust and The Record</td>
+                  <td>The Watermark and The Record</td>
                 </tr>
                 <tr>
                   <td>The decision</td>
@@ -283,13 +283,13 @@ export default function PropertyManagement() {
                 </tr>
                 <tr>
                   <td>Regulation</td>
-                  <td>&mdash;</td>
+                  <td>Not a licensed function in most markets.</td>
                   <td>CMRAO-licensed in Ontario, equivalents elsewhere.</td>
                 </tr>
                 <tr>
                   <td>Order of build</td>
-                  <td>Inflow, Intake, Trust, Record</td>
-                  <td>Trust, Record, Inflow, Intake</td>
+                  <td>Well, Desk, Watermark, Record</td>
+                  <td>Watermark, Record, Well, Desk</td>
                 </tr>
               </tbody>
             </table>
@@ -326,37 +326,38 @@ export default function PropertyManagement() {
               <div className="tp-label">Engines, standalone</div>
               <ul className="tp-list">
                 <li>
-                  <b>The SEO Engine</b> &nbsp;&middot;&nbsp; {PRICE.seoMonthly}
+                  <b>The Well</b> &nbsp;&middot;&nbsp; {PRICE.wellMonthly}
                   <br />
                   <span style={{ opacity: 0.62 }}>
-                    The Inflow, organic. Or a one-time Optimization Sprint at {PRICE.seoSprint}.
+                    The Inflow, organic. Or a one-time Optimization Sprint at {PRICE.wellSprint}.
                   </span>
                 </li>
                 <li>
-                  <b>Cortex</b> &nbsp;&middot;&nbsp; {PRICE.cortex}
+                  <b>The Desk, web channel</b> &nbsp;&middot;&nbsp; {PRICE.deskWeb}
                   <br />
                   <span style={{ opacity: 0.62 }}>
-                    Chat intake. {PRICE.cortexSetup}. Live in 14 days.
+                    {PRICE.deskWebSetup}. Live in 14 days.
                   </span>
                 </li>
                 <li>
-                  <b>The Operator</b> &nbsp;&middot;&nbsp; {PRICE.operator}
+                  <b>The Desk, voice channel</b> &nbsp;&middot;&nbsp; {PRICE.deskVoice}
                   <br />
                   <span style={{ opacity: 0.62 }}>
-                    Voice intake. {PRICE.operatorSetup}. Live in 21 days.
+                    {PRICE.deskVoiceSetup}. Live in 21 days.
                   </span>
                 </li>
                 <li>
-                  <b>The Desk whole</b> &nbsp;&middot;&nbsp; {PRICE.deskWhole}
+                  <b>The Desk, both channels</b> &nbsp;&middot;&nbsp; {PRICE.deskWhole}
                   <br />
                   <span style={{ opacity: 0.62 }}>
-                    Cortex and The Operator together. {PRICE.deskWholeSetup}.
+                    The whole Desk. {PRICE.deskWholeSetup}. Same again for the phone, whenever you
+                    add it.
                   </span>
                 </li>
                 <li>
-                  <b>The Trust Engine</b> &nbsp;&middot;&nbsp; {PRICE.trustFrom}
+                  <b>The Watermark</b> &nbsp;&middot;&nbsp; {PRICE.watermarkFrom}
                   <br />
-                  <span style={{ opacity: 0.62 }}>One-time build, per platform.</span>
+                  <span style={{ opacity: 0.62 }}>Monthly, per platform.</span>
                 </li>
               </ul>
               <p className="tp-note">{PRICE_FOOTNOTE}</p>

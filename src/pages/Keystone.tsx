@@ -8,7 +8,7 @@ import {
   PROPERTY_FAQ, PRICE, PRICE_FOOTNOTE, KEYSTONE_WHOLE_NOTE, PORTFOLIO_SCALING,
   RANK_LOCK, LAUNCH_LOCK, RECORD_LOCK, NO_DOORS_PROMISE, LAUNCH_WINDOW,
 } from '../lib/property';
-import { KeystoneArchStage, TrustStage } from '../components/Stages';
+import { ArchitectureStage, TrustStage } from '../components/Stages';
 import { orgSchema, serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 import { LOCATIONS_HUB } from '../lib/cities';
 
@@ -100,13 +100,14 @@ export default function Keystone() {
           </div>
           <div className="prod-cols" style={{ marginBottom: 36 }}>
             <div className="stg-wrap reveal">
-              <KeystoneArchStage />
+              <ArchitectureStage />
             </div>
             <div className="vcard reveal">
               <div className="vlab">Why it is called that</div>
               <div className="vbig">
                 The stones either side carry nothing on their own. They carry once the last one is
-                set. <b>Take it out and both sides come down.</b>
+                set. <b>Take it out and both sides come down.</b> Ranking is half of it. Answering is
+                the half that pays.
               </div>
             </div>
           </div>
@@ -115,19 +116,21 @@ export default function Keystone() {
               <div className="vt-n">Make it rain</div>
               <h3>The Inflow</h3>
               <p>
-                Your profile claimed and rebuilt, every service named the way owners search for it,
-                your service area mapped properly, and a site you own. Organic first because it
-                compounds and you keep it.{' '}
-                <Link to="/property-management-seo">See The Inflow</Link>.
+                The traffic half, and it has two taps into it. <b>The Well</b> is organic - your
+                profile claimed and rebuilt, every service named the way owners search for it, your
+                service area mapped properly. <b>The Tap</b> is paid, over the top, when you need
+                volume faster than ranking can deliver. I build the well first.{' '}
+                <Link to="/property-management-seo">See The Well</Link>.
               </p>
             </div>
             <div className="vtile feat reveal">
               <div className="vt-n">Catch it</div>
-              <h3>The Intake</h3>
+              <h3>The Desk</h3>
               <p>
-                Cortex on your site and The Operator on your line. Answered and qualified from your
-                own documents, triaged on your criteria, logged, and routed to a licensed manager.{' '}
-                <Link to="/property-management-intake">See The Intake</Link>.
+                One intake desk on two channels, the web and the phone. Answered and qualified from
+                each corporation&rsquo;s own documents, triaged on your criteria, logged, and routed
+                to a licensed manager.{' '}
+                <Link to="/property-management-intake">See The Desk</Link>.
               </p>
             </div>
             <div className="vtile feat reveal">
@@ -141,7 +144,7 @@ export default function Keystone() {
             </div>
             <div className="vtile reveal">
               <div className="vt-n">Keep it</div>
-              <h3>The Trust</h3>
+              <h3>The Watermark</h3>
               <p>
                 A structured ask to the owners and outgoing satisfied tenants who never think to
                 leave a review, and a proper response to every negative one - written for the next
@@ -163,7 +166,8 @@ export default function Keystone() {
             </div>
           </div>
           <p className="note reveal">
-            The honest limit on Trust: I will not write reviews, incentivise them, gate them, or
+            The honest limit on The Watermark: I will not write reviews, incentivise them, gate
+            them, or
             filter who gets asked based on how they are likely to answer. All of that is against
             platform rules and all of it is detectable. The engine is volume, timing and response
             quality, which is slower than the alternatives and is the only version that survives
@@ -194,11 +198,11 @@ export default function Keystone() {
               <div className="tp-label">Axis one - how demand arrives</div>
               <ul className="tp-list">
                 <li>
-                  <b>Organic.</b> The well. Profile and local position rebuilt and held. Slower to
+                  <b>Organic.</b> The Well. Profile and local position rebuilt and held. Slower to
                   start, compounds, and you keep it.
                 </li>
                 <li>
-                  <b>Paid.</b> The tap. Demand from day one. Stops when the spend stops.
+                  <b>Paid.</b> The Tap. Demand from day one. Stops when the spend stops.
                 </li>
                 <li>
                   <b>Both.</b> Paid carries the first ninety days while organic position is built
@@ -210,25 +214,25 @@ export default function Keystone() {
               <div className="tp-label">Axis two - how it gets answered</div>
               <ul className="tp-list">
                 <li>
-                  <b>Chat.</b> Cortex on your site. Qualifies and books an owner enquiry without you
-                  touching it.
+                  <b>The web channel.</b> The Desk on your site. Qualifies and books an owner
+                  enquiry without you touching it.
                 </li>
                 <li>
-                  <b>Voice.</b> The Operator on your line. The after-hours and overflow half,
-                  triaged and logged.
+                  <b>The voice channel.</b> The Desk on your line. The after-hours and overflow
+                  half, triaged and logged.
                 </li>
                 <li>
-                  <b>Both.</b> The Desk whole. Nothing arrives at your firm through a channel that
-                  does not answer.
+                  <b>Both channels.</b> The whole Desk. Nothing arrives at your firm through a
+                  channel that does not answer.
                 </li>
               </ul>
             </div>
           </div>
 
           <p className="note reveal">
-            The Record and The Trust are not optional axes. The Record ships with every
-            configuration, because a system that cannot show what it did is not a system. Trust is
-            included on the whole Keystone and available standalone on smaller builds.
+            The Record and The Watermark are not optional axes. The Record ships with every
+            configuration, because a system that cannot show what it did is not a system. The
+            Watermark is included on the whole Keystone and available standalone on smaller builds.
           </p>
         </div>
       </section>
@@ -247,26 +251,26 @@ export default function Keystone() {
               <div className="tp-label">Engines, standalone</div>
               <ul className="tp-list">
                 <li>
-                  <b>The SEO Engine</b> &nbsp;&middot;&nbsp; {PRICE.seoMonthly}
+                  <b>The Well</b> &nbsp;&middot;&nbsp; {PRICE.wellMonthly}
                   <br />
                   <span style={{ opacity: 0.62 }}>
-                    Or a one-time Optimization Sprint at {PRICE.seoSprint}.
+                    Or a one-time Optimization Sprint at {PRICE.wellSprint}.
                   </span>
                 </li>
                 <li>
-                  <b>Cortex</b> &nbsp;&middot;&nbsp; {PRICE.cortex} &nbsp;&middot;&nbsp;{' '}
-                  {PRICE.cortexSetup}
+                  <b>The Desk, web channel</b> &nbsp;&middot;&nbsp; {PRICE.deskWeb}{' '}
+                  &nbsp;&middot;&nbsp; {PRICE.deskWebSetup}
                 </li>
                 <li>
-                  <b>The Operator</b> &nbsp;&middot;&nbsp; {PRICE.operator} &nbsp;&middot;&nbsp;{' '}
-                  {PRICE.operatorSetup}
+                  <b>The Desk, voice channel</b> &nbsp;&middot;&nbsp; {PRICE.deskVoice}{' '}
+                  &nbsp;&middot;&nbsp; {PRICE.deskVoiceSetup}
                 </li>
                 <li>
-                  <b>The Desk whole</b> &nbsp;&middot;&nbsp; {PRICE.deskWhole} &nbsp;&middot;&nbsp;{' '}
-                  {PRICE.deskWholeSetup}
+                  <b>The Desk, both channels</b> &nbsp;&middot;&nbsp; {PRICE.deskWhole}{' '}
+                  &nbsp;&middot;&nbsp; {PRICE.deskWholeSetup}
                 </li>
                 <li>
-                  <b>The Trust Engine</b> &nbsp;&middot;&nbsp; {PRICE.trustFrom}
+                  <b>The Watermark</b> &nbsp;&middot;&nbsp; {PRICE.watermarkFrom}
                 </li>
               </ul>
               <p className="tp-note">{KEYSTONE_WHOLE_NOTE}</p>

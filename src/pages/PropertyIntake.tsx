@@ -6,7 +6,7 @@ import { Arrow } from '../components/Icons';
 import { PHONE_E164, PHONE_DISP } from '../lib/site';
 import {
   SCOPE_DOES, SCOPE_STOPS, CMRAO_LINE, PRICE, PRICE_FOOTNOTE,
-  PORTFOLIO_SCALING, LAUNCH_LOCK, LAUNCH_WINDOW,
+  PORTFOLIO_SCALING, DESK_ADD_CHANNEL, LAUNCH_LOCK, LAUNCH_WINDOW,
 } from '../lib/property';
 import { NightShiftStage } from '../components/Stages';
 import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
@@ -14,7 +14,7 @@ import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 const URL = '/property-management-intake';
 
 const DESC =
-  'Cortex on your site, The Operator on your line. Every owner enquiry and after-hours call answered and qualified, triaged on your criteria, logged and routed.';
+  'The Desk answers on your site and on your line. Every owner enquiry and after-hours call answered and qualified, triaged on your criteria, logged and routed.';
 
 // No rate in schema. See property.ts.
 const SCHEMA_DESC = DESC;
@@ -37,6 +37,10 @@ const INTAKE_FAQ: [string, string][] = [
     'Five, on every desk tier. Past that, intake volume genuinely changes and so does the price - a modest per-corporation monthly plus a one-time charge to load that corporation\u2019s documents. The figures are published in the pricing block on this page. Any increase is agreed in writing before go-live, and never applied retroactively.',
   ],
   [
+    'Do I have to take both channels?',
+    'No, and most firms do not start that way. Chat first, voice once you have watched it work. The two channels are priced the same because they are the same build - the only difference is which surface it answers on - so adding the phone later costs exactly what it would have cost on day one. No upgrade premium, nothing renegotiated, a one-line amendment.',
+  ],
+  [
     'Does it replace my staff?',
     'No. It covers the hours and the overflow your staff cannot, and it hands everything real to a person. What it replaces is the voicemail box and, usually, the answering service you are already paying for - one that transcribes rather than triages and leaves no record behind.',
   ],
@@ -46,7 +50,7 @@ export default function PropertyIntake() {
   return (
     <main>
       <Seo
-        title="Property Management Answering Service & AI Intake | HigherMindAI"
+        title="The Desk - Property Management AI Intake Service | HigherMindAI"
         desc={DESC}
         path={URL}
         schema={[
@@ -62,16 +66,16 @@ export default function PropertyIntake() {
 
       <section className="phero">
         <div className="wrap">
-          <span className="eyebrow reveal">The Intake - the half that answers</span>
+          <span className="eyebrow reveal">The Desk - the half that answers</span>
           <h1 className="reveal">
             The enquiry that arrives{' '}
             <span className="em">at seven in the evening.</span>
           </h1>
           <p className="sub reveal">
             It goes to voicemail. He does not leave one. He calls the next firm, who answers, and
-            that door is gone permanently - and you never learn it existed. Cortex answers on your
-            site and The Operator answers your line. Answered and qualified, triaged against your
-            criteria, logged with a timestamp, and routed to a licensed manager.
+            that door is gone permanently - and you never learn it existed. The Desk answers on
+            your site and on your line. Answered and qualified, triaged against your criteria,
+            logged with a timestamp, and routed to a licensed manager.
           </p>
           <div className="ctas reveal">
             <Link to="/book/" className="btn btn-primary">
@@ -94,7 +98,7 @@ export default function PropertyIntake() {
       <section className="sec">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">Two components</span>
+            <span className="eyebrow">One desk, two channels</span>
             <h2>
               Ranking creates enquiries.{' '}
               <span className="em">It does not answer them.</span>
@@ -110,30 +114,31 @@ export default function PropertyIntake() {
               <NightShiftStage />
             </div>
             <div className="vcard reveal">
-              <div className="vlab">The shape of the problem</div>
+              <div className="vlab">Same desk, either way in</div>
               <div className="vbig">
-                A large share of your inbound lands outside office hours, from people who have a
-                problem rather than a question. <b>The desk is the difference between a contact and a
-                voicemail.</b>
+                Same knowledge, same triage criteria, same escalation order, same log - so an owner
+                gets the same answer whether he types it or says it.{' '}
+                <b>The Desk is the difference between a contact and a voicemail.</b>
               </div>
             </div>
           </div>
           <div className="steps">
             <div className="step reveal">
-              <div className="sn">Component</div>
-              <h3>Cortex</h3>
+              <div className="sn">Channel</div>
+              <h3>The web channel</h3>
               <p>
-                The chat desk. Sits on your site, answers from your own documents, qualifies an owner
-                enquiry, books the conversation, and hands you a transcript. Live in 14 days.
+                Sits on your site and one more messaging channel. Answers from each corporation&rsquo;s
+                own documents, qualifies an owner enquiry, books the conversation, and hands you the
+                transcript. Live in 14 days. Most firms start here.
               </p>
             </div>
             <div className="step reveal">
-              <div className="sn">Component</div>
-              <h3>The Operator</h3>
+              <div className="sn">Channel</div>
+              <h3>The voice channel</h3>
               <p>
-                The voice desk. Answers the line you cannot get to, triages against your criteria,
-                logs it with a timestamp, and routes anything real to a licensed manager. Live in 21
-                days.
+                Answers the line you cannot get to, triages against your criteria, logs it with a
+                timestamp, and routes anything real to a licensed manager. Live in 21 days, longer on
+                purpose.
               </p>
             </div>
           </div>
@@ -239,30 +244,33 @@ export default function PropertyIntake() {
           </div>
           <div className="prod-cols">
             <div className="termpanel reveal">
-              <div className="tp-label">The desk</div>
+              <div className="tp-label">The Desk</div>
               <ul className="tp-list">
                 <li>
-                  <b>Cortex</b> &nbsp;&middot;&nbsp; {PRICE.cortex}
+                  <b>The web channel</b> &nbsp;&middot;&nbsp; {PRICE.deskWeb}
                   <br />
                   <span style={{ opacity: 0.62 }}>
-                    Chat intake. {PRICE.cortexSetup}. Live in 14 days.
+                    {PRICE.deskWebSetup}. Live in 14 days.
                   </span>
                 </li>
                 <li>
-                  <b>The Operator</b> &nbsp;&middot;&nbsp; {PRICE.operator}
+                  <b>The voice channel</b> &nbsp;&middot;&nbsp; {PRICE.deskVoice}
                   <br />
                   <span style={{ opacity: 0.62 }}>
-                    Voice intake. {PRICE.operatorSetup}. Live in 21 days.
+                    {PRICE.deskVoiceSetup}. Live in 21 days.
                   </span>
                 </li>
                 <li>
-                  <b>The Desk whole</b> &nbsp;&middot;&nbsp; {PRICE.deskWhole}
+                  <b>Both channels</b> &nbsp;&middot;&nbsp; {PRICE.deskWhole}
                   <br />
                   <span style={{ opacity: 0.62 }}>
-                    Both together, below the sum of the parts. {PRICE.deskWholeSetup}.
+                    The whole Desk. {PRICE.deskWholeSetup}.
                   </span>
                 </li>
               </ul>
+              <p className="tp-note">
+                <b>Chat now, voice later.</b> {DESK_ADD_CHANNEL}
+              </p>
               <p className="tp-note">{PRICE_FOOTNOTE}</p>
             </div>
             <div className="termpanel reveal">

@@ -159,7 +159,7 @@ export default function LocationPage() {
             <Link to="/property-management-intake">The intake desk</Link>
             <Link to="/property-management/the-record">The Record</Link>
             <Link to="/condominium-management-marketing">Condominium boards</Link>
-            <Link to="/services/service-area-expansion/">Service Area Expansion</Link>
+            <Link to="/services/service-area-expansion/">The Catchment</Link>
             <Link to="/proof/">Proof</Link>
           </div>
           {near.length > 0 && (

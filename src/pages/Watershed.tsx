@@ -111,7 +111,7 @@ export default function Watershed() {
           </div>
           <div className="vgrid five">
             {[
-              ['Answer', 'On the first ring or the first message, at any hour. The caller reaches a real answer, not a voicemail box.'],
+              ['Answer', 'Answered and qualified, at any hour, on the call or the message. The caller reaches a real answer, not a voicemail box.'],
               ['Screen', 'Your screening questions, in your words. Conflicts, practice area, urgency, jurisdiction - the file is qualified before it reaches you.'],
               ['Capture', 'The enquiry is written into your case-management system as a clean intake record, not a sticky note someone means to type up later.'],
               ['Book', 'The consultation goes into your calendar while the caller is still on the line, before they think to try the next firm.'],

@@ -22,7 +22,7 @@ const INTAKE_FAQ: [string, string][] = [
   ],
   [
     'Can AI answer a law firm\u2019s phone and book consultations?',
-    'Yes. A voice intake desk answers on the first ring day or night, runs the firm\u2019s screening questions, checks the calendar, and books the consultation live on the call.',
+    'Yes. A voice intake desk answers day or night, runs the firm\u2019s screening questions, checks the calendar, and books the consultation live on the call. Answered and qualified, with a timestamp in and a timestamp answered on every contact.',
   ],
   [
     'What if it does not know the answer to something?',

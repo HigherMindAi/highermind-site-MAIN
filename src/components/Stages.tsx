@@ -480,3 +480,110 @@ export function KeystoneArchStage() {
     </div>
   );
 }
+
+/* ------------------------------------------------ the architecture · lattice
+   The whole product set in one picture. The Inflow is the traffic half and it
+   has two taps into it, The Well and The Tap. Under it sits The Desk, the
+   intake half, on two channels. Under that, The Record. Every name on the site
+   and in the kits appears here once, in its place.
+
+   Static by design - it is a map, not a scene, and nothing about it benefits
+   from motion. Colours come from the tokens via inline style so this adds no
+   CSS classes. */
+
+const LAT_LABEL: React.CSSProperties = {
+  fontFamily: 'var(--f-mono)',
+  fontSize: '9.5px',
+  letterSpacing: '.14em',
+  textTransform: 'uppercase',
+  fill: 'var(--faint)',
+};
+const LAT_NAME: React.CSSProperties = {
+  fontFamily: 'var(--f-display)',
+  fontSize: '15px',
+  fontWeight: 650,
+  fill: 'var(--text)',
+};
+const LAT_NAME_T: React.CSSProperties = { ...LAT_NAME, fill: 'var(--teal)' };
+const LAT_LINE: React.CSSProperties = { stroke: 'var(--line)', strokeWidth: 1 };
+const LAT_BOX: React.CSSProperties = {
+  fill: 'var(--panel-2)',
+  stroke: 'var(--line)',
+  strokeWidth: 1,
+};
+const LAT_BOX_T: React.CSSProperties = {
+  fill: 'rgba(63,224,181,.06)',
+  stroke: 'rgba(63,224,181,.35)',
+  strokeWidth: 1,
+};
+
+export function ArchitectureStage() {
+  return (
+    <div
+      className="stg"
+      aria-label="How the parts fit: The Inflow is the traffic half, made of The Well (organic) and The Tap (paid). The Desk is the intake half, on a web channel and a voice channel. The Record proves both."
+    >
+      <div className="stg-top">
+        <span className="stg-lab">how the parts fit</span>
+        <span className="stg-chip">one system</span>
+      </div>
+
+      <svg viewBox="0 0 320 226" width="100%" role="img" aria-hidden="true">
+        {/* the inflow - the layer */}
+        <rect x="86" y="6" width="148" height="34" rx="8" style={LAT_BOX} />
+        <text x="160" y="21" textAnchor="middle" style={LAT_LABEL}>
+          the traffic half
+        </text>
+        <text x="160" y="34" textAnchor="middle" style={LAT_NAME}>
+          The Inflow
+        </text>
+
+        {/* fork down to the two halves */}
+        <path d="M160 40 V 52 H 74 V 64" fill="none" style={LAT_LINE} />
+        <path d="M160 40 V 52 H 246 V 64" fill="none" style={LAT_LINE} />
+
+        <rect x="10" y="64" width="128" height="38" rx="8" style={LAT_BOX_T} />
+        <text x="74" y="79" textAnchor="middle" style={LAT_LABEL}>
+          organic
+        </text>
+        <text x="74" y="93" textAnchor="middle" style={LAT_NAME_T}>
+          The Well
+        </text>
+
+        <rect x="182" y="64" width="128" height="38" rx="8" style={LAT_BOX} />
+        <text x="246" y="79" textAnchor="middle" style={LAT_LABEL}>
+          paid
+        </text>
+        <text x="246" y="93" textAnchor="middle" style={LAT_NAME}>
+          The Tap
+        </text>
+
+        {/* converge into the desk */}
+        <path d="M74 102 V 116 H 160 V 128" fill="none" style={LAT_LINE} />
+        <path d="M246 102 V 116 H 160 V 128" fill="none" style={LAT_LINE} />
+
+        <rect x="46" y="128" width="228" height="42" rx="8" style={LAT_BOX_T} />
+        <text x="160" y="144" textAnchor="middle" style={LAT_LABEL}>
+          the intake half · web channel · voice channel
+        </text>
+        <text x="160" y="160" textAnchor="middle" style={LAT_NAME_T}>
+          The Desk
+        </text>
+
+        <path d="M160 170 V 186" fill="none" style={LAT_LINE} />
+
+        <rect x="86" y="186" width="148" height="34" rx="8" style={LAT_BOX} />
+        <text x="160" y="201" textAnchor="middle" style={LAT_LABEL}>
+          the proof
+        </text>
+        <text x="160" y="214" textAnchor="middle" style={LAT_NAME}>
+          The Record
+        </text>
+      </svg>
+
+      <div className="stg-note">
+        Ranking is half of it &middot; answering is the half that pays
+      </div>
+    </div>
+  );
+}

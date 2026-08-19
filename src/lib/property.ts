@@ -7,8 +7,14 @@
 // A price in structured data can be cached into a rich result against me;
 // visible copy changes in one deploy. Keep them apart. See schema.ts.
 //
-// Source of truth for every figure below: Onboarding kit v7.0 (Property).
-// If a number here ever disagrees with the kit, the kit wins.
+// Source of truth for every figure below: Onboarding Dominion v8.0 (Property,
+// Canada) and Onboarding Republic v2.0 (Property, US). Outreach Dominion v9.0
+// and Republic v2.0 carry the same names. If a number here ever disagrees with
+// a kit, the kit wins.
+//
+// NAMING: The Inflow is the LAYER, not a product. Under it sit The Well
+// (organic) and The Tap (paid). The Desk is one product on two channels, web
+// and voice. Cortex and The Operator no longer exist as separate purchases.
 //
 // Hyphens only, never em-dashes. Solo first person. No client names.
 // ---------------------------------------------------------------------------
@@ -41,15 +47,18 @@ export const NO_DOORS_PROMISE =
 // here: portfolio scaling makes a single figure misleading on a firm carrying
 // nine corporations, and founding-four scarcity reads as pressure in print.
 export const PRICE = {
-  seoMonthly: '$900/mo',
-  seoSprint: '$1,150 one-time',
-  cortex: '$450/mo',
-  cortexSetup: '$1,400 setup',
-  operator: '$600/mo',
-  operatorSetup: '$2,000 setup',
+  wellMonthly: '$900/mo',
+  wellSprint: '$1,150 one-time',
+  // The two channels are priced identically because they are the same build -
+  // the only difference is which surface it answers on. The old standalone
+  // voice rate of $600/mo and $2,000 setup is retired and must not return.
+  deskWeb: '$450/mo',
+  deskWebSetup: '$1,400 setup',
+  deskVoice: '$450/mo',
+  deskVoiceSetup: '$1,400 setup',
   deskWhole: '$900/mo',
   deskWholeSetup: '$2,800 setup',
-  trustFrom: 'from $800 per platform',
+  watermarkFrom: 'from $800 per platform',
   from: 'from $900 a month',
 } as const;
 
@@ -63,7 +72,12 @@ export const KEYSTONE_WHOLE_NOTE =
   'The whole Keystone is bundled below the sum of the parts, on founding terms held twelve months, for the first four firms only. What it comes to depends on how many corporations the desk carries, so I will give you the number on the call rather than guess at it here.';
 
 export const PORTFOLIO_SCALING =
-  'Every desk tier covers up to five corporations. Past that, intake volume genuinely changes and so does the price: an additional $60 a month per corporation on Cortex and $80 on The Operator, plus a one-time $150 or $200 to load that corporation\u2019s documents. Agreed in writing before go-live, and never applied retroactively.';
+  'Every Desk tier covers up to five corporations. Past that, intake volume genuinely changes and so does the price: an additional $60 a month per corporation on the web channel and $80 a month on the voice channel, plus a one-time $150 or $200 to load that corporation\u2019s documents. Agreed in writing before go-live, and never applied retroactively.';
+
+// The whole upsell, in one sentence. Chat now, voice later - and later costs
+// exactly what day one would have. Say it plainly or it reads as a trap.
+export const DESK_ADD_CHANNEL =
+  'Start on one channel and add the second whenever you want it. It costs exactly what it would have cost on day one - no upgrade premium, nothing renegotiated, a one-line amendment. Same again for the phone.';
 
 /* ------------------------------------------------------------ the arithmetic */
 

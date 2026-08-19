@@ -44,7 +44,7 @@ const CHECKS: [string, string][] = [
   ],
   [
     'Which engines answer that list',
-    'Trust answers the rating. The Record answers retention and responsiveness with numbers instead of adjectives. The Inflow makes sure the search finds you rather than a stale directory listing from four years ago.',
+    'The Watermark answers the rating. The Record answers retention and responsiveness with numbers instead of adjectives. The Well makes sure the search finds you rather than a stale directory listing from four years ago.',
   ],
   [
     'The season is real and it is short',
@@ -191,12 +191,12 @@ export default function CondoMarketing() {
             </div>
             <div className="step reveal">
               <div className="sn">Third</div>
-              <h3>The Inflow</h3>
+              <h3>The Well</h3>
               <p>
                 Defensive, on this track. The search has to find your firm rather than a stale
                 directory listing, a wrong phone number, or nothing at all. Worth doing, and worth
                 being honest that it is third.{' '}
-                <Link to="/property-management-seo">See The Inflow</Link>.
+                <Link to="/property-management-seo">See The Well</Link>.
               </p>
             </div>
             <div className="step reveal">
