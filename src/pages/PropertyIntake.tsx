@@ -11,7 +11,7 @@ import {
 import { NightShiftStage } from '../components/Stages';
 import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 
-const URL = '/property-management-intake';
+const URL = '/property-management-intake/';
 
 const DESC =
   'The Desk answers on your site and on your line. Every owner enquiry and after-hours call answered and qualified, triaged on your criteria, logged and routed.';
@@ -57,7 +57,7 @@ export default function PropertyIntake() {
           serviceSchema('Property Management AI Intake and Answering Service', SCHEMA_DESC, URL),
           breadcrumbs([
             ['Home', '/'],
-            ['Property Management', '/property-management'],
+            ['Property Management', '/property-management/'],
             ['Property Management Intake', URL],
           ]),
           faqSchema(INTAKE_FAQ),
@@ -217,7 +217,7 @@ export default function PropertyIntake() {
               <p>
                 Every contact carries a timestamp in and a timestamp answered, which means
                 responsiveness stops being a thing you claim and becomes a number.{' '}
-                <Link to="/property-management/the-record">See The Record</Link>.
+                <Link to="/property-management/the-record/">See The Record</Link>.
               </p>
             </div>
           </div>

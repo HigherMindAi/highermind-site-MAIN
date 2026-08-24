@@ -7,7 +7,7 @@ import { PHONE_E164, PHONE_DISP } from '../lib/site';
 import { LAW_FAQ } from '../lib/services';
 import { orgSchema, serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 
-const URL = '/the-watershed';
+const URL = '/the-watershed/';
 
 const WATERSHED_DESC =
   'The full system for law firms: demand engineered so clients find the firm, and a 24/7 intake desk that answers, screens and books every consultation.';
@@ -75,7 +75,7 @@ export default function Watershed() {
                 Managed Google ranking and, where you want speed, paid campaigns on the most
                 expensive keywords in legal search - engineered so the person searching for a lawyer
                 lands on your firm, not the national brand three towns over.{' '}
-                <Link to="/law-firm-seo">See the ranking half</Link>.
+                <Link to="/law-firm-seo/">See the ranking half</Link>.
               </p>
             </div>
             <div className="vtile feat reveal">
@@ -85,7 +85,7 @@ export default function Watershed() {
                 An AI intake desk on the phone and the web that answers the moment an enquiry
                 arrives, runs your screening questions, captures the file, and books the consultation
                 live - day, night, and weekend.{' '}
-                <Link to="/law-firm-intake">See the intake half</Link>.
+                <Link to="/law-firm-intake/">See the intake half</Link>.
               </p>
             </div>
             <div className="vtile reveal">

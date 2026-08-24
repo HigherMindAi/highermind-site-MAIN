@@ -9,7 +9,7 @@ import { TrustStage } from '../components/Stages';
 import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 import { LOCATIONS_HUB } from '../lib/cities';
 
-const URL = '/condominium-management-marketing';
+const URL = '/condominium-management-marketing/';
 
 const DESC =
   'Boards shortlist you, then look you up - and what they find decides who receives the package. Reputation and record for condominium management firms.';
@@ -67,7 +67,7 @@ export default function CondoMarketing() {
           serviceSchema('Condominium Management Marketing and Reputation', DESC, URL),
           breadcrumbs([
             ['Home', '/'],
-            ['Property Management', '/property-management'],
+            ['Property Management', '/property-management/'],
             ['Condominium Management Marketing', URL],
           ]),
           faqSchema(CONDO_FAQ),
@@ -186,7 +186,7 @@ export default function CondoMarketing() {
                 Retention and responsiveness are on every board&rsquo;s list and almost nobody can
                 answer them with a number. A monthly report written to be tabled at a board meeting
                 without editing turns your strongest argument from an adjective into evidence.{' '}
-                <Link to="/property-management/the-record">See The Record</Link>.
+                <Link to="/property-management/the-record/">See The Record</Link>.
               </p>
             </div>
             <div className="step reveal">
@@ -196,7 +196,7 @@ export default function CondoMarketing() {
                 Defensive, on this track. The search has to find your firm rather than a stale
                 directory listing, a wrong phone number, or nothing at all. Worth doing, and worth
                 being honest that it is third.{' '}
-                <Link to="/property-management-seo">See The Well</Link>.
+                <Link to="/property-management-seo/">See The Well</Link>.
               </p>
             </div>
             <div className="step reveal">
@@ -205,7 +205,7 @@ export default function CondoMarketing() {
               <p>
                 The after-hours contact from a resident, logged and routed on your escalation order.
                 Administrative only, and the limits are below.{' '}
-                <Link to="/property-management-intake">See The Intake</Link>.
+                <Link to="/property-management-intake/">See The Intake</Link>.
               </p>
             </div>
           </div>
@@ -243,7 +243,7 @@ export default function CondoMarketing() {
           <p className="note reveal">
             Board work is regional, and so is the search that follows a shortlist.{' '}
             <Link to={LOCATIONS_HUB}>See the cities I build in</Link>, or read how the{' '}
-            <Link to="/property-management/the-record">record</Link> answers the retention and
+            <Link to="/property-management/the-record/">record</Link> answers the retention and
             responsiveness questions a selection committee actually asks.
           </p>
         </div>

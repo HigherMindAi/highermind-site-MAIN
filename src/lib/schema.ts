@@ -69,7 +69,7 @@ export function personSchema(): Json {
     jobTitle: 'Founder',
     worksFor: { '@id': ORG_ID },
     image: `${BASE}/derek.webp`,
-    url: BASE + '/about',
+    url: BASE + '/about/',
     telephone: PHONE_E164,
     email: EMAIL,
     homeLocation: {

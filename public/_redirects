@@ -1,7 +1,7 @@
 # Law-firm repivot 301s - old flagship + legacy paths to new canonical URLs.
-/services/the-catchment/   /the-watershed      301!
-/services/cortex/          /law-firm-intake    301!
-/services/local-ranking-system/   /law-firm-seo   301!
+/services/the-catchment/   /the-watershed/      301!
+/services/cortex/          /law-firm-intake/    301!
+/services/local-ranking-system/   /law-firm-seo/   301!
 
 # ---------------------------------------------------------------------------
 # AUGUST 2026 - /local-seo/* moved to /property-management-seo/*
@@ -32,20 +32,20 @@
 #
 # Duplicated in netlify.toml on purpose. MUST stay above the /* fallback.
 # ---------------------------------------------------------------------------
-/the-well                  /property-management-seo             301!
-/the-well/                 /property-management-seo             301!
-/seo-engine                /property-management-seo             301!
-/seo-engine/               /property-management-seo             301!
-/the-desk                  /property-management-intake          301!
-/the-desk/                 /property-management-intake          301!
-/cortex                    /property-management-intake          301!
-/cortex/                   /property-management-intake          301!
-/operator                  /property-management-intake          301!
-/operator/                 /property-management-intake          301!
-/ai-receptionist           /property-management-intake          301!
-/ai-receptionist/          /property-management-intake          301!
-/the-record                /property-management/the-record      301!
-/the-record/               /property-management/the-record      301!
+/the-well                  /property-management-seo/             301!
+/the-well/                 /property-management-seo/             301!
+/seo-engine                /property-management-seo/             301!
+/seo-engine/               /property-management-seo/             301!
+/the-desk                  /property-management-intake/          301!
+/the-desk/                 /property-management-intake/          301!
+/cortex                    /property-management-intake/          301!
+/cortex/                   /property-management-intake/          301!
+/operator                  /property-management-intake/          301!
+/operator/                 /property-management-intake/          301!
+/ai-receptionist           /property-management-intake/          301!
+/ai-receptionist/          /property-management-intake/          301!
+/the-record                /property-management/the-record/      301!
+/the-record/               /property-management/the-record/      301!
 /the-tap                   /services/paid-growth/               301!
 /the-tap/                  /services/paid-growth/               301!
 /demand-engine             /services/paid-growth/               301!
@@ -63,5 +63,7 @@
 /launchpad                 /services/website-build/             301!
 /launchpad/                /services/website-build/             301!
 
-# SPA fallback (must stay last)
-/*    /index.html   200
+# Catch-all. MUST return a real 404 and MUST match netlify.toml.
+# This previously served /index.html at 200, which made every junk URL a
+# 200-status duplicate of the homepage. Confirmed live 2026-08-24. Stays last.
+/*    /404.html   404

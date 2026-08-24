@@ -9,7 +9,7 @@ import { InflowStage } from '../components/Stages';
 import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 import { CITIES, cityPath } from '../lib/cities';
 
-const URL = '/property-management-seo';
+const URL = '/property-management-seo/';
 
 const DESC =
   'Get found by owners searching for a manager in your city. Google Business Profile rebuilt and held in the local pack. First page in 60 days or the monthly pauses.';
@@ -65,7 +65,7 @@ export default function PropertySeo() {
           serviceSchema('Property Management SEO and Google Ranking', SCHEMA_DESC, URL),
           breadcrumbs([
             ['Home', '/'],
-            ['Property Management', '/property-management'],
+            ['Property Management', '/property-management/'],
             ['Property Management SEO', URL],
           ]),
           faqSchema(SEO_FAQ),
@@ -198,8 +198,8 @@ export default function PropertySeo() {
               owner enquiry you paid to create arrives while you are at a showing, coordinating a
               contractor, or asleep, and it leaves as quietly as it came. I would rather tell you
               that at the start than at renewal.{' '}
-              <Link to="/property-management-intake">See the half that answers</Link>, or{' '}
-              <Link to="/the-keystone">see the whole Keystone</Link>.
+              <Link to="/property-management-intake/">See the half that answers</Link>, or{' '}
+              <Link to="/the-keystone/">see the whole Keystone</Link>.
             </p>
           </div>
         </div>

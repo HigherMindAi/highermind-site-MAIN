@@ -12,7 +12,7 @@ import { TrustStage } from '../components/Stages';
 import { CITIES, cityPath, LOCATIONS_HUB } from '../lib/cities';
 import { orgSchema, serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 
-const URL = '/property-management';
+const URL = '/property-management/';
 
 const DESC =
   'Ranking, intake, records and reviews for property management firms across the US and Canada. Own the channel instead of renting leads. One firm per market.';
@@ -27,25 +27,25 @@ const ENGINES: [string, string, string, string][] = [
     'The Inflow',
     'The Well and The Tap. Make it rain.',
     'The traffic half, with two ways into it. The Well is organic: your Google Business Profile claimed and rebuilt, every service named the way owners actually search for it, your real service area mapped properly, and a site you own. The Tap is paid, layered over the top when volume is needed faster than ranking can deliver. Organic first because it compounds and you keep it.',
-    '/property-management-seo',
+    '/property-management-seo/',
   ],
   [
     'The Desk',
     'One desk, two channels. Catch it.',
     'Ranking creates enquiries. It does not answer them, and in this industry that gap is wider than in almost any other, because a large share of your inbound arrives outside office hours from people who have a problem rather than a question. Answered and qualified from your own documents, triaged on your criteria, logged, and routed to a licensed manager.',
-    '/property-management-intake',
+    '/property-management-intake/',
   ],
   [
     'The Record',
     'Timestamped logs and board reports. Prove it.',
     'Every contact with the time it arrived and the time it was answered, plus a monthly report written to be forwarded to an owner or tabled at a board meeting without editing. In property management your exposure is almost never the event. It is the account of the event.',
-    '/property-management/the-record',
+    '/property-management/the-record/',
   ],
   [
     'The Watermark',
     'Reviews and response. Keep it.',
     'Property management has a structural reputation problem almost no other industry shares: the people most motivated to review you are not the people who pay you. A tenant with a maintenance complaint writes four paragraphs. A satisfied owner collecting rent quietly for three years writes nothing at all. The engine is volume, timing and response quality.',
-    '/the-keystone',
+    '/the-keystone/',
   ],
 ];
 
@@ -307,7 +307,7 @@ export default function PropertyManagement() {
             Most firms are both. A mixed firm gets both tracks in one build, sequenced
             rental-first, because rental produces a number you can feel inside ninety days - and
             that number is what buys the patience for the board side.{' '}
-            <Link to="/condominium-management-marketing">See the condominium track</Link>.
+            <Link to="/condominium-management-marketing/">See the condominium track</Link>.
           </p>
         </div>
       </section>
@@ -377,7 +377,7 @@ export default function PropertyManagement() {
               </ul>
               <p className="tp-note">{NO_DOORS_PROMISE}</p>
               <p className="tp-note">
-                <Link to="/the-keystone">See the whole Keystone</Link> - all four engines welded
+                <Link to="/the-keystone/">See the whole Keystone</Link> - all four engines welded
                 into one system.
               </p>
             </div>
@@ -417,7 +417,7 @@ export default function PropertyManagement() {
             which is why this page talks about doors and work orders instead of impressions and
             engagement. I have never held a licence or managed a corporation, and I say so plainly
             rather than let a title do work it cannot do.{' '}
-            <Link to="/about">The full story</Link>.
+            <Link to="/about/">The full story</Link>.
           </p>
         </div>
       </section>

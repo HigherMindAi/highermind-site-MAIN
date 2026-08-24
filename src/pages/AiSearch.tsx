@@ -7,7 +7,7 @@ import { Arrow } from '../components/Icons';
 import { PHONE_E164, PHONE_DISP } from '../lib/site';
 import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 
-const URL = '/ai-search-optimization';
+const URL = '/ai-search-optimization/';
 
 const DESC =
   'Get named when someone asks ChatGPT, Claude, Gemini, Perplexity or Google AI for a firm like yours. Entity, evidence, answers and access, built properly.';

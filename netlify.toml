@@ -56,85 +56,85 @@
 
 [[redirects]]
   from = "/the-well"
-  to = "/property-management-seo"
+  to = "/property-management-seo/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/the-well/"
-  to = "/property-management-seo"
+  to = "/property-management-seo/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/seo-engine"
-  to = "/property-management-seo"
+  to = "/property-management-seo/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/seo-engine/"
-  to = "/property-management-seo"
+  to = "/property-management-seo/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/the-desk"
-  to = "/property-management-intake"
+  to = "/property-management-intake/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/the-desk/"
-  to = "/property-management-intake"
+  to = "/property-management-intake/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/cortex"
-  to = "/property-management-intake"
+  to = "/property-management-intake/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/cortex/"
-  to = "/property-management-intake"
+  to = "/property-management-intake/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/operator"
-  to = "/property-management-intake"
+  to = "/property-management-intake/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/operator/"
-  to = "/property-management-intake"
+  to = "/property-management-intake/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/ai-receptionist"
-  to = "/property-management-intake"
+  to = "/property-management-intake/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/ai-receptionist/"
-  to = "/property-management-intake"
+  to = "/property-management-intake/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/the-record"
-  to = "/property-management/the-record"
+  to = "/property-management/the-record/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/the-record/"
-  to = "/property-management/the-record"
+  to = "/property-management/the-record/"
   status = 301
   force = true
 

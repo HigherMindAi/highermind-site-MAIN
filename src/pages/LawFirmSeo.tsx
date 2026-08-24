@@ -6,7 +6,7 @@ import { Arrow } from '../components/Icons';
 import { PHONE_E164, PHONE_DISP } from '../lib/site';
 import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 
-const URL = '/law-firm-seo';
+const URL = '/law-firm-seo/';
 
 const DESC =
   'Ranking and lead generation for law firms: a managed Google Business Profile engineered into the Map Pack top three, plus high-intent paid campaigns.';
@@ -104,8 +104,8 @@ export default function LawFirmSeo() {
           <p className="lead reveal">
             Ranking creates the call. If no one picks up after five, the file goes to the next firm
             on the list. That is why ranking and intake are sold as one loop.{' '}
-            <Link to="/law-firm-intake">See the intake half</Link>, or{' '}
-            <Link to="/the-watershed">see the full Watershed</Link>.
+            <Link to="/law-firm-intake/">See the intake half</Link>, or{' '}
+            <Link to="/the-watershed/">see the full Watershed</Link>.
           </p>
         </div>
       </section>

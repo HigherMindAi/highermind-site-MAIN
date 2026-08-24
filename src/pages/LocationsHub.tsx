@@ -13,7 +13,7 @@ export default function LocationsHub() {
         desc="Google ranking for property management firms across the Headwaters, the GTA, Southwestern Ontario and Greater Moncton. Every city built separately."
         path={LOCATIONS_HUB}
         schema={[
-          breadcrumbs([['Home', '/'], ['Ranking', '/property-management-seo'], ['Locations', LOCATIONS_HUB]]),
+          breadcrumbs([['Home', '/'], ['Ranking', '/property-management-seo/'], ['Locations', LOCATIONS_HUB]]),
           locationsItemList(CITIES),
         ]}
       />
@@ -33,7 +33,7 @@ export default function LocationsHub() {
               Ontario and into the Maritimes. The work is delivered to your Google profile, so distance
               is no barrier - what matters is whether I can out-rank the firms around you. These are the
               Canadian cities I have built a page for; the full market list, including the eight US
-              states, is on the <Link to="/coverage">coverage page</Link>. Search your own city term
+              states, is on the <Link to="/coverage/">coverage page</Link>. Search your own city term
               and see where you sit.
             </p>
           </div>

@@ -5,7 +5,7 @@ import { Arrow } from '../components/Icons';
 import { PHONE_E164, PHONE_DISP, FOUNDER } from '../lib/site';
 import { personSchema, orgSchema, breadcrumbs } from '../lib/schema';
 
-const URL = '/about';
+const URL = '/about/';
 
 const DESC =
   'Ten months contracted inside a property management operation, and close to a decade in the justice system before that. One operator, no account manager.';
@@ -96,7 +96,7 @@ export default function About() {
                 firm.
               </p>
               <div className="ctas">
-                <Link to="/the-watershed" className="btn btn-primary">
+                <Link to="/the-watershed/" className="btn btn-primary">
                   See what I build <Arrow />
                 </Link>
                 <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">

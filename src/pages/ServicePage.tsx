@@ -46,7 +46,7 @@ export default function ServicePage() {
             </h1>
             <p className="sub">{d.sub}</p>
             <div className="ctas" style={{ marginTop: 34, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-              <Link to="/contact" className="btn btn-primary">
+              <Link to="/contact/" className="btn btn-primary">
                 Book a call <Arrow />
               </Link>
               <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">

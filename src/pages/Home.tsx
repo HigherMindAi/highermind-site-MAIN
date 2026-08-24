@@ -193,7 +193,7 @@ export default function Home() {
                 corporations.
               </p>
               <div className="ctas" style={{ marginTop: 22 }}>
-                <Link to="/property-management" className="btn btn-primary">The Keystone <Arrow /></Link>
+                <Link to="/property-management/" className="btn btn-primary">The Keystone <Arrow /></Link>
               </div>
             </div>
             <div className="step reveal">
@@ -204,7 +204,7 @@ export default function Home() {
                 injury, family, criminal defence, immigration.
               </p>
               <div className="ctas" style={{ marginTop: 22 }}>
-                <Link to="/the-watershed" className="btn btn-primary">The Watershed <Arrow /></Link>
+                <Link to="/the-watershed/" className="btn btn-primary">The Watershed <Arrow /></Link>
               </div>
             </div>
           </div>
@@ -230,7 +230,7 @@ export default function Home() {
           'Every winnable town around you built as its own ranked unit, so you own more than one pin.',
           'The Rank Lock: first page inside 60 days on the agreed primary term, or the monthly pauses until it lands. Toronto, Vancouver and Montreal carry a 90-day provision agreed at kickoff.',
         ]}
-        href="/property-management-seo"
+        href="/property-management-seo/"
         cta="See The Well"
         stage={<InflowStage />}
       />
@@ -254,7 +254,7 @@ export default function Home() {
           'Books straight into your calendar, then chases no-shows and cold enquiries automatically.',
           'Administrative intake only. It routes to a licensed manager and stops - the published scope limits say exactly where.',
         ]}
-        href="/property-management-intake"
+        href="/property-management-intake/"
         cta="See The Desk"
         stage={<NightShiftStage />}
       />
@@ -278,7 +278,7 @@ export default function Home() {
           'Explicit crawler access and an llms.txt summary - most sites have never opened the door, and some have accidentally shut it.',
           'A monthly log of the same questions re-asked, showing whether you got named and what changed.',
         ]}
-        href="/ai-search-optimization"
+        href="/ai-search-optimization/"
         cta="See AI search visibility"
         stage={<SearchStage />}
       />
@@ -324,8 +324,8 @@ export default function Home() {
                 </p>
               </div>
               <div className="ctas reveal">
-                <Link to="/the-keystone" className="btn btn-primary">The Keystone <Arrow /></Link>
-                <Link to="/the-watershed" className="btn btn-ghost">The Watershed</Link>
+                <Link to="/the-keystone/" className="btn btn-primary">The Keystone <Arrow /></Link>
+                <Link to="/the-watershed/" className="btn btn-ghost">The Watershed</Link>
               </div>
             </div>
             <div className="stg-wrap reveal">
@@ -368,7 +368,7 @@ export default function Home() {
             ))}
           </div>
           <div className="pfoot reveal">
-            <Link to="/solutions" className="btn btn-ghost">Who I help <Arrow /></Link>
+            <Link to="/solutions/" className="btn btn-ghost">Who I help <Arrow /></Link>
           </div>
         </div>
       </section>
@@ -399,7 +399,7 @@ export default function Home() {
                 manager between you and the work.
               </p>
               <div className="ctas">
-                <Link to="/about" className="btn btn-primary">The full story <Arrow /></Link>
+                <Link to="/about/" className="btn btn-primary">The full story <Arrow /></Link>
               </div>
             </div>
           </div>
@@ -422,10 +422,10 @@ export default function Home() {
               takes about three seconds to check.
             </p>
             <div className="ctas" style={{ marginTop: 26 }}>
-              <Link to="/coverage" className="btn btn-primary">
+              <Link to="/coverage/" className="btn btn-primary">
                 See where I work <Arrow />
               </Link>
-              <Link to="/scope-limits" className="btn btn-ghost">
+              <Link to="/scope-limits/" className="btn btn-ghost">
                 Where the desk stops
               </Link>
             </div>

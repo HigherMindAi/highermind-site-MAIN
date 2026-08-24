@@ -5,7 +5,7 @@ import { PHONE_E164, PHONE_DISP, EMAIL } from '../lib/site';
 import { LAW_FAQ } from '../lib/services';
 import { faqSchema, breadcrumbs, orgSchema } from '../lib/schema';
 
-const URL = '/contact';
+const URL = '/contact/';
 
 const DESC =
   'Book a call with HigherMindAI. Phone 647-242-5800, or send a message. AI client intake, AI search visibility and Google ranking - live in 14 days.';

@@ -18,13 +18,13 @@ export const COUNTRY = 'CA';
 // Two books, two doors. Nav leads with the flagships because the homepage
 // forks there, then the shared engines.
 export const NAV: ReadonlyArray<{ label: string; href: string }> = [
-  { label: 'Property Management', href: '/property-management' },
-  { label: 'The Keystone', href: '/the-keystone' },
-  { label: 'Ranking', href: '/property-management-seo' },
-  { label: 'Intake', href: '/property-management-intake' },
-  { label: 'Coverage', href: '/coverage' },
-  { label: 'Law Firms', href: '/the-watershed' },
-  { label: 'About', href: '/about' },
+  { label: 'Property Management', href: '/property-management/' },
+  { label: 'The Keystone', href: '/the-keystone/' },
+  { label: 'Ranking', href: '/property-management-seo/' },
+  { label: 'Intake', href: '/property-management-intake/' },
+  { label: 'Coverage', href: '/coverage/' },
+  { label: 'Law Firms', href: '/the-watershed/' },
+  { label: 'About', href: '/about/' },
 ];
 
 export const FOUNDER = 'Derek Train';

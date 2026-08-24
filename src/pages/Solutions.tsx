@@ -6,7 +6,7 @@ import { Arrow } from '../components/Icons';
 import { PHONE_E164, PHONE_DISP } from '../lib/site';
 import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 
-const URL = '/solutions';
+const URL = '/solutions/';
 
 const DESC =
   'Property and condominium management is the specialty, law firms the second book. The same ranking and intake system fits any appointment-led practice.';
@@ -108,7 +108,7 @@ export default function Solutions() {
               CRM side, and the maintenance arm that serviced the portfolio. Owner enquiries, work
               orders, and units that had to turn before the month closed. A door is worth more to you
               than a job is worth to anyone else, which is why the build order is different here.{' '}
-              <Link to="/property-management">See the property track</Link>.
+              <Link to="/property-management/">See the property track</Link>.
             </p>
           </div>
           <div className="vgrid four reveal">
@@ -135,7 +135,7 @@ export default function Solutions() {
               Close to a decade in courtrooms and federal case files before I built any of this. I
               know what a real intake looks like and why the first firm to pick up is usually the
               firm that gets retained.{' '}
-              <Link to="/the-watershed">See the full system</Link>.
+              <Link to="/the-watershed/">See the full system</Link>.
             </p>
           </div>
           <div className="vgrid four reveal">

@@ -7,7 +7,7 @@ import { PHONE_E164, PHONE_DISP } from '../lib/site';
 import { SCOPE_DOES, SCOPE_STOPS, CMRAO_LINE } from '../lib/property';
 import { breadcrumbs, serviceSchema, faqSchema } from '../lib/schema';
 
-const URL = '/scope-limits';
+const URL = '/scope-limits/';
 
 const DESC =
   'Exactly what the intake desk does and exactly where it stops, published before you ask. It routes to a licensed manager and never performs a licensed function.';
@@ -46,7 +46,7 @@ export default function ScopeLimits() {
           serviceSchema('AI Intake Desk - Published Scope Limits', DESC, URL),
           breadcrumbs([
             ['Home', '/'],
-            ['Property Management', '/property-management'],
+            ['Property Management', '/property-management/'],
             ['Scope Limits', URL],
           ]),
           faqSchema(SCOPE_FAQ),
@@ -58,7 +58,7 @@ export default function ScopeLimits() {
           <div className="reveal">
             <div className="crumb">
               <Link to="/">Home</Link> &nbsp;/&nbsp;{' '}
-              <Link to="/property-management">Property Management</Link> &nbsp;/&nbsp; Scope Limits
+              <Link to="/property-management/">Property Management</Link> &nbsp;/&nbsp; Scope Limits
             </div>
             <span className="eyebrow">Scope limits &middot; published, not buried</span>
             <h1>
@@ -148,11 +148,11 @@ export default function ScopeLimits() {
           </div>
           <div className="mesh reveal">
             <span className="mesh-lab">The rest of it</span>
-            <Link to="/property-management-intake">The intake desk</Link>
-            <Link to="/property-management/the-record">The Record</Link>
-            <Link to="/the-keystone">The Keystone</Link>
-            <Link to="/condominium-management-marketing">Condominium boards</Link>
-            <Link to="/coverage">Where I work</Link>
+            <Link to="/property-management-intake/">The intake desk</Link>
+            <Link to="/property-management/the-record/">The Record</Link>
+            <Link to="/the-keystone/">The Keystone</Link>
+            <Link to="/condominium-management-marketing/">Condominium boards</Link>
+            <Link to="/coverage/">Where I work</Link>
           </div>
         </div>
       </section>

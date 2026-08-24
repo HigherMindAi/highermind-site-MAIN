@@ -9,7 +9,7 @@ import { PHONE_E164, PHONE_DISP } from '../lib/site';
 import { RECORD_LOCK } from '../lib/property';
 import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 
-const URL = '/property-management/the-record';
+const URL = '/property-management/the-record/';
 
 const DESC =
   'Every contact logged with the time it came in and the time it was answered, and a monthly report written to be tabled at a board meeting without editing.';
@@ -63,7 +63,7 @@ export default function TheRecord() {
           serviceSchema('The Record - Timestamped Intake Logging and Reporting', DESC, URL),
           breadcrumbs([
             ['Home', '/'],
-            ['Property Management', '/property-management'],
+            ['Property Management', '/property-management/'],
             ['The Record', URL],
           ]),
           faqSchema(RECORD_FAQ),
@@ -210,7 +210,7 @@ export default function TheRecord() {
               table, is a different category of thing - and once a firm has twelve months of it, it
               is not going back. That is the honest reason this engine ships with every
               configuration rather than being sold as an upgrade.{' '}
-              <Link to="/the-keystone">See how it sits inside the Keystone</Link>.
+              <Link to="/the-keystone/">See how it sits inside the Keystone</Link>.
             </p>
           </div>
           <p className="note reveal">{RECORD_LOCK}</p>

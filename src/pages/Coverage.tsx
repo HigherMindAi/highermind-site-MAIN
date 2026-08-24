@@ -16,7 +16,7 @@ import {
 import { breadcrumbs, serviceSchema, faqSchema } from '../lib/schema';
 import { LOCATIONS_HUB } from '../lib/cities';
 
-const URL = '/coverage';
+const URL = '/coverage/';
 
 const DESC =
   'Where I work: eight US states and five Canadian regions, one property management firm per market. Rental portfolios and community association management, both tracks.';
@@ -177,12 +177,12 @@ export default function Coverage() {
           </div>
           <div className="mesh reveal">
             <span className="mesh-lab">What runs in every market</span>
-            <Link to="/the-keystone">The Keystone</Link>
-            <Link to="/property-management-seo">Ranking &amp; visibility</Link>
-            <Link to="/property-management-intake">The intake desk</Link>
-            <Link to="/property-management/the-record">The Record</Link>
-            <Link to="/scope-limits">Where the desk stops</Link>
-            <Link to="/condominium-management-marketing">Condominium boards</Link>
+            <Link to="/the-keystone/">The Keystone</Link>
+            <Link to="/property-management-seo/">Ranking &amp; visibility</Link>
+            <Link to="/property-management-intake/">The intake desk</Link>
+            <Link to="/property-management/the-record/">The Record</Link>
+            <Link to="/scope-limits/">Where the desk stops</Link>
+            <Link to="/condominium-management-marketing/">Condominium boards</Link>
             <Link to={LOCATIONS_HUB}>Cities I build in</Link>
           </div>
         </div>

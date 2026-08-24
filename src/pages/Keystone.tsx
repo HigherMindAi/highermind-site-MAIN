@@ -12,7 +12,7 @@ import { ArchitectureStage, TrustStage } from '../components/Stages';
 import { orgSchema, serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 import { LOCATIONS_HUB } from '../lib/cities';
 
-const URL = '/the-keystone';
+const URL = '/the-keystone/';
 
 const DESC =
   'Four engines welded into one system for property and condominium management firms: ranking, intake, the record and reputation. Live in 14 to 21 days.';
@@ -45,7 +45,7 @@ export default function Keystone() {
           serviceSchema('The Keystone', DESC, URL),
           breadcrumbs([
             ['Home', '/'],
-            ['Property Management', '/property-management'],
+            ['Property Management', '/property-management/'],
             ['The Keystone', URL],
           ]),
           faqSchema(PROPERTY_FAQ),
@@ -120,7 +120,7 @@ export default function Keystone() {
                 profile claimed and rebuilt, every service named the way owners search for it, your
                 service area mapped properly. <b>The Tap</b> is paid, over the top, when you need
                 volume faster than ranking can deliver. I build the well first.{' '}
-                <Link to="/property-management-seo">See The Well</Link>.
+                <Link to="/property-management-seo/">See The Well</Link>.
               </p>
             </div>
             <div className="vtile feat reveal">
@@ -130,7 +130,7 @@ export default function Keystone() {
                 One intake desk on two channels, the web and the phone. Answered and qualified from
                 each corporation&rsquo;s own documents, triaged on your criteria, logged, and routed
                 to a licensed manager.{' '}
-                <Link to="/property-management-intake">See The Desk</Link>.
+                <Link to="/property-management-intake/">See The Desk</Link>.
               </p>
             </div>
             <div className="vtile feat reveal">
@@ -139,7 +139,7 @@ export default function Keystone() {
               <p>
                 Every contact with the time it arrived and the time it was answered, and a monthly
                 report written to be tabled at a board meeting without editing.{' '}
-                <Link to="/property-management/the-record">See The Record</Link>.
+                <Link to="/property-management/the-record/">See The Record</Link>.
               </p>
             </div>
             <div className="vtile reveal">

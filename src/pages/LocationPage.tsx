@@ -54,7 +54,7 @@ export default function LocationPage() {
         path={url}
         schema={[
           locationSchema(c, url),
-          breadcrumbs([['Home', '/'], ['Ranking', '/property-management-seo'], ['Locations', LOCATIONS_HUB], [`${c.city}, ${rfull}`, url]]),
+          breadcrumbs([['Home', '/'], ['Ranking', '/property-management-seo/'], ['Locations', LOCATIONS_HUB], [`${c.city}, ${rfull}`, url]]),
           faqSchema(faq),
         ]}
       />
@@ -154,11 +154,11 @@ export default function LocationPage() {
           </div>
           <div className="mesh reveal">
             <span className="mesh-lab">The system</span>
-            <Link to="/the-keystone">The Keystone</Link>
-            <Link to="/property-management-seo">Ranking &amp; visibility</Link>
-            <Link to="/property-management-intake">The intake desk</Link>
-            <Link to="/property-management/the-record">The Record</Link>
-            <Link to="/condominium-management-marketing">Condominium boards</Link>
+            <Link to="/the-keystone/">The Keystone</Link>
+            <Link to="/property-management-seo/">Ranking &amp; visibility</Link>
+            <Link to="/property-management-intake/">The intake desk</Link>
+            <Link to="/property-management/the-record/">The Record</Link>
+            <Link to="/condominium-management-marketing/">Condominium boards</Link>
             <Link to="/services/service-area-expansion/">The Catchment</Link>
             <Link to="/proof/">Proof</Link>
           </div>
