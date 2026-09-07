@@ -131,7 +131,7 @@ export default function Book() {
                 <a href={`mailto:${EMAIL}`}>
                   <span className="ic">&#9993;</span> {EMAIL}
                 </a>
-                <Link to="/solutions/">
+                <Link to="/who-i-help/">
                   <span className="ic">&#9678;</span> Erin, Ontario &middot; serving firms across the
                   US and Canada
                 </Link>

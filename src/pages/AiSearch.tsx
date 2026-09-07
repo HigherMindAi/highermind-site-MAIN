@@ -105,7 +105,7 @@ function TypeDemo() {
   return (
     <div className="aid reveal">
       <div className="aid-lab">ai assistant</div>
-      <div className="aid-q">who&rsquo;s the best injury lawyer near me that actually answers at night?</div>
+      <div className="aid-q">who near me actually answers the phone?</div>
       <div className="aid-a">
         {SEG.map(([t, hi], k) => {
           const start = used;
@@ -144,7 +144,7 @@ export default function AiSearch() {
           </h1>
           <p className="sub reveal">
             People have stopped typing keywords and started asking questions. "Who is the best injury
-            lawyer near me." "Which firm actually answers the phone." They get one answer, assembled
+            near me." "Which company actually answers the phone." They get one answer, assembled
             by a model, naming two or three businesses. AI Search Optimization is the work of making
             sure you are one of the names - and it is the same work whether the answer comes from
             ChatGPT, Claude, Gemini, Perplexity, Copilot or Google's AI Overviews.

@@ -9,6 +9,7 @@ import {
   CA_MARKETS,
   COVERAGE_INTRO,
   COVERAGE_QUEBEC,
+  COVERAGE_EXCLUSIONS,
   COVERAGE_NOT_LISTED,
   COVERAGE_WHY_ONE,
   Market,
@@ -19,7 +20,7 @@ import { LOCATIONS_HUB } from '../lib/cities';
 const URL = '/coverage/';
 
 const DESC =
-  'Where I work: eight US states and five Canadian regions, one property management firm per market. Rental portfolios and community association management, both tracks.';
+  'Where I work: eight US states and five Canadian regions, one firm per trade per market. Property and condominium management, roofing, and arborists and tree care.';
 
 const COVERAGE_FAQ: [string, string][] = [
   [
@@ -31,8 +32,8 @@ const COVERAGE_FAQ: [string, string][] = [
     'It means I will not sell the same visibility work to two firms competing for the same owners. Market is defined at kickoff and written down, because a vague promise of exclusivity is worth nothing. It is not a scarcity tactic - it is a straightforward consequence of being one operator rather than an agency with a roster, and it is why the honest answer to your question is sometimes that your market is gone.',
   ],
   [
-    'Is the pricing on this site what a US firm pays?',
-    'No. The published figures are Canadian rates in Canadian dollars, for Canadian firms. US firms are priced separately in USD - different market, different rate - and I will give you that number on the call rather than have you convert the wrong one. I would rather explain the difference now than have you find it and wonder.',
+    'Do American firms pay the same as Canadian ones?',
+    'No. US firms are priced separately in USD - different market, different rate - and neither number is published on this site. You get the one that applies to you on the call, worked out against your own figures rather than converted from somebody else\u2019s.',
   ],
   [
     'My state is not listed. Is that a no?',
@@ -71,7 +72,7 @@ export default function Coverage() {
         desc={DESC}
         path={URL}
         schema={[
-          serviceSchema('Property Management Marketing and AI Intake - Coverage', DESC, URL),
+          serviceSchema('Local search marketing and AI intake - coverage', DESC, URL),
           breadcrumbs([
             ['Home', '/'],
             ['Coverage', URL],
@@ -88,7 +89,7 @@ export default function Coverage() {
             </div>
             <span className="eyebrow">Coverage &middot; two countries</span>
             <h1>
-              One firm per market.{' '}
+              One firm per trade, per market.{' '}
               <span className="em">Eight states, five Canadian regions.</span>
             </h1>
             <p className="sub">{COVERAGE_INTRO}</p>
@@ -101,8 +102,8 @@ export default function Coverage() {
               </a>
             </div>
             <p className="trustline">
-              Both tracks in every market &middot; Rental portfolios and community associations
-              &middot; Scope configured to your licensing regime
+              All three books in every market &middot; Property and condominium management, roofing,
+              arborists &middot; Scope configured to your licensing regime
             </p>
           </div>
         </div>
@@ -114,7 +115,7 @@ export default function Coverage() {
         <div className="wrap narrow">
           <MarketList
             heading="United States"
-            note="Eight states, chosen for market conditions and for the practical reason that I call from Eastern time and can reach them properly. Both tracks in every one of them - rental portfolios and community association management - with the desk configured to that state's licensing regime."
+            note="Eight states, chosen for market conditions and for the practical reason that I call from Eastern time and can reach them properly. All three books in every one of them - property and condominium management, roofing, and arborists and tree care - with the desk configured to that state's licensing regime."
             markets={US_MARKETS}
           />
 
@@ -144,11 +145,16 @@ export default function Coverage() {
             </div>
             <div className="vtile reveal">
               <div className="vt-n">02</div>
+              <h3>California, Washington, Florida</h3>
+              <p>{COVERAGE_EXCLUSIONS}</p>
+            </div>
+            <div className="vtile reveal">
+              <div className="vt-n">03</div>
               <h3>Not on the list</h3>
               <p>{COVERAGE_NOT_LISTED}</p>
             </div>
             <div className="vtile reveal">
-              <div className="vt-n">03</div>
+              <div className="vt-n">04</div>
               <h3>Already taken</h3>
               <p>{COVERAGE_WHY_ONE}</p>
             </div>
@@ -177,10 +183,10 @@ export default function Coverage() {
           </div>
           <div className="mesh reveal">
             <span className="mesh-lab">What runs in every market</span>
-            <Link to="/the-keystone/">The Keystone</Link>
+            <Link to="/the-whole-operation/">The Whole Operation</Link>
             <Link to="/property-management-seo/">Ranking &amp; visibility</Link>
             <Link to="/property-management-intake/">The intake desk</Link>
-            <Link to="/property-management/the-record/">The Record</Link>
+            <Link to="/the-record/">The Record</Link>
             <Link to="/scope-limits/">Where the desk stops</Link>
             <Link to="/condominium-management-marketing/">Condominium boards</Link>
             <Link to={LOCATIONS_HUB}>Cities I build in</Link>

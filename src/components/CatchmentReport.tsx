@@ -1,5 +1,5 @@
 /**
- * The Catchment Report.
+ * The Coverage Report.
  *
  * The cinematic spec calls this a trust asset and a design centrepiece at once,
  * and it is right. Every competitor in this market promises an "owner dashboard"
@@ -41,7 +41,7 @@ export default function CatchmentReport() {
     <div className="rep reveal">
       <div className="rep-head">
         <div>
-          <div className="rep-lab">The Catchment Report</div>
+          <div className="rep-lab">The Coverage Report</div>
           <div className="rep-title">Sample &middot; a mid-size practice, one month</div>
         </div>
         <div className="rep-stamp">Issued the 1st</div>

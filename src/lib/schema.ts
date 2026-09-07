@@ -1,6 +1,6 @@
 // ---------------------------------------------------------------------------
 // HigherMindAI - JSON-LD builders (answer-layer / rich-result signals)
-// Two books: law firms and property management. NO pricing in any block,
+// Three books: property management, roofing, arborists. NO pricing in any block,
 // deliberately. Published figures live in visible copy only - a price in
 // structured data can be cached into a rich result against me, and visible
 // copy changes in one deploy. Hyphens only, never em-dashes.
@@ -40,11 +40,11 @@ export function orgSchema(): Json {
       {
         '@type': 'ProfessionalService',
         '@id': SERVICE_ID,
-        name: 'HigherMindAI - Property Management Marketing & AI Intake',
+        name: 'HigherMindAI - Local Search Marketing & AI Intake',
         url: BASE + '/',
         image: `${BASE}/og.png`,
         description:
-          'Local ranking and AI intake systems for property and community association management firms across Canada and the United States, and for law firms as a second book. I rank a firm so owners find it, answer and qualify every enquiry that lands, and hand over a timestamped record of both. One firm per market.',
+          'Local search marketing and AI intake systems for trades and service businesses across Canada and the United States. Three named books - property and condominium management, roofing, and arborists and tree care - and any business where one won client is worth having. I get a business found when somebody nearby goes looking, answer and qualify every enquiry that lands, and hand over a timestamped record of both. One firm per trade, per market.',
         telephone: PHONE_E164,
         email: EMAIL,
         areaServed: AREA_SERVED,
@@ -86,8 +86,10 @@ export function personSchema(): Json {
       'condominium management marketing',
       'property management lead generation',
       'property management answering service',
-      'legal client intake',
-      'law firm marketing',
+      'local search marketing',
+      'roofing company marketing',
+      'tree care marketing',
+      'AI intake and answering services',
       'local SEO',
       'Google Business Profile ranking',
       'AI voice agents',
@@ -95,7 +97,7 @@ export function personSchema(): Json {
       'the justice system',
     ],
     description:
-      'Founder of HigherMindAI. Spent ten months contracted inside a property management operation on the sales, CRM and maintenance side, and close to a decade inside the justice system before that, in courtrooms and federal casework. Now builds local ranking and AI intake systems for property and community association management firms across Canada and the United States. Based in Erin, Ontario, Canada.',
+      'Founder of HigherMindAI. Spent ten months contracted inside a property management operation on the sales, CRM and maintenance side, and close to a decade inside the justice system before that, in courtrooms and federal casework. Now builds local search visibility and AI intake systems for trades and service businesses across Canada and the United States, with named books for property and condominium management, roofing, and arborists and tree care. Based in Erin, Ontario, Canada.',
   };
 }
 
@@ -179,7 +181,7 @@ export function locationSchema(c: City, url: string): Json {
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    serviceType: 'Property management lead generation and AI intake',
+    serviceType: 'Local search marketing and AI intake',
     name: `Property management lead generation in ${c.city}, ${c.region}`,
     url: BASE + url,
     areaServed: {

@@ -1,11 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
-import Watershed from './pages/Watershed';
-import LawFirmIntake from './pages/LawFirmIntake';
-import LawFirmSeo from './pages/LawFirmSeo';
 import AiSearch from './pages/AiSearch';
-import Solutions from './pages/Solutions';
+import WhoIHelp from './pages/WhoIHelp';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import ServicesHub from './pages/ServicesHub';
@@ -17,7 +14,9 @@ import Coverage from './pages/Coverage';
 import ScopeLimits from './pages/ScopeLimits';
 import Book from './pages/Book';
 import PropertyManagement from './pages/PropertyManagement';
-import Keystone from './pages/Keystone';
+import Roofing from './pages/Roofing';
+import Arborists from './pages/Arborists';
+import WholeOperation from './pages/WholeOperation';
 import PropertySeo from './pages/PropertySeo';
 import PropertyIntake from './pages/PropertyIntake';
 import CondoMarketing from './pages/CondoMarketing';
@@ -29,17 +28,16 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="the-watershed" element={<Watershed />} />
-        <Route path="law-firm-intake" element={<LawFirmIntake />} />
-        <Route path="law-firm-seo" element={<LawFirmSeo />} />
         <Route path="ai-search-optimization" element={<AiSearch />} />
         <Route path="property-management" element={<PropertyManagement />} />
-        <Route path="property-management/the-record" element={<TheRecord />} />
-        <Route path="the-keystone" element={<Keystone />} />
+        <Route path="roofing" element={<Roofing />} />
+        <Route path="arborists" element={<Arborists />} />
+        <Route path="the-whole-operation" element={<WholeOperation />} />
+        <Route path="the-record" element={<TheRecord />} />
         <Route path="property-management-seo" element={<PropertySeo />} />
         <Route path="property-management-intake" element={<PropertyIntake />} />
         <Route path="condominium-management-marketing" element={<CondoMarketing />} />
-        <Route path="solutions" element={<Solutions />} />
+        <Route path="who-i-help" element={<WhoIHelp />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
         <Route path="services" element={<ServicesHub />} />

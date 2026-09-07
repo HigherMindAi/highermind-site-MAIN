@@ -1,9 +1,9 @@
 /**
- * The Catchment, drawn.
+ * The catchment, drawn.
  *
  * A catchment is a watershed: terrain that drains to a single point. Every
  * channel here is somebody nearby, searching, finding their way to you. They
- * converge into the basin - The Desk - which catches every one of them.
+ * converge into the basin - the intake desk - which catches every one of them.
  *
  * Except one. The grey channel on the right breaks away before the basin and
  * runs off the edge of the frame. That is the leak. It is grey and not red on

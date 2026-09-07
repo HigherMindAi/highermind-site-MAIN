@@ -1,20 +1,16 @@
 // ---------------------------------------------------------------------------
-// HigherMindAI - property & condominium management track
-// Single source of truth for the property book: engine names, published
-// figures, guarantee wording, and the FAQ set.
+// HigherMindAI - property & condominium management book
+// One of three named books (property, roofing, arborists). Source of truth for
+// the property tags, the guarantee wording, and the property FAQ set.
 //
-// PRICING RULE: figures render in visible copy only. They never enter JSON-LD.
-// A price in structured data can be cached into a rich result against me;
-// visible copy changes in one deploy. Keep them apart. See schema.ts.
+// PRICING RULE, SEPTEMBER 2026: there is NO pricing on this site. Not a figure,
+// not a range, not a "starting from", not in copy and not in JSON-LD. The
+// arithmetic is done live, on the prospect's own numbers, inside the nine
+// minutes. The old published ladder is retired and must not return.
 //
-// Source of truth for every figure below: Onboarding Dominion v8.0 (Property,
-// Canada) and Onboarding Republic v2.0 (Property, US). Outreach Dominion v9.0
-// and Republic v2.0 carry the same names. If a number here ever disagrees with
-// a kit, the kit wins.
-//
-// NAMING: The Inflow is the LAYER, not a product. Under it sit The Well
-// (organic) and The Tap (paid). The Desk is one product on two channels, web
-// and voice. Cortex and The Operator no longer exist as separate purchases.
+// NAMING: plain leads, the creative name is a tag. On the property page only,
+// the property tags are correct: The Address, The Portfolio, The Lobby, The
+// Front Desk, The Shortlist, The Marquee, The Keystone.
 //
 // Hyphens only, never em-dashes. Solo first person. No client names.
 // ---------------------------------------------------------------------------
@@ -41,51 +37,17 @@ export const RECORD_LOCK =
 export const NO_DOORS_PROMISE =
   'No promise of a number of doors. That depends on your fees, your close rate and your capacity. Saying so is part of the pitch.';
 
-/* ------------------------------------------------------------ published $ */
+/* --------------------------------------------------------- scaling + upsell */
 
-// What renders on the site. The whole-Keystone monthly is deliberately NOT
-// here: portfolio scaling makes a single figure misleading on a firm carrying
-// nine corporations, and founding-four scarcity reads as pressure in print.
-export const PRICE = {
-  wellMonthly: '$900/mo',
-  wellSprint: '$1,150 one-time',
-  // The two channels are priced identically because they are the same build -
-  // the only difference is which surface it answers on. The old standalone
-  // voice rate of $600/mo and $2,000 setup is retired and must not return.
-  deskWeb: '$450/mo',
-  deskWebSetup: '$1,400 setup',
-  deskVoice: '$450/mo',
-  deskVoiceSetup: '$1,400 setup',
-  deskWhole: '$900/mo',
-  deskWholeSetup: '$2,800 setup',
-  watermarkFrom: 'from $800 per platform',
-  from: 'from $900 a month',
-} as const;
-
-// Geo-scoped deliberately. These are Canadian rates in Canadian dollars, and a
-// US reader who converts them and then hears a USD number on a call would be
-// right to ask why. Saying it first is cheaper than being asked.
-export const PRICE_FOOTNOTE =
-  'All figures CAD, and they are the rates for Canadian firms. US firms are priced separately in USD - different market, different rate, and I will give you the number on the call rather than make you convert this one. Annual prepay is charged as ten months. Where paid demand is configured, ad spend is separate and paid directly by you to the platform - I never hold it or mark it up.';
-
-export const KEYSTONE_WHOLE_NOTE =
-  'The whole Keystone is bundled below the sum of the parts, on founding terms held twelve months, for the first four firms only. What it comes to depends on how many corporations the desk carries, so I will give you the number on the call rather than guess at it here.';
-
+// Price-free by rule. The number moves with the portfolio and gets worked out
+// on the call, against the firm's own corporation count.
 export const PORTFOLIO_SCALING =
-  'Every Desk tier covers up to five corporations. Past that, intake volume genuinely changes and so does the price: an additional $60 a month per corporation on the web channel and $80 a month on the voice channel, plus a one-time $150 or $200 to load that corporation\u2019s documents. Agreed in writing before go-live, and never applied retroactively.';
+  'Every desk tier covers a set number of corporations. Past that, intake volume genuinely changes and so does what it takes to carry it - agreed in writing before go-live, and never applied retroactively. What that comes to for your portfolio is worked out on the call rather than guessed at here.';
 
 // The whole upsell, in one sentence. Chat now, voice later - and later costs
 // exactly what day one would have. Say it plainly or it reads as a trap.
 export const DESK_ADD_CHANNEL =
   'Start on one channel and add the second whenever you want it. It costs exactly what it would have cost on day one - no upgrade premium, nothing renegotiated, a one-line amendment. Same again for the phone.';
-
-/* ------------------------------------------------------------ the arithmetic */
-
-export const DOOR_MATH: [string, string, string][] = [
-  ['One door, monthly management', '$2,400 rent at 10 percent', '$240'],
-  ['One door, first-year value', 'Management plus one placement', '$4,080'],
-  ['Four doors held three years', 'Management only, no turnover counted', '$34,560'],
-];
 
 /* ---------------------------------------------------------------- the scope */
 
@@ -141,7 +103,7 @@ export const PROPERTY_FAQ: [string, string][] = [
   ],
   [
     'Is property management SEO worth paying for when I already buy owner leads?',
-    'That depends on what you want at the end of three years. Purchased leads are frequently shared with your competitors, priced the same every month forever, and they stop dead when payment stops - nothing accrues. Ranking is slower to start, it compounds, and the position stays yours. On a $2,400 door at ten percent, one owner won and kept is about $240 a month and roughly $4,080 in year one. The arithmetic only has to work once.',
+    'That depends on what you want at the end of three years. Purchased leads are frequently shared with your competitors, priced the same every month forever, and they stop dead when payment stops - nothing accrues. Ranking is slower to start, it compounds, and the position stays yours. One is rent and one is an asset, and at the end of a three-year run only one of them is still working for you. What one owner is actually worth to you is arithmetic we do on the call, on your fees rather than mine.',
   ],
   [
     'Does Google ranking help a condominium management firm win board work?',

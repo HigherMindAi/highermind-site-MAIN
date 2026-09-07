@@ -148,18 +148,18 @@ export default function LocationPage() {
             <p className="lead">
               Getting a firm into the top three is what I am known for. It is also only the inflow - an
               owner enquiry that arrives at seven in the evening and rings out is a door lost
-              permanently, and you never learn it existed. The Keystone welds the ranking to a desk
+              permanently, and you never learn it existed. The whole operation welds the ranking to a desk
               that answers and qualifies every enquiry it brings in, then hands you the record of it.
             </p>
           </div>
           <div className="mesh reveal">
             <span className="mesh-lab">The system</span>
-            <Link to="/the-keystone/">The Keystone</Link>
+            <Link to="/the-whole-operation/">The Whole Operation</Link>
             <Link to="/property-management-seo/">Ranking &amp; visibility</Link>
             <Link to="/property-management-intake/">The intake desk</Link>
-            <Link to="/property-management/the-record/">The Record</Link>
+            <Link to="/the-record/">The Record</Link>
             <Link to="/condominium-management-marketing/">Condominium boards</Link>
-            <Link to="/services/service-area-expansion/">The Catchment</Link>
+            <Link to="/services/service-area-expansion/">More cities</Link>
             <Link to="/proof/">Proof</Link>
           </div>
           {near.length > 0 && (

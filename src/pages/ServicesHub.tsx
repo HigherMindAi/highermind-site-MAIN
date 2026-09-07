@@ -10,7 +10,7 @@ export default function ServicesHub() {
     <main>
       <Seo
         title="Ranking, Intake, Reviews and Paid Demand by Service | HigherMindAI"
-        desc="The Well, The Desk, The Tap, The Catchment, The Landing and The Watermark. Every piece on its own, or welded into one loop that answers every enquiry you receive."
+        desc="Visibility, intake, website, more cities, reputation and paid. Every piece on its own, or welded into one loop that answers every enquiry you receive."
         path="/services/"
         schema={[
           breadcrumbs([['Home', '/'], ['Services', '/services/']]),
@@ -30,8 +30,8 @@ export default function ServicesHub() {
               answered.
             </h1>
             <p className="sub">
-              The Keystone is the flagship on the property side and The Watershed is its equivalent
-              for law firms - those are the ones I want you to take. But every piece stands on its
+              The Whole Operation is the flagship - both ends of the problem in one engagement,
+              and it is the one I want you to take. But every piece stands on its
               own and every piece can be bought on its own. If that is genuinely what the job needs,{' '}
               <b>I will tell you so on the first call.</b>
             </p>

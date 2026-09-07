@@ -8,19 +8,19 @@ import { useEffect, useState } from 'react';
  * No response-time claims in any row. Status reads "Answered" or "Booked" -
  * never a duration. That is a permanent copy rule, not a style preference.
  */
-// Property is the default because it is the site's primary book. A call site
-// that forgets the prop should fail toward property, not toward the second
-// book - which is exactly the bug that put criminal defence and immigration
-// rows in the homepage hero.
-type Variant = 'legal' | 'property';
+// Mixed is the default: the site sells a failure, not an industry, and the
+// homepage log has to read as three books rather than one. Property keeps its
+// own variant for the property pages. The legal variant is retired with the
+// legal book - do not reintroduce it.
+type Variant = 'mixed' | 'property';
 
-const LEGAL: [string, string, string, string][] = [
-  ['9:41p', 'Call', 'Slip & fall \u00b7 Brampton', 'Booked Thu 10:30'],
-  ['9:44p', 'Web', 'MVA enquiry \u00b7 screened in', 'Booked Fri 2:00'],
-  ['10:12p', 'Call', 'Family \u00b7 urgent', 'Answered'],
-  ['11:03p', 'Form', 'Immigration \u00b7 qualified', 'Booked Mon 9:15'],
-  ['6:52a', 'Call', 'Criminal \u00b7 conflict cleared', 'Booked Tue 11:00'],
-  ['1:18a', 'Web', 'Injury \u00b7 after-hours', 'Booked Wed 3:30'],
+const MIXED: [string, string, string, string][] = [
+  ['7:12p', 'Call', 'Quote request \u00b7 full replacement', 'Booked Thu 10:30'],
+  ['9:38p', 'Web', 'New enquiry \u00b7 qualified', 'Booked Fri 2:00'],
+  ['11:47p', 'Call', 'Emergency \u00b7 storm damage', 'Routed \u00b7 on-call'],
+  ['1:22a', 'Call', 'Routine question \u00b7 answered from your documents', 'Closed, no escalation'],
+  ['8:05a', 'Form', 'Site visit request \u00b7 qualified', 'Booked Mon 9:15'],
+  ['6:41p', 'Web', 'New enquiry \u00b7 next town over', 'Booked Tue 11:00'],
 ];
 
 const PROPERTY: [string, string, string, string][] = [
@@ -33,10 +33,10 @@ const PROPERTY: [string, string, string, string][] = [
 ];
 
 const FOOT: Record<Variant, [string, string][]> = {
-  legal: [
-    ['arrived', '62'],
-    ['answered', '62'],
-    ['booked', '50'],
+  mixed: [
+    ['arrived', '84'],
+    ['answered', '84'],
+    ['booked', '31'],
     ['missed', '0'],
   ],
   property: [
@@ -51,8 +51,8 @@ interface Props {
   variant?: Variant;
 }
 
-export default function RecordTicker({ variant = 'property' }: Props) {
-  const rows = variant === 'property' ? PROPERTY : LEGAL;
+export default function RecordTicker({ variant = 'mixed' }: Props) {
+  const rows = variant === 'property' ? PROPERTY : MIXED;
   const n = rows.length;
   const [head, setHead] = useState(3);
 

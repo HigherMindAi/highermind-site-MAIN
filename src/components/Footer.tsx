@@ -17,9 +17,9 @@ export default function Footer() {
               <Wordmark />
             </Link>
             <p>
-              I rank your firm so owners find it, answer and qualify every enquiry that
-              lands, then hand you a record of what came in and how fast it was answered.
-              Property management first, law firms second, one operator, one loop.
+              I get you found when somebody nearby goes looking, answer and qualify every enquiry
+              that lands, then hand you a record of what came in and how fast it was answered.
+              Three books, one operator, one loop.
             </p>
             <div className="op">
               <img
@@ -38,33 +38,33 @@ export default function Footer() {
           </div>
           <div className="foot-links">
             <div className="foot-col">
-              <h4>Property management</h4>
+              <h4>The books</h4>
               <Link to="/property-management/">Property management</Link>
-              <Link to="/the-keystone/">The Keystone</Link>
-              <Link to="/property-management-seo/">Ranking &amp; visibility</Link>
-              <Link to="/property-management-intake/">The intake desk</Link>
-              <Link to="/property-management/the-record/">The Record</Link>
+              <Link to="/roofing/">Roofing</Link>
+              <Link to="/arborists/">Arborists &amp; tree care</Link>
               <Link to="/condominium-management-marketing/">Condominium boards</Link>
-              <Link to="/scope-limits/">Where the desk stops</Link>
-              <Link to="/coverage/">Where I work</Link>
-              <Link to={LOCATIONS_HUB}>Cities I rank in</Link>
+              <Link to="/who-i-help/">Who I help</Link>
             </div>
             <div className="foot-col">
-              <h4>Law firms</h4>
-              <Link to="/the-watershed/">The Watershed</Link>
-              <Link to="/law-firm-intake/">AI intake desk</Link>
-              <Link to="/law-firm-seo/">Ranking &amp; leads</Link>
-              <Link to="/ai-search-optimization/">AI search visibility</Link>
-              <Link to="/solutions/">Who I help</Link>
-              <Link to="/about/">About</Link>
-            </div>
-            <div className="foot-col">
-              <h4>Also available</h4>
+              <h4>Services</h4>
+              <Link to="/property-management-seo/">Visibility</Link>
+              <Link to="/property-management-intake/">Intake</Link>
               {SERVICES.map((s) => (
                 <Link key={s.slug} to={`/services/${s.slug}/`}>
                   {s.name}
                 </Link>
               ))}
+              <Link to="/ai-search-optimization/">AI Search</Link>
+              <Link to="/the-whole-operation/">The Whole Operation</Link>
+            </div>
+            <div className="foot-col">
+              <h4>Company</h4>
+              <Link to="/about/">About</Link>
+              <Link to="/coverage/">Coverage</Link>
+              <Link to={LOCATIONS_HUB}>Cities I rank in</Link>
+              <Link to="/the-record/">The Record</Link>
+              <Link to="/scope-limits/">Where the desk stops</Link>
+              <Link to="/book/">Book a call</Link>
             </div>
             <div className="foot-col">
               <h4>Contact</h4>
@@ -81,8 +81,8 @@ export default function Footer() {
             {PHONE_DISP} &nbsp;&middot;&nbsp; {EMAIL}
           </span>
           <span>
-            &copy; {year} {BRAND}. Local ranking, AI intake and lead generation for
-            property management companies and law firms.
+            &copy; {year} {BRAND}. Local search, AI intake and marketing systems for trades
+            and service businesses across Canada and the United States.
           </span>
         </div>
       </div>

@@ -44,7 +44,7 @@ const CHECKS: [string, string][] = [
   ],
   [
     'Which engines answer that list',
-    'The Watermark answers the rating. The Record answers retention and responsiveness with numbers instead of adjectives. The Well makes sure the search finds you rather than a stale directory listing from four years ago.',
+    'The reputation work answers the rating. The Record answers retention and responsiveness with numbers instead of adjectives. The visibility work makes sure the search finds you rather than a stale directory listing from four years ago.',
   ],
   [
     'The season is real and it is short',
@@ -186,17 +186,17 @@ export default function CondoMarketing() {
                 Retention and responsiveness are on every board&rsquo;s list and almost nobody can
                 answer them with a number. A monthly report written to be tabled at a board meeting
                 without editing turns your strongest argument from an adjective into evidence.{' '}
-                <Link to="/property-management/the-record/">See The Record</Link>.
+                <Link to="/the-record/">See The Record</Link>.
               </p>
             </div>
             <div className="step reveal">
               <div className="sn">Third</div>
-              <h3>The Well</h3>
+              <h3>Visibility</h3>
               <p>
                 Defensive, on this track. The search has to find your firm rather than a stale
                 directory listing, a wrong phone number, or nothing at all. Worth doing, and worth
                 being honest that it is third.{' '}
-                <Link to="/property-management-seo/">See The Well</Link>.
+                <Link to="/property-management-seo/">See how visibility is built</Link>.
               </p>
             </div>
             <div className="step reveal">
@@ -243,7 +243,7 @@ export default function CondoMarketing() {
           <p className="note reveal">
             Board work is regional, and so is the search that follows a shortlist.{' '}
             <Link to={LOCATIONS_HUB}>See the cities I build in</Link>, or read how the{' '}
-            <Link to="/property-management/the-record/">record</Link> answers the retention and
+            <Link to="/the-record/">record</Link> answers the retention and
             responsiveness questions a selection committee actually asks.
           </p>
         </div>

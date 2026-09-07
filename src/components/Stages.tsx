@@ -482,8 +482,8 @@ export function KeystoneArchStage() {
 }
 
 /* ------------------------------------------------ the architecture · lattice
-   The whole product set in one picture. The Inflow is the traffic half and it
-   has two taps into it, The Well and The Tap. Under it sits The Desk, the
+   The whole product set in one picture. Visibility is the traffic half and it
+   has two ways in, organic and paid. Under it sits intake, the
    intake half, on two channels. Under that, The Record. Every name on the site
    and in the kits appears here once, in its place.
 
@@ -521,7 +521,7 @@ export function ArchitectureStage() {
   return (
     <div
       className="stg"
-      aria-label="How the parts fit: The Inflow is the traffic half, made of The Well (organic) and The Tap (paid). The Desk is the intake half, on a web channel and a voice channel. The Record proves both."
+      aria-label="How the parts fit: visibility is the traffic half, organic and paid. Intake is the half that answers, on a web channel and a voice channel. The Record proves both."
     >
       <div className="stg-top">
         <span className="stg-lab">how the parts fit</span>
@@ -535,7 +535,7 @@ export function ArchitectureStage() {
           the traffic half
         </text>
         <text x="160" y="34" textAnchor="middle" style={LAT_NAME}>
-          The Inflow
+          Visibility
         </text>
 
         {/* fork down to the two halves */}
@@ -547,7 +547,7 @@ export function ArchitectureStage() {
           organic
         </text>
         <text x="74" y="93" textAnchor="middle" style={LAT_NAME_T}>
-          The Well
+          Organic
         </text>
 
         <rect x="182" y="64" width="128" height="38" rx="8" style={LAT_BOX} />
@@ -555,7 +555,7 @@ export function ArchitectureStage() {
           paid
         </text>
         <text x="246" y="93" textAnchor="middle" style={LAT_NAME}>
-          The Tap
+          Paid
         </text>
 
         {/* converge into the desk */}
@@ -567,7 +567,7 @@ export function ArchitectureStage() {
           the intake half · web channel · voice channel
         </text>
         <text x="160" y="160" textAnchor="middle" style={LAT_NAME_T}>
-          The Desk
+          Intake
         </text>
 
         <path d="M160 170 V 186" fill="none" style={LAT_LINE} />

@@ -28,8 +28,11 @@ export default function NotFound() {
               <Link to="/property-management/" className="btn btn-ghost">
                 Property management
               </Link>
-              <Link to="/the-watershed/" className="btn btn-ghost">
-                Law firms
+              <Link to="/roofing/" className="btn btn-ghost">
+                Roofing
+              </Link>
+              <Link to="/arborists/" className="btn btn-ghost">
+                Arborists
               </Link>
             </div>
           </div>

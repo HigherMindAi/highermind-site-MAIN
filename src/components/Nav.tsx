@@ -3,19 +3,24 @@ import { Link, useLocation } from 'react-router-dom';
 import { NAV, PHONE_E164, PHONE_DISP, BRAND } from '../lib/site';
 import { Wordmark, Hamburger, Close } from './Icons';
 
-const LEGAL_PATHS = ['/the-watershed', '/law-firm-intake', '/law-firm-seo'];
-
 function isActive(label: string, pathname: string): boolean {
-  if (label === 'Property Management')
+  if (label === 'Visibility')
     return (
+      pathname.startsWith('/property-management-seo') ||
+      pathname.startsWith('/ai-search-optimization')
+    );
+  if (label === 'Intake') return pathname.startsWith('/property-management-intake');
+  if (label === 'Website') return pathname.startsWith('/services/website-build');
+  if (label === 'More Cities') return pathname.startsWith('/services/service-area-expansion');
+  if (label === 'Who I Help')
+    return (
+      pathname.startsWith('/who-i-help') ||
       pathname === '/property-management' ||
       pathname.startsWith('/property-management/') ||
+      pathname.startsWith('/roofing') ||
+      pathname.startsWith('/arborists') ||
       pathname.startsWith('/condominium-management-marketing')
     );
-  if (label === 'The Keystone') return pathname.startsWith('/the-keystone');
-  if (label === 'Ranking') return pathname.startsWith('/property-management-seo');
-  if (label === 'Intake') return pathname.startsWith('/property-management-intake');
-  if (label === 'Law Firms') return LEGAL_PATHS.some((p) => pathname.startsWith(p));
   if (label === 'About') return pathname.startsWith('/about');
   return false;
 }

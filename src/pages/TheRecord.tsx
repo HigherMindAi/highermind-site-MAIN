@@ -9,7 +9,7 @@ import { PHONE_E164, PHONE_DISP } from '../lib/site';
 import { RECORD_LOCK } from '../lib/property';
 import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 
-const URL = '/property-management/the-record/';
+const URL = '/the-record/';
 
 const DESC =
   'Every contact logged with the time it came in and the time it was answered, and a monthly report written to be tabled at a board meeting without editing.';
@@ -17,7 +17,7 @@ const DESC =
 const RECORD_FAQ: [string, string][] = [
   [
     'What is in the monthly report?',
-    'What came in, through which channel, how fast it was answered, what happened next, and what it produced. It is written to be forwarded to an owner or tabled at a board meeting without editing - which is a design constraint, not a marketing line. If it needs rewriting before it can be shown to anybody, it has failed.',
+    'What came in, through which channel, how fast it was answered, what happened next, and what it produced. It is written to be forwarded to an owner or tabled at a board meeting without editing - which is a design constraint, not a slogan. If it needs rewriting before it can be shown to anybody, it has failed.',
   ],
   [
     'Who decides what counts as answered?',
@@ -142,7 +142,7 @@ export default function TheRecord() {
         <div className="wrap">
           <div className="sec-head left reveal">
             <span className="eyebrow">Four rooms this ends up in</span>
-            <h2>None of them are marketing conversations.</h2>
+            <h2>None of them are sales conversations.</h2>
           </div>
           <div className="vgrid four">
             {SCENARIOS.map(([h, b]) => (
@@ -167,7 +167,7 @@ export default function TheRecord() {
           <div className="vgrid">
             <div className="vtile feat reveal">
               <div className="vt-n">Monthly</div>
-              <h3>The Keystone Report</h3>
+              <h3>The monthly report</h3>
               <p>
                 What came in, through which channel, how fast it was answered, what happened next, and
                 what it produced. Written to be forwarded to an owner or tabled at a board meeting
@@ -210,7 +210,7 @@ export default function TheRecord() {
               table, is a different category of thing - and once a firm has twelve months of it, it
               is not going back. That is the honest reason this engine ships with every
               configuration rather than being sold as an upgrade.{' '}
-              <Link to="/the-keystone/">See how it sits inside the Keystone</Link>.
+              <Link to="/the-whole-operation/">See how it sits inside the whole operation</Link>.
             </p>
           </div>
           <p className="note reveal">{RECORD_LOCK}</p>

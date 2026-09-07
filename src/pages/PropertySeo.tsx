@@ -4,7 +4,7 @@ import FAQ from '../components/FAQ';
 import CTAStrip from '../components/CTAStrip';
 import { Arrow } from '../components/Icons';
 import { PHONE_E164, PHONE_DISP } from '../lib/site';
-import { PRICE, PRICE_FOOTNOTE, RANK_LOCK, RANK_LOCK_SHORT } from '../lib/property';
+import { RANK_LOCK, RANK_LOCK_SHORT } from '../lib/property';
 import { InflowStage } from '../components/Stages';
 import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 import { CITIES, cityPath } from '../lib/cities';
@@ -28,8 +28,8 @@ const SEO_FAQ: [string, string][] = [
     'The Rank Lock puts 60 days on the clock, starting the day I have what I need rather than the day you sign. If you are not on the first page for the agreed primary term by then, the monthly pauses until it lands. Toronto, Vancouver and Montreal carry a 90-day provision, agreed at kickoff rather than argued afterwards.',
   ],
   [
-    'What is the difference between The Well and the Optimization Sprint?',
-    'The Well is managed and ongoing - position built, then held, because local ranking is not a thing you finish. The Sprint is a one-time rebuild: the profile corrected, services named properly, service area mapped, and the on-page work done once, then it is yours to maintain. The Sprint suits a solo manager under forty doors. The Well suits a firm that intends to keep taking doors. Both rates are published further up this page.',
+    'What is the difference between the managed build and a one-time sprint?',
+    'The managed version is ongoing - position built, then held, because local ranking is not a thing you finish. The sprint is a one-time rebuild: the profile corrected, services named properly, service area mapped, and the on-page work done once, then it is yours to maintain. The sprint suits a solo manager under forty doors. The managed build suits a firm that intends to keep taking doors. Which one fits, and what it takes, gets settled on the call.',
   ],
   [
     'Is ranking worth it if my leads come from referrals?',
@@ -44,7 +44,7 @@ const BUILD: [string, string][] = [
   ],
   [
     'Reviews and authority',
-    'Review velocity and recency are part of what decides local pack position, so The Watermark pays directly into this one. Add citation consistency and local content and you have the short list of things that actually move a pin.',
+    'Review velocity and recency are part of what decides local pack position, so the reputation work pays directly into this one. Add citation consistency and local content and you have the short list of things that actually move a pin.',
   ],
   [
     'Owned, not rented',
@@ -74,13 +74,13 @@ export default function PropertySeo() {
 
       <section className="phero">
         <div className="wrap">
-          <span className="eyebrow reveal">The Well - the organic half of The Inflow</span>
+          <span className="eyebrow reveal">Visibility &middot; The Pin</span>
           <h1 className="reveal">
             Owners are searching for a manager{' '}
             <span className="em">in your city right now.</span>
           </h1>
           <p className="sub reveal">
-            The Well puts you in the three results they actually read. Your Google Business
+            This puts you in the three results they actually read. Your Google Business
             Profile claimed and rebuilt, every service named the way owners search for it, your
             real service area mapped properly, and a site you own. Organic first because it
             compounds and you keep it - paid over the top when you need volume faster than ranking
@@ -95,7 +95,7 @@ export default function PropertySeo() {
             </a>
           </div>
           <p className="trustline reveal">
-            {RANK_LOCK_SHORT} &middot; {PRICE.wellMonthly} managed, or {PRICE.wellSprint} once
+            {RANK_LOCK_SHORT} &middot; managed, or rebuilt once and handed over
             &middot; The position is an asset you keep.
           </p>
         </div>
@@ -157,25 +157,29 @@ export default function PropertySeo() {
               </div>
             </div>
             <div className="termpanel reveal">
-              <div className="tp-label">What it costs</div>
+              <div className="tp-label">Two ways to buy it</div>
               <ul className="tp-list">
                 <li>
-                  <b>The Well</b> &nbsp;&middot;&nbsp; {PRICE.wellMonthly}
+                  <b>Managed</b>
                   <br />
-                  <span style={{ opacity: 0.62 }}>Managed. Position built, then held.</span>
+                  <span style={{ opacity: 0.62 }}>Position built, then held. Local ranking is not a thing you finish.</span>
                 </li>
                 <li>
-                  <b>The Optimization Sprint</b> &nbsp;&middot;&nbsp; {PRICE.wellSprint}
+                  <b>A one-time rebuild</b>
                   <br />
                   <span style={{ opacity: 0.62 }}>
-                    One-time rebuild. Suits a solo manager under forty doors.
+                    The profile corrected once and handed over. Suits a solo manager under forty doors.
                   </span>
                 </li>
               </ul>
               <p className="tp-note">
                 <b>The Rank Lock.</b> {RANK_LOCK}
               </p>
-              <p className="tp-note">{PRICE_FOOTNOTE}</p>
+              <p className="tp-note">
+                No rate on this page on purpose. What it takes depends on your market and how far
+                behind the profile is starting, and that gets worked out on the call against your
+                figures rather than guessed at here.
+              </p>
             </div>
           </div>
         </div>
@@ -199,7 +203,7 @@ export default function PropertySeo() {
               contractor, or asleep, and it leaves as quietly as it came. I would rather tell you
               that at the start than at renewal.{' '}
               <Link to="/property-management-intake/">See the half that answers</Link>, or{' '}
-              <Link to="/the-keystone/">see the whole Keystone</Link>.
+              <Link to="/the-whole-operation/">see the whole operation</Link>.
             </p>
           </div>
         </div>

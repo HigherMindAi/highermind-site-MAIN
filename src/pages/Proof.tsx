@@ -197,7 +197,7 @@ export default function Proof() {
             <p className="lead">
               His numbers are his. Yours are the ones that matter, and I go and get them before I ever
               quote you. On the call I read you where your firm actually shows across its service area,
-              and what happened when I contacted you as a client. Fifteen minutes, and you keep
+              and what happened when I contacted you as a customer. Nine minutes, and you keep
               whatever I find whether or not you ever hire me.
             </p>
             <div className="ctas" style={{ marginTop: 30 }}>

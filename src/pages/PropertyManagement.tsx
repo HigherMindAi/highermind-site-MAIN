@@ -5,7 +5,7 @@ import CTAStrip from '../components/CTAStrip';
 import { Arrow } from '../components/Icons';
 import { PHONE_E164, PHONE_DISP } from '../lib/site';
 import {
-  PROPERTY_FAQ, PROPERTY_PROOF, DOOR_MATH, PRICE, PRICE_FOOTNOTE,
+  PROPERTY_FAQ, PROPERTY_PROOF,
   RANK_LOCK, LAUNCH_LOCK, RECORD_LOCK, NO_DOORS_PROMISE, LAUNCH_WINDOW,
 } from '../lib/property';
 import { TrustStage } from '../components/Stages';
@@ -24,28 +24,28 @@ const SCHEMA_DESC =
 
 const ENGINES: [string, string, string, string][] = [
   [
-    'The Inflow',
-    'The Well and The Tap. Make it rain.',
-    'The traffic half, with two ways into it. The Well is organic: your Google Business Profile claimed and rebuilt, every service named the way owners actually search for it, your real service area mapped properly, and a site you own. The Tap is paid, layered over the top when volume is needed faster than ranking can deliver. Organic first because it compounds and you keep it.',
+    'Visibility',
+    'The Address. Where you actually come up.',
+    'The traffic half, with two ways into it. Organic is your Google Business Profile claimed and rebuilt, every service named the way owners actually search for it, your real service area mapped properly, and a site you own. Paid is the tap, layered over the top when volume is needed faster than ranking can deliver. Organic first because it compounds and you keep it.',
     '/property-management-seo/',
   ],
   [
-    'The Desk',
-    'One desk, two channels. Catch it.',
+    'Intake',
+    'The Front Desk. One desk, two channels.',
     'Ranking creates enquiries. It does not answer them, and in this industry that gap is wider than in almost any other, because a large share of your inbound arrives outside office hours from people who have a problem rather than a question. Answered and qualified from your own documents, triaged on your criteria, logged, and routed to a licensed manager.',
     '/property-management-intake/',
   ],
   [
     'The Record',
-    'Timestamped logs and board reports. Prove it.',
+    'The Record. Timestamped logs and board reports.',
     'Every contact with the time it arrived and the time it was answered, plus a monthly report written to be forwarded to an owner or tabled at a board meeting without editing. In property management your exposure is almost never the event. It is the account of the event.',
-    '/property-management/the-record/',
+    '/the-record/',
   ],
   [
-    'The Watermark',
-    'Reviews and response. Keep it.',
+    'Reputation',
+    'The Shortlist. Reviews and response.',
     'Property management has a structural reputation problem almost no other industry shares: the people most motivated to review you are not the people who pay you. A tenant with a maintenance complaint writes four paragraphs. A satisfied owner collecting rent quietly for three years writes nothing at all. The engine is volume, timing and response quality.',
-    '/the-keystone/',
+    '/services/social-authority/',
   ],
 ];
 
@@ -128,7 +128,7 @@ export default function PropertyManagement() {
             <p className="lead">
               Almost every business I could work with sells a job. You sell a relationship that
               renews every month for years. That single difference is why this is built the way it
-              is, and why buying one-off marketing has never worked properly for firms like yours.
+              is, and why buying one-off campaigns has never worked properly for firms like yours.
               Full residential management runs eight to twelve percent of collected rent, and
               roughly ten percent is common across the GTA. Tenant placement is charged separately
               at half to a full month&rsquo;s rent every time a unit turns.
@@ -137,24 +137,43 @@ export default function PropertyManagement() {
 
           <div className="prod-cols">
             <div className="termpanel reveal">
-              <div className="tp-label">Your own industry&rsquo;s published numbers</div>
+              <div className="tp-label">The arithmetic, done on the call</div>
               <ul className="tp-list">
-                {DOOR_MATH.map(([lab, note, val]) => (
-                  <li key={lab}>
-                    <b>{val}</b> &nbsp;&middot;&nbsp; {lab}
-                    <br />
-                    <span style={{ opacity: 0.62 }}>{note}</span>
-                  </li>
-                ))}
+                <li>
+                  <b>What one door is worth to you</b>
+                  <br />
+                  <span style={{ opacity: 0.62 }}>
+                    Your fee percentage, your average rent, your placement fee. Yours, not a market
+                    average.
+                  </span>
+                </li>
+                <li>
+                  <b>How long you keep one</b>
+                  <br />
+                  <span style={{ opacity: 0.62 }}>
+                    The number that decides everything, and the one nobody in this industry
+                    calculates before buying anything.
+                  </span>
+                </li>
+                <li>
+                  <b>What the system has to return to be worth it</b>
+                  <br />
+                  <span style={{ opacity: 0.62 }}>
+                    Worked out live, on your figures, so you can challenge any number as it goes in.
+                  </span>
+                </li>
               </ul>
               <p className="tp-note">
-                The whole system, measured against one door: one door carries it.
+                I do not publish a rate here on purpose. A price before a diagnosis invites a
+                comparison against a quote for something else, and anchors the conversation to a
+                figure chosen before anything was known about your firm. Nine minutes and you have
+                the number.
               </p>
             </div>
             <div className="vcard reveal">
               <div className="vlab">The honest frame</div>
               <div className="vbig">
-                You are not buying marketing. You are buying <b>doors that pay you every month for
+                You are not buying a campaign. You are buying <b>doors that pay you every month for
                 years</b>, and the arithmetic only has to work once.
               </div>
             </div>
@@ -235,10 +254,10 @@ export default function PropertyManagement() {
             </div>
           </div>
           <p className="note reveal">
-            The Inflow is the half that gets bought first, and that is fine - everybody
+            Visibility is the half that gets bought first, and that is fine - everybody
             understands what page one is worth. It is also the least valuable of the four on its
             own, which is the honest thing to tell you at the start rather than at renewal. Organic
-            is The Well. Paid is The Tap. I build the well first.
+            is a well and paid is a tap. I build the well first.
           </p>
         </div>
       </section>
@@ -273,8 +292,8 @@ export default function PropertyManagement() {
                 </tr>
                 <tr>
                   <td>Lead engine</td>
-                  <td>The Inflow</td>
-                  <td>The Watermark and The Record</td>
+                  <td>Visibility</td>
+                  <td>Reputation and The Record</td>
                 </tr>
                 <tr>
                   <td>The decision</td>
@@ -288,8 +307,8 @@ export default function PropertyManagement() {
                 </tr>
                 <tr>
                   <td>Order of build</td>
-                  <td>Well, Desk, Watermark, Record</td>
-                  <td>Watermark, Record, Well, Desk</td>
+                  <td>Visibility, intake, reputation, record</td>
+                  <td>Reputation, record, visibility, intake</td>
                 </tr>
               </tbody>
             </table>
@@ -314,53 +333,54 @@ export default function PropertyManagement() {
 
       <div className="divider" />
 
-      {/* ------------------------------------------------------------ pricing */}
-      <section className="sec" id="pricing">
+      {/* ------------------------------------------------- what it is, guaranteed */}
+      <section className="sec" id="terms">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">What it costs</span>
-            <h2>Published, so you can do the arithmetic before you call.</h2>
+            <span className="eyebrow">The terms</span>
+            <h2>What I put in writing before you pay for anything.</h2>
           </div>
           <div className="prod-cols">
             <div className="termpanel reveal">
-              <div className="tp-label">Engines, standalone</div>
+              <div className="tp-label">What gets built</div>
               <ul className="tp-list">
                 <li>
-                  <b>The Well</b> &nbsp;&middot;&nbsp; {PRICE.wellMonthly}
+                  <b>Visibility</b> &nbsp;&middot;&nbsp; The Address
                   <br />
                   <span style={{ opacity: 0.62 }}>
-                    The Inflow, organic. Or a one-time Optimization Sprint at {PRICE.wellSprint}.
+                    Managed and held, or rebuilt once and handed over. Both exist; which one fits
+                    depends on the size of the portfolio.
                   </span>
                 </li>
                 <li>
-                  <b>The Desk, web channel</b> &nbsp;&middot;&nbsp; {PRICE.deskWeb}
+                  <b>Intake</b> &nbsp;&middot;&nbsp; The Front Desk
                   <br />
                   <span style={{ opacity: 0.62 }}>
-                    {PRICE.deskWebSetup}. Live in 14 days.
+                    Web channel, voice channel, or both. Start on one and add the other at what it
+                    would have cost on day one.
                   </span>
                 </li>
                 <li>
-                  <b>The Desk, voice channel</b> &nbsp;&middot;&nbsp; {PRICE.deskVoice}
+                  <b>Reputation</b> &nbsp;&middot;&nbsp; The Shortlist
                   <br />
                   <span style={{ opacity: 0.62 }}>
-                    {PRICE.deskVoiceSetup}. Live in 21 days.
+                    The review wall a director reads at night, per platform.
                   </span>
                 </li>
                 <li>
-                  <b>The Desk, both channels</b> &nbsp;&middot;&nbsp; {PRICE.deskWhole}
+                  <b>The whole loop</b> &nbsp;&middot;&nbsp; The Keystone
                   <br />
                   <span style={{ opacity: 0.62 }}>
-                    The whole Desk. {PRICE.deskWholeSetup}. Same again for the phone, whenever you
-                    add it.
+                    All of it welded together, built in the order your side of the business
+                    actually leaks.
                   </span>
-                </li>
-                <li>
-                  <b>The Watermark</b> &nbsp;&middot;&nbsp; {PRICE.watermarkFrom}
-                  <br />
-                  <span style={{ opacity: 0.62 }}>Monthly, per platform.</span>
                 </li>
               </ul>
-              <p className="tp-note">{PRICE_FOOTNOTE}</p>
+              <p className="tp-note">
+                No rates on this page. What it comes to depends on how many corporations the desk
+                carries and how far behind the profile is starting, and that is arithmetic I do with you
+                on the call rather than a number I guess at here.
+              </p>
             </div>
             <div className="termpanel reveal">
               <div className="tp-label">What is guaranteed</div>
@@ -377,7 +397,7 @@ export default function PropertyManagement() {
               </ul>
               <p className="tp-note">{NO_DOORS_PROMISE}</p>
               <p className="tp-note">
-                <Link to="/the-keystone/">See the whole Keystone</Link> - all four engines welded
+                <Link to="/the-whole-operation/">See the whole operation</Link> - all four parts welded
                 into one system.
               </p>
             </div>

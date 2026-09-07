@@ -28,7 +28,7 @@ export default function About() {
         <div className="wrap">
           <span className="eyebrow reveal">About HigherMindAI</span>
           <h1 className="reveal">
-            I am not a marketer who read a blog about your world.{' '}
+            I did not read a blog about your world.{' '}
             <span className="em">I worked inside it.</span>
           </h1>
         </div>
@@ -80,14 +80,16 @@ export default function About() {
                 like, and why the first firm to pick up is usually the firm that gets retained.
               </p>
               <p>
-                That is the whole idea behind what I build. A person who has just been injured,
-                arrested, or served does not shop carefully. They call three firms in ten minutes and
-                retain whoever answers. After five o'clock, that is almost never the small firm -
-                not because the small firm is worse, but because there is no one at the desk. An
-                owner with a rental to hand over behaves the same way: he reads three results and
-                calls two of them. I close that gap in both books. I rank the firm so people find
-                it, I put a desk on the other end that answers and qualifies every enquiry the
-                moment it arrives, and I hand over the record of both.
+                That is the whole idea behind what I build. Somebody with water coming through a
+                ceiling, a limb on the garage, or a rental he has just decided to stop managing
+                himself does not shop carefully. He reads the first three results, calls two of
+                them, and books whoever answers. After five o'clock that is almost never the small
+                company - not because it is worse, but because there is nobody at the desk. Three
+                books carry their own playbook because the vocabulary and the seasons differ:
+                property and condominium management, roofing, and arborists and tree care. The
+                failure underneath them is the same one everywhere. I get the business found, I put
+                a desk on the other end that answers and qualifies every enquiry the moment it
+                arrives, and I hand over the record of both.
               </p>
               <p className="credential">Former RCMP.</p>
               <p>
@@ -96,7 +98,7 @@ export default function About() {
                 firm.
               </p>
               <div className="ctas">
-                <Link to="/the-watershed/" className="btn btn-primary">
+                <Link to="/who-i-help/" className="btn btn-primary">
                   See what I build <Arrow />
                 </Link>
                 <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
@@ -110,7 +112,7 @@ export default function About() {
 
       <CTAStrip
         head={<>Let me show you what it is costing you.</>}
-        sub="Fifteen minutes on the phone. Where your firm ranks across its service area, what happened when I contacted you as a client, and what I would build. No pitch."
+        sub="Nine minutes on the phone. Where you rank across your service area, what happened when I contacted you as a customer, and what I would build. No pitch."
       />
     </main>
   );

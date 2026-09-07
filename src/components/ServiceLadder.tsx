@@ -13,6 +13,7 @@ export default function ServiceLadder() {
         >
           <div className="si">{String(i + 1).padStart(2, '0')}</div>
           <div className="sbody">
+            <span className="sn">{s.tag}</span>
             <h3>{s.name}</h3>
             <p>{s.line}</p>
           </div>

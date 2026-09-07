@@ -5,7 +5,7 @@ import CTAStrip from '../components/CTAStrip';
 import { Arrow } from '../components/Icons';
 import { PHONE_E164, PHONE_DISP } from '../lib/site';
 import {
-  SCOPE_DOES, SCOPE_STOPS, CMRAO_LINE, PRICE, PRICE_FOOTNOTE,
+  SCOPE_DOES, SCOPE_STOPS, CMRAO_LINE,
   PORTFOLIO_SCALING, DESK_ADD_CHANNEL, LAUNCH_LOCK, LAUNCH_WINDOW,
 } from '../lib/property';
 import { NightShiftStage } from '../components/Stages';
@@ -14,7 +14,7 @@ import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 const URL = '/property-management-intake/';
 
 const DESC =
-  'The Desk answers on your site and on your line. Every owner enquiry and after-hours call answered and qualified, triaged on your criteria, logged and routed.';
+  'One intake desk on your site and on your line. Every enquiry and after-hours call answered and qualified, triaged on your criteria, logged and routed to a person.';
 
 // No rate in schema. See property.ts.
 const SCHEMA_DESC = DESC;
@@ -34,11 +34,11 @@ const INTAKE_FAQ: [string, string][] = [
   ],
   [
     'How many corporations does one desk cover?',
-    'Five, on every desk tier. Past that, intake volume genuinely changes and so does the price - a modest per-corporation monthly plus a one-time charge to load that corporation\u2019s documents. The figures are published in the pricing block on this page. Any increase is agreed in writing before go-live, and never applied retroactively.',
+    'Every desk tier covers a set number of corporations, and most firms sit comfortably inside it. Past that, intake volume genuinely changes and so does what it takes to carry it - agreed in writing before go-live, never applied retroactively, and worked out against your actual portfolio on the call.',
   ],
   [
     'Do I have to take both channels?',
-    'No, and most firms do not start that way. Chat first, voice once you have watched it work. The two channels are priced the same because they are the same build - the only difference is which surface it answers on - so adding the phone later costs exactly what it would have cost on day one. No upgrade premium, nothing renegotiated, a one-line amendment.',
+    'No, and most do not start that way. Web first, voice once you have watched it work. The two channels are the same build - the only difference is which surface it answers on - so adding the phone later costs exactly what it would have cost on day one. No upgrade premium, nothing renegotiated, a one-line amendment.',
   ],
   [
     'Does it replace my staff?',
@@ -50,11 +50,11 @@ export default function PropertyIntake() {
   return (
     <main>
       <Seo
-        title="The Desk - Property Management AI Intake Service | HigherMindAI"
+        title="AI Phone and Web Intake for Local Businesses | HigherMindAI"
         desc={DESC}
         path={URL}
         schema={[
-          serviceSchema('Property Management AI Intake and Answering Service', SCHEMA_DESC, URL),
+          serviceSchema('AI phone and web intake and answering service', SCHEMA_DESC, URL),
           breadcrumbs([
             ['Home', '/'],
             ['Property Management', '/property-management/'],
@@ -66,16 +66,16 @@ export default function PropertyIntake() {
 
       <section className="phero">
         <div className="wrap">
-          <span className="eyebrow reveal">The Desk - the half that answers</span>
+          <span className="eyebrow reveal">Intake &middot; The Line</span>
           <h1 className="reveal">
             The enquiry that arrives{' '}
             <span className="em">at seven in the evening.</span>
           </h1>
           <p className="sub reveal">
             It goes to voicemail. He does not leave one. He calls the next firm, who answers, and
-            that door is gone permanently - and you never learn it existed. The Desk answers on
+            that job is gone permanently - and you never learn it existed. One desk answers on
             your site and on your line. Answered and qualified, triaged against your criteria,
-            logged with a timestamp, and routed to a licensed manager.
+            logged with a timestamp, and routed to a person on your own escalation order.
           </p>
           <div className="ctas reveal">
             <Link to="/book/" className="btn btn-primary">
@@ -118,7 +118,7 @@ export default function PropertyIntake() {
               <div className="vbig">
                 Same knowledge, same triage criteria, same escalation order, same log - so an owner
                 gets the same answer whether he types it or says it.{' '}
-                <b>The Desk is the difference between a contact and a voicemail.</b>
+                <b>This is the difference between a contact and a voicemail.</b>
               </div>
             </div>
           </div>
@@ -217,7 +217,7 @@ export default function PropertyIntake() {
               <p>
                 Every contact carries a timestamp in and a timestamp answered, which means
                 responsiveness stops being a thing you claim and becomes a number.{' '}
-                <Link to="/property-management/the-record/">See The Record</Link>.
+                <Link to="/the-record/">See The Record</Link>.
               </p>
             </div>
           </div>
@@ -235,46 +235,44 @@ export default function PropertyIntake() {
 
       <div className="divider" />
 
-      {/* ------------------------------------------------------------- pricing */}
-      <section className="sec" id="pricing">
+      {/* ------------------------------------------------- channels + guarantees */}
+      <section className="sec" id="channels">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">What it costs</span>
-            <h2>Compare it to what the answering service charges.</h2>
+            <span className="eyebrow">Two channels</span>
+            <h2>Start on one. Add the other whenever you want it.</h2>
           </div>
           <div className="prod-cols">
             <div className="termpanel reveal">
-              <div className="tp-label">The Desk</div>
+              <div className="tp-label">The two channels</div>
               <ul className="tp-list">
                 <li>
-                  <b>The web channel</b> &nbsp;&middot;&nbsp; {PRICE.deskWeb}
+                  <b>The web channel</b>
                   <br />
                   <span style={{ opacity: 0.62 }}>
-                    {PRICE.deskWebSetup}. Live in 14 days.
+                    Answers on your site, day and night. Live in 14 days.
                   </span>
                 </li>
                 <li>
-                  <b>The voice channel</b> &nbsp;&middot;&nbsp; {PRICE.deskVoice}
+                  <b>The voice channel</b>
                   <br />
                   <span style={{ opacity: 0.62 }}>
-                    {PRICE.deskVoiceSetup}. Live in 21 days.
+                    Answers your line. Live in 21 days, because the emergency criteria and
+                    escalation order have to be loaded and tested before a phone answers.
                   </span>
                 </li>
                 <li>
-                  <b>Both channels</b> &nbsp;&middot;&nbsp; {PRICE.deskWhole}
+                  <b>Both</b>
                   <br />
-                  <span style={{ opacity: 0.62 }}>
-                    The whole Desk. {PRICE.deskWholeSetup}.
-                  </span>
+                  <span style={{ opacity: 0.62 }}>The whole desk, one build, one record.</span>
                 </li>
               </ul>
               <p className="tp-note">
                 <b>Chat now, voice later.</b> {DESK_ADD_CHANNEL}
               </p>
-              <p className="tp-note">{PRICE_FOOTNOTE}</p>
             </div>
             <div className="termpanel reveal">
-              <div className="tp-label">Portfolio scaling and the launch window</div>
+              <div className="tp-label">Scaling and the launch window</div>
               <ul className="tp-list">
                 <li>{PORTFOLIO_SCALING}</li>
                 <li>
@@ -282,8 +280,10 @@ export default function PropertyIntake() {
                 </li>
               </ul>
               <p className="tp-note">
-                Usage is included to $50 a month and charged at cost above that. I do not mark up
-                usage.
+                No rate on this page on purpose. What the desk costs depends on how much it has to
+                carry, and that gets worked out on the call against your own numbers rather than
+                guessed at here. Usage is included to a set monthly allowance and charged at cost
+                above it - I do not mark up usage.
               </p>
             </div>
           </div>

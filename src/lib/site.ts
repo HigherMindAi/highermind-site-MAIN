@@ -15,15 +15,17 @@ export const LOCALITY = 'Erin';
 export const REGION = 'ON';
 export const COUNTRY = 'CA';
 
-// Two books, two doors. Nav leads with the flagships because the homepage
-// forks there, then the shared engines.
+// SEPTEMBER 2026 - plain leads, the creative name is a tag.
+// The site specialises in a failure, not an industry: they never find you, or
+// nobody answers. Nav carries plain labels only. Nobody navigates by a
+// sentence, and nobody navigates by a proper noun he has not learned yet.
+// The Whole Operation is the single permitted exception - it is self-explaining.
 export const NAV: ReadonlyArray<{ label: string; href: string }> = [
-  { label: 'Property Management', href: '/property-management/' },
-  { label: 'The Keystone', href: '/the-keystone/' },
-  { label: 'Ranking', href: '/property-management-seo/' },
+  { label: 'Visibility', href: '/property-management-seo/' },
   { label: 'Intake', href: '/property-management-intake/' },
-  { label: 'Coverage', href: '/coverage/' },
-  { label: 'Law Firms', href: '/the-watershed/' },
+  { label: 'Website', href: '/services/website-build/' },
+  { label: 'More Cities', href: '/services/service-area-expansion/' },
+  { label: 'Who I Help', href: '/who-i-help/' },
   { label: 'About', href: '/about/' },
 ];
 

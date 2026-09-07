@@ -54,7 +54,10 @@ export const AREA_SERVED = [
 ];
 
 export const COVERAGE_INTRO =
-  'I take one property management firm per market. That means the honest answer to \u201cdo you work in my area\u201d is sometimes no, and I would rather tell you that in three seconds than in three emails.';
+  'I take one firm per trade, per market. A roofer and a property manager in the same city are not competitors; two roofers are. That means the honest answer to \u201cdo you work in my area\u201d is sometimes no, and I would rather tell you that in three seconds than in three emails.';
+
+export const COVERAGE_EXCLUSIONS =
+  'Two states are excluded permanently rather than for capacity. California and Washington both give a private right of action with statutory damages per message, which is a risk I will not carry on a client\u2019s behalf or my own. Florida is out of the trades books until state licensing and telemarketing registration are settled with counsel. I would rather name those out loud than have you find out when you ask.';
 
 export const COVERAGE_QUEBEC =
   'Quebec is the one place I say no on capability rather than capacity. The syndicate framework and the OACIQ regime are different enough that I would rather decline than do it badly.';
@@ -63,4 +66,4 @@ export const COVERAGE_NOT_LISTED =
   'If your state or province is not on this list, it usually means I have not opened it yet rather than that I have ruled it out. Ask. I will tell you straight whether I can help, and if I cannot I will say so on the first call rather than after you have spent an hour.';
 
 export const COVERAGE_WHY_ONE =
-  'Because I am one operator rather than an agency with a roster, and because the firm two towns over should not be buying the same visibility work I just built for you. If your market is taken, you hear it on the first call.';
+  'Because I am one operator rather than an agency with a roster, and because the firm two towns over should not be buying the same visibility work I just built for you. One seat per trade in each market: taking a roofer does not close the market to a tree care company, and it does close it to the next roofer. If your seat is taken, you hear it on the first call.';

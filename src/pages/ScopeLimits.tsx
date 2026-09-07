@@ -10,7 +10,7 @@ import { breadcrumbs, serviceSchema, faqSchema } from '../lib/schema';
 const URL = '/scope-limits/';
 
 const DESC =
-  'Exactly what the intake desk does and exactly where it stops, published before you ask. It routes to a licensed manager and never performs a licensed function.';
+  'Exactly what the intake desk does and exactly where it stops, published before you ask, across all three books. It routes to a person and never performs a licensed function.';
 
 const SCOPE_FAQ: [string, string][] = [
   [
@@ -46,7 +46,7 @@ export default function ScopeLimits() {
           serviceSchema('AI Intake Desk - Published Scope Limits', DESC, URL),
           breadcrumbs([
             ['Home', '/'],
-            ['Property Management', '/property-management/'],
+            ['Who I Help', '/who-i-help/'],
             ['Scope Limits', URL],
           ]),
           faqSchema(SCOPE_FAQ),
@@ -113,6 +113,55 @@ export default function ScopeLimits() {
 
       <div className="divider" />
 
+      <section className="sec" id="by-trade">
+        <div className="wrap">
+          <div className="sec-head left reveal">
+            <span className="eyebrow">By trade</span>
+            <h2>
+              Three books, <span className="em">three sets of hard edges.</span>
+            </h2>
+            <p className="lead">
+              The desk performs administrative intake in every trade I build for. What changes is
+              which judgement is reserved to a licensed or qualified person, and each one is
+              configured as a hard escalation rather than a judgement call.
+            </p>
+          </div>
+          <div className="vgrid reveal">
+            <div className="vtile">
+              <h3>Property &amp; condominium management</h3>
+              <p>
+                Administrative intake only. It never interprets a declaration, never rules common
+                element versus unit, never authorises an expenditure, never puts dates on statutory
+                processes, never touches another owner&rsquo;s file, and never performs a function
+                reserved to a licensed manager.
+              </p>
+            </div>
+            <div className="vtile">
+              <h3>Roofing</h3>
+              <p>
+                It never quotes a price, never estimates a job, never commits a crew to a date you
+                have not authorised, never promises an attendance window, never states or implies
+                whether damage is covered by insurance, never contacts a carrier or an adjuster, and
+                never discusses, absorbs, rebates or waives a deductible. Several states regulate
+                roofers on exactly that last point and treat deductible rebating as insurance fraud.
+              </p>
+            </div>
+            <div className="vtile">
+              <h3>Arborists &amp; tree care</h3>
+              <p>
+                The hazard boundary is the clause that matters most here. It never assesses whether
+                a tree is hazardous, never states or implies whether one is likely to fail, never
+                advises removal or retention, never comments on root, decay or structural
+                condition, and performs no part of a tree risk assessment. It never rules on a
+                permit, a tree bylaw or a protected species.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="divider" />
+
       <section className="sec">
         <div className="wrap">
           <div className="vcard reveal">
@@ -149,9 +198,10 @@ export default function ScopeLimits() {
           <div className="mesh reveal">
             <span className="mesh-lab">The rest of it</span>
             <Link to="/property-management-intake/">The intake desk</Link>
-            <Link to="/property-management/the-record/">The Record</Link>
-            <Link to="/the-keystone/">The Keystone</Link>
-            <Link to="/condominium-management-marketing/">Condominium boards</Link>
+            <Link to="/the-record/">The Record</Link>
+            <Link to="/the-whole-operation/">The Whole Operation</Link>
+            <Link to="/roofing/">Roofing</Link>
+            <Link to="/arborists/">Arborists &amp; tree care</Link>
             <Link to="/coverage/">Where I work</Link>
           </div>
         </div>
