@@ -1,6 +1,6 @@
 // ---------------------------------------------------------------------------
 // HigherMindAI - JSON-LD builders (answer-layer / rich-result signals)
-// Three books: property management, roofing, arborists. NO pricing in any block,
+// One system; property management, roofing and arborists are built out. NO pricing in any block,
 // deliberately. Published figures live in visible copy only - a price in
 // structured data can be cached into a rich result against me, and visible
 // copy changes in one deploy. Hyphens only, never em-dashes.
@@ -142,7 +142,7 @@ export function serviceSchema(name: string, desc: string, url: string): Json {
 }
 
 export function servicesItemList(
-  services: { name: string; slug: string }[]
+  services: { name: string; slug: string; href?: string }[]
 ): Json {
   return {
     '@context': 'https://schema.org',
@@ -151,7 +151,7 @@ export function servicesItemList(
       '@type': 'ListItem',
       position: i + 1,
       name: s.name,
-      url: `${BASE}/services/${s.slug}/`,
+      url: BASE + (s.href ?? `/services/${s.slug}/`),
     })),
   };
 }

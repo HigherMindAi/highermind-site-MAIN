@@ -38,7 +38,7 @@ const INTAKE_FAQ: [string, string][] = [
   ],
   [
     'Do I have to take both channels?',
-    'No, and most do not start that way. Web first, voice once you have watched it work. The two channels are the same build - the only difference is which surface it answers on - so adding the phone later costs exactly what it would have cost on day one. No upgrade premium, nothing renegotiated, a one-line amendment.',
+    'No. There are three ways to buy this and all three are real products: web only, voice only, or both. Web only suits a business whose site form is where enquiries land. Voice only suits one with a working form and a phone ringing out at seven in the evening - that used to have nothing to buy, and now it does. And if you start on one, adding the second later costs exactly what it would have cost on day one. No upgrade premium, nothing renegotiated, a one-line amendment.',
   ],
   [
     'Does it replace my staff?',
@@ -98,14 +98,14 @@ export default function PropertyIntake() {
       <section className="sec">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">One desk, two channels</span>
+            <span className="eyebrow">One desk, three ways in</span>
             <h2>
               Ranking creates enquiries.{' '}
               <span className="em">It does not answer them.</span>
             </h2>
             <p className="lead">
-              In this industry that gap is wider than in almost any other, because a large share of
-              your inbound arrives outside office hours from people who have a problem rather than a
+              The gap is widest in the trades and service businesses, because a large share of your
+              inbound arrives outside office hours from people who have a problem rather than a
               question.
             </p>
           </div>
@@ -127,9 +127,9 @@ export default function PropertyIntake() {
               <div className="sn">Channel</div>
               <h3>The web channel</h3>
               <p>
-                Sits on your site and one more messaging channel. Answers from each corporation&rsquo;s
-                own documents, qualifies an owner enquiry, books the conversation, and hands you the
-                transcript. Live in 14 days. Most firms start here.
+                Sits on your site and one more messaging channel. Answers from your own documents,
+                qualifies the enquiry, books the conversation, and hands you the transcript. Live in
+                14 days.
               </p>
             </div>
             <div className="step reveal">
@@ -137,8 +137,9 @@ export default function PropertyIntake() {
               <h3>The voice channel</h3>
               <p>
                 Answers the line you cannot get to, triages against your criteria, logs it with a
-                timestamp, and routes anything real to a licensed manager. Live in 21 days, longer on
-                purpose.
+                timestamp, and routes anything real to a person on your escalation order. Live in 21
+                days, longer on purpose. It stands on its own - a business with a working form and a
+                phone ringing out in the evening can buy this and nothing else.
               </p>
             </div>
           </div>
@@ -239,12 +240,12 @@ export default function PropertyIntake() {
       <section className="sec" id="channels">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">Two channels</span>
-            <h2>Start on one. Add the other whenever you want it.</h2>
+            <span className="eyebrow">Three ways to buy it</span>
+            <h2>Web, voice, or both. And you can add the other later.</h2>
           </div>
           <div className="prod-cols">
             <div className="termpanel reveal">
-              <div className="tp-label">The two channels</div>
+              <div className="tp-label">Three ways to buy it</div>
               <ul className="tp-list">
                 <li>
                   <b>The web channel</b>
@@ -262,13 +263,13 @@ export default function PropertyIntake() {
                   </span>
                 </li>
                 <li>
-                  <b>Both</b>
+                  <b>Both channels</b>
                   <br />
                   <span style={{ opacity: 0.62 }}>The whole desk, one build, one record.</span>
                 </li>
               </ul>
               <p className="tp-note">
-                <b>Chat now, voice later.</b> {DESK_ADD_CHANNEL}
+                <b>All three are real products.</b> {DESK_ADD_CHANNEL}
               </p>
             </div>
             <div className="termpanel reveal">

@@ -8,9 +8,10 @@
 // arithmetic is done live, on the prospect's own numbers, inside the nine
 // minutes. The old published ladder is retired and must not return.
 //
-// NAMING: plain leads, the creative name is a tag. On the property page only,
-// the property tags are correct: The Address, The Portfolio, The Lobby, The
-// Front Desk, The Shortlist, The Marquee, The Keystone.
+// NAMING: plain leads, the creative name is a tag. v10 retired the three
+// trade-native families - one label set now runs across the site, the call and
+// the document: The Pin, The Second Pin, The Storefront, The Line, The Word,
+// The Current, The Mention, The Tap, The Motion, and The Whole Operation.
 //
 // Hyphens only, never em-dashes. Solo first person. No client names.
 // ---------------------------------------------------------------------------
@@ -47,7 +48,7 @@ export const PORTFOLIO_SCALING =
 // The whole upsell, in one sentence. Chat now, voice later - and later costs
 // exactly what day one would have. Say it plainly or it reads as a trap.
 export const DESK_ADD_CHANNEL =
-  'Start on one channel and add the second whenever you want it. It costs exactly what it would have cost on day one - no upgrade premium, nothing renegotiated, a one-line amendment. Same again for the phone.';
+  'Buy the web channel, the voice channel, or both. Start on one and add the second whenever you want it and it costs exactly what it would have cost on day one - no upgrade premium, nothing renegotiated, a one-line amendment. Same again for the phone.';
 
 /* ---------------------------------------------------------------- the scope */
 
@@ -103,7 +104,7 @@ export const PROPERTY_FAQ: [string, string][] = [
   ],
   [
     'Is property management SEO worth paying for when I already buy owner leads?',
-    'That depends on what you want at the end of three years. Purchased leads are frequently shared with your competitors, priced the same every month forever, and they stop dead when payment stops - nothing accrues. Ranking is slower to start, it compounds, and the position stays yours. One is rent and one is an asset, and at the end of a three-year run only one of them is still working for you. What one owner is actually worth to you is arithmetic we do on the call, on your fees rather than mine.',
+    'That depends on what you want at the end of three years. Purchased leads are frequently shared with your competitors, priced the same every month forever, and they stop dead when payment stops - nothing accrues. Ranking is slower to start, it compounds, and the position stays yours. One is rent and one is an asset, and at the end of a three-year run only one of them is still working for you. What one owner is actually worth to you is arithmetic I do on the call, on your fees rather than mine.',
   ],
   [
     'Does Google ranking help a condominium management firm win board work?',

@@ -15,7 +15,7 @@ export default function Book() {
     <main>
       <Seo
         title="Book a Call | HigherMindAI"
-        desc="Book a fifteen-minute call. I will tell you what is costing you clients, what I would build, and how fast it goes live. No pitch, no obligation."
+        desc="Book a nine-minute call. I will tell you what is costing you clients, what I would build, and how fast it goes live. No pitch, no obligation."
         path="/book/"
         schema={[orgSchema(), breadcrumbs([['Home', '/'], ['Book a call', '/book/']])]}
       />
@@ -28,7 +28,7 @@ export default function Book() {
             </div>
             <span className="eyebrow">Book a call</span>
             <h1>
-              Fifteen minutes. <span className="em">You will know exactly where you stand.</span>
+              Nine minutes. <span className="em">You will know exactly where you stand.</span>
             </h1>
             <p className="sub">
               I have already seen what your market looks like, because I look before every call. So
@@ -88,7 +88,7 @@ export default function Book() {
               <h3>Yes, or a clean no</h3>
               <p>
                 If your market is not winnable, or the numbers do not work, I will say so on the call
-                and tell you what I would do instead. A fast no is worth more to both of us than a
+                and tell you what I would do instead. A fast no is worth more to you and to me than a
                 slow maybe.
               </p>
             </div>

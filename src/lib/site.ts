@@ -19,12 +19,16 @@ export const COUNTRY = 'CA';
 // The site specialises in a failure, not an industry: they never find you, or
 // nobody answers. Nav carries plain labels only. Nobody navigates by a
 // sentence, and nobody navigates by a proper noun he has not learned yet.
-// The Whole Operation is the single permitted exception - it is self-explaining.
+//
+// v10: AI Search takes a nav slot of its own. It was live, indexed and
+// reachable only from the footer, which is why it kept reading as missing.
+// Website and More Cities move behind Services, which now carries every line
+// on one page rather than five of them.
 export const NAV: ReadonlyArray<{ label: string; href: string }> = [
   { label: 'Visibility', href: '/property-management-seo/' },
   { label: 'Intake', href: '/property-management-intake/' },
-  { label: 'Website', href: '/services/website-build/' },
-  { label: 'More Cities', href: '/services/service-area-expansion/' },
+  { label: 'AI Search', href: '/ai-search-optimization/' },
+  { label: 'Services', href: '/services/' },
   { label: 'Who I Help', href: '/who-i-help/' },
   { label: 'About', href: '/about/' },
 ];

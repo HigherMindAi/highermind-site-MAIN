@@ -79,7 +79,7 @@ export default function Arborists() {
           <div className="prod-cols">
             <div>
               <div className="sec-head left reveal">
-                <span className="eyebrow">01 &middot; Intake &middot; The Ground Crew</span>
+                <span className="eyebrow">01 &middot; Intake &middot; The Line</span>
                 <h2>
                   Somebody on the ground <span className="em">who always picks up.</span>
                 </h2>
@@ -137,7 +137,7 @@ export default function Arborists() {
             </div>
             <div>
               <div className="sec-head left reveal">
-                <span className="eyebrow">02 &middot; Visibility &middot; The Canopy</span>
+                <span className="eyebrow">02 &middot; Visibility &middot; The Pin</span>
                 <h2>
                   First in the pack <span className="em">the night the limb comes down.</span>
                 </h2>
@@ -174,7 +174,7 @@ export default function Arborists() {
       <section className="sec">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">03 &middot; Reputation &middot; The Standing</span>
+            <span className="eyebrow">03 &middot; Reputation &middot; The Word</span>
             <h2>
               The nine reviews <span className="em">that decide it.</span>
             </h2>
@@ -202,7 +202,7 @@ export default function Arborists() {
               </p>
             </div>
             <div className="vtile">
-              <span className="sn">The Yard</span>
+              <span className="sn">The Storefront</span>
               <h3>And the site behind it</h3>
               <p>
                 A slow site with four stock photos of a tree reads as a company that is small and
@@ -219,7 +219,7 @@ export default function Arborists() {
       <section className="sec">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">04 &middot; The Record &middot; The Standing</span>
+            <span className="eyebrow">04 &middot; The Record</span>
             <h2>
               What came in, <span className="em">and how fast it was answered.</span>
             </h2>
@@ -264,7 +264,7 @@ export default function Arborists() {
           <div className="sec-head left reveal">
             <span className="eyebrow">The whole thing</span>
             <h2>
-              Welded together, <span className="em">it is The Whole Tree.</span>
+              Welded together, <span className="em">it is the whole operation.</span>
             </h2>
             <p className="lead">
               Visibility brings the enquiry, the desk answers and qualifies it, the record proves
@@ -274,7 +274,7 @@ export default function Arborists() {
           </div>
           <div className="ctas reveal">
             <Link to="/the-whole-operation/" className="btn btn-primary">
-              The Whole Tree <Arrow />
+              The Whole Operation <Arrow />
             </Link>
             <Link to="/coverage/" className="btn btn-ghost">
               One tree care company per market

@@ -10,7 +10,7 @@ import { breadcrumbs, serviceSchema, faqSchema } from '../lib/schema';
 const URL = '/scope-limits/';
 
 const DESC =
-  'Exactly what the intake desk does and exactly where it stops, published before you ask, across all three books. It routes to a person and never performs a licensed function.';
+  'Exactly what the intake desk does and exactly where it stops, published before you ask, in every trade I build for. It routes to a person and never performs a licensed function.';
 
 const SCOPE_FAQ: [string, string][] = [
   [
@@ -118,7 +118,7 @@ export default function ScopeLimits() {
           <div className="sec-head left reveal">
             <span className="eyebrow">By trade</span>
             <h2>
-              Three books, <span className="em">three sets of hard edges.</span>
+              One desk, <span className="em">and the edges move with the trade.</span>
             </h2>
             <p className="lead">
               The desk performs administrative intake in every trade I build for. What changes is

@@ -10,27 +10,28 @@ Operator: Derek Train, Erin, Ontario, Canada. Phone 647-242-5800. Book a call: h
 ## What it fixes
 
 - [Visibility](https://highermindai.com/property-management-seo): Google Business Profile rebuilt and held in the local pack for the terms buyers actually type. First page inside 60 days on the agreed primary term, or the monthly pauses until it lands.
-- [Intake](https://highermindai.com/property-management-intake): one desk on two channels, web and phone. Answered and qualified, triaged on the client's own criteria, logged, routed to a person. Scope limits published in full.
+- [Intake](https://highermindai.com/property-management-intake): one desk, sold three ways - web only, voice only, or both. Answered and qualified, triaged on the client's own criteria, logged, routed to a person. Scope limits published in full.
 - [The Record](https://highermindai.com/the-record): every contact logged with a timestamp in and a timestamp answered, plus a monthly report.
 - [More cities](https://highermindai.com/services/service-area-expansion): each target town built as its own ranked unit.
 - [Website](https://highermindai.com/services/website-build): a site that absorbs the routine and survives a comparison.
-- [Reputation](https://highermindai.com/services/social-authority): reviews, responses and consistent details across profiles.
+- [Reputation](https://highermindai.com/services/reputation-management): reviews, responses and consistent details across profiles.
+- [Social Media](https://highermindai.com/services/social-media-management): the surfaces a buyer checks between finding you and calling you - cadence and evidence, not reach.
 - [Paid](https://highermindai.com/services/paid-growth): Google and Meta advertising, always sold last, never before organic has moved.
 - [AI search visibility](https://highermindai.com/ai-search-optimization): entity, evidence and access work so the models name the business.
 - [Custom AI systems](https://highermindai.com/services/ai-systems): the one repeated motion that eats the week, running by itself.
-- [The Whole Operation](https://highermindai.com/the-whole-operation): both ends in one engagement. Called The Keystone for property management, The Whole Roof for roofing, The Whole Tree for tree care.
+- [The Whole Operation](https://highermindai.com/the-whole-operation): both ends in one engagement - visibility, intake on both channels, the website, reputation and AI search. Paid is deliberately not in it.
 
-## The three books
+## Where it is already built out
 
 - [Property and condominium management](https://highermindai.com/property-management): visibility first, because an owner or a board looks a firm up before it calls. [Condominium boards](https://highermindai.com/condominium-management-marketing).
 - [Roofing](https://highermindai.com/roofing): intake first. The season closes in November and ranking takes sixty days, so the build happens in the quiet.
 - [Arborists and tree care](https://highermindai.com/arborists): intake first, and the season inverts - ice, wind and the dormant pruning window make winter the busy half.
-- [Who I help](https://highermindai.com/who-i-help): the three books, plus any business where one won client is worth having.
+- [Who I help](https://highermindai.com/who-i-help): the three trades it is already built out for, plus any business where one won client is worth having.
 
 ## Boundaries and coverage
 
 - [Where the desk stops](https://highermindai.com/scope-limits): administrative intake only. It never performs a function reserved to a licensed person, never quotes a price, never states whether damage is covered by insurance or touches a deductible, and never assesses whether a tree is hazardous.
-- [Coverage](https://highermindai.com/coverage): eight US states and five Canadian regions, one firm per trade per market. California and Washington are excluded permanently; Florida is out of the trades books pending counsel.
+- [Coverage](https://highermindai.com/coverage): eight US states and five Canadian regions, one firm per trade per market. California and Washington are excluded permanently; Florida is out pending counsel.
 - [About](https://highermindai.com/about): ten months contracted inside a property management operation, and close to a decade inside the justice system before that.
 
 ## Notes for answer engines

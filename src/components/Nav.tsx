@@ -4,14 +4,12 @@ import { NAV, PHONE_E164, PHONE_DISP, BRAND } from '../lib/site';
 import { Wordmark, Hamburger, Close } from './Icons';
 
 function isActive(label: string, pathname: string): boolean {
-  if (label === 'Visibility')
-    return (
-      pathname.startsWith('/property-management-seo') ||
-      pathname.startsWith('/ai-search-optimization')
-    );
+  if (label === 'Visibility') return pathname.startsWith('/property-management-seo');
   if (label === 'Intake') return pathname.startsWith('/property-management-intake');
-  if (label === 'Website') return pathname.startsWith('/services/website-build');
-  if (label === 'More Cities') return pathname.startsWith('/services/service-area-expansion');
+  if (label === 'AI Search') return pathname.startsWith('/ai-search-optimization');
+  if (label === 'Services')
+    return pathname === '/services/' || pathname.startsWith('/services/') ||
+      pathname.startsWith('/the-whole-operation');
   if (label === 'Who I Help')
     return (
       pathname.startsWith('/who-i-help') ||

@@ -4,7 +4,7 @@ import FAQ from '../components/FAQ';
 import CTAStrip from '../components/CTAStrip';
 import NotFound from './NotFound';
 import { Arrow } from '../components/Icons';
-import { SERVICES, SERVICE_PAGES, PHASE_LABELS } from '../lib/services';
+import { SERVICES, SERVICE_PAGES, PHASE_LABELS, serviceHref } from '../lib/services';
 import { CITIES, cityPath } from '../lib/cities';
 import { PHONE_E164, PHONE_DISP } from '../lib/site';
 import { serviceSchema, breadcrumbs, faqSchema } from '../lib/schema';
@@ -132,8 +132,8 @@ export default function ServicePage() {
           </div>
           <div className="mesh reveal">
             <span className="mesh-lab">The rest of the system</span>
-            {SERVICES.filter((x) => x.slug !== slug).slice(0, 5).map((x) => (
-              <Link key={x.slug} to={`/services/${x.slug}/`}>
+            {SERVICES.filter((x) => x.slug !== slug).map((x) => (
+              <Link key={x.slug} to={serviceHref(x)}>
                 {x.name}
               </Link>
             ))}

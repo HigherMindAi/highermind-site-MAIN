@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
  * never a duration. That is a permanent copy rule, not a style preference.
  */
 // Mixed is the default: the site sells a failure, not an industry, and the
-// homepage log has to read as three books rather than one. Property keeps its
+// homepage log has to read across trades rather than one. Property keeps its
 // own variant for the property pages. The legal variant is retired with the
 // legal book - do not reintroduce it.
 type Variant = 'mixed' | 'property';

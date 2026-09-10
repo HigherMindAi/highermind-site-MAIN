@@ -25,13 +25,13 @@ const SCHEMA_DESC =
 const ENGINES: [string, string, string, string][] = [
   [
     'Visibility',
-    'The Address. Where you actually come up.',
+    'Visibility. Where you actually come up.',
     'The traffic half, with two ways into it. Organic is your Google Business Profile claimed and rebuilt, every service named the way owners actually search for it, your real service area mapped properly, and a site you own. Paid is the tap, layered over the top when volume is needed faster than ranking can deliver. Organic first because it compounds and you keep it.',
     '/property-management-seo/',
   ],
   [
     'Intake',
-    'The Front Desk. One desk, two channels.',
+    'Intake. One desk, two channels.',
     'Ranking creates enquiries. It does not answer them, and in this industry that gap is wider than in almost any other, because a large share of your inbound arrives outside office hours from people who have a problem rather than a question. Answered and qualified from your own documents, triaged on your criteria, logged, and routed to a licensed manager.',
     '/property-management-intake/',
   ],
@@ -43,9 +43,9 @@ const ENGINES: [string, string, string, string][] = [
   ],
   [
     'Reputation',
-    'The Shortlist. Reviews and response.',
+    'Reputation. Reviews and response.',
     'Property management has a structural reputation problem almost no other industry shares: the people most motivated to review you are not the people who pay you. A tenant with a maintenance complaint writes four paragraphs. A satisfied owner collecting rent quietly for three years writes nothing at all. The engine is volume, timing and response quality.',
-    '/services/social-authority/',
+    '/services/reputation-management/',
   ],
 ];
 
@@ -345,7 +345,7 @@ export default function PropertyManagement() {
               <div className="tp-label">What gets built</div>
               <ul className="tp-list">
                 <li>
-                  <b>Visibility</b> &nbsp;&middot;&nbsp; The Address
+                  <b>Visibility</b> &nbsp;&middot;&nbsp; The Pin
                   <br />
                   <span style={{ opacity: 0.62 }}>
                     Managed and held, or rebuilt once and handed over. Both exist; which one fits
@@ -353,7 +353,7 @@ export default function PropertyManagement() {
                   </span>
                 </li>
                 <li>
-                  <b>Intake</b> &nbsp;&middot;&nbsp; The Front Desk
+                  <b>Intake</b> &nbsp;&middot;&nbsp; The Line
                   <br />
                   <span style={{ opacity: 0.62 }}>
                     Web channel, voice channel, or both. Start on one and add the other at what it
@@ -361,14 +361,14 @@ export default function PropertyManagement() {
                   </span>
                 </li>
                 <li>
-                  <b>Reputation</b> &nbsp;&middot;&nbsp; The Shortlist
+                  <b>Reputation</b> &nbsp;&middot;&nbsp; The Word
                   <br />
                   <span style={{ opacity: 0.62 }}>
                     The review wall a director reads at night, per platform.
                   </span>
                 </li>
                 <li>
-                  <b>The whole loop</b> &nbsp;&middot;&nbsp; The Keystone
+                  <b>The whole loop</b> &nbsp;&middot;&nbsp; The Whole Operation
                   <br />
                   <span style={{ opacity: 0.62 }}>
                     All of it welded together, built in the order your side of the business

@@ -287,25 +287,25 @@
 
 [[redirects]]
   from = "/the-watermark"
-  to = "/services/social-authority/"
+  to = "/services/reputation-management/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/the-watermark/"
-  to = "/services/social-authority/"
+  to = "/services/reputation-management/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/trust-engine"
-  to = "/services/social-authority/"
+  to = "/services/reputation-management/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/trust-engine/"
-  to = "/services/social-authority/"
+  to = "/services/reputation-management/"
   status = 301
   force = true
 
@@ -386,13 +386,13 @@
 
 [[redirects]]
   from = "/the-word"
-  to = "/services/social-authority/"
+  to = "/services/reputation-management/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/the-word/"
-  to = "/services/social-authority/"
+  to = "/services/reputation-management/"
   status = 301
   force = true
 
@@ -432,6 +432,94 @@
   status = 301
   force = true
 
+
+
+# v10, SEPTEMBER 2026. Reputation had taken over the social slug and never
+# gave it back. It moves to its own keyword-bearing URL so Social Media can
+# take the surface it describes. The old path was indexed - it 301s, one hop.
+[[redirects]]
+  from = "/services/social-authority"
+  to = "/services/reputation-management/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/social-authority/"
+  to = "/services/reputation-management/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/reputation"
+  to = "/services/reputation-management/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/reputation/"
+  to = "/services/reputation-management/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/reputation"
+  to = "/services/reputation-management/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/reputation/"
+  to = "/services/reputation-management/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/social-media"
+  to = "/services/social-media-management/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/social-media/"
+  to = "/services/social-media-management/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/social-media"
+  to = "/services/social-media-management/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/social-media/"
+  to = "/services/social-media-management/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-current"
+  to = "/services/social-media-management/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-current/"
+  to = "/services/social-media-management/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-mention"
+  to = "/ai-search-optimization/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-mention/"
+  to = "/ai-search-optimization/"
+  status = 301
+  force = true
 
 # Every real route is prerendered to its own index.html, so this rule is only
 # reached by URLs that do not exist. It MUST return a real 404.

@@ -308,10 +308,8 @@ export default function Home() {
                 <p className="lead">
                   Each piece above stands on its own and can be bought on its own. Together they are
                   a closed loop: visibility brings the enquiry, the desk answers and qualifies it,
-                  and the report on the first of the month proves both. It is called The Keystone
-                  for a property management firm, The Whole Roof for a roofing company and The Whole
-                  Tree for a tree care company - same loop, built in a different order, because the
-                  three books leak differently.
+                  and the report on the first of the month proves both. One name, one build, and the order changes with the
+                  trade - some businesses are bleeding harder at the front and some at the back.
                 </p>
               </div>
               <div className="ctas reveal">
@@ -343,12 +341,12 @@ export default function Home() {
         <div className="wrap">
           <div className="sec-head left reveal">
             <span className="eyebrow">Who I help</span>
-            <h2>Three books, <span className="em">and a fourth line for everyone else.</span></h2>
+            <h2>One system, <span className="em">and three trades it is already built for.</span></h2>
             <p className="lead">
-              Property and condominium management, roofing, and arborists and tree care - three
-              trades with their own scripts, their own seasons and their own vocabulary, because I
-              built them that way. A missed enquiry costs the same in any business where one client
-              is worth having.
+              Property and condominium management, roofing, and arborists and tree care already have
+              the scripts, the seasons and the vocabulary worked out, because I built for them
+              first. Everything else runs on the same two failures, and a missed enquiry costs the
+              same in any business where one client is worth having.
             </p>
           </div>
           <div className="inds reveal">

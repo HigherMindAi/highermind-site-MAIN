@@ -79,7 +79,7 @@ export default function Roofing() {
           <div className="prod-cols">
             <div>
               <div className="sec-head left reveal">
-                <span className="eyebrow">01 &middot; Intake &middot; The Dispatch</span>
+                <span className="eyebrow">01 &middot; Intake &middot; The Line</span>
                 <h2>
                   Every call answered and qualified, <span className="em">while you are on a roof.</span>
                 </h2>
@@ -135,7 +135,7 @@ export default function Roofing() {
             </div>
             <div>
               <div className="sec-head left reveal">
-                <span className="eyebrow">02 &middot; Visibility &middot; The Ridge</span>
+                <span className="eyebrow">02 &middot; Visibility &middot; The Pin</span>
                 <h2>
                   Found first when somebody nearby <span className="em">goes looking for a roofer.</span>
                 </h2>
@@ -172,7 +172,7 @@ export default function Roofing() {
       <section className="sec">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">03 &middot; Reputation &middot; The Proof</span>
+            <span className="eyebrow">03 &middot; Reputation &middot; The Word</span>
             <h2>
               The nine reviews <span className="em">that decide it.</span>
             </h2>
@@ -200,7 +200,7 @@ export default function Roofing() {
               </p>
             </div>
             <div className="vtile">
-              <span className="sn">The Curb</span>
+              <span className="sn">The Storefront</span>
               <h3>And the site behind it</h3>
               <p>
                 A slow site with four stock photos of a roof reads as a company that is small and
@@ -217,7 +217,7 @@ export default function Roofing() {
       <section className="sec">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">04 &middot; The Record &middot; The Proof</span>
+            <span className="eyebrow">04 &middot; The Record</span>
             <h2>
               What came in, <span className="em">and how fast it was answered.</span>
             </h2>
@@ -262,7 +262,7 @@ export default function Roofing() {
           <div className="sec-head left reveal">
             <span className="eyebrow">The whole thing</span>
             <h2>
-              Welded together, <span className="em">it is The Whole Roof.</span>
+              Welded together, <span className="em">it is the whole operation.</span>
             </h2>
             <p className="lead">
               Visibility brings the enquiry, the desk answers and qualifies it, the record proves
@@ -272,7 +272,7 @@ export default function Roofing() {
           </div>
           <div className="ctas reveal">
             <Link to="/the-whole-operation/" className="btn btn-primary">
-              The Whole Roof <Arrow />
+              The Whole Operation <Arrow />
             </Link>
             <Link to="/coverage/" className="btn btn-ghost">
               One roofer per market

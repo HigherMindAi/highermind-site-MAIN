@@ -19,8 +19,8 @@ const FAQS: [string, string][] = [
     'Because the two failures are joined. Visibility with no intake sends more enquiries into a phone nobody answers, and intake with no visibility answers a phone that does not ring. Each piece stands on its own and can be bought on its own, and plenty of businesses should start with one. The whole operation is for the owner who already knows both ends are leaking.',
   ],
   [
-    'What is different between the three books?',
-    'The order of build, not the loop. Property management starts with visibility, because an owner or a board looks a firm up before it calls. Roofing and tree care start with intake, because the owner already knows to the dollar what a missed call costs him and the phone is ringing while he is on a roof or up a tree.',
+    'Does the build change by trade?',
+    'The order changes, not the loop. Property management starts with visibility, because an owner or a board looks a firm up before it calls. Roofing and tree care start with intake, because the owner already knows to the dollar what a missed call costs him and the phone is ringing while he is on a roof or up a tree. Your trade gets read the same way on the call.',
   ],
   [
     'What does it cost?',
@@ -56,10 +56,9 @@ export default function WholeOperation() {
           <p className="sub reveal">
             Visibility brings the enquiry. The desk answers and qualifies it. The record on the
             first of the month proves both happened. Each piece stands alone and can be bought
-            alone - together they close the circle, and the circle is the thing that compounds. It
-            is called The Keystone for a property management firm, The Whole Roof for a roofing
-            company and The Whole Tree for a tree care company. Same loop, built in a different
-            order, because the three books leak differently.
+            alone - together they close the circle, and the circle is the thing that compounds. One
+            name and one build, and what changes between trades is the order, because some
+            businesses are bleeding harder at the front and some at the back.
           </p>
           <div className="ctas reveal">
             <Link to="/book/" className="btn btn-primary">
@@ -77,14 +76,16 @@ export default function WholeOperation() {
       <section className="sec">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">The four parts</span>
+            <span className="eyebrow">What is in it</span>
             <h2>
               Found, answered, proven, <span className="em">and kept.</span>
             </h2>
             <p className="lead">
               Nothing here is a bundle discount on things you did not want. It is the smallest set
               of parts that closes the loop, and if one of them is already working in your business
-              I will tell you to keep it rather than sell you a replacement.
+              I will tell you to keep it rather than sell you a replacement. Paid is deliberately
+              not in it. The Tap is sold last, never before the organic position has moved and never
+              before there is a page worth sending a click to.
             </p>
           </div>
           <div className="prod-cols">
@@ -107,6 +108,24 @@ export default function WholeOperation() {
                 <p>
                   One desk on two channels, web and phone. It answers, screens on your criteria in
                   your words, books what should be booked, and routes anything real to a person.
+                </p>
+              </div>
+              <div className="vtile">
+                <span className="sn">The Storefront</span>
+                <h3>Website</h3>
+                <p>
+                  The page the enquiry lands on and the page somebody opens at ten at night with two
+                  other names in the other tabs. It takes the routine off your phone line, and it
+                  holds up when your name is being checked against the alternatives.
+                </p>
+              </div>
+              <div className="vtile">
+                <span className="sn">The Mention</span>
+                <h3>AI Search Visibility</h3>
+                <p>
+                  The same work carried onto the surfaces that give one answer instead of ten blue
+                  links. There is no second page when somebody asks an assistant, so the entity and
+                  evidence work either puts you in the answer or it does not.
                 </p>
               </div>
               <div className="vtile">
@@ -138,12 +157,12 @@ export default function WholeOperation() {
           <div className="sec-head left reveal">
             <span className="eyebrow">The order of build</span>
             <h2>
-              Three books, <span className="em">three different first moves.</span>
+              Same loop, <span className="em">three different first moves.</span>
             </h2>
           </div>
           <div className="vgrid reveal">
             <div className="vtile">
-              <span className="sn">The Keystone</span>
+              <span className="sn">The Whole Operation</span>
               <h3>Property management</h3>
               <p>
                 Visibility first. An owner deciding to stop managing it himself is already
@@ -152,7 +171,7 @@ export default function WholeOperation() {
               </p>
             </div>
             <div className="vtile">
-              <span className="sn">The Whole Roof</span>
+              <span className="sn">The Whole Operation</span>
               <h3>Roofing</h3>
               <p>
                 Intake first. A roofing owner knows to the dollar what a missed call costs him, and
@@ -161,7 +180,7 @@ export default function WholeOperation() {
               </p>
             </div>
             <div className="vtile">
-              <span className="sn">The Whole Tree</span>
+              <span className="sn">The Whole Operation</span>
               <h3>Arborists &amp; tree care</h3>
               <p>
                 Intake first, and harder. A climber sixty feet up cannot answer at all, and the

@@ -9,12 +9,12 @@ import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 const URL = '/who-i-help/';
 
 const DESC =
-  'Three books with their own playbooks - property and condominium management, roofing, and arborists. The same visibility and intake system fits any appointment-led business.';
+  'One visibility and intake system, already built out for property and condominium management, roofing and arborists - and it fits any business where an enquiry has to be found and answered.';
 
 const SOL_FAQ: [string, string][] = [
   [
     'Do you only work with property managers?',
-    'No. Three trades have their own full playbook - property and condominium management, roofing, and arborists and tree care - because I built the scripts, the seasons and the vocabulary for each one separately. Everything else runs on the same two failures. If one won client is worth having in your business, the arithmetic works.',
+    'No. It is one system, and three trades already have the scripts, the seasons and the vocabulary worked out because I built for them first - property and condominium management, roofing, and arborists and tree care. Every other business runs on the same two failures: they never find you, or nobody answers. If one won client is worth having in your business, the arithmetic works.',
   ],
   [
     'Why build books at all instead of one generic system?',
@@ -26,26 +26,26 @@ const SOL_FAQ: [string, string][] = [
   ],
   [
     'My trade is not one of the three. Will the copy say the wrong thing?',
-    'No. The desk is built on your knowledge, your screening rules and your words. The three books shape how carefully I build intake and where I know the boundaries bite - they do not decide what your version says.',
+    'No. The desk is built on your knowledge, your screening rules and your words. The trades I have already built for shape how carefully I build intake and where I know the boundaries bite - they do not decide what your version says.',
   ],
 ];
 
 const BOOKS: [string, string, string, string][] = [
   [
     'Property & condominium management',
-    'The Keystone',
+    'Visibility first',
     'Visibility first. An owner deciding to stop managing it himself is already searching, and when three names go to a board somebody looks all three up that evening.',
     '/property-management/',
   ],
   [
     'Roofing',
-    'The Whole Roof',
+    'Intake first',
     'Intake first. A roofing owner knows to the dollar what a missed call costs him, and the call lands while he is on a roof. The season closes in November and ranking takes sixty days, so the build happens in the quiet.',
     '/roofing/',
   ],
   [
     'Arborists & tree care',
-    'The Whole Tree',
+    'Intake first, and harder',
     'Intake first, and harder than roofing. A climber sixty feet up cannot answer at all. The season inverts too - ice, wind and the dormant pruning window make winter the busy half.',
     '/arborists/',
   ],
@@ -67,7 +67,7 @@ export default function WhoIHelp() {
   return (
     <main>
       <Seo
-        title="Who I Help - Three Books, and a Fourth Line | HigherMindAI"
+        title="Who I Help - Trades and Service Businesses | HigherMindAI"
         desc={DESC}
         path={URL}
         schema={[
@@ -81,13 +81,13 @@ export default function WhoIHelp() {
         <div className="wrap">
           <span className="eyebrow reveal">Who I help</span>
           <h1 className="reveal">
-            Three books, <span className="em">and a fourth line for everyone else.</span>
+            One system, <span className="em">and three trades it is already built for.</span>
           </h1>
           <p className="sub reveal">
-            Property and condominium management, roofing, and arborists and tree care - three trades
-            with their own scripts, their own seasons and their own vocabulary, because I built them
-            that way. If you are none of the three, the system does not change shape. It is built on
-            your knowledge, your screening rules, and your words.
+            Property and condominium management, roofing, and arborists and tree care already have
+            the scripts, the seasons and the vocabulary worked out, because I built for them first.
+            If you are none of the three, the system does not change shape. It is built on your
+            knowledge, your screening rules, and your words.
           </p>
           <div className="ctas reveal">
             <Link to="/book/" className="btn btn-primary">
@@ -105,13 +105,13 @@ export default function WhoIHelp() {
       <section className="sec">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">The three books</span>
+            <span className="eyebrow">Where it is already built out</span>
             <h2>
               Same two failures. <span className="em">Different order of build.</span>
             </h2>
             <p className="lead">
               Every business here loses work the same two ways - they never find you, or nobody
-              answers. What changes between the books is which end is bleeding faster, and that
+              answers. What changes between trades is which end is bleeding faster, and that
               decides what I build first.
             </p>
           </div>
@@ -122,7 +122,7 @@ export default function WhoIHelp() {
                 <h3>{h}</h3>
                 <p>{b}</p>
                 <p style={{ marginTop: 14 }}>
-                  <Link to={href}>See the book</Link>
+                  <Link to={href}>See the detail</Link>
                 </p>
               </div>
             ))}

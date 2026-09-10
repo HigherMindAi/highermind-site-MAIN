@@ -70,10 +70,10 @@
 /the-catchment/                    /services/service-area-expansion/      301!
 /territory                         /services/service-area-expansion/      301!
 /territory/                        /services/service-area-expansion/      301!
-/the-watermark                     /services/social-authority/            301!
-/the-watermark/                    /services/social-authority/            301!
-/trust-engine                      /services/social-authority/            301!
-/trust-engine/                     /services/social-authority/            301!
+/the-watermark                     /services/reputation-management/            301!
+/the-watermark/                    /services/reputation-management/            301!
+/trust-engine                      /services/reputation-management/            301!
+/trust-engine/                     /services/reputation-management/            301!
 /the-landing                       /services/website-build/               301!
 /the-landing/                      /services/website-build/               301!
 /launchpad                         /services/website-build/               301!
@@ -89,14 +89,33 @@
 /the-second-pin/                   /services/service-area-expansion/      301!
 /the-storefront                    /services/website-build/               301!
 /the-storefront/                   /services/website-build/               301!
-/the-word                          /services/social-authority/            301!
-/the-word/                         /services/social-authority/            301!
+/the-word                          /services/reputation-management/            301!
+/the-word/                         /services/reputation-management/            301!
 /the-motion                        /services/ai-systems/                  301!
 /the-motion/                       /services/ai-systems/                  301!
 /the-whole-roof                    /roofing/                              301!
 /the-whole-roof/                   /roofing/                              301!
 /the-whole-tree                    /arborists/                            301!
 /the-whole-tree/                   /arborists/                            301!
+
+
+# v10, SEPTEMBER 2026. Reputation had taken over the social slug and never
+# gave it back. It moves to its own keyword-bearing URL so Social Media can
+# take the surface it describes. The old path was indexed - it 301s, one hop.
+/services/social-authority         /services/reputation-management/       301!
+/services/social-authority/        /services/reputation-management/       301!
+/reputation                        /services/reputation-management/       301!
+/reputation/                       /services/reputation-management/       301!
+/services/reputation               /services/reputation-management/       301!
+/services/reputation/              /services/reputation-management/       301!
+/social-media                      /services/social-media-management/     301!
+/social-media/                     /services/social-media-management/     301!
+/services/social-media             /services/social-media-management/     301!
+/services/social-media/            /services/social-media-management/     301!
+/the-current                       /services/social-media-management/     301!
+/the-current/                      /services/social-media-management/     301!
+/the-mention                       /ai-search-optimization/               301!
+/the-mention/                      /ai-search-optimization/               301!
 
 # Catch-all. MUST return a real 404 and MUST match netlify.toml. Serving
 # /index.html at 200 here made every junk URL a duplicate of the homepage.

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { SERVICES } from '../lib/services';
+import { SERVICES, serviceHref } from '../lib/services';
 import { Go } from './Icons';
 
 export default function ServiceLadder() {
@@ -8,7 +8,7 @@ export default function ServiceLadder() {
       {SERVICES.map((s, i) => (
         <Link
           key={s.slug}
-          to={`/services/${s.slug}/`}
+          to={serviceHref(s)}
           className={'svc reveal' + (s.flag ? ' flag' : '')}
         >
           <div className="si">{String(i + 1).padStart(2, '0')}</div>

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import {
   BRAND, BIZ_NAME, PHONE_E164, PHONE_DISP, EMAIL, LOCALITY, REGION,
 } from '../lib/site';
-import { SERVICES } from '../lib/services';
+import { SERVICES, serviceHref } from '../lib/services';
 import { Wordmark } from './Icons';
 import { LOCATIONS_HUB } from '../lib/cities';
 
@@ -19,7 +19,7 @@ export default function Footer() {
             <p>
               I get you found when somebody nearby goes looking, answer and qualify every enquiry
               that lands, then hand you a record of what came in and how fast it was answered.
-              Three books, one operator, one loop.
+              One system, one operator, one loop.
             </p>
             <div className="op">
               <img
@@ -38,7 +38,7 @@ export default function Footer() {
           </div>
           <div className="foot-links">
             <div className="foot-col">
-              <h4>The books</h4>
+              <h4>Who I help</h4>
               <Link to="/property-management/">Property management</Link>
               <Link to="/roofing/">Roofing</Link>
               <Link to="/arborists/">Arborists &amp; tree care</Link>
@@ -47,15 +47,12 @@ export default function Footer() {
             </div>
             <div className="foot-col">
               <h4>Services</h4>
-              <Link to="/property-management-seo/">Visibility</Link>
-              <Link to="/property-management-intake/">Intake</Link>
               {SERVICES.map((s) => (
-                <Link key={s.slug} to={`/services/${s.slug}/`}>
+                <Link key={s.slug} to={serviceHref(s)}>
                   {s.name}
                 </Link>
               ))}
-              <Link to="/ai-search-optimization/">AI Search</Link>
-              <Link to="/the-whole-operation/">The Whole Operation</Link>
+              <Link to="/services/">Every service</Link>
             </div>
             <div className="foot-col">
               <h4>Company</h4>

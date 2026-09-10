@@ -1,15 +1,27 @@
 // ---------------------------------------------------------------------------
 // HigherMindAI - service ladder + per-service page content (no pricing)
 //
-// SEPTEMBER 2026. Plain leads, the creative name is a tag. Nav labels, card
-// titles and headlines are the plain word; The Pin, The Line, The Storefront,
-// The Second Pin, The Word, The Tap and The Motion appear as small tags beside
-// the plain word and never headline a public surface.
+// SEPTEMBER 2026, v10 alignment. One pillar, no niches. The ladder carries the
+// same public labels the onboarding kits and the call now use - Visibility,
+// More Cities, Website, Intake, Reputation, Social Media, AI Search, Paid,
+// Custom AI Systems - so a prospect reads one word on the site, hears the same
+// word on the call, and reads the same word in the document.
+//
+// Plain leads, the creative name is a tag. The Pin, The Second Pin, The
+// Storefront, The Line, The Word, The Current, The Mention, The Tap and The
+// Motion appear as small tags beside the plain word and never headline a
+// public surface.
 //
 // NO PRICING ANYWHERE ON THIS SITE. Not a figure, not a range, not a "from".
 // The arithmetic is done live, on the prospect's own numbers, inside the nine
 // minutes. Slugs stay keyword-bearing - they rank, and re-slugging for a
-// cosmetic gain costs authority.
+// cosmetic gain costs authority. The one deliberate exception is Reputation,
+// which was squatting on /services/social-authority/ and is moved to its own
+// keyword-bearing slug so Social Media can take the surface it describes. The
+// old path 301s.
+//
+// Lines with a dedicated page of their own carry an explicit href. Everything
+// else renders through ServicePage from SERVICE_PAGES below.
 //
 // The word "marketing" is permitted in title tags, meta descriptions, schema
 // and alt text. Never in an H1, a headline, body copy or a button.
@@ -23,22 +35,31 @@ export interface ServiceListItem {
   tag: string;
   line: string;
   flag: boolean;
+  /** Set where the line already owns a dedicated, keyword-bearing page. */
+  href?: string;
+}
+
+/** The canonical URL for a ladder line, wherever its page actually lives. */
+export function serviceHref(s: ServiceListItem): string {
+  return s.href ?? `/services/${s.slug}/`;
 }
 
 export const SERVICES: ServiceListItem[] = [
   {
-    slug: 'paid-growth',
-    name: 'Paid',
-    tag: 'The Tap',
-    line: 'Demand you can turn on, and off. Volume from day one while the organic position is still being built underneath it. Sold last, never before organic has moved.',
-    flag: false,
+    slug: 'the-whole-operation',
+    name: 'The Whole Operation',
+    tag: 'The Flagship',
+    line: 'Both ends of the same problem, closed in one build. Visibility brings the enquiry, the desk answers and qualifies it, the site holds up when somebody checks, and the record on the first of the month makes all of it arguable rather than claimed.',
+    flag: true,
+    href: '/the-whole-operation/',
   },
   {
-    slug: 'ai-systems',
-    name: 'Custom AI Systems',
-    tag: 'The Motion',
-    line: 'The job that eats your week, running by itself. Built on your own knowledge, behind the desk rather than in front of it. It answers from your truth or it hands off.',
+    slug: 'property-management-seo',
+    name: 'Visibility',
+    tag: 'The Pin',
+    line: 'Found first when somebody nearby goes looking. The profile rebuilt properly, and the signals that actually decide which three businesses land in the box.',
     flag: false,
+    href: '/property-management-seo/',
   },
   {
     slug: 'service-area-expansion',
@@ -55,10 +76,47 @@ export const SERVICES: ServiceListItem[] = [
     flag: false,
   },
   {
-    slug: 'social-authority',
+    slug: 'property-management-intake',
+    name: 'Intake',
+    tag: 'The Line',
+    line: 'One desk, two channels. It answers and qualifies the enquiry on the web, on the phone, or on both, books what should be booked, and routes anything real to a person on your own escalation order.',
+    flag: false,
+    href: '/property-management-intake/',
+  },
+  {
+    slug: 'reputation-management',
     name: 'Reputation',
     tag: 'The Word',
     line: 'What they read before they call you. Reviews, responses and consistent details, treated as the due diligence somebody is performing on you.',
+    flag: false,
+  },
+  {
+    slug: 'social-media-management',
+    name: 'Social Media',
+    tag: 'The Current',
+    line: 'The surfaces they check between finding you and calling you. Cadence and evidence rather than reach, and I will argue for two surfaces done properly over three done thinly.',
+    flag: false,
+  },
+  {
+    slug: 'ai-search-optimization',
+    name: 'AI Search Visibility',
+    tag: 'The Mention',
+    line: 'Whether you get named when somebody asks an assistant instead of Google. There is no second page here - one answer, two or three names, and you are in it or you are not.',
+    flag: false,
+    href: '/ai-search-optimization/',
+  },
+  {
+    slug: 'paid-growth',
+    name: 'Paid',
+    tag: 'The Tap',
+    line: 'Demand you can turn on, and off. Volume while the organic position is still being built underneath it. Sold last, never before organic has moved.',
+    flag: false,
+  },
+  {
+    slug: 'ai-systems',
+    name: 'Custom AI Systems',
+    tag: 'The Motion',
+    line: 'The job that eats your week, running by itself. Built on your own knowledge, behind the desk rather than in front of it. It answers from your truth or it hands off.',
     flag: false,
   },
 ];
@@ -153,7 +211,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
       ['Will I be able to make edits?', 'Care and hosting keep the site fast, secure and current. Tell me what needs changing and it gets handled.'],
     ],
   },
-  'social-authority': {
+  'reputation-management': {
     title: 'Reviews and Online Reputation Management | HigherMindAI',
     desc: 'What somebody reads about you before he calls. Reviews, responses and consistent details, treated as due diligence rather than decoration.',
     h1Lead: 'What they read ',
@@ -176,6 +234,33 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
       ['Will you write reviews or filter who gets asked?', 'No. I will not write them, incentivise them, gate them, or pick who gets asked based on how they are likely to answer. All of it is against platform rules and all of it is detectable. The levers are volume, timing and response quality, which is slower and is the only version that survives contact with Google.'],
       ['Does this matter if my work comes from referrals?', 'More, not less. A referral gets looked up before the call. The referral opens the tab; what is in the tab decides whether the phone rings.'],
       ['Do I need this if I am already ranking?', 'Ranking decides whether you are found. This decides whether being found does you any good. Review velocity and recency also feed local pack position, so the two compound rather than compete.'],
+    ],
+  },
+  'social-media-management': {
+    title: 'Social Media Management for Trades and Service Businesses | HigherMindAI',
+    desc: 'The surfaces a buyer checks after the search and before the call. Cadence, evidence and consistency on the one or two surfaces your buyers actually use.',
+    h1Lead: 'What they find when they check you ',
+    h1Em: 'between finding you and calling you.',
+    sub: 'Almost nobody in the trades buys directly from a social post, and I am not going to tell you they do. What these surfaces do is get checked - after the search, before the call, by somebody deciding whether you are real, current and busy. A page frozen fourteen months ago answers that badly, and it answers it worse than having no page at all. The job is cadence and evidence, not reach.',
+    eyebrow: 'Social Media',
+    tag: 'The Current',
+    values: [
+      ['Two surfaces done properly, not five done thinly', 'Very few businesses need three. I will tell you which surfaces your buyers actually use, which ones to close, and which ones to leave dormant on purpose - and yes, that argument usually reduces what you pay me.'],
+      ['Cadence you can survive, not a posting quota', 'A rhythm built around what your business genuinely produces in a week, batched ahead rather than scrambled daily. You approve a batch, not a post. A cadence that collapses in month three is worse than the dormant profile it replaced.'],
+      ['Evidence, and it is disclosed', 'Real work, real crews, real sites. Where any generated image or video is used it is disclosed in the caption, on every surface, every time. No generated person is ever presented as a customer, and no generated testimonial exists.'],
+    ],
+    process: [
+      ['Choose the surfaces', 'Which ones your buyers check, which ones get closed, and which ones are deliberately left alone. Profiles rebuilt, details made consistent with everywhere else you appear.'],
+      ['Design the cadence', 'A publishing rhythm built around your actual week rather than an aspirational one, agreed in writing before anything is published.'],
+      ['Build the first batch', 'Content produced ahead of schedule from your raw material - about twenty minutes of phone video a month is the highest-value input there is.'],
+      ['Publish and manage', 'Posted to the agreed cadence, with comments and direct messages monitored and routed. A real enquiry goes to a person or to your intake desk, never answered speculatively.'],
+    ],
+    faq: [
+      ['Will this actually bring me work?', 'Not directly, in most trades, and I will not pretend otherwise. What it does is survive the check that happens between the search and the call. If you want a line that generates enquiries, that is Visibility or Paid, and I would rather point you at those than sell you this one on a promise it will not keep.'],
+      ['How is this different from Reputation?', 'Reputation is what strangers write about you - reviews, responses, consistent details. Social Media is what you publish yourself. They get checked in the same evening by the same person, and they answer different halves of the same question.'],
+      ['Do you report follower counts?', 'They are reported, and they are not the point, and I will not dress them up as the point. The measure is whether a surface reads as active, consistent and real to somebody performing a check on you.'],
+      ['Do I have to be in the videos?', 'No, though the ones with a real person in them do better than the ones without. Work, crews and finished sites carry it perfectly well if you would rather stay off camera.'],
+      ['What if I do not want AI-produced material used?', 'Then none is used. Some owners want none of it and that is a perfectly good answer. Where any is used it carries a disclosure in the caption without exception.'],
     ],
   },
   'paid-growth': {
@@ -225,7 +310,7 @@ export const GENERAL_FAQ: [string, string][] = [
   ],
   [
     'Do you only work with property managers?',
-    'No. Three trades have their own full playbook - property and condominium management, roofing, and arborists and tree care - because I built the scripts, the seasons and the vocabulary for each one separately. Everything else runs on the same two failures. If one won client is worth having in your business, the arithmetic works.',
+    'No. It is one system, and three trades already have the scripts, the seasons and the vocabulary worked out because I built for them first - property and condominium management, roofing, and arborists and tree care. Every other business runs on the same two failures: they never find you, or nobody answers. If one won client is worth having in your business, the arithmetic works.',
   ],
   [
     'What will the intake desk not do?',

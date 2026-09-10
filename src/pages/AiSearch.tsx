@@ -137,13 +137,13 @@ export default function AiSearch() {
 
       <section className="phero">
         <div className="wrap">
-          <span className="eyebrow reveal">AI Search Optimization &middot; GEO</span>
+          <span className="eyebrow reveal">AI Search Visibility &middot; The Mention</span>
           <h1 className="reveal">
             When someone asks an AI who to call,{' '}
             <span className="em">you are in the answer or you are nowhere.</span>
           </h1>
           <p className="sub reveal">
-            People have stopped typing keywords and started asking questions. "Who is the best injury
+            People have stopped typing keywords and started asking questions. "Who is the best roofer
             near me." "Which company actually answers the phone." They get one answer, assembled
             by a model, naming two or three businesses. AI Search Optimization is the work of making
             sure you are one of the names - and it is the same work whether the answer comes from
@@ -366,7 +366,7 @@ export default function AiSearch() {
 
       <CTAStrip
         head={<>Find out what the models say about you.</>}
-        sub="On a call I will ask the major AI systems the questions your buyers ask, live, and read you the answer. It takes about fifteen minutes and you keep whatever it turns up."
+        sub="On a call I will ask the major AI systems the questions your buyers ask, live, and read you the answer. It takes about nine minutes and you keep whatever it turns up."
       />
     </main>
   );

@@ -102,7 +102,7 @@ export default function Coverage() {
               </a>
             </div>
             <p className="trustline">
-              All three books in every market &middot; Property and condominium management, roofing,
+              Every trade in every market &middot; Property and condominium management, roofing,
               arborists &middot; Scope configured to your licensing regime
             </p>
           </div>
@@ -115,7 +115,7 @@ export default function Coverage() {
         <div className="wrap narrow">
           <MarketList
             heading="United States"
-            note="Eight states, chosen for market conditions and for the practical reason that I call from Eastern time and can reach them properly. All three books in every one of them - property and condominium management, roofing, and arborists and tree care - with the desk configured to that state's licensing regime."
+            note="Eight states, chosen for market conditions and for the practical reason that I call from Eastern time and can reach them properly. Every trade in every one of them, with the desk configured to that state's licensing regime."
             markets={US_MARKETS}
           />
 

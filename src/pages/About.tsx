@@ -85,9 +85,9 @@ export default function About() {
                 himself does not shop carefully. He reads the first three results, calls two of
                 them, and books whoever answers. After five o'clock that is almost never the small
                 company - not because it is worse, but because there is nobody at the desk. Three
-                books carry their own playbook because the vocabulary and the seasons differ:
-                property and condominium management, roofing, and arborists and tree care. The
-                failure underneath them is the same one everywhere. I get the business found, I put
+                trades already have the vocabulary and the seasons worked out because I built for
+                them first: property and condominium management, roofing, and arborists and tree
+                care. The failure underneath them is the same one in every business. I get the business found, I put
                 a desk on the other end that answers and qualifies every enquiry the moment it
                 arrives, and I hand over the record of both.
               </p>

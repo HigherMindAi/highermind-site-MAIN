@@ -24,7 +24,7 @@
 // words of template. Two of the four FAQ answers were byte-identical on all ten
 // pages, and the other two were shared across whole tiers. That is the pattern
 // Google names as a doorway page - "swapping out one word on a page" - and it
-// also failed the standard the Territory product sells to clients.
+// also failed the standard the More Cities line sells to clients.
 //
 // The rule now: SIX distinct prose fields per city, and no rendered block on
 // LocationPage may be template text with a city name interpolated into it.
