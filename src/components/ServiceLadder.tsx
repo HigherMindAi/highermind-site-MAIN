@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import { SERVICES, serviceHref } from '../lib/services';
+import { LADDER, serviceHref } from '../lib/services';
 import { Go } from './Icons';
 
 export default function ServiceLadder() {
   return (
     <div className="ladder">
-      {SERVICES.map((s, i) => (
+      {LADDER.map((s, i) => (
         <Link
           key={s.slug}
           to={serviceHref(s)}

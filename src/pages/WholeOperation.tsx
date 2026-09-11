@@ -98,8 +98,9 @@ export default function WholeOperation() {
                 <h3>Visibility</h3>
                 <p>
                   Found first when somebody nearby goes looking. The profile rebuilt properly, the
-                  signals that decide the top three, and every winnable town around you built as its
-                  own ranked unit.
+                  signals that decide the top three, the review work - capture, responses and the
+                  same details wherever your name appears - and every winnable town around you built
+                  as its own ranked unit.
                 </p>
               </div>
               <div className="vtile">
@@ -135,14 +136,6 @@ export default function WholeOperation() {
                   Every contact logged with a timestamp in and a timestamp answered. The report on
                   the first of the month is the part that makes the rest arguable rather than
                   claimed.
-                </p>
-              </div>
-              <div className="vtile">
-                <span className="sn">The Word</span>
-                <h3>Reputation</h3>
-                <p>
-                  What somebody reads about you between finding you and calling you. Reviews,
-                  responses, and the same details wherever your name appears.
                 </p>
               </div>
             </div>

@@ -43,8 +43,8 @@ const ENGINES: [string, string, string, string][] = [
   ],
   [
     'Reputation',
-    'Reputation. Reviews and response.',
-    'Property management has a structural reputation problem almost no other industry shares: the people most motivated to review you are not the people who pay you. A tenant with a maintenance complaint writes four paragraphs. A satisfied owner collecting rent quietly for three years writes nothing at all. The engine is volume, timing and response quality.',
+    'Reputation. Reviews and response, inside the visibility work.',
+    'Property management has a structural reputation problem almost no other industry shares: the people most motivated to review you are not the people who pay you. A tenant with a maintenance complaint writes four paragraphs. A satisfied owner collecting rent quietly for three years writes nothing at all. The engine is volume, timing and response quality - and it is carried inside the visibility engagement rather than billed as a line of its own.',
     '/services/reputation-management/',
   ],
 ];

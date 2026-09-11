@@ -2,19 +2,19 @@ import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import ServiceLadder from '../components/ServiceLadder';
 import CTAStrip from '../components/CTAStrip';
-import { SERVICES } from '../lib/services';
+import { LADDER } from '../lib/services';
 import { breadcrumbs, servicesItemList } from '../lib/schema';
 
 export default function ServicesHub() {
   return (
     <main>
       <Seo
-        title="Ranking, Intake, Reviews and Paid Demand by Service | HigherMindAI"
-        desc="Visibility, intake, website, more cities, reputation and paid. Every piece on its own, or welded into one loop that answers every enquiry you receive."
+        title="Ranking, Intake, Websites and Paid Demand by Service | HigherMindAI"
+        desc="Visibility, intake, website, more cities, social and paid. Every piece on its own, or welded into one loop that answers every enquiry you receive."
         path="/services/"
         schema={[
           breadcrumbs([['Home', '/'], ['Services', '/services/']]),
-          servicesItemList(SERVICES),
+          servicesItemList(LADDER),
         ]}
       />
 

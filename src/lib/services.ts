@@ -1,11 +1,22 @@
 // ---------------------------------------------------------------------------
 // HigherMindAI - service ladder + per-service page content (no pricing)
 //
-// SEPTEMBER 2026, v10 alignment. One pillar, no niches. The ladder carries the
+// SEPTEMBER 2026, v11 alignment. One pillar, no niches. The ladder carries the
 // same public labels the onboarding kits and the call now use - Visibility,
-// More Cities, Website, Intake, Reputation, Social Media, AI Search, Paid,
-// Custom AI Systems - so a prospect reads one word on the site, hears the same
-// word on the call, and reads the same word in the document.
+// More Cities, Website, Intake, Social Media, AI Search, Paid, Custom AI
+// Systems - so a prospect reads one word on the site, hears the same word on
+// the call, and reads the same word in the document.
+//
+// v11: REPUTATION IS NO LONGER A SELLABLE LINE. Review capture, review
+// response and listing consistency are inside the Visibility monthly and are
+// never quoted separately. The page at /services/reputation-management/ is
+// KEPT and still resolves - it ranks for reputation queries and eight 301s in
+// _redirects point at it - but it now explains that the work lives inside
+// Visibility instead of selling itself. It carries `hidden: true`, which drops
+// it from the ladder, the footer and the hub while leaving the route alive.
+// ServicePage resolves a slug against BOTH SERVICE_PAGES and SERVICES, so the
+// entry must stay in the array. Deleting it 404s the page and breaks the
+// redirects that feed it.
 //
 // Plain leads, the creative name is a tag. The Pin, The Second Pin, The
 // Storefront, The Line, The Word, The Current, The Mention, The Tap and The
@@ -37,7 +48,13 @@ export interface ServiceListItem {
   flag: boolean;
   /** Set where the line already owns a dedicated, keyword-bearing page. */
   href?: string;
+  /**
+   * Retired as a sellable line but the page stays live and indexed. Hidden
+   * from the ladder, the footer and the hub; still routable.
+   */
+  hidden?: boolean;
 }
+
 
 /** The canonical URL for a ladder line, wherever its page actually lives. */
 export function serviceHref(s: ServiceListItem): string {
@@ -57,7 +74,7 @@ export const SERVICES: ServiceListItem[] = [
     slug: 'property-management-seo',
     name: 'Visibility',
     tag: 'The Pin',
-    line: 'Found first when somebody nearby goes looking. The profile rebuilt properly, and the signals that actually decide which three businesses land in the box.',
+    line: 'Found first when somebody nearby goes looking. The profile rebuilt properly, the signals that actually decide which three businesses land in the box, and the review work - capture, response and consistent details - carried inside the same engagement.',
     flag: false,
     href: '/property-management-seo/',
   },
@@ -87,8 +104,9 @@ export const SERVICES: ServiceListItem[] = [
     slug: 'reputation-management',
     name: 'Reputation',
     tag: 'The Word',
-    line: 'What they read before they call you. Reviews, responses and consistent details, treated as the due diligence somebody is performing on you.',
+    line: 'What they read before they call you. Reviews, responses and consistent details - carried inside Visibility rather than sold beside it.',
     flag: false,
+    hidden: true,
   },
   {
     slug: 'social-media-management',
@@ -120,6 +138,13 @@ export const SERVICES: ServiceListItem[] = [
     flag: false,
   },
 ];
+
+/**
+ * The lines actually on sale - SERVICES minus anything retired. The ladder,
+ * the footer and the services hub all render from this, so retiring a line is
+ * one `hidden: true` rather than an edit in four components.
+ */
+export const LADDER: ServiceListItem[] = SERVICES.filter((s) => !s.hidden);
 
 export interface ServicePageData {
   title: string;
@@ -211,29 +236,37 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
       ['Will I be able to make edits?', 'Care and hosting keep the site fast, secure and current. Tell me what needs changing and it gets handled.'],
     ],
   },
+  // v11: this page no longer sells a line. It ranks for reputation queries and
+  // eight aliases in _redirects point at it, so it stays live and keeps doing
+  // that job - but what it now argues is that the work belongs inside a
+  // visibility engagement and that being billed for it twice is the thing to
+  // watch for. The CTA goes to Visibility.
   'reputation-management': {
     title: 'Reviews and Online Reputation Management | HigherMindAI',
-    desc: 'What somebody reads about you before he calls. Reviews, responses and consistent details, treated as due diligence rather than decoration.',
+    desc: 'What somebody reads about you before he calls. Reviews, responses and consistent details - carried inside the visibility engagement, never billed as a second line.',
     h1Lead: 'What they read ',
     h1Em: 'before they call you.',
-    sub: 'Two or three names get considered, and that evening somebody looks all of them up. What he finds is what he repeats to whoever asked him. Your rating, how recent it is, how you answered the bad one, and whether your business appears consistently wherever it appears at all. This is due diligence being performed on you, and it is winnable.',
+    sub: 'Two or three names get considered, and that evening somebody looks all of them up. What he finds is what he repeats to whoever asked him. Your rating, how recent it is, how you answered the bad one, and whether your business appears consistently wherever it appears at all. This is due diligence being performed on you, it is winnable, and I do not sell it to you separately - it is inside the visibility work, because that is where it actually lives.',
     eyebrow: 'Reputation',
-    tag: 'The Word',
+    tag: 'Inside Visibility',
     values: [
+      ['It is not a separate invoice, and it should not be', 'Review velocity, review recency and listing consistency are ranking signals. They are not a parallel service that happens to sit beside local search - they are part of how the pin is won and held. So the capture, the responses and the consistency work are inside the Visibility monthly, and there is no second line to buy. If somebody has quoted you for reputation management on top of local SEO, look closely at what the two quotes actually contain.'],
       ['The structural problem, addressed directly', 'The people most motivated to write a review are the ones with a complaint. A customer mid-dispute writes four paragraphs; a satisfied one who paid on time writes nothing. A structured ask to the quiet, happy majority is what corrects an average built out of complaints.'],
       ['The response is the artefact', 'A negative review is read by the next person considering you, not by the one who wrote it. Every one gets a proper, plain, non-defensive response written for that reader. That is the piece most businesses skip and the piece that reads loudest.'],
       ['Consistent wherever you appear', 'Same name, same phone, same service area across the directories and profiles somebody will land on. Inconsistency does not just cost ranking - it makes a business look smaller and less permanent than it is.'],
     ],
     process: [
-      ['Audit', 'What somebody actually finds tonight - rating, recency, the unanswered ones, and every place your business appears with the wrong details.'],
+      ['Audit', 'What somebody actually finds tonight - rating, recency, the unanswered ones, and every place your business appears with the wrong details. Part of the Visibility audit in week one.'],
       ['Ask', 'A structured, compliant request to the satisfied customers who would never think to leave one.'],
       ['Respond', 'Every review answered, and the negative ones answered properly, for the reader rather than the writer.'],
-      ['Sustain', 'A rhythm that keeps the profiles reading active and current, plus the professional layer where your buyers and referrers actually are.'],
+      ['Sustain', 'A rhythm that keeps the profiles reading active and current, reported on the first of the month alongside position.'],
     ],
     faq: [
+      ['So how much is reputation management?', 'On its own, nothing, because I do not sell it on its own. It is inside the Visibility monthly along with the profile work, the citations and the local content. One engagement, one invoice, one report on the first of the month.'],
+      ['Why not sell it separately? Everybody else does.', 'Because the work overlaps almost completely with the work that wins the pin, and charging twice for one job is not something I would want to explain in a room. If reviews are genuinely your only problem and ranking is not, say so on the call - I will tell you honestly whether you need an engagement at all.'],
       ['Will you write reviews or filter who gets asked?', 'No. I will not write them, incentivise them, gate them, or pick who gets asked based on how they are likely to answer. All of it is against platform rules and all of it is detectable. The levers are volume, timing and response quality, which is slower and is the only version that survives contact with Google.'],
       ['Does this matter if my work comes from referrals?', 'More, not less. A referral gets looked up before the call. The referral opens the tab; what is in the tab decides whether the phone rings.'],
-      ['Do I need this if I am already ranking?', 'Ranking decides whether you are found. This decides whether being found does you any good. Review velocity and recency also feed local pack position, so the two compound rather than compete.'],
+      ['Do I need this if I am already ranking?', 'Ranking decides whether you are found. This decides whether being found does you any good. Review velocity and recency also feed local pack position, so the two compound rather than compete - which is exactly why they are sold as one thing.'],
     ],
   },
   'social-media-management': {
@@ -257,7 +290,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
     ],
     faq: [
       ['Will this actually bring me work?', 'Not directly, in most trades, and I will not pretend otherwise. What it does is survive the check that happens between the search and the call. If you want a line that generates enquiries, that is Visibility or Paid, and I would rather point you at those than sell you this one on a promise it will not keep.'],
-      ['How is this different from Reputation?', 'Reputation is what strangers write about you - reviews, responses, consistent details. Social Media is what you publish yourself. They get checked in the same evening by the same person, and they answer different halves of the same question.'],
+      ['How is this different from the review work?', 'Reviews are what strangers write about you, and that work sits inside Visibility rather than here or on a bill of its own. Social Media is what you publish yourself. They get checked in the same evening by the same person, and they answer different halves of the same question.'],
       ['Do you report follower counts?', 'They are reported, and they are not the point, and I will not dress them up as the point. The measure is whether a surface reads as active, consistent and real to somebody performing a check on you.'],
       ['Do I have to be in the videos?', 'No, though the ones with a real person in them do better than the ones without. Work, crews and finished sites carry it perfectly well if you would rather stay off camera.'],
       ['What if I do not want AI-produced material used?', 'Then none is used. Some owners want none of it and that is a perfectly good answer. Where any is used it carries a disclosure in the caption without exception.'],

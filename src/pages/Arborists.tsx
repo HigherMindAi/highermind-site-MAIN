@@ -174,7 +174,7 @@ export default function Arborists() {
       <section className="sec">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">03 &middot; Reputation &middot; The Word</span>
+            <span className="eyebrow">03 &middot; Reviews &middot; inside Visibility</span>
             <h2>
               The nine reviews <span className="em">that decide it.</span>
             </h2>

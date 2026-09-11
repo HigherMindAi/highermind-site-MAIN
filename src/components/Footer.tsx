@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import {
   BRAND, BIZ_NAME, PHONE_E164, PHONE_DISP, EMAIL, LOCALITY, REGION,
 } from '../lib/site';
-import { SERVICES, serviceHref } from '../lib/services';
+import { LADDER, serviceHref } from '../lib/services';
 import { Wordmark } from './Icons';
 import { LOCATIONS_HUB } from '../lib/cities';
 
@@ -47,7 +47,7 @@ export default function Footer() {
             </div>
             <div className="foot-col">
               <h4>Services</h4>
-              {SERVICES.map((s) => (
+              {LADDER.map((s) => (
                 <Link key={s.slug} to={serviceHref(s)}>
                   {s.name}
                 </Link>
