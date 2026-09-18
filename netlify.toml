@@ -521,6 +521,32 @@
   status = 301
   force = true
 
+# v12 - the work page. Both of the obvious guesses resolve.
+[[redirects]]
+  from = "/portfolio"
+  to = "/work/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/portfolio/"
+  to = "/work/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/case-studies"
+  to = "/work/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/case-studies/"
+  to = "/work/"
+  status = 301
+  force = true
+
+
 # Every real route is prerendered to its own index.html, so this rule is only
 # reached by URLs that do not exist. It MUST return a real 404.
 # THIS RULE STAYS LAST.
@@ -534,3 +560,11 @@
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# Self-hosted stills and films, once fetch-assets.sh has been run. Long, but
+# NOT immutable - these are hand-named, so a replaced file has to be able to
+# actually replace itself.
+[[headers]]
+  for = "/media/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, stale-while-revalidate=86400"

@@ -117,7 +117,7 @@ export default function PropertyIntake() {
               <div className="vlab">Same desk, either way in</div>
               <div className="vbig">
                 Same knowledge, same triage criteria, same escalation order, same log - so an owner
-                gets the same answer whether he types it or says it.{' '}
+                gets the same answer whether they type it or say it.{' '}
                 <b>This is the difference between a contact and a voicemail.</b>
               </div>
             </div>

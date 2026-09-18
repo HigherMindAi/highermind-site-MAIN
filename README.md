@@ -106,3 +106,109 @@ leave it as is.
 The contact form posts to Netlify Forms. A hidden detection stub in `index.html`
 registers the `lead` form at deploy; the React form submits to it. After the
 first deploy, set a notification email in Netlify → Forms → `lead`.
+
+---
+
+# v12 - "The Catchment" (18 September 2026)
+
+The rebuild. The writing was never the problem and almost none of it changed;
+what changed is everything that made the page read as **code** rather than as a
+place a person works.
+
+## What was wrong, mechanically
+
+1. **Monospace on thirty-odd labels.** Mono means terminal. Every section
+   eyebrow was mono caps with wide tracking. That single choice did most of the
+   damage.
+2. **Hairline cards on dark,** repeated down the page - a SaaS dashboard.
+3. **One hue.** Teal on navy and nothing else. Monochrome reads as a spec sheet.
+4. **No human evidence.** No photography, no film, no texture. The only
+   photograph on the homepage was a 48px avatar in the footer.
+5. **Diagrams that were analytics,** proving the mechanism to somebody who
+   already believed it.
+6. **No scale contrast.** One rhythm, eleven times. The page never raised its
+   voice.
+
+## What replaced it
+
+- **Mono survives in exactly one component** - The Record, where the thing
+  genuinely is a log. Everywhere else the eyebrow is a numbered editorial rule.
+- **A second colour.** Amber carries one meaning only: **the leak**. Teal is
+  what he gets, amber is what he is losing. Amber never appears on a button, a
+  heading or a win state.
+- **An editorial serif** (Instrument Serif) on the `.em` emphasis lines and the
+  pull quotes. Changing that one CSS rule re-voiced twenty-five pages at once.
+  Montserrat stays the structural face and the wordmark.
+- **Twelve stills and seven films.** Places, never trades - a dentist and a
+  roofer both have to land here and see themselves. No identifiable people, in
+  any frame.
+- **Dream state first, mechanism second** on every product band.
+- **"Nine minutes" is the ask,** everywhere, because it is what gets said on the
+  phone.
+
+## The motion budget - do not remove it
+
+`src/lib/motion.ts`. A cinematic site is seven video files and a phone cannot
+have them all. **Phones get the hero film and nothing else** (`priority` on the
+hero `<Plate>`); chapter loops are desktop-only, and everything pauses offscreen
+through one shared IntersectionObserver.
+
+Verified, not assumed - load the page in two iframes at 1400px and 414px and
+count `.plate-film`:
+
+    desktop 1400  heroFilm=YES  chapterFilms=5
+    phone    414  heroFilm=YES  chapterFilms=0
+
+A media-query typo silently ships seven videos to a phone. Re-run that count
+after any change to `Plate` or `motion.ts`.
+
+## Media
+
+`src/lib/media.ts` holds every still and film behind **one switch**. It ships
+pointing at the generation CDN. To self-host:
+
+    ./fetch-assets.sh
+    # then set USE_LOCAL_ASSETS = true in src/lib/media.ts
+
+Files land in `public/media/`, **not** `public/assets/` - `netlify.toml` caches
+`/assets/*` immutable for a year, which is right for Vite's fingerprinted output
+and wrong for a hand-named file that might need replacing.
+
+Every plate renders a tonal gradient first, then the still, then the film. A
+dead CDN degrades to something that still looks designed, and a still that fails
+removes itself rather than showing a broken-image glyph.
+
+## Booking - this was broken on the live site
+
+`CalEmbed` pointed at `highermindai/consult`, which is not a real event type.
+**Every "book a call" on the live site was landing on a dead Cal slug.**
+
+`/book/` is now a hub carrying the three real ones, and the URL never changes
+because every printed document points at it:
+
+| | |
+|---|---|
+| `highermindai/intro` | the general nine minutes, the default |
+| `highermindai/google-listing` | the listing review |
+| `highermindai/9-minute-website-review` | the website review |
+
+Service pages deep-link with `?on=google-listing` or
+`?on=9-minute-website-review` to open the right tab. All three render in the
+prerendered HTML, so crawlers see them.
+
+## /work/
+
+New page, in the sitemap, in `llms.txt`, with `/portfolio` and `/case-studies`
+301ing to it. Canada Car Part is the first entry.
+
+**No performance figures, ever.** A number on a portfolio card is the one claim
+a prospect can check and the one nobody sources. Describe what was built.
+
+`shot` in `src/lib/work.ts` is deliberately **empty** until a real screenshot is
+in `public/work/`. It does not point at a missing file, because on a prerendered
+page an image error fires before React hydrates, so an `onError` handler never
+runs and the visitor gets a broken box. Empty means the card draws its designed
+frame instead.
+
+  **To add the screenshot:** save it as `public/work/canadacarpart.png`, then set
+  `shot: '/work/canadacarpart.png'`. Nothing else changes.

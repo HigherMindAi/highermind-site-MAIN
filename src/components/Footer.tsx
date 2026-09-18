@@ -57,18 +57,19 @@ export default function Footer() {
             <div className="foot-col">
               <h4>Company</h4>
               <Link to="/about/">About</Link>
+              <Link to="/work/">Work</Link>
               <Link to="/coverage/">Coverage</Link>
               <Link to={LOCATIONS_HUB}>Cities I rank in</Link>
               <Link to="/the-record/">The Record</Link>
               <Link to="/scope-limits/">Where the desk stops</Link>
-              <Link to="/book/">Book a call</Link>
+              <Link to="/book/">Take the nine minutes</Link>
             </div>
             <div className="foot-col">
               <h4>Contact</h4>
               <a href={`tel:${PHONE_E164}`}>{PHONE_DISP}</a>
               <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
               <span>{LOCALITY}, {REGION}, Canada</span>
-              <Link to="/book/">Book a call</Link>
+              <Link to="/book/">Take the nine minutes</Link>
             </div>
           </div>
         </div>

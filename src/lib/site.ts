@@ -34,3 +34,54 @@ export const NAV: ReadonlyArray<{ label: string; href: string }> = [
 ];
 
 export const FOUNDER = 'Derek Train';
+
+// ---------------------------------------------------------------------------
+// THE BOOKING FUNNEL
+//
+// /book/ is the Google Business Profile appointment link and every document in
+// the outreach and onboarding suite points at it, so the URL never changes. It
+// is the hub, not a redirect: one indexable page that ranks, carrying three
+// specific entry points rather than one generic one.
+//
+// The three are real Cal event types. The general one is the default; the two
+// named ones are wired to the pages they belong to, because a prospect who has
+// just read the website page should book the website conversation rather than
+// a call that starts from nothing.
+//
+// NOTE: the site was pointing at `highermindai/consult`, which is not one of
+// these. Every "book a call" on the live site was landing on a Cal slug that
+// does not exist. That is fixed here.
+// ---------------------------------------------------------------------------
+export interface CalOption {
+  slug: string;
+  name: string;
+  line: string;
+  who: string;
+}
+
+export const CAL_INTRO = 'highermindai/intro';
+export const CAL_WEBSITE = 'highermindai/9-minute-website-review';
+export const CAL_LISTING = 'highermindai/google-listing';
+
+export const calUrl = (slug: string) => `https://cal.com/${slug}`;
+
+export const CAL_OPTIONS: ReadonlyArray<CalOption> = [
+  {
+    slug: CAL_LISTING,
+    name: 'The listing review',
+    line: 'I run the search your buyer runs, live, and show you the setting sitting behind where you land.',
+    who: 'Start here if the map is the problem.',
+  },
+  {
+    slug: CAL_WEBSITE,
+    name: 'The website review',
+    line: 'I open your site on a phone, time how long it takes to become useful, and read your title tag back to you.',
+    who: 'Start here if the site is the problem.',
+  },
+  {
+    slug: CAL_INTRO,
+    name: 'The nine minutes',
+    line: 'Both ends. What a job is worth to you, what happens to an enquiry at seven in the evening, and where you come up.',
+    who: 'Start here if you are not sure which it is.',
+  },
+];

@@ -21,6 +21,7 @@ import PropertySeo from './pages/PropertySeo';
 import PropertyIntake from './pages/PropertyIntake';
 import CondoMarketing from './pages/CondoMarketing';
 import TheRecord from './pages/TheRecord';
+import Work from './pages/Work';
 import NotFound from './pages/NotFound';
 
 export default function App() {
@@ -47,6 +48,7 @@ export default function App() {
         <Route path="coverage" element={<Coverage />} />
         <Route path="scope-limits" element={<ScopeLimits />} />
         <Route path="proof" element={<Proof />} />
+        <Route path="work" element={<Work />} />
         <Route path="book" element={<Book />} />
         <Route path="*" element={<NotFound />} />
       </Route>

@@ -117,6 +117,12 @@
 /the-mention                       /ai-search-optimization/               301!
 /the-mention/                      /ai-search-optimization/               301!
 
+# v12 - the work page. Both of the obvious guesses resolve.
+/portfolio            /work/    301!
+/portfolio/           /work/    301!
+/case-studies         /work/    301!
+/case-studies/        /work/    301!
+
 # Catch-all. MUST return a real 404 and MUST match netlify.toml. Serving
 # /index.html at 200 here made every junk URL a duplicate of the homepage.
 # STAYS LAST. Anything below it is unreachable.

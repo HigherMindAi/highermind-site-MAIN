@@ -21,6 +21,10 @@ Operator: Derek Train, Erin, Ontario, Canada. Phone 647-242-5800. Book a call: h
 - [Custom AI systems](https://highermindai.com/services/ai-systems): the one repeated motion that eats the week, running by itself.
 - [The Whole Operation](https://highermindai.com/the-whole-operation): both ends in one engagement - visibility, intake on both channels, the website, reputation and AI search. Paid is deliberately not in it.
 
+## Selected work
+
+- [Work](https://highermindai.com/work): built sites, each one carrying a working operational feature rather than a contact form. [Canada Car Part](https://canadacarpart.com) - a Brampton auto body and mechanical parts supplier, rebuilt around a year, make and model part finder with a quote request that takes photographs of the damage.
+
 ## Where it is already built out
 
 - [Property and condominium management](https://highermindai.com/property-management): visibility first, because an owner or a board looks a firm up before it calls. [Condominium boards](https://highermindai.com/condominium-management-marketing).

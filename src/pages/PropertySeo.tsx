@@ -33,7 +33,7 @@ const SEO_FAQ: [string, string][] = [
   ],
   [
     'Is ranking worth it if my leads come from referrals?',
-    'Often yes, and for a reason most firms do not expect. Even when an owner arrives by referral he searches your name before he calls, and what he finds decides whether he calls at all. On the condominium side that effect is the whole game. Ranking is offensive on the rental track and defensive everywhere else, and both are worth having.',
+    'Often yes, and for a reason most firms do not expect. Even when an owner arrives by referral they search your name before they call, and what they find decides whether they call at all. On the condominium side that effect is the whole game. Ranking is offensive on the rental track and defensive everywhere else, and both are worth having.',
   ],
 ];
 
@@ -87,7 +87,7 @@ export default function PropertySeo() {
             can deliver.
           </p>
           <div className="ctas reveal">
-            <Link to="/book/" className="btn btn-primary">
+            <Link to="/book/?on=google-listing" className="btn btn-primary">
               Book a call <Arrow />
             </Link>
             <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">

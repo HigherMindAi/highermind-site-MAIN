@@ -143,6 +143,7 @@ export default function ServicePage() {
       </section>
 
       <CTAStrip
+        on={slug === 'website-build' ? '9-minute-website-review' : slug === 'property-management-seo' ? 'google-listing' : undefined}
         head={<>Ready to put <span className="em">{name}</span> to work?</>}
         sub="Tell me your business and your city. I will tell you the most direct path to the result - and whether I can win it."
       />

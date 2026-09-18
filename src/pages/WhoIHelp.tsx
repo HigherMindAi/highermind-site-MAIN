@@ -34,13 +34,13 @@ const BOOKS: [string, string, string, string][] = [
   [
     'Property & condominium management',
     'Visibility first',
-    'Visibility first. An owner deciding to stop managing it himself is already searching, and when three names go to a board somebody looks all three up that evening.',
+    'Visibility first. An owner deciding to stop managing it themselves is already searching, and when three names go to a board somebody looks all three up that evening.',
     '/property-management/',
   ],
   [
     'Roofing',
     'Intake first',
-    'Intake first. A roofing owner knows to the dollar what a missed call costs him, and the call lands while he is on a roof. The season closes in November and ranking takes sixty days, so the build happens in the quiet.',
+    'Intake first. A roofing owner knows to the dollar what a missed call costs, and the call lands while they are on a roof. The season closes in November and ranking takes sixty days, so the build happens in the quiet.',
     '/roofing/',
   ],
   [

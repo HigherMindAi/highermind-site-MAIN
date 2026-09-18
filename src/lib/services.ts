@@ -221,7 +221,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
     tag: 'The Storefront',
     values: [
       ['It absorbs the routine', 'The requests, the documents, the bookings and the same four questions - logged, timestamped and routed to the right person instead of arriving at reception as a phone call. Built as modules, so nothing holds up the launch.'],
-      ['It survives a comparison', 'When your name goes on a shortlist, somebody looks all of them up that evening. That page needs your record, your scope and your response standard on it, in the language he has to repeat back to whoever asked him.'],
+      ['It survives a comparison', 'When your name goes on a shortlist, somebody looks all of them up that evening. That page needs your record, your scope and your response standard on it, in the language they have to repeat back to whoever asked them.'],
       ['Fast and findable', 'Built clean and quick, tuned to the same on-page standard I rank profiles on - title, schema, consistent name and phone, a page per service. The site supports the ranking work rather than sitting beside it.'],
     ],
     process: [
@@ -243,10 +243,10 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
   // watch for. The CTA goes to Visibility.
   'reputation-management': {
     title: 'Reviews and Online Reputation Management | HigherMindAI',
-    desc: 'What somebody reads about you before he calls. Reviews, responses and consistent details - carried inside the visibility engagement, never billed as a second line.',
+    desc: 'What somebody reads about you before they call. Reviews, responses and consistent details - carried inside the visibility engagement, never billed as a second line.',
     h1Lead: 'What they read ',
     h1Em: 'before they call you.',
-    sub: 'Two or three names get considered, and that evening somebody looks all of them up. What he finds is what he repeats to whoever asked him. Your rating, how recent it is, how you answered the bad one, and whether your business appears consistently wherever it appears at all. This is due diligence being performed on you, it is winnable, and I do not sell it to you separately - it is inside the visibility work, because that is where it actually lives.',
+    sub: 'Two or three names get considered, and that evening somebody looks all of them up. What they find is what they repeat to whoever asked them. Your rating, how recent it is, how you answered the bad one, and whether your business appears consistently wherever it appears at all. This is due diligence being performed on you, it is winnable, and I do not sell it to you separately - it is inside the visibility work, because that is where it actually lives.',
     eyebrow: 'Reputation',
     tag: 'Inside Visibility',
     values: [
@@ -306,7 +306,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
     tag: 'The Tap',
     values: [
       ['Paid is sold last', 'Never before organic has moved. If I can rank you for the term instead, that is the cheaper answer and I will say so, even though this line costs me the sale. Paid carries volume while the position is being built underneath it - it does not replace the position.'],
-      ['Built on the words people actually type', 'Every headline, image and landing page is built on the language somebody uses when he has just decided he needs this done, not on the language an agency would choose.'],
+      ['Built on the words people actually type', 'Every headline, image and landing page is built on the language somebody uses when they have just decided they need this done, not on the language an agency would choose.'],
       ['Structured so it can be switched off', 'A one-time build, then a monthly management rate, and the ad spend paid directly by you to Google or Meta. I never hold it and I never mark it up. Turn the tap down or off and nothing about your organic position changes.'],
     ],
     process: [

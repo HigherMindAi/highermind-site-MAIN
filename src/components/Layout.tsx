@@ -4,6 +4,7 @@ import Nav from './Nav';
 import ScrollProgress from './ScrollProgress';
 import DigitalRain from './DigitalRain';
 import Footer from './Footer';
+import PageFilm from './PageFilm';
 import { useReveal } from '../lib/useReveal';
 import { useParallax } from '../lib/useParallax';
 
@@ -62,6 +63,7 @@ export default function Layout() {
         <ScrollManager />
         <ScrollProgress />
         <Nav />
+        <PageFilm />
         <Outlet />
         <Footer />
       </div>

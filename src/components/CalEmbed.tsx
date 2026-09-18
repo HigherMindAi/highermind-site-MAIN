@@ -1,15 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any, prefer-rest-params */
 import { useEffect } from 'react';
-
-const CAL_LINK = 'highermindai/consult';
+import { CAL_INTRO, calUrl } from '../lib/site';
 
 /**
  * Cal.com inline booking, embedded with the official loader and themed teal.
  * The prerendered HTML carries the direct link as a fallback, so the booking
  * path exists even before the script loads (and for crawlers).
+ *
+ * `link` selects which event type loads. It defaults to the general nine
+ * minutes; the service pages pass their own. The namespace is derived from the
+ * slug so two different event types can never collide in Cal's global state.
  */
-export default function CalEmbed() {
+export default function CalEmbed({ link = CAL_INTRO }: { link?: string }) {
   useEffect(() => {
+    const ns = link.replace(/[^a-z0-9]/gi, '');
     const w = window as any;
     if (!w.Cal) {
       (function (C: any, A: string, L: string) {
@@ -45,27 +49,27 @@ export default function CalEmbed() {
           };
       })(window, 'https://app.cal.com/embed/embed.js', 'init');
     }
-    w.Cal('init', 'consult', { origin: 'https://app.cal.com' });
-    w.Cal.ns.consult('inline', {
+    w.Cal('init', ns, { origin: 'https://app.cal.com' });
+    w.Cal.ns[ns]('inline', {
       elementOrSelector: '#cal-inline',
       config: { layout: 'month_view', theme: 'dark' },
-      calLink: CAL_LINK,
+      calLink: link,
     });
-    w.Cal.ns.consult('ui', {
+    w.Cal.ns[ns]('ui', {
       theme: 'dark',
       cssVarsPerTheme: { dark: { 'cal-brand': '#3FE0B5' } },
       hideEventTypeDetails: false,
       layout: 'month_view',
     });
-  }, []);
+  }, [link]);
 
   return (
     <div className="calwrap reveal">
       <div id="cal-inline" style={{ minHeight: 620, width: '100%', overflow: 'auto' }} />
       <p className="cal-fallback">
         If the calendar does not load,{' '}
-        <a href="https://cal.com/highermindai/consult" target="_blank" rel="noreferrer">
-          book directly at cal.com/highermindai/consult
+        <a href={calUrl(link)} target="_blank" rel="noreferrer">
+          book directly at {calUrl(link).replace('https://', '')}
         </a>
         .
       </p>
