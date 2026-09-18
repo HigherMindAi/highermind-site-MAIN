@@ -1,6 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { BASE, BRAND } from '../lib/site';
 import { HeadContext } from '../lib/head';
+import { orgSchema } from '../lib/schema';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 interface SeoProps {
@@ -30,13 +31,36 @@ function upsertLink(rel: string, href: string) {
   el.setAttribute('href', href);
 }
 
+/**
+ * THE ENTITY ANCHOR, ON EVERY PAGE.
+ *
+ * Twenty-seven of thirty-six pages carried a Service or FAQ block that pointed
+ * at `#org` by @id - but never defined `#org` on the page. A crawler reads one
+ * document at a time, so a reference to a node that is not in that document
+ * resolves to nothing. The service pages were describing a provider the model
+ * could not identify.
+ *
+ * The Organization graph is now injected here instead, so it appears on all
+ * thirty-six. Pages that already pass `orgSchema()` explicitly are deduped by
+ * @id rather than emitting it twice, because two conflicting definitions of
+ * the same @id is worse than one.
+ */
+function withOrgAnchor(schema: Record<string, any>[]): Record<string, any>[] {
+  const hasOrg = schema.some((b) => {
+    const nodes = Array.isArray(b?.['@graph']) ? b['@graph'] : [b];
+    return nodes.some((n: any) => n?.['@id'] === `${BASE}/#org`);
+  });
+  return hasOrg ? schema : [orgSchema(), ...schema];
+}
+
 export default function Seo({ title, desc, path, schema = [] }: SeoProps) {
   const sink = useContext(HeadContext);
   const canonical = BASE + (path.startsWith('/') ? path : '/' + path);
+  const full = withOrgAnchor(schema);
   // Record for SSR/prerender (runs during render, including on the server).
-  sink.current = { title, desc, canonical, schema };
+  sink.current = { title, desc, canonical, schema: full };
 
-  const schemaKey = JSON.stringify(schema);
+  const schemaKey = JSON.stringify(full);
   useEffect(() => {
     const og = `${BASE}/og.png`;
 
@@ -61,7 +85,7 @@ export default function Seo({ title, desc, path, schema = [] }: SeoProps) {
       .querySelectorAll('script[data-hm-jsonld]')
       .forEach((n) => n.remove());
     const added: HTMLScriptElement[] = [];
-    schema.forEach((block) => {
+    withOrgAnchor(schema).forEach((block) => {
       const s = document.createElement('script');
       s.type = 'application/ld+json';
       s.setAttribute('data-hm-jsonld', '');

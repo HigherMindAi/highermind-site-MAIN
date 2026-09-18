@@ -33,7 +33,7 @@ export default function Proof() {
   return (
     <main>
       <Seo
-        title="Proof: A Profile That Did Not Exist, Ranked #1 | HigherMindAI"
+        title="Proof: A New Profile, Ranked #1 | HigherMindAI"
         desc="From a Google profile that did not exist to first for both money keywords in five months. Real numbers, and the honest hole in them."
         path="/proof/"
         schema={[

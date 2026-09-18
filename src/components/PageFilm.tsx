@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { still, film, TONE, type StillKey } from '../lib/media';
+import { still, film, filmMeta, TONE, type StillKey } from '../lib/media';
 import { motionBudget, observeFilm } from '../lib/motion';
 
 // ---------------------------------------------------------------------------
@@ -84,6 +84,7 @@ export default function PageFilm() {
   const [imgFailed, setImgFailed] = useState(false);
 
   const src = scene?.filmKey ? film(scene.filmKey) : null;
+  const meta = filmMeta(scene?.filmKey || '');
 
   // Route changed: re-evaluate. The film is a hero, so it runs on the hero
   // budget - a phone gets this one and no chapter loops.
@@ -95,8 +96,23 @@ export default function PageFilm() {
   useEffect(() => {
     const el = vid.current;
     if (!runFilm || !el) return;
-    return observeFilm(el);
-  }, [runFilm, pathname]);
+    const seek = () => {
+      if (meta.startAt) el.currentTime = meta.startAt;
+    };
+    const again = () => {
+      el.currentTime = meta.startAt;
+      void el.play().catch(() => {});
+    };
+    el.addEventListener('loadedmetadata', seek);
+    if (meta.startAt) el.addEventListener('ended', again);
+    seek();
+    const stop = observeFilm(el);
+    return () => {
+      el.removeEventListener('loadedmetadata', seek);
+      el.removeEventListener('ended', again);
+      stop();
+    };
+  }, [runFilm, pathname, meta.startAt]);
 
   if (!scene) return null;
 
@@ -107,7 +123,10 @@ export default function PageFilm() {
           className="pagefilm-img"
           src={still(scene.image)}
           alt=""
-          decoding="async"
+          /* Hero of every inner page, so it is that page's LCP element. */
+          loading="eager"
+          fetchPriority="high"
+          decoding="sync"
           onError={() => setImgFailed(true)}
         />
       )}
@@ -118,8 +137,9 @@ export default function PageFilm() {
           className="pagefilm-vid"
           src={src}
           poster={still(scene.image)}
+          style={meta.zoom > 1 ? { transform: `scale(${meta.zoom})` } : undefined}
           muted
-          loop
+          loop={!meta.startAt}
           playsInline
           preload={motionBudget().preload}
           tabIndex={-1}

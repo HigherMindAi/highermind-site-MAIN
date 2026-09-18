@@ -118,6 +118,23 @@ export interface Film {
   file: string;
   poster: StillKey;
   label: string;
+  /**
+   * PILLARBOX CROP. Veo only outputs 16:9. A clip seeded from a still that was
+   * not 16:9 comes back with black bars burned into the frame - 11.8% a side
+   * for a 4:3 seed, 28.1% for a 4:5 one. No CSS object-fit can help, because
+   * the bars are picture, not layout.
+   *
+   * This is the scale that pushes them off the edge. Anything past about 1.4x
+   * is not worth doing - the clip goes soft - so those films were dropped and
+   * their stills are used instead. Seed 16:9 next time and this is all moot.
+   */
+  zoom?: number;
+  /**
+   * Skip this many seconds in. The aerial spends its first second above cloud
+   * before the road and the lit town come into frame, so it opens on the part
+   * worth seeing. Looping is handled manually because `loop` restarts at zero.
+   */
+  startAt?: number;
 }
 
 export const FILMS: Film[] = [
@@ -126,40 +143,51 @@ export const FILMS: Film[] = [
     file: 'hf_20260918_210106_dfebb24e-6c5e-4cff-8b8d-1f7ca1ac7220.mp4',
     poster: 'catchment',
     label: 'The catchment at last light',
+    zoom: 1.02,
   },
   {
     key: 'threeLit',
     file: 'hf_20260918_210106_e4d11bbd-b784-47f6-b763-7689733d0a70.mp4',
     poster: 'threeLit',
     label: 'Three come up. Being fourth is not a close second.',
+    zoom: 1.02,
   },
   {
     key: 'twoTowns',
     file: 'hf_20260918_210106_1ed13eda-2c0e-4a80-ae30-85aa4c04f251.mp4',
     poster: 'twoTowns',
     label: 'Two towns, one road, one of them knows you',
+    zoom: 1.02,
+    startAt: 1.1,
   },
   {
     key: 'reception',
     file: 'hf_20260918_210038_4f71a72e-eb32-4309-9787-5e5febd72d47.mp4',
     poster: 'reception',
     label: 'After hours, and the enquiry does not wait',
+    zoom: 1.32,
   },
   {
     key: 'storefront',
     file: 'hf_20260918_210106_d921cda2-c0c1-42a1-95a8-bd5cb53ac514.mp4',
     poster: 'storefront',
     label: 'What they find when they check you',
+    zoom: 1.17,
   },
+  // Both seeded from 4:5 stills, so Veo burned a 28% black bar down each side.
+  // Clearing that needs a 2.29x blow-up of a 720p clip, which looks worse than
+  // no motion at all. `file` is emptied, so film() returns null and every
+  // surface falls back to the still - which is clean, full-bleed and sharp.
+  // Re-seed these two from 16:9 stills to bring the motion back.
   {
     key: 'theWayIn',
-    file: 'hf_20260918_210038_410088dc-2470-4221-9089-c88255d77e8d.mp4',
+    file: '',
     poster: 'theWayIn',
     label: 'The way in',
   },
   {
     key: 'oneNamed',
-    file: 'hf_20260918_210038_fb87cb54-7b88-4730-8e58-9a78f14ba3c3.mp4',
+    file: '',
     poster: 'oneNamed',
     label: 'Named, or not named',
   },
@@ -169,6 +197,12 @@ export function film(key: string): string | null {
   const f = FILMS.find((x) => x.key === key);
   if (!f || !f.file) return null;
   return USE_LOCAL_ASSETS ? `${LOCAL}/${f.file}` : `${CDN}/${f.file}`;
+}
+
+/** The crop/offset metadata for a clip, for the components that render it. */
+export function filmMeta(key: string): { zoom: number; startAt: number } {
+  const f = FILMS.find((x) => x.key === key);
+  return { zoom: f?.zoom ?? 1, startAt: f?.startAt ?? 0 };
 }
 
 export function filmPoster(key: string): string {

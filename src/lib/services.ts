@@ -161,7 +161,7 @@ export interface ServicePageData {
 
 export const SERVICE_PAGES: Record<string, ServicePageData> = {
   'ai-systems': {
-    title: 'Custom AI Systems for Trades and Service Businesses | HigherMindAI',
+    title: 'Custom AI Systems for Local Business | HigherMindAI',
     desc: 'Custom AI built on your own knowledge: intake, triage, qualifying, scheduling, follow-up. It answers from your truth or it hands off. It never guesses.',
     h1Lead: 'The same forty answers, ',
     h1Em: 'a hundred times a week.',
@@ -187,7 +187,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
     ],
   },
   'service-area-expansion': {
-    title: 'Multi-City Local Search & Service Area Marketing | HigherMindAI',
+    title: 'Multi-City Local SEO & Service Areas | HigherMindAI',
     desc: 'Rank in more than your home town. Each target city is built as its own ranked unit with dedicated infrastructure - you only invest in places I can win.',
     h1Lead: 'Own the next town, ',
     h1Em: 'not just the one you are in.',
@@ -212,7 +212,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
     ],
   },
   'website-build': {
-    title: 'Website Build, Hosting and Care for Local Businesses | HigherMindAI',
+    title: 'Website Build, Hosting and Care | HigherMindAI',
     desc: 'A site with two jobs: keep the routine off your phone line, and hold up when somebody is checking you against two other names. Not a brochure.',
     h1Lead: 'A site that answers, ',
     h1Em: 'instead of a brochure that does not.',
@@ -243,7 +243,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
   // watch for. The CTA goes to Visibility.
   'reputation-management': {
     title: 'Reviews and Online Reputation Management | HigherMindAI',
-    desc: 'What somebody reads about you before they call. Reviews, responses and consistent details - carried inside the visibility engagement, never billed as a second line.',
+    desc: 'What somebody reads about you before they call. Reviews, responses and consistent details, carried inside the visibility work and never billed as a second line.',
     h1Lead: 'What they read ',
     h1Em: 'before they call you.',
     sub: 'Two or three names get considered, and that evening somebody looks all of them up. What they find is what they repeat to whoever asked them. Your rating, how recent it is, how you answered the bad one, and whether your business appears consistently wherever it appears at all. This is due diligence being performed on you, it is winnable, and I do not sell it to you separately - it is inside the visibility work, because that is where it actually lives.',
@@ -270,7 +270,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
     ],
   },
   'social-media-management': {
-    title: 'Social Media Management for Trades and Service Businesses | HigherMindAI',
+    title: 'Social Media Management for Local Trades | HigherMindAI',
     desc: 'The surfaces a buyer checks after the search and before the call. Cadence, evidence and consistency on the one or two surfaces your buyers actually use.',
     h1Lead: 'What they find when they check you ',
     h1Em: 'between finding you and calling you.',
@@ -297,7 +297,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
     ],
   },
   'paid-growth': {
-    title: 'Google and Meta Advertising for Local Businesses | HigherMindAI',
+    title: 'Google & Meta Ads for Local Business | HigherMindAI',
     desc: 'Paid demand, engineered end to end, and sold last. Volume while the organic position is still being built underneath it. Turn it up, down, or off.',
     h1Lead: 'Demand you can turn on, ',
     h1Em: 'and off.',

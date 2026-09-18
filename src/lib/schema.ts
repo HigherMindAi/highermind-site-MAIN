@@ -7,6 +7,7 @@
 // ---------------------------------------------------------------------------
 import {
   BASE, BIZ_NAME, PHONE_E164, EMAIL, LOCALITY, REGION, COUNTRY, FOUNDER,
+  ORG_PROFILES, PERSON_PROFILES, WHATSAPP_URL,
 } from './site';
 import { City, REGION_FULL, HOME_AREA_SERVED, cityPath } from './cities';
 import { AREA_SERVED } from './coverage';
@@ -33,8 +34,25 @@ export function orgSchema(): Json {
         email: EMAIL,
         telephone: PHONE_E164,
         founder: { '@id': PERSON_ID },
-        sameAs: [
-          // Paste live profile URLs here once citation profiles are live.
+        // G2 - the entity, asserted from somewhere other than this site.
+        sameAs: [...ORG_PROFILES],
+        contactPoint: [
+          {
+            '@type': 'ContactPoint',
+            contactType: 'customer service',
+            telephone: PHONE_E164,
+            email: EMAIL,
+            areaServed: ['CA', 'US'],
+            availableLanguage: 'en',
+          },
+          {
+            '@type': 'ContactPoint',
+            contactType: 'sales',
+            telephone: PHONE_E164,
+            url: WHATSAPP_URL,
+            areaServed: ['CA', 'US'],
+            availableLanguage: 'en',
+          },
         ],
       },
       {
@@ -68,6 +86,8 @@ export function personSchema(): Json {
     name: FOUNDER,
     jobTitle: 'Founder',
     worksFor: { '@id': ORG_ID },
+    // LinkedIn is Derek's, not the company's. It resolves the PERSON.
+    sameAs: [...PERSON_PROFILES],
     image: `${BASE}/derek.webp`,
     url: BASE + '/about/',
     telephone: PHONE_E164,
@@ -204,5 +224,48 @@ export function locationsItemList(cities: City[]): Json {
       name: `Property management lead generation in ${c.city}, ${REGION_FULL[c.region]}`,
       url: BASE + cityPath(c.slug),
     })),
+  };
+}
+
+
+/**
+ * /work/ as an ItemList of built sites.
+ *
+ * A portfolio with no markup is a page of pictures to a model. Typed, it
+ * becomes a list of things this business made, each with a live URL it can
+ * verify - which is the corroboration lever (G6) expressed in a way a crawler
+ * can actually read.
+ *
+ * No performance figures here either. Nothing in this graph is a claim that
+ * cannot be checked by opening the link.
+ */
+export function workSchema(
+  items: ReadonlyArray<{ name: string; url: string; line: string; built: readonly string[] }>
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `${BASE}/work/#collection`,
+    name: 'Selected work by HigherMindAI',
+    url: `${BASE}/work/`,
+    isPartOf: { '@id': `${BASE}/#org` },
+    about: { '@id': SERVICE_ID },
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListOrder: 'https://schema.org/ItemListOrderAscending',
+      numberOfItems: items.length,
+      itemListElement: items.map((w, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+          '@type': 'WebSite',
+          name: w.name,
+          url: w.url,
+          description: w.line,
+          creator: { '@id': `${BASE}/#org` },
+          keywords: w.built.join(', '),
+        },
+      })),
+    },
   };
 }

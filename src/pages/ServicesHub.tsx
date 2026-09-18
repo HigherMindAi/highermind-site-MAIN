@@ -9,7 +9,7 @@ export default function ServicesHub() {
   return (
     <main>
       <Seo
-        title="Ranking, Intake, Websites and Paid Demand by Service | HigherMindAI"
+        title="Local SEO, AI Intake and Web Services | HigherMindAI"
         desc="Visibility, intake, website, more cities, social and paid. Every piece on its own, or welded into one loop that answers every enquiry you receive."
         path="/services/"
         schema={[

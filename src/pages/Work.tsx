@@ -4,7 +4,7 @@ import WorkCard from '../components/WorkCard';
 import Plate from '../components/Plate';
 import { Arrow } from '../components/Icons';
 import { WORK } from '../lib/work';
-import { orgSchema, breadcrumbs } from '../lib/schema';
+import { orgSchema, breadcrumbs, workSchema } from '../lib/schema';
 
 /**
  * /work/ - selected builds.
@@ -21,7 +21,11 @@ export default function Work() {
         title="Selected Work | Website Builds by HigherMindAI"
         desc="Websites built to do a job rather than sit there - a part finder, an intake path, a quote flow. Selected builds by HigherMindAI, Erin, Ontario."
         path="/work/"
-        schema={[orgSchema(), breadcrumbs([['Home', '/'], ['Work', '/work/']])]}
+        schema={[
+          orgSchema(),
+          breadcrumbs([['Home', '/'], ['Work', '/work/']]),
+          workSchema(WORK.map((w) => ({ name: w.name, url: w.href, line: w.line, built: w.built }))),
+        ]}
       />
 
       <section className="phero">

@@ -12,7 +12,7 @@ import { CITIES, cityPath } from '../lib/cities';
 const URL = '/property-management-seo/';
 
 const DESC =
-  'Get found by owners searching for a manager in your city. Google Business Profile rebuilt and held in the local pack. First page in 60 days or the monthly pauses.';
+  'Get found by owners searching for a manager in your city. Google Business Profile rebuilt and held in the map pack. First page in 60 days or the monthly pauses.';
 
 // No rate in schema. See property.ts.
 const SCHEMA_DESC =

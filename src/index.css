@@ -1550,3 +1550,26 @@ h1 .em,h2 .em{font-size:.99em;line-height:1}
 /* The page film cross-fades on navigation rather than cutting. Keyed on the
    pathname in PageFilm, so React remounts it and the animation replays. */
 .pagefilm{animation:pfIn 900ms var(--ease) both}
+
+/* ===========================================================================
+   v12.4 - the hero lights
+   ---------------------------------------------------------------------------
+   The generated town lights come back as hard starburst flares - the model
+   draws a light source as a spiked glyph rather than as a bloom, and at hero
+   scale they read as cartoon explosions rather than as windows.
+
+   The flares are the blown-out pixels, so pulling brightness and lifting the
+   black point crushes them back toward the surrounding tone while barely
+   touching the mid-range the rest of the frame lives in. A trace of blur
+   softens the spikes without reading as soft focus at this size.
+
+   This is a treatment, not a fix. The real answer is to re-generate the plate
+   with the flares prompted out, which is about 95 credits.
+   =========================================================================== */
+.chero .plate-img,
+.chero .plate-film{
+  filter:brightness(.86) contrast(1.06) saturate(.94) blur(.3px);
+}
+
+/* The crop transform needs a stable origin or a scaled clip drifts off centre */
+.plate-film,.pagefilm-vid{transform-origin:50% 50%}

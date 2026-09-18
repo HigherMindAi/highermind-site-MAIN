@@ -14,7 +14,7 @@ import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 const URL = '/property-management-intake/';
 
 const DESC =
-  'One intake desk on your site and on your line. Every enquiry and after-hours call answered and qualified, triaged on your criteria, logged and routed to a person.';
+  'One intake desk on your site and your line. Every enquiry and after-hours call answered and qualified, triaged on your criteria, logged and routed to a person.';
 
 // No rate in schema. See property.ts.
 const SCHEMA_DESC = DESC;

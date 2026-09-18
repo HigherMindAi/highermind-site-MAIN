@@ -60,7 +60,7 @@ export default function CondoMarketing() {
   return (
     <main>
       <Seo
-        title="Condominium Management Marketing & RFP Visibility | HigherMindAI"
+        title="Condominium Management Marketing | HigherMindAI"
         desc={DESC}
         path={URL}
         schema={[

@@ -10,7 +10,7 @@ import { breadcrumbs, serviceSchema, faqSchema } from '../lib/schema';
 const URL = '/scope-limits/';
 
 const DESC =
-  'Exactly what the intake desk does and exactly where it stops, published before you ask, in every trade I build for. It routes to a person and never performs a licensed function.';
+  'Exactly what the intake desk does and where it stops, published before you ask. It routes to a person and never performs a function reserved to a licensed one.';
 
 const SCOPE_FAQ: [string, string][] = [
   [
@@ -39,7 +39,7 @@ export default function ScopeLimits() {
   return (
     <main>
       <Seo
-        title="Where the AI Intake Desk Stops: Published Scope Limits | HigherMindAI"
+        title="Where the AI Intake Desk Stops | HigherMindAI"
         desc={DESC}
         path={URL}
         schema={[

@@ -12,7 +12,7 @@ import { orgSchema, serviceSchema, faqSchema, breadcrumbs } from '../lib/schema'
 const URL = '/roofing/';
 
 const DESC =
-  'Local search marketing and AI intake for roofing companies. Found first when somebody nearby needs a roof, and every call answered and qualified while you are on one.';
+  'Local SEO and AI intake for roofing companies. Found first when somebody nearby needs a roof, and every call answered and qualified while you are up on one.';
 
 const FAQS: [string, string][] = [
   [
@@ -37,7 +37,7 @@ export default function Roofing() {
   return (
     <main>
       <Seo
-        title="Local Visibility & AI Intake for Roofing Companies | HigherMindAI"
+        title="Local SEO & AI Intake for Roofers | HigherMindAI"
         desc={DESC}
         path={URL}
         schema={[

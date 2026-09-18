@@ -12,7 +12,7 @@ import { orgSchema, serviceSchema, faqSchema, breadcrumbs } from '../lib/schema'
 const URL = '/arborists/';
 
 const DESC =
-  'Local search marketing and AI intake for tree care companies. Found first when somebody nearby needs a tree dealt with, and every call answered while your crew is in the canopy.';
+  'Local SEO and AI intake for tree care companies. Found first when somebody nearby needs a tree dealt with, and every call answered while the crew is in a canopy';
 
 const FAQS: [string, string][] = [
   [
@@ -37,7 +37,7 @@ export default function Arborists() {
   return (
     <main>
       <Seo
-        title="Local Visibility & AI Intake for Tree Care Companies | HigherMindAI"
+        title="Local SEO & AI Intake for Tree Care | HigherMindAI"
         desc={DESC}
         path={URL}
         schema={[

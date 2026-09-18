@@ -9,7 +9,7 @@ import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 const URL = '/who-i-help/';
 
 const DESC =
-  'One visibility and intake system, already built out for property and condominium management, roofing and arborists - and it fits any business where an enquiry has to be found and answered.';
+  'One visibility and intake system, built out for property management, roofing and tree care - and it fits any business where enquiries must be found and answered';
 
 const SOL_FAQ: [string, string][] = [
   [

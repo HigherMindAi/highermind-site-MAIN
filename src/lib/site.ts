@@ -36,6 +36,41 @@ export const NAV: ReadonlyArray<{ label: string; href: string }> = [
 export const FOUNDER = 'Derek Train';
 
 // ---------------------------------------------------------------------------
+// THE ENTITY PROFILES  (Waypoint GEO, lever G2)
+//
+// A model resolves a business to an entity BEFORE it can name it. These are
+// the URLs that let it do that - the same business, asserted from several
+// independent places, all pointing back here.
+//
+// Split deliberately:
+//   ORG_PROFILES    identify the BUSINESS. They go on Organization.sameAs.
+//   PERSON_PROFILES identify DEREK. LinkedIn is a personal profile, so it
+//                   belongs on the Person node, not the company one. Putting
+//                   a personal profile on Organization.sameAs is the most
+//                   common way an entity graph gets muddied.
+//
+// The Google profile is written as its canonical CID URL rather than the long
+// /maps/place/... link that the browser produces. That link carries session
+// parameters (sa, ved, ictx) which change per visit and can rot; the CID is
+// the permanent identifier for the listing and is what the API returns.
+//
+// WhatsApp is NOT here. wa.me is a click-to-chat deep link, not a profile that
+// identifies the entity, so it is published as a ContactPoint instead - which
+// is both more accurate and machine-readable in its own right.
+// ---------------------------------------------------------------------------
+export const ORG_PROFILES: ReadonlyArray<string> = [
+  'https://maps.google.com/?cid=5113912630308331181',
+  'https://www.facebook.com/people/HigherMindai/61578930671818/',
+  'https://www.instagram.com/highermindai/',
+];
+
+export const PERSON_PROFILES: ReadonlyArray<string> = [
+  'https://www.linkedin.com/in/derek-train/',
+];
+
+export const WHATSAPP_URL = 'https://wa.me/16472425800';
+
+// ---------------------------------------------------------------------------
 // THE BOOKING FUNNEL
 //
 // /book/ is the Google Business Profile appointment link and every document in

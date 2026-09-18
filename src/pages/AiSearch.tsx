@@ -125,7 +125,7 @@ export default function AiSearch() {
   return (
     <main>
       <Seo
-        title="AI Search Optimization & GEO - Get Named by AI | HigherMindAI"
+        title="AI Search Optimization (GEO) | HigherMindAI"
         desc={DESC}
         path={URL}
         schema={[

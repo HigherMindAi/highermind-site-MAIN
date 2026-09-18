@@ -4,6 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--app-head-->
+    <!--
+      The site had no favicon at all: a blank tab, an unbranded bookmark, and a
+      missing icon in Google's mobile results, which show one beside every
+      listing. SVG first for sharpness at any size, .ico for the older browsers
+      and for Google's favicon crawler, apple-touch-icon for the iOS home screen.
+    -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#0B1A3A" />
+
+    <!--
+      The hero still and film are served from CloudFront and the hero image is
+      the LCP element on every page. Without this the browser cannot even start
+      the handshake until it has parsed the <img>, so the single most important
+      request on the page begins with a cold DNS + TCP + TLS round trip.
+    -->
+    <link rel="preconnect" href="https://d8j0ntlcm91z4.cloudfront.net" crossorigin />
+    <link rel="dns-prefetch" href="https://d8j0ntlcm91z4.cloudfront.net" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!--

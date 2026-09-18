@@ -20,7 +20,7 @@ import { LOCATIONS_HUB } from '../lib/cities';
 const URL = '/coverage/';
 
 const DESC =
-  'Where I work: eight US states and five Canadian regions, one firm per trade per market. Property and condominium management, roofing, and arborists and tree care.';
+  'Where I work: eight US states and five Canadian regions, one firm per trade per market. Property management, roofing, and arborists and tree care.';
 
 const COVERAGE_FAQ: [string, string][] = [
   [

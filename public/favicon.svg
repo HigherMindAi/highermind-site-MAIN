@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="HigherMindAI">
+  <!-- Drawn as geometry, not text: a font-family in a favicon renders
+       differently on every OS and at 16px that difference is the whole mark. -->
+  <rect width="64" height="64" rx="14" fill="#0B1A3A"/>
+  <!-- the H -->
+  <rect x="16" y="18" width="7" height="30" rx="2" fill="#FFFFFF"/>
+  <rect x="34" y="18" width="7" height="30" rx="2" fill="#FFFFFF"/>
+  <rect x="16" y="29.5" width="25" height="7" rx="2" fill="#FFFFFF"/>
+  <!-- the teal dot: the permanent leading mark on the wordmark -->
+  <circle cx="48" cy="20" r="6" fill="#3FE0B5"/>
+</svg>

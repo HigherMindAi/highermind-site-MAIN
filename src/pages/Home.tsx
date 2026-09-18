@@ -137,7 +137,7 @@ export default function Home() {
   return (
     <main id="top">
       <Seo
-        title="Local Visibility & AI Intake for Trades and Service Businesses | HigherMindAI"
+        title="Local SEO & AI Intake for Trades and Services | HigherMindAI"
         desc="I get you found when somebody nearby goes looking, answer every enquiry that lands, and hand you the record of both. One operator, Canada and the US."
         path="/"
         schema={[orgSchema(), personSchema(), faqSchema(GENERAL_FAQ)]}

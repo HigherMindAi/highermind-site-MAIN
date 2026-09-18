@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { still, thumb, film, TONE, type StillKey } from '../lib/media';
+import { still, thumb, film, filmMeta, TONE, type StillKey } from '../lib/media';
 import { motionBudget, observeFilm } from '../lib/motion';
 
 // ---------------------------------------------------------------------------
@@ -56,6 +56,7 @@ export default function Plate({
   const [imgFailed, setImgFailed] = useState(false);
 
   const src = film(filmKey || '');
+  const meta = filmMeta(filmKey || '');
 
   // The decision to run an ambient film is made on the client, after mount.
   // It must never be baked into the prerendered HTML.
@@ -68,8 +69,25 @@ export default function Plate({
   useEffect(() => {
     const el = vidRef.current;
     if (!runFilm || !el) return;
-    return observeFilm(el);
-  }, [runFilm]);
+    // `loop` always restarts at zero, which would undo the start offset, so the
+    // loop is driven by hand whenever a clip opens partway in.
+    const seek = () => {
+      if (meta.startAt) el.currentTime = meta.startAt;
+    };
+    const again = () => {
+      el.currentTime = meta.startAt;
+      void el.play().catch(() => {});
+    };
+    el.addEventListener('loadedmetadata', seek);
+    if (meta.startAt) el.addEventListener('ended', again);
+    seek();
+    const stop = observeFilm(el);
+    return () => {
+      el.removeEventListener('loadedmetadata', seek);
+      el.removeEventListener('ended', again);
+      stop();
+    };
+  }, [runFilm, meta.startAt]);
 
   return (
     <figure
@@ -85,8 +103,12 @@ export default function Plate({
           className="plate-img"
           src={light ? thumb(image) : still(image)}
           alt={alt}
-          loading="lazy"
-          decoding="async"
+          /* The hero plate is the LCP element. Lazy-loading it tells the
+             browser to DEPRIORITISE the one image the score is measured on -
+             a textbook own goal. Chapter plates below the fold stay lazy. */
+          loading={priority ? 'eager' : 'lazy'}
+          fetchPriority={priority ? 'high' : undefined}
+          decoding={priority ? 'sync' : 'async'}
           aria-hidden={alt ? undefined : true}
           onError={() => setImgFailed(true)}
         />
@@ -97,8 +119,9 @@ export default function Plate({
           className="plate-film"
           src={src}
           poster={still(image)}
+          style={meta.zoom > 1 ? { transform: `scale(${meta.zoom})` } : undefined}
           muted
-          loop
+          loop={!meta.startAt}
           playsInline
           preload={motionBudget().preload}
           aria-hidden="true"

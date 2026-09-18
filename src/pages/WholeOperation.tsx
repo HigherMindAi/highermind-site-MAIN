@@ -36,7 +36,7 @@ export default function WholeOperation() {
   return (
     <main>
       <Seo
-        title="The Whole Operation - Local Search & AI Intake System | HigherMindAI"
+        title="The Whole Operation - SEO + AI Intake | HigherMindAI"
         desc={DESC}
         path={URL}
         schema={[
