@@ -30,7 +30,16 @@ export function orgSchema(): Json {
         '@id': ORG_ID,
         name: BIZ_NAME,
         url: BASE + '/',
-        logo: `${BASE}/og.png`,
+        // `logo` feeds the Google knowledge panel and should be the BRAND MARK,
+        // not the social share card. og.png is a 1200x630 headline graphic; the
+        // touch icon is the actual mark on a solid field, which is what Google
+        // asks for (square, >=112px, not a wordmark on a banner).
+        logo: {
+          '@type': 'ImageObject',
+          url: `${BASE}/apple-touch-icon.png`,
+          width: 180,
+          height: 180,
+        },
         email: EMAIL,
         telephone: PHONE_E164,
         founder: { '@id': PERSON_ID },
