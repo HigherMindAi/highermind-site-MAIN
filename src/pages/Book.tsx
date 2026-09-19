@@ -1,9 +1,8 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import ContactForm from '../components/ContactForm';
 import CalEmbed from '../components/CalEmbed';
-import { PHONE_E164, PHONE_DISP, EMAIL, CAL_OPTIONS, CAL_INTRO } from '../lib/site';
+import { PHONE_E164, PHONE_DISP, EMAIL } from '../lib/site';
 import { orgSchema, breadcrumbs } from '../lib/schema';
 
 /**
@@ -12,15 +11,11 @@ import { orgSchema, breadcrumbs } from '../lib/schema';
  * confidence of someone who already knows what he is going to find.
  */
 export default function Book() {
-  // Three real Cal event types rather than one generic one. A prospect who
-  // already knows which half is broken should not have to explain it twice.
-  const [slug, setSlug] = useState(() => {
-    if (typeof window === 'undefined') return CAL_INTRO;
-    const on = new URLSearchParams(window.location.search).get('on');
-    const hit = CAL_OPTIONS.find((o) => o.slug.endsWith(on || '\u0000'));
-    return hit ? hit.slug : CAL_INTRO;
-  });
-
+  // One conversation, one calendar. The three-tab picker that used to live
+  // here is gone: it broke the embed, and the call is the same nine minutes
+  // whichever door you come through. Sorting which half is broken is what the
+  // call is FOR - making a prospect diagnose himself before he can book is
+  // friction on the one page that cannot afford any.
   return (
     <main>
       <Seo
@@ -116,28 +111,12 @@ export default function Book() {
               Straight into my calendar. <span className="em">No back and forth.</span>
             </h2>
             <p className="lead">
-              Three ways in. They are the same nine minutes - the difference is what I have already
-              pulled up before you join, so none of it gets spent on setup.
+              Pick a time and I will have your listing, your site and your market pulled up before
+              you join, so none of the nine minutes gets spent on setup.
             </p>
           </div>
 
-          <div className="calpick reveal" role="tablist" aria-label="Choose a conversation">
-            {CAL_OPTIONS.map((o) => (
-              <button
-                key={o.slug}
-                role="tab"
-                aria-selected={slug === o.slug}
-                className={`calopt ${slug === o.slug ? 'on' : ''}`}
-                onClick={() => setSlug(o.slug)}
-              >
-                <span className="calopt-name">{o.name}</span>
-                <span className="calopt-line">{o.line}</span>
-                <span className="calopt-who">{o.who}</span>
-              </button>
-            ))}
-          </div>
-
-          <CalEmbed key={slug} link={slug} />
+          <CalEmbed />
         </div>
       </section>
 
