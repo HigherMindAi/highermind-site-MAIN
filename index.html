@@ -38,25 +38,27 @@
       display=swap, text paints immediately in the system fallback and swaps when
       Montserrat, Instrument Serif and Hanken arrive.
 
-      Trimmed the weights too: 400/600/700 for Montserrat (the 500 and the 1,500 italic
-      were never used) and 400/500/600/700 for Hanken (800 was never used). Fewer font
-      files, less to download.
+      Trimmed the weights too: 400/600/700 for Montserrat and 400/500/600/700 for
+      Hanken. Fewer font files, less to download.
 
-      v12 adds Instrument Serif in roman and italic - two files, no weights. It is
-      the editorial face and it carries ONLY the emphasis lines (.em) and the pull
-      quotes. Montserrat stays the structural display face and the wordmark, which
-      is the standing brand rule. The serif is the warmth; the sans is the system.
+      v13: NO ITALIC ANYWHERE ON THE SITE, so no italic face is requested - the
+      Montserrat italic axis and the Instrument Serif italic are both dropped.
+      Three fewer font files on every first load. Instrument Serif roman is the
+      editorial face and carries only the emphasis lines (.em) and the pull quotes;
+      Montserrat stays the structural display face and the wordmark, which is the
+      standing brand rule. The serif is the warmth; the sans is the system. If
+      italic is ever wanted again, the axis has to come back into this URL first.
     -->
     <link
       rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Montserrat:ital,wght@0,400;0,600;0,700;1,600;1,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Montserrat:wght@400;600;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Montserrat:ital,wght@0,400;0,600;0,700;1,600;1,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Montserrat:wght@400;600;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap"
       />
     </noscript>
   </head>

@@ -14,7 +14,7 @@ import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 const URL = '/property-management-intake/';
 
 const DESC =
-  'An AI receptionist for your site and your phone line. Every enquiry and after-hours call answered and qualified, triaged on your criteria, logged and routed to a person. Trades, property management and service businesses.';
+  'An AI receptionist for your site and your phone line. Every enquiry and after-hours call answered, qualified and routed to a person on your own order.';
 
 // No rate in schema. See property.ts.
 const SCHEMA_DESC = DESC;
@@ -235,7 +235,7 @@ export default function PropertyIntake() {
               <p>
                 Every contact carries a timestamp in and a timestamp answered, which means
                 responsiveness stops being a thing you claim and becomes a number.{' '}
-                <Link to="/the-record/">See The Record</Link>.
+                <Link to="/the-record/">How that is evidenced</Link>.
               </p>
             </div>
           </div>

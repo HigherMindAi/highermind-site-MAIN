@@ -10,7 +10,7 @@ import { PHONE_E164, PHONE_DISP } from '../lib/site';
 import { nearestCities } from '../lib/geo';
 import { locationSchema, breadcrumbs, faqSchema } from '../lib/schema';
 
-const italicTeal = { fontStyle: 'italic', color: 'var(--teal)' } as const;
+const accentTeal = { color: 'var(--teal)' } as const;
 
 export default function LocationPage() {
   const { slug = '' } = useParams();
@@ -112,7 +112,7 @@ export default function LocationPage() {
           <div className="sec-head left reveal">
             <span className="eyebrow">Why local search wins here</span>
             <h2>
-              The owners are already searching. <span style={italicTeal}>The question is who they find.</span>
+              The owners are already searching. <span style={accentTeal}>The question is who they find.</span>
             </h2>
           </div>
           <div className="vgrid">
@@ -157,7 +157,7 @@ export default function LocationPage() {
             <Link to="/services/">Everything I build</Link>
             <Link to="/property-management-seo/">Ranking &amp; visibility</Link>
             <Link to="/property-management-intake/">The intake desk</Link>
-            <Link to="/the-record/">The Record</Link>
+            <Link to="/the-record/">How delivery is evidenced</Link>
             <Link to="/condominium-management-marketing/">Condominium boards</Link>
             <Link to="/services/service-area-expansion/">More cities</Link>
             <Link to="/proof/">Proof</Link>

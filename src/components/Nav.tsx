@@ -13,8 +13,9 @@ function isActive(label: string, pathname: string): boolean {
       pathname.startsWith('/who-i-help') ||
       pathname === '/property-management' ||
       pathname.startsWith('/property-management/') ||
-      pathname.startsWith('/roofing') ||
-      pathname.startsWith('/arborists') ||
+      pathname.startsWith('/trades') ||
+      pathname.startsWith('/auto-service-collision') ||
+      pathname.startsWith('/auto-parts-recyclers') ||
       pathname.startsWith('/condominium-management-marketing')
     );
   if (label === 'About') return pathname.startsWith('/about');

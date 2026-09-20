@@ -101,10 +101,6 @@
 /the-word/                         /services/reputation-management/            301!
 /the-motion                        /services/ai-systems/                  301!
 /the-motion/                       /services/ai-systems/                  301!
-/the-whole-roof                    /roofing/                              301!
-/the-whole-roof/                   /roofing/                              301!
-/the-whole-tree                    /arborists/                            301!
-/the-whole-tree/                   /arborists/                            301!
 
 
 # v10, SEPTEMBER 2026. Reputation had taken over the social slug and never
@@ -130,6 +126,21 @@
 /portfolio/           /work/    301!
 /case-studies         /work/    301!
 /case-studies/        /work/    301!
+
+# 19 SEPTEMBER 2026 - THE TWO LEGACY TRADE BOOKS ARE RETIRED. Outreach now runs
+# three verticals: trades (wide), auto parts and recyclers, and auto service and
+# collision. Roofing and tree care are still TRADES, so both indexed pages fold
+# into /trades/ rather than a generic hub - the topic survives and the equity
+# transfers. The old brand aliases are REPOINTED in the same pass so none of
+# them chains through a retired slug.
+/roofing                           /trades/                               301!
+/roofing/                          /trades/                               301!
+/arborists                         /trades/                               301!
+/arborists/                        /trades/                               301!
+/the-whole-roof                    /trades/                               301!
+/the-whole-roof/                   /trades/                               301!
+/the-whole-tree                    /trades/                               301!
+/the-whole-tree/                   /trades/                               301!
 
 # Catch-all. MUST return a real 404 and MUST match netlify.toml. Serving
 # /index.html at 200 here made every junk URL a duplicate of the homepage.

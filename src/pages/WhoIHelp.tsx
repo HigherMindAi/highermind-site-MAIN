@@ -9,54 +9,62 @@ import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 const URL = '/who-i-help/';
 
 const DESC =
-  'One visibility and intake system, built out for property management, roofing and tree care - and it fits any business where enquiries must be found and answered';
+  'One visibility and intake system, built out for auto service and collision, auto parts and recyclers, trades and home services, and property management.';
 
 const SOL_FAQ: [string, string][] = [
   [
-    'Do you only work with property managers?',
-    'No. It is one system, and three trades already have the scripts, the seasons and the vocabulary worked out because I built for them first - property and condominium management, roofing, and arborists and tree care. Every other business runs on the same two failures: they never find you, or nobody answers. If one won client is worth having in your business, the arithmetic works.',
+    'Do you only work with the four books?',
+    'No. It is one system, and four books already have the scripts and the vocabulary worked out because I built for them first - auto service and collision, auto parts and recyclers, trades and home services, and property and condominium management. Every other business runs on the same two failures: they never find you, or nobody answers. If one won client is worth having in your business, the arithmetic works.',
   ],
   [
     'Why build books at all instead of one generic system?',
-    'Because depth beats breadth on the parts that get a business in trouble. A roofing desk that talks about a deductible is a problem in several provinces and states. A tree care desk that says a tree looks safe is a worse one. A property desk that answers a question reserved to a licensed manager is worse again. Building each book separately means the screening questions, the language and the handoffs are right on day one instead of after three months of correction.',
+    'Because depth beats breadth on the parts that get a business in trouble. A shop desk that tells a driver whether damage is covered by his policy is a problem, and one that touches a deductible is a worse one. A parts desk that confirms stock the shelf does not have costs a customer and a reputation. A property desk that answers a question reserved to a licensed manager is worse again. Building each book separately means the screening questions, the language and the handoffs are right on day one instead of after three months of correction.',
   ],
   [
     'What makes a business a good fit?',
     'One new client is worth real money rather than a few hundred dollars, enquiries arrive outside business hours, and there is nobody who can reliably answer them. If a missed call costs you a job, the system pays for itself. If your work is low-value and high-volume, it probably does not.',
   ],
   [
-    'My trade is not one of the three. Will the copy say the wrong thing?',
-    'No. The desk is built on your knowledge, your screening rules and your words. The trades I have already built for shape how carefully I build intake and where I know the boundaries bite - they do not decide what your version says.',
+    'My trade is not one of the four. Will the copy say the wrong thing?',
+    'No. The desk is built on your knowledge, your screening rules and your words. The books I have already built shape how carefully I build intake and where I know the boundaries bite - they do not decide what your version says.',
   ],
 ];
 
 const BOOKS: [string, string, string, string][] = [
+  [
+    'Auto service & collision',
+    'Intake first',
+    'Intake first, because the leak is loud and provable in one phone call. The counter is one person also writing estimates, in a building with air tools running. Then the category, because collision and mechanical are two of them and most shops are in one.',
+    '/auto-service-collision/',
+  ],
+  [
+    'Auto parts & recyclers',
+    'The build first',
+    'The build first, and it is the one book where that is true on day one. A customer cannot specify a year, make, model and part anywhere on most yard sites, so every request has to survive a phone call. There is a live one you can go and use.',
+    '/auto-parts-recyclers/',
+  ],
+  [
+    'Trades & home services',
+    'Visibility first',
+    'Visibility first, almost always. Plumbing, HVAC, electrical, concrete, landscaping, septic, painting and the rest - two to twelve people and the owner still on tools. The site is the second conversation, never the first.',
+    '/trades/',
+  ],
   [
     'Property & condominium management',
     'Visibility first',
     'Visibility first. An owner deciding to stop managing it themselves is already searching, and when three names go to a board somebody looks all three up that evening.',
     '/property-management/',
   ],
-  [
-    'Roofing',
-    'Intake first',
-    'Intake first. A roofing owner knows to the dollar what a missed call costs, and the call lands while they are on a roof. The season closes in November and ranking takes sixty days, so the build happens in the quiet.',
-    '/roofing/',
-  ],
-  [
-    'Arborists & tree care',
-    'Intake first, and harder',
-    'Intake first, and harder than roofing. A climber sixty feet up cannot answer at all. The season inverts too - ice, wind and the dormant pruning window make winter the busy half.',
-    '/arborists/',
-  ],
 ];
 
 const OTHERS: string[] = [
-  'HVAC',
-  'Plumbing',
+  'Roofing',
+  'Tree care & arborists',
   'Restoration',
+  'Towing & recovery',
+  'Tyre & wheel',
+  'Fleet & commercial service',
   'Accountants & bookkeepers',
-  'Dentists & orthodontists',
   'Medical & specialist clinics',
   'Veterinary',
   'Insurance brokers',
@@ -67,11 +75,11 @@ export default function WhoIHelp() {
   return (
     <main>
       <Seo
-        title="Who I Help - Trades and Service Businesses | HigherMindAI"
+        title="Who I Help - Auto, Trades and Property Management | HigherMindAI"
         desc={DESC}
         path={URL}
         schema={[
-          serviceSchema('Local search and AI intake systems by trade', DESC, URL),
+          serviceSchema('Local search, AI intake and website builds by trade', DESC, URL),
           breadcrumbs([['Home', '/'], ['Who I Help', URL]]),
           faqSchema(SOL_FAQ),
         ]}
@@ -81,13 +89,13 @@ export default function WhoIHelp() {
         <div className="wrap">
           <span className="eyebrow reveal">Who I help</span>
           <h1 className="reveal">
-            One system, <span className="em">and three trades it is already built for.</span>
+            One system, <span className="em">four books it is already built for.</span>
           </h1>
           <p className="sub reveal">
-            Property and condominium management, roofing, and arborists and tree care already have
-            the scripts, the seasons and the vocabulary worked out, because I built for them first.
-            If you are none of the three, the system does not change shape. It is built on your
-            knowledge, your screening rules, and your words.
+            Auto service and collision, auto parts and recyclers, trades and home services, and
+            property and condominium management already have the scripts and the vocabulary worked
+            out, because I built for them first. <b>If you are none of the four, the system does not
+            change shape.</b> It is built on your knowledge, your screening rules, and your words.
           </p>
           <div className="ctas reveal">
             <Link to="/book/" className="btn btn-primary">
@@ -111,8 +119,9 @@ export default function WhoIHelp() {
             </h2>
             <p className="lead">
               Every business here loses work the same two ways - they never find you, or nobody
-              answers. What changes between trades is which end is bleeding faster, and that
-              decides what I build first.
+              answers. What changes between books is which end is bleeding faster, and that decides
+              what I build first. It is the first thing settled on the call and it is settled with
+              your numbers, not mine.
             </p>
           </div>
           <div className="vgrid reveal">

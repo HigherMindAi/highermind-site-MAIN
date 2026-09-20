@@ -233,6 +233,22 @@ export function locFaq(c: City): [string, string][] {
   ];
 }
 
-export const HOME_AREA_SERVED = ['Erin', 'Orangeville', 'Caledon', 'Guelph'];
+/**
+ * THE NAMED SERVICE AREAS - and this list must match the Google Business
+ * Profile's service_areas field EXACTLY, town for town.
+ *
+ * Waypoint doctrine: service areas are named towns, never a radius, and the
+ * gap between where the work actually goes and where the profile claims to
+ * work is the most common finding there is. The same gap between the PROFILE
+ * and the WEBSITE is the one a model finds: a listing claiming ten towns
+ * against a site that names three reads as two different businesses.
+ *
+ * It was four here against ten on the listing. If a town is added or dropped
+ * in one place it has to move in the other in the same sitting.
+ */
+export const HOME_AREA_SERVED = [
+  'Erin', 'Orangeville', 'Caledon', 'Guelph', 'Halton Hills',
+  'Mono', 'Shelburne', 'Fergus', 'Elora', 'Grand Valley',
+];
 export const FOOTER_HOME_LOCALITY = LOCALITY;
 export const FOOTER_HOME_REGION = REGION;

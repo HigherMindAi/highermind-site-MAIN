@@ -44,6 +44,14 @@ export interface ServiceListItem {
   slug: string;
   name: string;
   tag: string;
+  /**
+   * What a person actually TYPES, as opposed to what the line is called.
+   * Waypoint lever G4: the services list is the inventory a model reads, and
+   * a name on its own ("Visibility") tells it nothing. The term is what makes
+   * the entry eligible for a search; the name is the brand asset. Both are
+   * needed, and they live on the same row so they can never drift apart.
+   */
+  term: string;
   line: string;
   flag: boolean;
   /** Set where the line already owns a dedicated, keyword-bearing page. */
@@ -66,6 +74,7 @@ export const SERVICES: ServiceListItem[] = [
     slug: 'property-management-seo',
     name: 'Visibility',
     tag: 'The Pin',
+    term: 'local SEO',
     line: 'Found first when somebody nearby goes looking. The profile rebuilt properly, the signals that actually decide which three businesses land in the box, and the review work - capture, response and consistent details - carried inside the same engagement.',
     flag: false,
     href: '/property-management-seo/',
@@ -74,6 +83,7 @@ export const SERVICES: ServiceListItem[] = [
     slug: 'service-area-expansion',
     name: 'More Cities',
     tag: 'The Second Pin',
+    term: 'service area expansion',
     line: 'Own the next town, not just the one you are in. Each target town built as its own ranked unit - you only invest in places I can win.',
     flag: false,
   },
@@ -81,6 +91,7 @@ export const SERVICES: ServiceListItem[] = [
     slug: 'website-build',
     name: 'Website',
     tag: 'The Storefront',
+    term: 'website design',
     line: 'A site that answers, instead of a brochure that does not. Two jobs: keep the routine off your phone line, and survive a shortlist.',
     flag: false,
   },
@@ -88,6 +99,7 @@ export const SERVICES: ServiceListItem[] = [
     slug: 'property-management-intake',
     name: 'Intake',
     tag: 'The Line',
+    term: 'AI phone answering and web chat',
     line: 'One desk, two channels. It answers and qualifies the enquiry on the web, on the phone, or on both, books what should be booked, and routes anything real to a person on your own escalation order.',
     flag: false,
     href: '/property-management-intake/',
@@ -96,6 +108,7 @@ export const SERVICES: ServiceListItem[] = [
     slug: 'reputation-management',
     name: 'Reputation',
     tag: 'The Word',
+    term: 'review management',
     line: 'What they read before they call you. Reviews, responses and consistent details - carried inside Visibility rather than sold beside it.',
     flag: false,
     hidden: true,
@@ -104,6 +117,7 @@ export const SERVICES: ServiceListItem[] = [
     slug: 'social-media-management',
     name: 'Social Media',
     tag: 'The Current',
+    term: 'social media management',
     line: 'The surfaces they check between finding you and calling you. Cadence and evidence rather than reach, and I will argue for two surfaces done properly over three done thinly.',
     flag: false,
   },
@@ -111,6 +125,7 @@ export const SERVICES: ServiceListItem[] = [
     slug: 'ai-search-optimization',
     name: 'AI Search Visibility',
     tag: 'The Mention',
+    term: 'AI search optimization',
     line: 'Whether you get named when somebody asks an assistant instead of Google. There is no second page here - one answer, two or three names, and you are in it or you are not.',
     flag: false,
     href: '/ai-search-optimization/',
@@ -119,6 +134,7 @@ export const SERVICES: ServiceListItem[] = [
     slug: 'paid-growth',
     name: 'Paid',
     tag: 'The Tap',
+    term: 'Google Ads management',
     line: 'Demand you can turn on, and off. Volume while the organic position is still being built underneath it. Sold last, never before organic has moved.',
     flag: false,
   },
@@ -126,6 +142,7 @@ export const SERVICES: ServiceListItem[] = [
     slug: 'ai-systems',
     name: 'Custom AI Systems',
     tag: 'The Motion',
+    term: 'custom AI automation',
     line: 'The job that eats your week, running by itself. Built on your own knowledge, behind the desk rather than in front of it. It answers from your truth or it hands off.',
     flag: false,
   },
@@ -205,7 +222,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
   },
   'website-build': {
     title: 'Website Build, Hosting and Care | HigherMindAI',
-    desc: 'A site with two jobs: keep the routine off your phone line, and hold up when somebody is checking you against two other names. Starter sites through full rebuilds to custom builds carrying a working tool.',
+    desc: 'A site with two jobs: keep the routine off your phone line, and hold up when somebody is comparing you. Starter builds through custom working tools.',
     h1Lead: 'A site that answers, ',
     h1Em: 'instead of a brochure that does not.',
     sub: 'Your website does two things that matter. It takes the routine off your phone line - the request, the document, the booking, the question you answer forty times a week - so your office is not re-handling all of it by voice. And it holds up when somebody opens it at ten at night with two other names in the other tabs. Every section earns its place against one of those two jobs.',
@@ -338,7 +355,7 @@ export const GENERAL_FAQ: [string, string][] = [
   ],
   [
     'Do you only work with property managers?',
-    'No. It is one system, and three trades already have the scripts, the seasons and the vocabulary worked out because I built for them first - property and condominium management, roofing, and arborists and tree care. Every other business runs on the same two failures: they never find you, or nobody answers. If one won client is worth having in your business, the arithmetic works.',
+    'No. It is one system, and four books already have the scripts and the vocabulary worked out because I built for them first - auto service and collision, auto parts and recyclers, trades and home services, and property and condominium management. Every other business runs on the same two failures: they never find you, or nobody answers. If one won client is worth having in your business, the arithmetic works.',
   ],
   [
     'What will the intake desk not do?',

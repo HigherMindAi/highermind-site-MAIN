@@ -137,23 +137,32 @@ export default function ScopeLimits() {
               </p>
             </div>
             <div className="vtile">
-              <h3>Roofing</h3>
+              <h3>Auto service &amp; collision</h3>
               <p>
-                It never quotes a price, never estimates a job, never commits a crew to a date you
-                have not authorised, never promises an attendance window, never states or implies
-                whether damage is covered by insurance, never contacts a carrier or an adjuster, and
-                never discusses, absorbs, rebates or waives a deductible. Several states regulate
-                roofers on exactly that last point and treat deductible rebating as insurance fraud.
+                It never quotes a repair, never estimates a job, never states or implies whether
+                damage is covered by a policy, never contacts an insurer or an adjuster, never
+                discusses, absorbs, rebates or waives a deductible, and never commits your shop to a
+                completion date or a loaner you have not authorised. It never tells a driver a
+                vehicle is safe to drive.
               </p>
             </div>
             <div className="vtile">
-              <h3>Arborists &amp; tree care</h3>
+              <h3>Auto parts &amp; recyclers</h3>
               <p>
-                The hazard boundary is the clause that matters most here. It never assesses whether
-                a tree is hazardous, never states or implies whether one is likely to fail, never
-                advises removal or retention, never comments on root, decay or structural
-                condition, and performs no part of a tree risk assessment. It never rules on a
-                permit, a tree bylaw or a protected species.
+                It never confirms a part is in stock unless your own system says so, never quotes a
+                price you have not published, never states that a part will fit a vehicle it has not
+                been matched to, never promises a delivery date, and never represents a used or
+                aftermarket part as new or as carrying a warranty you have not set.
+              </p>
+            </div>
+            <div className="vtile">
+              <h3>Trades and home services</h3>
+              <p>
+                It never quotes a price, never estimates a job, never commits a crew to a date or an
+                attendance window you have not authorised, never states or implies whether damage is
+                covered by insurance, and never touches a deductible. Where a trade is licensed, it
+                routes to the licensed person and stops rather than performing any part of the
+                reserved function.
               </p>
             </div>
           </div>
@@ -198,10 +207,11 @@ export default function ScopeLimits() {
           <div className="mesh reveal">
             <span className="mesh-lab">The rest of it</span>
             <Link to="/property-management-intake/">The intake desk</Link>
-            <Link to="/the-record/">The Record</Link>
+            <Link to="/the-record/">How delivery is evidenced</Link>
             <Link to="/services/">Everything I build</Link>
-            <Link to="/roofing/">Roofing</Link>
-            <Link to="/arborists/">Arborists &amp; tree care</Link>
+            <Link to="/trades/">Trades</Link>
+            <Link to="/auto-service-collision/">Auto service &amp; collision</Link>
+            <Link to="/auto-parts-recyclers/">Auto parts &amp; recyclers</Link>
             <Link to="/coverage/">Where I work</Link>
           </div>
         </div>

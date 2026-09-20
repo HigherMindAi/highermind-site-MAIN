@@ -39,11 +39,13 @@ export default function Footer() {
           <div className="foot-links">
             <div className="foot-col">
               <h4>Who I help</h4>
+              <Link to="/auto-service-collision/">Auto service &amp; collision</Link>
+              <Link to="/auto-parts-recyclers/">Auto parts &amp; recyclers</Link>
+              <Link to="/trades/">Trades</Link>
               <Link to="/property-management/">Property management</Link>
-              <Link to="/roofing/">Roofing</Link>
-              <Link to="/arborists/">Arborists &amp; tree care</Link>
               <Link to="/condominium-management-marketing/">Condominium boards</Link>
               <Link to="/who-i-help/">Who I help</Link>
+              <Link to="/answers/">Straight answers</Link>
             </div>
             <div className="foot-col">
               <h4>Services</h4>
@@ -60,8 +62,9 @@ export default function Footer() {
               <Link to="/work/">Work</Link>
               <Link to="/coverage/">Coverage</Link>
               <Link to={LOCATIONS_HUB}>Cities I rank in</Link>
-              <Link to="/the-record/">The Record</Link>
+              <Link to="/the-record/">How delivery is evidenced</Link>
               <Link to="/scope-limits/">Where the desk stops</Link>
+              <Link to="/contact/">Contact</Link>
               <Link to="/book/">Take the nine minutes</Link>
             </div>
             <div className="foot-col">

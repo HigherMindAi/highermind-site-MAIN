@@ -186,7 +186,7 @@ export default function Coverage() {
             <Link to="/services/">Everything I build</Link>
             <Link to="/property-management-seo/">Ranking &amp; visibility</Link>
             <Link to="/property-management-intake/">The intake desk</Link>
-            <Link to="/the-record/">The Record</Link>
+            <Link to="/the-record/">How delivery is evidenced</Link>
             <Link to="/scope-limits/">Where the desk stops</Link>
             <Link to="/condominium-management-marketing/">Condominium boards</Link>
             <Link to={LOCATIONS_HUB}>Cities I build in</Link>

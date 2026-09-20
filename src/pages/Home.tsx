@@ -137,8 +137,8 @@ export default function Home() {
   return (
     <main id="top">
       <Seo
-        title="Local SEO & AI Intake for Trades and Services | HigherMindAI"
-        desc="I get you found when somebody nearby goes looking, answer every enquiry that lands, and hand you the record of both. One operator, Canada and the US."
+        title="Local SEO & AI Intake for Auto Shops and Trades | HigherMindAI"
+        desc="I get you found when somebody nearby goes looking, and make sure every enquiry is answered instead of lost. Auto, trades and property management."
         path="/"
         schema={[orgSchema(), personSchema(), faqSchema(GENERAL_FAQ)]}
       />
@@ -153,13 +153,15 @@ export default function Home() {
         <div className="chero-veil" aria-hidden="true" />
         <div className="wrap chero-in">
           <div className="reveal">
-            <span className="eyebrow">Local visibility, intake, the record</span>
+            <span className="eyebrow">Found first, answered fast</span>
             <h1 style={{ marginTop: 22 }}>The work you never knew <span className="em">you lost.</span></h1>
+            {/* The hero sells the two gaps and the outcome, and nothing else.
+                The record is proof, not a reason to call - it earns its own
+                chapter further down rather than a third of the opening. */}
             <p className="sub">
-              Two ways it happens. They never find you, or nobody answers. I build the visibility
-              and the intake, and hand you a timestamped record of every contact - so
-              responsiveness stops being a thing you claim and becomes a number you can put in
-              front of anyone.
+              A job gets lost two ways: they never find you, or nobody answers. I fix both ends, so
+              the customers already out there looking for you <b>end up booked instead of calling
+              the next name on the list.</b>
             </p>
             <div className="ctas">
               <Link to="/book/" className="btn btn-primary">Take the nine minutes <Arrow /></Link>
@@ -388,18 +390,19 @@ export default function Home() {
         <div className="wrap">
           <div className="chap">
             <div className="chap-copy reveal">
-              <span className="eyebrow"><span className="n">05</span> The record</span>
+              <span className="eyebrow"><span className="n">05</span> What you get back</span>
               <p className="chap-state" style={{ marginTop: 22 }}>
-                You can put a number in front of anyone who asks.
+                You find out what you were actually losing.
               </p>
               <p className="lead">
-                Every contact, timestamped - what arrived, what was answered, what was missed, and
-                how fast. One page on the first of the month. Responsiveness stops being a thing you
-                claim and becomes a thing you can evidence, which matters the day a board, an
-                insurer or a bigger client asks you to prove it.
+                Most owners guess at this and guess low, because a call you never received leaves no
+                trace anywhere you would think to look. Once the desk is answering, the enquiries
+                that used to disappear show up as booked work instead - and the hours you were
+                spending ringing people back go back into the day. <b>Every contact is logged and
+                reported as a matter of course</b>, so none of it rests on my word or your memory.
               </p>
               <div className="pfoot reveal">
-                <Link to="/the-record/" className="btn btn-ghost">See The Record <Arrow /></Link>
+                <Link to="/book/" className="btn btn-ghost">Find out what yours is costing <Arrow /></Link>
               </div>
             </div>
             <div className="chap-media reveal">
@@ -492,17 +495,18 @@ export default function Home() {
             <h2 style={{ marginTop: 22 }}>One system, <span className="em">and any business where one client is worth having.</span></h2>
             <p className="lead">
               A category set wrong, a service area never drawn and a phone that rings out at seven in
-              the evening are the same defect in a roofing company, a dental practice and an auto
-              recycler. The arithmetic that closes them is the same arithmetic with a different job
-              value in it. Property and condominium management, roofing, and arborists have the
-              scripts and the seasons already worked out because I built for them first.
+              the evening are the same defect in a collision centre, a plumbing company and a
+              salvage yard. The arithmetic that closes them is the same arithmetic with a different
+              job value in it. Four books have the vocabulary already worked out because I built for
+              them first, and the rest run on the same two failures.
             </p>
           </div>
           <div className="inds reveal">
+            <span className="ind lead-ind">Auto service &amp; collision</span>
+            <span className="ind lead-ind">Auto parts &amp; recyclers</span>
+            <span className="ind lead-ind">Trades &amp; home services</span>
             <span className="ind lead-ind">Property &amp; condominium management</span>
-            <span className="ind lead-ind">Roofing</span>
-            <span className="ind lead-ind">Arborists &amp; tree care</span>
-            {['Auto parts & recycling','HVAC','Plumbing','Restoration','Accountants','Dentists & orthodontists','Medical clinics','Veterinary','Insurance brokers','Any appointment-led business'].map((i) => (
+            {['Plumbing','HVAC & heating','Electrical','Concrete & paving','Landscaping','Roofing','Tree care','Septic & excavation','Painting & masonry','Restoration','Any business where one won client is worth having'].map((i) => (
               <span className="ind" key={i}>{i}</span>
             ))}
           </div>

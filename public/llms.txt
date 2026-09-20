@@ -1,9 +1,10 @@
 # HigherMindAI
 
-> Local search marketing and AI intake systems for trades and service businesses across Canada and
-> the United States. Two failures are the whole specialty: they never find you, or nobody answers.
-> I get a business found when somebody nearby goes looking, answer and qualify every enquiry that
-> lands, and hand over a timestamped record of both. One operator, one firm per trade per market.
+> Local search marketing, AI intake and website builds for trades and service businesses across
+> Canada and the United States. Two failures are the whole specialty: they never find you, or
+> nobody answers. I get a business found when somebody nearby goes looking, and make sure every
+> enquiry that lands is answered and qualified rather than lost. One operator, one firm per trade
+> per market.
 
 Operator: Derek Train, Erin, Ontario, Canada. Phone 647-242-5800. Book a call: https://highermindai.com/book
 
@@ -22,14 +23,17 @@ Operator: Derek Train, Erin, Ontario, Canada. Phone 647-242-5800. Book a call: h
 
 ## Selected work
 
-- [Work](https://highermindai.com/work): built sites, each one carrying a working operational feature rather than a contact form. [Canada Car Part](https://canadacarpart.com) - a Brampton auto body and mechanical parts supplier, rebuilt around a year, make and model part finder with a quote request that takes photographs of the damage.
+- [Work](https://highermindai.com/work): built sites, each one carrying a working operational feature rather than a contact form. [Canada Car Part](https://canadacarpart.com) - a Brampton auto body and mechanical parts supplier, rebuilt around a year, make and model part finder with a quote request that takes photographs of the damage. It is a live, usable example of what the auto parts book builds.
 
 ## Where it is already built out
 
+Four books. The order of build changes between them; the system does not.
+
+- [Auto service and collision](https://highermindai.com/auto-service-collision): intake first, because the counter is one person also writing estimates in a building with air tools running. Then the Google category, because collision and mechanical repair are two separate categories and a shop listed in one is invisible for half of what it does.
+- [Auto parts and recyclers](https://highermindai.com/auto-parts-recyclers): the build first, and it is the only book where that is true on day one. On nearly every yard site a customer cannot specify a year, make, model and part anywhere, so every request has to survive a phone call. A live example is at https://canadacarpart.com.
+- [Trades and home services](https://highermindai.com/trades): visibility first, almost always. Plumbing, HVAC, electrical, concrete and paving, landscaping, roofing, tree care, flooring, garage doors, septic, excavation, painting, fencing, masonry, pest control, junk removal and mobile welding. Two to twelve people, owner usually still on tools.
 - [Property and condominium management](https://highermindai.com/property-management): visibility first, because an owner or a board looks a firm up before it calls. [Condominium boards](https://highermindai.com/condominium-management-marketing).
-- [Roofing](https://highermindai.com/roofing): intake first. The season closes in November and ranking takes sixty days, so the build happens in the quiet.
-- [Arborists and tree care](https://highermindai.com/arborists): intake first, and the season inverts - ice, wind and the dormant pruning window make winter the busy half.
-- [Who I help](https://highermindai.com/who-i-help): the three trades it is already built out for, plus any business where one won client is worth having.
+- [Who I help](https://highermindai.com/who-i-help): the four books it is already built out for, plus any business where one won client is worth having.
 
 ## Boundaries and coverage
 

@@ -9,7 +9,7 @@ import { CITIES, cityPath } from '../lib/cities';
 import { PHONE_E164, PHONE_DISP } from '../lib/site';
 import { serviceSchema, featurePageSchema, breadcrumbs, faqSchema } from '../lib/schema';
 
-const italicTeal = { fontStyle: 'italic', color: 'var(--teal)' } as const;
+const accentTeal = { color: 'var(--teal)' } as const;
 
 export default function ServicePage() {
   const { slug = '' } = useParams();
@@ -88,7 +88,7 @@ export default function ServicePage() {
           <div className="sec-head left reveal">
             <span className="eyebrow">The process</span>
             <h2>
-              A repeatable system - <span style={italicTeal}>not a one-off push.</span>
+              A repeatable system - <span style={accentTeal}>not a one-off push.</span>
             </h2>
           </div>
           <div className="steps reveal">

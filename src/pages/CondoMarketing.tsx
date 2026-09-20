@@ -186,7 +186,7 @@ export default function CondoMarketing() {
                 Retention and responsiveness are on every board&rsquo;s list and almost nobody can
                 answer them with a number. A monthly report written to be tabled at a board meeting
                 without editing turns your strongest argument from an adjective into evidence.{' '}
-                <Link to="/the-record/">See The Record</Link>.
+                <Link to="/the-record/">How that is evidenced</Link>.
               </p>
             </div>
             <div className="step reveal">

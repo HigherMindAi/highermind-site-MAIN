@@ -25,14 +25,14 @@ export default function NotFound() {
               <Link to="/" className="btn btn-primary">
                 Back home <Arrow />
               </Link>
-              <Link to="/property-management/" className="btn btn-ghost">
-                Property management
+              <Link to="/services/" className="btn btn-ghost">
+                Every line
               </Link>
-              <Link to="/roofing/" className="btn btn-ghost">
-                Roofing
+              <Link to="/who-i-help/" className="btn btn-ghost">
+                Who I help
               </Link>
-              <Link to="/arborists/" className="btn btn-ghost">
-                Arborists
+              <Link to="/book/" className="btn btn-ghost">
+                Book a call
               </Link>
             </div>
           </div>

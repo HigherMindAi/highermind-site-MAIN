@@ -422,30 +422,6 @@
   status = 301
   force = true
 
-[[redirects]]
-  from = "/the-whole-roof"
-  to = "/roofing/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/the-whole-roof/"
-  to = "/roofing/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/the-whole-tree"
-  to = "/arborists/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/the-whole-tree/"
-  to = "/arborists/"
-  status = 301
-  force = true
-
 
 
 # v10, SEPTEMBER 2026. Reputation had taken over the social slug and never
@@ -560,6 +536,56 @@
   status = 301
   force = true
 
+
+# 19 SEPTEMBER 2026 - the two legacy trade books fold into /trades/.
+# Roofing and tree care ARE trades, so the topic survives the redirect.
+[[redirects]]
+  from = "/roofing"
+  to = "/trades/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/roofing/"
+  to = "/trades/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/arborists"
+  to = "/trades/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/arborists/"
+  to = "/trades/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-whole-roof"
+  to = "/trades/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-whole-roof/"
+  to = "/trades/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-whole-tree"
+  to = "/trades/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-whole-tree/"
+  to = "/trades/"
+  status = 301
+  force = true
 
 # Every real route is prerendered to its own index.html, so this rule is only
 # reached by URLs that do not exist. It MUST return a real 404.

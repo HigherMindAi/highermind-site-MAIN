@@ -14,8 +14,11 @@ import Coverage from './pages/Coverage';
 import ScopeLimits from './pages/ScopeLimits';
 import Book from './pages/Book';
 import PropertyManagement from './pages/PropertyManagement';
-import Roofing from './pages/Roofing';
-import Arborists from './pages/Arborists';
+import Trades from './pages/Trades';
+import AnswersHub from './pages/AnswersHub';
+import AnswerPage from './pages/AnswerPage';
+import AutoService from './pages/AutoService';
+import AutoParts from './pages/AutoParts';
 import PropertySeo from './pages/PropertySeo';
 import PropertyIntake from './pages/PropertyIntake';
 import CondoMarketing from './pages/CondoMarketing';
@@ -30,8 +33,11 @@ export default function App() {
         <Route index element={<Home />} />
         <Route path="ai-search-optimization" element={<AiSearch />} />
         <Route path="property-management" element={<PropertyManagement />} />
-        <Route path="roofing" element={<Roofing />} />
-        <Route path="arborists" element={<Arborists />} />
+        <Route path="trades" element={<Trades />} />
+        <Route path="answers" element={<AnswersHub />} />
+        <Route path="answers/:slug" element={<AnswerPage />} />
+        <Route path="auto-service-collision" element={<AutoService />} />
+        <Route path="auto-parts-recyclers" element={<AutoParts />} />
         <Route path="the-record" element={<TheRecord />} />
         <Route path="property-management-seo" element={<PropertySeo />} />
         <Route path="property-management-intake" element={<PropertyIntake />} />

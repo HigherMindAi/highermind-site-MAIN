@@ -16,7 +16,7 @@
 // in the repo and a half-flipped switch is worse than either state.
 //
 // THE RULE ON IMAGERY. Places, never trades. A dentist, a restaurant, an auto
-// recycler and a roofer all have to land on this site and see themselves in it.
+// recycler and a collision shop all have to land on this site and see themselves in it.
 // Nothing here names a vertical: towns at dusk, a lit window on a dark street,
 // an empty room after hours, a record on a desk. Those are the universal
 // truths in the service book, and they are the only things photographed.
@@ -46,8 +46,9 @@ const STILL_FILES: Record<string, string> = {
 
   // --- trade-specific, and ONLY for the page of that trade -----------------
   // These were cut from the homepage on purpose: a dentist landing on a roof
-  // does not see themselves. On /roofing/ a roof is exactly right, and the
-  // same logic puts the ordered bench on the page about work that runs itself.
+  // does not see themselves. On a vertical page the vertical's own subject is
+  // exactly right, which is why the cab carries /trades/, the bench carries
+  // /auto-service-collision/ and the ordered shelves carry the parts page.
   // The rule is not "no trades", it is "no trade where the reader's own is
   // not already the subject".
   roofRidge: 'hf_20260918_205612_4b3ef17a-b346-40ef-b79d-3e8aa5321550.png',

@@ -1,35 +1,125 @@
 # robots.txt for highermindai.com
-# Standard search
+#
+# WAYPOINT LEVER G1 - CRAWLER ACCESS.
+#
+# The failure this file exists to prevent is silent. A business that blocks an
+# answering crawler does not get a warning, a ranking drop or a notification -
+# it simply stops being available to name when somebody asks a model a
+# question, and nothing anywhere says so. The default posture here is therefore
+# ALLOW, explicitly, by name, for every agent that can put this business in an
+# answer.
+#
+# Two different jobs are listed below and they are not the same thing:
+#   ANSWERING / RETRIEVAL agents fetch a page live to answer a question that
+#   was just asked. Blocking one removes this business from that answer today.
+#   TRAINING agents read pages to build the model. Blocking one costs nothing
+#   this week and costs eligibility in the next generation of models.
+#
+# Both are allowed deliberately. To opt out of training only, change the
+# agents in the TRAINING block to Disallow and leave the answering block alone.
+# Never blanket-Disallow: it reads as an opt-out of being findable at all.
+
+# ---------------------------------------------------------------- web search
 User-agent: Googlebot
 Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
 User-agent: Bingbot
 Allow: /
 
-# AI answer + retrieval crawlers (make the site eligible for AI citations)
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# ------------------------------------------------ answering / retrieval bots
+# These fetch live to answer a question. Blocking one is invisible and costly.
 User-agent: OAI-SearchBot
 Allow: /
+
 User-agent: ChatGPT-User
 Allow: /
+
 User-agent: Claude-SearchBot
 Allow: /
+
 User-agent: Claude-User
 Allow: /
+
 User-agent: PerplexityBot
 Allow: /
+
 User-agent: Perplexity-User
 Allow: /
+
 User-agent: GoogleOther
 Allow: /
 
-# AI training crawlers (allowed for long-term visibility; switch to Disallow to opt out)
+User-agent: Google-CloudVertexBot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: meta-externalfetcher
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: cohere-training-data-crawler
+Allow: /
+
+# -------------------------------------------------------------- training bots
+# Allowed for long-term eligibility. Switch these to Disallow to opt out of
+# training WITHOUT losing the answering agents above.
 User-agent: GPTBot
 Allow: /
+
 User-agent: ClaudeBot
 Allow: /
+
 User-agent: Google-Extended
 Allow: /
 
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: omgili
+Allow: /
+
+# ------------------------------------------------------------------ everyone
 User-agent: *
 Allow: /
 
 Sitemap: https://highermindai.com/sitemap.xml
+
+# A plain-language summary of this business, written for answer engines rather
+# than for a person, lives at /llms.txt.

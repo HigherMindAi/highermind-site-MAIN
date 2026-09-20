@@ -1,6 +1,6 @@
 // ---------------------------------------------------------------------------
 // HigherMindAI - property & condominium management book
-// One of three named books (property, roofing, arborists). Source of truth for
+// One of four named books (auto service, auto parts, trades, property). Source of truth for
 // the property tags, the guarantee wording, and the property FAQ set.
 //
 // PRICING RULE, SEPTEMBER 2026: there is NO pricing on this site. Not a figure,
@@ -33,7 +33,7 @@ export const LAUNCH_LOCK =
 export const LAUNCH_WINDOW = 'Live in 14-21 days';
 
 export const RECORD_LOCK =
-  'The Record from month one. If I cannot show you what came in and how fast it was answered, you are not being asked to take my word for it.';
+  'Logged and reported from month one, at no extra cost and never as a separate line. If I cannot show you what came in and how fast it was answered, you are not being asked to take my word for any of it.';
 
 export const NO_DOORS_PROMISE =
   'No promise of a number of doors. That depends on your fees, your close rate and your capacity. Saying so is part of the pitch.';
