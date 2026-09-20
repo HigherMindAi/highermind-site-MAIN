@@ -170,6 +170,28 @@ export function serviceSchema(name: string, desc: string, url: string): Json {
   };
 }
 
+/**
+ * For a page that explains something INCLUDED in an engagement rather than
+ * something sold. The Record is the case: it is the reporting that ships
+ * inside the managed lines, never a line of its own.
+ *
+ * Marking it up as a Service tells an answering engine there is a product here
+ * and invites it to quote one - which is exactly the contradiction a prospect
+ * finds when he runs the proposal and the website through the same model. So
+ * it is a WebPage that is ABOUT the business, not an offer from it.
+ */
+export function featurePageSchema(name: string, desc: string, url: string): Json {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name,
+    description: desc,
+    url: BASE + url,
+    about: { '@id': ORG_ID },
+    publisher: { '@id': ORG_ID },
+  };
+}
+
 export function servicesItemList(
   services: { name: string; slug: string; href?: string }[]
 ): Json {

@@ -16,7 +16,6 @@ import Book from './pages/Book';
 import PropertyManagement from './pages/PropertyManagement';
 import Roofing from './pages/Roofing';
 import Arborists from './pages/Arborists';
-import WholeOperation from './pages/WholeOperation';
 import PropertySeo from './pages/PropertySeo';
 import PropertyIntake from './pages/PropertyIntake';
 import CondoMarketing from './pages/CondoMarketing';
@@ -33,7 +32,6 @@ export default function App() {
         <Route path="property-management" element={<PropertyManagement />} />
         <Route path="roofing" element={<Roofing />} />
         <Route path="arborists" element={<Arborists />} />
-        <Route path="the-whole-operation" element={<WholeOperation />} />
         <Route path="the-record" element={<TheRecord />} />
         <Route path="property-management-seo" element={<PropertySeo />} />
         <Route path="property-management-intake" element={<PropertyIntake />} />

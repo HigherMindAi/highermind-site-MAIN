@@ -43,7 +43,7 @@ const ENGINES: [string, string, string, string][] = [
   ],
   [
     'Reputation',
-    'Reputation. Reviews and response, inside the visibility work.',
+    'Reputation. Reviews and response, carried inside the visibility work.',
     'Property management has a structural reputation problem almost no other industry shares: the people most motivated to review you are not the people who pay you. A tenant with a maintenance complaint writes four paragraphs. A satisfied owner collecting rent quietly for three years writes nothing at all. The engine is volume, timing and response quality - and it is carried inside the visibility engagement rather than billed as a line of its own.',
     '/services/reputation-management/',
   ],
@@ -361,18 +361,11 @@ export default function PropertyManagement() {
                   </span>
                 </li>
                 <li>
-                  <b>Reputation</b> &nbsp;&middot;&nbsp; The Word
+                  <b>Reputation</b> &nbsp;&middot;&nbsp; inside Visibility
                   <br />
                   <span style={{ opacity: 0.62 }}>
-                    The review wall a director reads at night, per platform.
-                  </span>
-                </li>
-                <li>
-                  <b>The whole loop</b> &nbsp;&middot;&nbsp; The Whole Operation
-                  <br />
-                  <span style={{ opacity: 0.62 }}>
-                    All of it welded together, built in the order your side of the business
-                    actually leaks.
+                    The review wall a director reads at night. Carried inside the visibility
+                    monthly, never billed as a second line.
                   </span>
                 </li>
               </ul>
@@ -397,8 +390,8 @@ export default function PropertyManagement() {
               </ul>
               <p className="tp-note">{NO_DOORS_PROMISE}</p>
               <p className="tp-note">
-                <Link to="/the-whole-operation/">See the whole operation</Link> - all four parts welded
-                into one system.
+                <Link to="/services/">See every line</Link> - each one bought on its own, built in
+                the order your side of the business actually leaks.
               </p>
             </div>
           </div>

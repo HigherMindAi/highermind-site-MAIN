@@ -183,7 +183,7 @@ export default function Coverage() {
           </div>
           <div className="mesh reveal">
             <span className="mesh-lab">What runs in every market</span>
-            <Link to="/the-whole-operation/">The Whole Operation</Link>
+            <Link to="/services/">Everything I build</Link>
             <Link to="/property-management-seo/">Ranking &amp; visibility</Link>
             <Link to="/property-management-intake/">The intake desk</Link>
             <Link to="/the-record/">The Record</Link>

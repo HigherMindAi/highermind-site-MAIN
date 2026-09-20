@@ -11,7 +11,7 @@
 // NAMING: plain leads, the creative name is a tag. v10 retired the three
 // trade-native families - one label set now runs across the site, the call and
 // the document: The Pin, The Second Pin, The Storefront, The Line, The Word,
-// The Current, The Mention, The Tap, The Motion, and The Whole Operation.
+// The Current, The Mention, The Tap and The Motion.
 //
 // Hyphens only, never em-dashes. Solo first person. No client names.
 // ---------------------------------------------------------------------------

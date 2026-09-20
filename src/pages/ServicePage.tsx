@@ -4,10 +4,10 @@ import FAQ from '../components/FAQ';
 import CTAStrip from '../components/CTAStrip';
 import NotFound from './NotFound';
 import { Arrow } from '../components/Icons';
-import { SERVICES, SERVICE_PAGES, PHASE_LABELS, serviceHref } from '../lib/services';
+import { SERVICES, LADDER, SERVICE_PAGES, PHASE_LABELS, serviceHref } from '../lib/services';
 import { CITIES, cityPath } from '../lib/cities';
 import { PHONE_E164, PHONE_DISP } from '../lib/site';
-import { serviceSchema, breadcrumbs, faqSchema } from '../lib/schema';
+import { serviceSchema, featurePageSchema, breadcrumbs, faqSchema } from '../lib/schema';
 
 const italicTeal = { fontStyle: 'italic', color: 'var(--teal)' } as const;
 
@@ -27,7 +27,11 @@ export default function ServicePage() {
         desc={d.desc}
         path={url}
         schema={[
-          serviceSchema(name, d.desc, url),
+          /* A line retired from the ladder keeps its page and its rankings
+             but stops claiming to be an offer. */
+          meta.hidden
+            ? featurePageSchema(`${name} - how it is carried`, d.desc, url)
+            : serviceSchema(name, d.desc, url),
           breadcrumbs([['Home', '/'], ['Services', '/services/'], [name, url]]),
           faqSchema(d.faq),
         ]}
@@ -46,7 +50,7 @@ export default function ServicePage() {
             </h1>
             <p className="sub">{d.sub}</p>
             <div className="ctas" style={{ marginTop: 34, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-              <Link to="/contact/" className="btn btn-primary">
+              <Link to="/book/" className="btn btn-primary">
                 Book a call <Arrow />
               </Link>
               <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
@@ -132,7 +136,7 @@ export default function ServicePage() {
           </div>
           <div className="mesh reveal">
             <span className="mesh-lab">The rest of the system</span>
-            {SERVICES.filter((x) => x.slug !== slug).map((x) => (
+            {LADDER.filter((x) => x.slug !== slug).map((x) => (
               <Link key={x.slug} to={serviceHref(x)}>
                 {x.name}
               </Link>
@@ -143,7 +147,6 @@ export default function ServicePage() {
       </section>
 
       <CTAStrip
-        on={slug === 'website-build' ? '9-minute-website-review' : slug === 'property-management-seo' ? 'google-listing' : undefined}
         head={<>Ready to put <span className="em">{name}</span> to work?</>}
         sub="Tell me your business and your city. I will tell you the most direct path to the result - and whether I can win it."
       />

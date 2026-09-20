@@ -7,9 +7,7 @@ function isActive(label: string, pathname: string): boolean {
   if (label === 'Visibility') return pathname.startsWith('/property-management-seo');
   if (label === 'Intake') return pathname.startsWith('/property-management-intake');
   if (label === 'AI Search') return pathname.startsWith('/ai-search-optimization');
-  if (label === 'Services')
-    return pathname === '/services/' || pathname.startsWith('/services/') ||
-      pathname.startsWith('/the-whole-operation');
+  if (label === 'Services') return pathname.startsWith('/services');
   if (label === 'Who I Help')
     return (
       pathname.startsWith('/who-i-help') ||

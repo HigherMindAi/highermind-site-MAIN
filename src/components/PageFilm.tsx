@@ -38,7 +38,6 @@ const SCENES: ReadonlyArray<[string, Scene]> = [
   ['/property-management-seo', { image: 'twoTowns', filmKey: 'twoTowns' }],
   ['/property-management-intake', { image: 'reception', filmKey: 'reception' }],
   ['/ai-search-optimization', { image: 'oneNamed', filmKey: 'oneNamed' }],
-  ['/the-whole-operation', { image: 'catchment', filmKey: 'catchment' }],
   ['/the-record', { image: 'theRecord' }],
   ['/services/website-build', { image: 'storefront', filmKey: 'storefront' }],
   ['/services/paid-growth', { image: 'theTap' }],

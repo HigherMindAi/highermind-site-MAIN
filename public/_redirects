@@ -18,11 +18,19 @@
 /law-firm-seo                      /property-management-seo/              301!
 /law-firm-seo/                     /property-management-seo/              301!
 
-# SEPTEMBER 2026 - flagship and hub renamed.
-/the-keystone                      /the-whole-operation/                  301!
-/the-keystone/                     /the-whole-operation/                  301!
+# SEPTEMBER 2026 - hub renamed.
 /solutions                         /who-i-help/                           301!
 /solutions/                        /who-i-help/                           301!
+
+# 19 SEPTEMBER 2026 - THE WHOLE OPERATION IS WITHDRAWN as a sellable line.
+# The page is gone; the loop it argued now lives as a section on /services/,
+# which is also where somebody choosing between lines is standing. /the-keystone
+# pointed at the retired bundle and is REPOINTED here rather than chained through it -
+# a 301 to a 301 leaks equity and Google only follows so many hops.
+/the-keystone                      /services/                             301!
+/the-keystone/                     /services/                             301!
+/the-whole-operation               /services/                             301!
+/the-whole-operation/              /services/                             301!
 
 # SEPTEMBER 2026 - The Record moved up to the root. It covers all three
 # books now, so it no longer belongs under the property path. The old

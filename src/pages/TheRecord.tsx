@@ -7,7 +7,7 @@ import { RecordStage } from '../components/Stages';
 import { Arrow } from '../components/Icons';
 import { PHONE_E164, PHONE_DISP } from '../lib/site';
 import { RECORD_LOCK } from '../lib/property';
-import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
+import { featurePageSchema, faqSchema, breadcrumbs } from '../lib/schema';
 
 const URL = '/the-record/';
 
@@ -60,7 +60,9 @@ export default function TheRecord() {
         desc={DESC}
         path={URL}
         schema={[
-          serviceSchema('The Record - Timestamped Intake Logging and Reporting', DESC, URL),
+          /* Not a Service. The Record is the reporting inside the managed
+             lines and is never sold or quoted on its own. */
+          featurePageSchema('The Record - Timestamped Intake Logging and Reporting', DESC, URL),
           breadcrumbs([
             ['Home', '/'],
             ['Property Management', '/property-management/'],
@@ -82,7 +84,7 @@ export default function TheRecord() {
             monthly report written to be forwarded to an owner or tabled at a board meeting without
             editing. Firms are replaced over perceived responsiveness far more often than over fees,
             and this is the only engine that turns responsiveness into a number you can put in front
-            of somebody.
+            of somebody. It ships inside every managed line I run and is never sold on its own.
           </p>
           <div className="ctas reveal">
             <Link to="/book/" className="btn btn-primary">
@@ -210,7 +212,7 @@ export default function TheRecord() {
               table, is a different category of thing - and once a firm has twelve months of it, it
               is not going back. That is the honest reason this engine ships with every
               configuration rather than being sold as an upgrade.{' '}
-              <Link to="/the-whole-operation/">See how it sits inside the whole operation</Link>.
+              <Link to="/services/">See what it ships alongside</Link>.
             </p>
           </div>
           <p className="note reveal">{RECORD_LOCK}</p>

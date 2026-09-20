@@ -6,15 +6,9 @@ import { Arrow } from './Icons';
 interface CtaStripProps {
   head: ReactNode;
   sub: string;
-  /**
-   * Which conversation to open on /book/. The URL never changes - the tab does.
-   * Pass 'google-listing' from a visibility page, '9-minute-website-review'
-   * from a website page. Omit for the general nine minutes.
-   */
-  on?: string;
 }
 
-export default function CTAStrip({ head, sub, on }: CtaStripProps) {
+export default function CTAStrip({ head, sub }: CtaStripProps) {
   return (
     <>
       <div className="divider" />
@@ -23,7 +17,7 @@ export default function CTAStrip({ head, sub, on }: CtaStripProps) {
           <h2>{head}</h2>
           <p>{sub}</p>
           <div className="ctas">
-            <Link to={on ? `/book/?on=${on}` : '/book/'} className="btn btn-primary">
+            <Link to="/book/" className="btn btn-primary">
               Take the nine minutes <Arrow />
             </Link>
             <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">

@@ -262,19 +262,19 @@ export default function Arborists() {
       <section className="sec">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">The whole thing</span>
+            <span className="eyebrow">How the lines fit</span>
             <h2>
-              Welded together, <span className="em">it is the whole operation.</span>
+              Welded together, <span className="em">it closes the loop.</span>
             </h2>
             <p className="lead">
               Visibility brings the enquiry, the desk answers and qualifies it, the record proves
               both. Each piece stands on its own and can be bought on its own.{' '}
-              <Link to="/the-whole-operation/">See the whole operation</Link>.
+              <Link to="/services/">See every line</Link>.
             </p>
           </div>
           <div className="ctas reveal">
-            <Link to="/the-whole-operation/" className="btn btn-primary">
-              The Whole Operation <Arrow />
+            <Link to="/services/" className="btn btn-primary">
+              See every line <Arrow />
             </Link>
             <Link to="/coverage/" className="btn btn-ghost">
               One tree care company per market

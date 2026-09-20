@@ -14,12 +14,24 @@ import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 const URL = '/property-management-intake/';
 
 const DESC =
-  'One intake desk on your site and your line. Every enquiry and after-hours call answered and qualified, triaged on your criteria, logged and routed to a person.';
+  'An AI receptionist for your site and your phone line. Every enquiry and after-hours call answered and qualified, triaged on your criteria, logged and routed to a person. Trades, property management and service businesses.';
 
 // No rate in schema. See property.ts.
 const SCHEMA_DESC = DESC;
 
 const INTAKE_FAQ: [string, string][] = [
+  [
+    'What is an AI receptionist, and does it actually work?',
+    'It answers your line and your site, in your business\u2019s own words, at the hours you cannot. It is not a robot reading a script and it is not a voicemail box with a nicer greeting. It answers the routine question from your own documents, qualifies the enquiry against criteria you set, books what should be booked, logs the contact with a timestamp in and a timestamp answered, and hands anything real to a person on your escalation order. Where it works is the overflow and the after-hours - the calls that currently become nothing. Where it does not is anything requiring judgement, and it is built to hand those over rather than have an opinion.',
+  ],
+  [
+    'What happens to a call to my business at seven in the evening right now?',
+    'Usually it goes to voicemail and he does not leave one. He calls the next name on the list, who answers, and that job is gone permanently - and the part that costs you is that you never learn it existed. There is no gap in your day where a missed enquiry announces itself. That is the whole reason this line exists, and it is why I will ring your own office line after hours before the call rather than ask you what happens.',
+  ],
+  [
+    'Does this work for a roofer, an arborist or a trade that is out on site all day?',
+    'That is the version of this that pays for itself fastest. A business where the owner is on a roof, up a tree or under a sink is the business least able to answer a phone at the moment it rings, and most able to tell you to the dollar what one missed job is worth. The desk covers the hours you are working with both hands, qualifies whether it is a real job or a price shopper, and books the ones worth booking.',
+  ],
   [
     'What does a property management answering service actually do after hours?',
     'Most take a name and a number and pass it on in the morning. The desk I build answers and qualifies the contact, triages it against the criteria you set, books owner enquiries straight into your calendar, logs everything with a timestamp in and a timestamp answered, and routes anything real to a licensed manager on your own escalation order. It is administrative intake and nothing else.',
@@ -57,8 +69,8 @@ export default function PropertyIntake() {
           serviceSchema('AI phone and web intake and answering service', SCHEMA_DESC, URL),
           breadcrumbs([
             ['Home', '/'],
-            ['Property Management', '/property-management/'],
-            ['Property Management Intake', URL],
+            ['Services', '/services/'],
+            ['Intake', URL],
           ]),
           faqSchema(INTAKE_FAQ),
         ]}
@@ -116,8 +128,8 @@ export default function PropertyIntake() {
             <div className="vcard reveal">
               <div className="vlab">Same desk, either way in</div>
               <div className="vbig">
-                Same knowledge, same triage criteria, same escalation order, same log - so an owner
-                gets the same answer whether they type it or say it.{' '}
+                Same knowledge, same triage criteria, same escalation order, same log - so a
+                caller gets the same answer whether they type it or say it.{' '}
                 <b>This is the difference between a contact and a voicemail.</b>
               </div>
             </div>
@@ -179,12 +191,16 @@ export default function PropertyIntake() {
             </div>
           </div>
           <div className="vcard reveal" style={{ marginTop: 32 }}>
-            <div className="vlab">Licensing</div>
+            <div className="vlab">Licensed and regulated trades</div>
             <div className="vbig">{CMRAO_LINE}</div>
           </div>
           <p className="note reveal">
-            I put that in writing before being asked because it is the question every serious firm
-            asks third, and because the answer is the differentiator rather than the disclaimer.
+            The same rule holds wherever the work is regulated. The desk never tells a caller
+            whether damage is covered by insurance, never quotes a price, and never assesses whether
+            a tree is hazardous - it takes the contact and routes it. I put the limits in writing
+            before being asked, because it is the question every serious business asks third and
+            because the answer is the differentiator rather than the disclaimer.{' '}
+            <Link to="/scope-limits/">Every limit is published here</Link>.
           </p>
         </div>
       </section>
@@ -207,10 +223,11 @@ export default function PropertyIntake() {
               </p>
             </div>
             <div className="vtile reveal">
-              <h3>The owner enquiry stops competing with your day</h3>
+              <h3>The enquiry stops competing with your day</h3>
               <p>
-                It is qualified and booked before you have finished the walkthrough you are standing
-                in. You arrive at a calendar entry rather than a callback list.
+                It is qualified and booked before you are down off the roof or out of the
+                walkthrough you are standing in. You arrive at a calendar entry rather than a
+                callback list.
               </p>
             </div>
             <div className="vtile reveal">
@@ -305,7 +322,7 @@ export default function PropertyIntake() {
 
       <CTAStrip
         head={<>Find out what happens to a call at seven in the evening.</>}
-        sub="On a nine-minute call I will tell you what I found when I rang your office line after hours, what an owner enquiry meets when it lands on your site, and what I would build."
+        sub="On a nine-minute call I will tell you what I found when I rang your own line after hours, what an enquiry meets when it lands on your site, and what I would build."
       />
     </main>
   );

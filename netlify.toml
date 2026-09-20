@@ -47,16 +47,30 @@
   force = true
 
 
-# SEPTEMBER 2026 - flagship and hub renamed.
+# SEPTEMBER 2026 - hub renamed.
+# 19 SEPTEMBER 2026 - The Whole Operation withdrawn. /the-keystone is
+# REPOINTED at /services/ rather than chained through the retired slug.
 [[redirects]]
   from = "/the-keystone"
-  to = "/the-whole-operation/"
+  to = "/services/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/the-keystone/"
-  to = "/the-whole-operation/"
+  to = "/services/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-whole-operation"
+  to = "/services/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-whole-operation/"
+  to = "/services/"
   status = 301
   force = true
 

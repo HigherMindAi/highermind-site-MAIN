@@ -5,7 +5,7 @@ import CTAStrip from '../components/CTAStrip';
 import { Arrow } from '../components/Icons';
 import { PHONE_E164, PHONE_DISP } from '../lib/site';
 import { SCOPE_DOES, SCOPE_STOPS, CMRAO_LINE } from '../lib/property';
-import { breadcrumbs, serviceSchema, faqSchema } from '../lib/schema';
+import { breadcrumbs, featurePageSchema, faqSchema } from '../lib/schema';
 
 const URL = '/scope-limits/';
 
@@ -43,7 +43,7 @@ export default function ScopeLimits() {
         desc={DESC}
         path={URL}
         schema={[
-          serviceSchema('AI Intake Desk - Published Scope Limits', DESC, URL),
+          featurePageSchema('AI Intake Desk - Published Scope Limits', DESC, URL),
           breadcrumbs([
             ['Home', '/'],
             ['Who I Help', '/who-i-help/'],
@@ -199,7 +199,7 @@ export default function ScopeLimits() {
             <span className="mesh-lab">The rest of it</span>
             <Link to="/property-management-intake/">The intake desk</Link>
             <Link to="/the-record/">The Record</Link>
-            <Link to="/the-whole-operation/">The Whole Operation</Link>
+            <Link to="/services/">Everything I build</Link>
             <Link to="/roofing/">Roofing</Link>
             <Link to="/arborists/">Arborists &amp; tree care</Link>
             <Link to="/coverage/">Where I work</Link>

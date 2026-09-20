@@ -32,6 +32,14 @@ const SEO_FAQ: [string, string][] = [
     'The managed version is ongoing - position built, then held, because local ranking is not a thing you finish. The sprint is a one-time rebuild: the profile corrected, services named properly, service area mapped, and the on-page work done once, then it is yours to maintain. The sprint suits a solo manager under forty doors. The managed build suits a firm that intends to keep taking doors. Which one fits, and what it takes, gets settled on the call.',
   ],
   [
+    'Is reputation management included, or is it a separate cost?',
+    'Included, and it is not sold separately at all. Review capture, review responses and listing consistency are inside the visibility monthly along with the profile work, the citations and the local content. One engagement, one invoice, one report on the first of the month. The reason is not generosity - the work overlaps almost completely with the work that wins the pin, and charging twice for one job is not something I would want to explain in a room.',
+  ],
+  [
+    'How do I get more Google reviews without breaking the rules?',
+    'Volume, timing and response quality, and nothing else. A structured ask goes to the satisfied customers who would never think to leave one, at the point in the job where they are most likely to act. I will not write reviews, incentivise them, gate them, or pick who gets asked based on how they are likely to answer. All of that is against platform rules and all of it is detectable. The compliant version is slower and it is the only one that survives contact with Google.',
+  ],
+  [
     'Is ranking worth it if my leads come from referrals?',
     'Often yes, and for a reason most firms do not expect. Even when an owner arrives by referral they search your name before they call, and what they find decides whether they call at all. On the condominium side that effect is the whole game. Ranking is offensive on the rental track and defensive everywhere else, and both are worth having.',
   ],
@@ -87,7 +95,7 @@ export default function PropertySeo() {
             can deliver.
           </p>
           <div className="ctas reveal">
-            <Link to="/book/?on=google-listing" className="btn btn-primary">
+            <Link to="/book/" className="btn btn-primary">
               Book a call <Arrow />
             </Link>
             <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
@@ -187,6 +195,59 @@ export default function PropertySeo() {
 
       <div className="divider" />
 
+      {/* ------------------------------------------------- reviews live in here */}
+      <section className="sec">
+        <div className="wrap">
+          <div className="sec-head left reveal">
+            <span className="eyebrow">Inside this line, not beside it</span>
+            <h2>
+              Reviews, responses and consistent details.{' '}
+              <span className="em">Never a second invoice.</span>
+            </h2>
+            <p className="lead">
+              Review velocity, review recency and listing consistency are ranking signals. They are
+              not a parallel service that happens to sit next to local search - they are part of
+              how the pin is won and how it is held. So the capture, the responses and the
+              consistency work are carried inside this engagement, and{' '}
+              <b>there is no reputation line to buy on top of it</b>. If somebody has quoted you
+              for reputation management alongside local SEO, read the two quotes side by side and
+              see how much of the second one is already in the first.
+            </p>
+          </div>
+          <div className="vgrid">
+            <div className="vtile reveal">
+              <h3>The ask, to the quiet majority</h3>
+              <p>
+                The people most motivated to write a review are the ones with a complaint. A
+                customer mid-dispute writes four paragraphs; a satisfied one who paid on time
+                writes nothing. A structured, compliant ask to the happy and silent is what
+                corrects an average built out of complaints. Nothing is written, incentivised or
+                gated, because all three are against platform rules and all three are detectable.
+              </p>
+            </div>
+            <div className="vtile reveal">
+              <h3>The response is the artefact</h3>
+              <p>
+                A negative review is read by the next person considering you, not by the one who
+                wrote it. Every review gets a plain, non-defensive reply written for that reader.
+                It is the piece most businesses skip and the piece that reads loudest.
+              </p>
+            </div>
+            <div className="vtile reveal">
+              <h3>Consistent wherever you appear</h3>
+              <p>
+                Same name, same phone, same service area across every directory and profile
+                somebody lands on. Inconsistency costs ranking, and it also makes a business look
+                smaller and less permanent than it is.{' '}
+                <Link to="/services/reputation-management/">The longer version is here</Link>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="divider" />
+
       {/* ----------------------------------------------------------- the honesty */}
       <section className="sec">
         <div className="wrap">
@@ -203,7 +264,7 @@ export default function PropertySeo() {
               contractor, or asleep, and it leaves as quietly as it came. I would rather tell you
               that at the start than at renewal.{' '}
               <Link to="/property-management-intake/">See the half that answers</Link>, or{' '}
-              <Link to="/the-whole-operation/">see the whole operation</Link>.
+              <Link to="/services/">see how the pieces fit together</Link>.
             </p>
           </div>
         </div>

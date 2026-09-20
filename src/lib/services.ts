@@ -63,14 +63,6 @@ export function serviceHref(s: ServiceListItem): string {
 
 export const SERVICES: ServiceListItem[] = [
   {
-    slug: 'the-whole-operation',
-    name: 'The Whole Operation',
-    tag: 'The Flagship',
-    line: 'Both ends of the same problem, closed in one build. Visibility brings the enquiry, the desk answers and qualifies it, the site holds up when somebody checks, and the record on the first of the month makes all of it arguable rather than claimed.',
-    flag: true,
-    href: '/the-whole-operation/',
-  },
-  {
     slug: 'property-management-seo',
     name: 'Visibility',
     tag: 'The Pin',
@@ -213,7 +205,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
   },
   'website-build': {
     title: 'Website Build, Hosting and Care | HigherMindAI',
-    desc: 'A site with two jobs: keep the routine off your phone line, and hold up when somebody is checking you against two other names. Not a brochure.',
+    desc: 'A site with two jobs: keep the routine off your phone line, and hold up when somebody is checking you against two other names. Starter sites through full rebuilds to custom builds carrying a working tool.',
     h1Lead: 'A site that answers, ',
     h1Em: 'instead of a brochure that does not.',
     sub: 'Your website does two things that matter. It takes the routine off your phone line - the request, the document, the booking, the question you answer forty times a week - so your office is not re-handling all of it by voice. And it holds up when somebody opens it at ten at night with two other names in the other tabs. Every section earns its place against one of those two jobs.',
@@ -223,6 +215,7 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
       ['It absorbs the routine', 'The requests, the documents, the bookings and the same four questions - logged, timestamped and routed to the right person instead of arriving at reception as a phone call. Built as modules, so nothing holds up the launch.'],
       ['It survives a comparison', 'When your name goes on a shortlist, somebody looks all of them up that evening. That page needs your record, your scope and your response standard on it, in the language they have to repeat back to whoever asked them.'],
       ['Fast and findable', 'Built clean and quick, tuned to the same on-page standard I rank profiles on - title, schema, consistent name and phone, a page per service. The site supports the ranking work rather than sitting beside it.'],
+      ['It scales to a working tool', 'Builds run from a small starter site through a full rebuild with a page per service, to custom systems carrying something that actually does a job - a configurator, a parts matcher, a quoting engine, a live catalogue wired to your own stock. Which one you need comes out of the call, against your figures rather than guessed at here.'],
     ],
     process: [
       ['Map the two paths', 'What a customer does on your site, and what somebody checking you up does on it. They are different journeys and most sites serve neither.'],
@@ -231,6 +224,8 @@ export const SERVICE_PAGES: Record<string, ServicePageData> = {
       ['Launch', 'You approve it, it goes live, and ongoing care keeps it fast, secure and current.'],
     ],
     faq: [
+      ['How much does a website build cost?', 'That comes out of the call, on your figures rather than mine, and I will have a number for you inside the nine minutes. What decides it is honest to say in advance: how many pages the business actually needs, whether a page per service is required for the ranking work, and above all whether the site has to carry a working tool rather than just read well. A five-page site and a site running a live parts matcher are not the same job and pricing them the same way would be dishonest in one direction or the other.'],
+      ['Can you repair the site I have instead of rebuilding it?', 'Often, yes, and I will say so if that is the right call. Where the existing site is structurally sound and you intend to keep it, the work is a repair rather than a build - the on-page and schema corrected, speed fixed, the intake path added. I would rather do that than talk you into a rebuild you did not need.'],
       ['Is the website enough to get me ranked?', 'No. The site supports ranking, but the local pack is its own system. The two work together; on its own the site is the destination, not the reason anyone arrives at it.'],
       ['Do I have to take the extra modules?', 'No. They are built separately, and a business whose office is not drowning in routine requests does not need them. I would rather tell you that than sell you something nobody logs into.'],
       ['Will I be able to make edits?', 'Care and hosting keep the site fast, secure and current. Tell me what needs changing and it gets handled.'],

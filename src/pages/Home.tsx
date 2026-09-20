@@ -416,17 +416,18 @@ export default function Home() {
           <div className="flag-grid">
             <div>
               <div className="sec-head left reveal" style={{ marginBottom: 28 }}>
-                <span className="eyebrow"><span className="n">06</span> The flagship</span>
+                <span className="eyebrow"><span className="n">06</span> The loop</span>
                 <h2 style={{ marginTop: 22 }}>Welded together, it is one loop. <span className="em">Demand in, booked work out.</span></h2>
                 <p className="lead">
-                  Each piece above stands on its own and can be bought on its own. Together they are
-                  a closed loop: visibility brings the enquiry, the desk answers and qualifies it,
-                  and the report on the first of the month proves both. One name, one build, and the order changes with the
-                  trade - some businesses are bleeding harder at the front and some at the back.
+                  Each piece above stands on its own and is bought on its own. Together they close
+                  a loop: visibility brings the enquiry, the desk answers and qualifies it, and the
+                  report on the first of the month proves both did their job. Start on the end that
+                  is bleeding hardest and add the other when you want it - the order changes with
+                  the trade, and nothing is priced higher for arriving second.
                 </p>
               </div>
               <div className="ctas reveal">
-                <Link to="/the-whole-operation/" className="btn btn-primary">The Whole Operation <Arrow /></Link>
+                <Link to="/services/" className="btn btn-primary">See every line <Arrow /></Link>
               </div>
             </div>
             <div className="stg-wrap reveal">
