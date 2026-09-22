@@ -5,50 +5,60 @@ import CTAStrip from '../components/CTAStrip';
 import RecordTicker from '../components/RecordTicker';
 import { RecordStage } from '../components/Stages';
 import { Arrow } from '../components/Icons';
-import { PHONE_E164, PHONE_DISP } from '../lib/site';
-import { RECORD_LOCK } from '../lib/property';
+import { CTA_LABEL, CTA_HREF, FOUNDATION } from '../lib/ladder';
 import { featurePageSchema, faqSchema, breadcrumbs } from '../lib/schema';
+
+/*
+ * The Record is "measured" - the fourth word in The Foundation's line (found,
+ * trusted, answered, measured). It is how the owner SEES what the work did,
+ * never the headline and never sold on its own. Nobody buys reporting; they
+ * buy more calls and more time, and this is how they know they got them.
+ */
 
 const URL = '/the-record/';
 
 const DESC =
-  'Every contact logged with the time it came in and the time it was answered, and a monthly report written to be tabled at a board meeting without editing.';
+  'Inside The Foundation: every call and form counted, with when it came in and what happened next, so you see exactly what the work did. Never sold separately.';
 
 const RECORD_FAQ: [string, string][] = [
   [
-    'What is in the monthly report?',
-    'What came in, through which channel, how fast it was answered, what happened next, and what it produced. It is written to be forwarded to an owner or tabled at a board meeting without editing - which is a design constraint, not a slogan. If it needs rewriting before it can be shown to anybody, it has failed.',
+    'What does "measured" actually mean?',
+    'Every call and every form that comes through the channels I build is counted, with the time it came in, whether it was answered, and what happened next. So when something changes, you see it as a number with a date on it rather than a feeling.',
+  ],
+  [
+    'Is this sold on its own?',
+    'No. It sits inside The Foundation, alongside the profile, the social pages and the desk, and it comes with The Storefront too. It is not a line on the invoice and it is not an upgrade. Work that cannot be seen is work you are taking on faith, and I would rather you did not have to.',
   ],
   [
     'Who decides what counts as answered?',
-    'You do, at kickoff, before go-live. Your response standard gets set first so the report measures your standard rather than mine. A firm managing eleven corporations and a firm managing two do not have the same threshold and should not be scored against one.',
+    'You do, at kickoff, before anything goes live. You set what answered means for your business, so the count measures your standard rather than mine. A roofer and a collision shop do not have the same threshold and should not be scored against one.',
   ],
   [
-    'Can I export it if a specific date is in dispute?',
-    'Yes. The contact log is continuous and searchable, and it exports. That is the entire point of it: when a resident says he called three times on a particular evening, you should be able to answer with a record rather than a recollection.',
+    'Can I look up a specific date?',
+    'Yes. The contact log is continuous and searchable, and it exports. When a customer says he called three times on a particular evening, you can answer with a record rather than a recollection.',
   ],
   [
-    'Does the record cover calls my own staff answered?',
-    'It covers every contact that comes through the channels I build - the site, the chat desk and the voice desk. Contacts handled entirely on a staff mobile outside those channels are not captured, and I will not claim otherwise. In practice the after-hours and overflow traffic is where the disputes come from, and that is exactly what runs through the desk.',
+    'Does it count calls my own staff answered?',
+    'It counts every contact that comes through the channels I build - the site, the web desk and the phone desk. Contacts handled entirely on a staff mobile outside those channels are not captured, and I will not claim otherwise. The nights, the weekends and the overflow are where the missed work usually hides, and that is exactly what runs through the desk.',
   ],
 ];
 
 const SCENARIOS: [string, string][] = [
   [
-    'The resident who called three times',
-    'He may well have. Without a log you are arguing recollection against recollection in front of a board, and recollection loses to confidence every time.',
+    'Where every enquiry came from',
+    'Phone, form, Google profile or site: each contact counted by where it arrived, so you know which part of the work is doing the lifting.',
   ],
   [
-    'The board that wants to know who knew what',
-    'A timestamped record of the contact, the triage decision and the routing turns a difficult meeting into a document you hand across the table.',
+    'What the desk caught while you were on a job',
+    'The enquiries that arrived on a roof, under a car or after you locked up, and what happened to each one. This is usually the number that surprises people.',
   ],
   [
-    'The owner asking why the unit sat empty',
-    'Enquiry volume, response times and outcomes, month over month. The answer stops being defensive and becomes evidence.',
+    'The customer who called three times',
+    'He may well have. Without a log you are arguing recollection against recollection. With one, you look it up.',
   ],
   [
-    'The renewal you should win and nearly lose',
-    'Firms are replaced over perceived responsiveness far more often than over fees. This is the only thing that makes responsiveness a number.',
+    'Whether it is time for The Tap',
+    'Paid campaigns go on last, and only once every call and form is counted. The count is what tells you the ground is ready, and later, what the spend actually sold.',
   ],
 ];
 
@@ -56,16 +66,16 @@ export default function TheRecord() {
   return (
     <main>
       <Seo
-        title="The Record: Intake Logs & Board Reports | HigherMindAI"
+        title="The Record: Every Call and Form Counted | HigherMindAI"
         desc={DESC}
         path={URL}
         schema={[
-          /* Not a Service. The Record is the reporting inside the managed
-             lines and is never sold or quoted on its own. */
-          featurePageSchema('The Record - Timestamped Intake Logging and Reporting', DESC, URL),
+          /* Not a Service. The Record is the counting inside The Foundation
+             and is never sold or quoted on its own. */
+          featurePageSchema('The Record - every call and form counted, inside The Foundation', DESC, URL),
           breadcrumbs([
             ['Home', '/'],
-            ['Property Management', '/property-management/'],
+            ['How it works', '/how-it-works/'],
             ['The Record', URL],
           ]),
           faqSchema(RECORD_FAQ),
@@ -74,29 +84,27 @@ export default function TheRecord() {
 
       <section className="phero">
         <div className="wrap">
-          <span className="eyebrow reveal">The Record - prove it</span>
+          <Link to={FOUNDATION.href} className="eyebrow reveal">
+            Inside The Foundation &middot; measured
+          </Link>
           <h1 className="reveal">
-            Your exposure is almost never the event.{' '}
-            <span className="em">It is the account of the event.</span>
+            See exactly what it did.{' '}
+            <span className="em">Every call and form, counted.</span>
           </h1>
           <p className="sub reveal">
-            Every contact logged with the time it came in and the time it was answered, plus a
-            monthly report written to be forwarded to an owner or tabled at a board meeting without
-            editing. Firms are replaced over perceived responsiveness far more often than over fees,
-            and this is the only engine that turns responsiveness into a number you can put in front
-            of somebody. It ships inside every managed line I run and is never sold on its own.
+            The Foundation is found, trusted, answered, measured. This is the measured part. Every
+            call and every form is counted, with when it came in and what happened next, so when the
+            phone rings more you can see it rather than guess at it. It sits inside The Foundation
+            and is never sold on its own.
           </p>
           <div className="ctas reveal">
-            <Link to="/book/" className="btn btn-primary">
-              Book a call <Arrow />
+            <Link to={CTA_HREF} className="btn btn-primary">
+              {CTA_LABEL} <Arrow />
             </Link>
-            <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
-              Call {PHONE_DISP}
-            </a>
           </div>
           <p className="trustline reveal">
-            Timestamped in and answered &middot; A monthly report you can forward unedited &middot;
-            From month one.
+            Every call and form counted &middot; What happened next, written down &middot; Inside
+            The Foundation, never a separate line.
           </p>
         </div>
       </section>
@@ -127,11 +135,11 @@ export default function TheRecord() {
       <section className="sec">
         <div className="wrap">
           <div className="vcard reveal">
-            <div className="vlab">Why this engine exists</div>
+            <div className="vlab">Why it is built this way</div>
             <div className="vbig">
               I spent years in a job where{' '}
               <b>an incident was only ever as good as the record of it.</b> That is not a credential
-              I lead with, but it is the reason this engine is built the way it is.
+              I lead with, but it is the reason every call gets counted from the first day.
             </div>
           </div>
         </div>
@@ -143,8 +151,8 @@ export default function TheRecord() {
       <section className="sec">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">Four rooms this ends up in</span>
-            <h2>None of them are sales conversations.</h2>
+            <span className="eyebrow">What you get to see</span>
+            <h2>The work, as numbers with dates on them.</h2>
           </div>
           <div className="vgrid four">
             {SCENARIOS.map(([h, b]) => (
@@ -163,33 +171,32 @@ export default function TheRecord() {
       <section className="sec">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">What lands, and when</span>
-            <h2>Three deliverables, and one of them is yours to set.</h2>
+            <span className="eyebrow">What sits inside it</span>
+            <h2>Three pieces, and one of them is yours to set.</h2>
           </div>
           <div className="vgrid">
             <div className="vtile feat reveal">
-              <div className="vt-n">Monthly</div>
-              <h3>The monthly report</h3>
+              <div className="vt-n">Continuous</div>
+              <h3>The count</h3>
               <p>
-                What came in, through which channel, how fast it was answered, what happened next, and
-                what it produced. Written to be forwarded to an owner or tabled at a board meeting
-                without editing.
+                Every call and form through the channels I build, counted as it arrives: where it
+                came from, whether it was answered, and what happened next.
               </p>
             </div>
             <div className="vtile reveal">
-              <div className="vt-n">Continuous</div>
+              <div className="vt-n">On demand</div>
               <h3>The contact log</h3>
               <p>
-                Every intake event with a timestamp in and a timestamp answered. Searchable, and
-                exportable when a specific date is in question.
+                Every enquiry with a time in and a time answered. Searchable, and exportable when a
+                specific date is in question.
               </p>
             </div>
             <div className="vtile reveal">
               <div className="vt-n">At kickoff</div>
-              <h3>The response standard</h3>
+              <h3>What answered means</h3>
               <p>
-                You set what &ldquo;answered&rdquo; means for your firm before go-live, so the report
-                measures your standard rather than mine.
+                You set what &ldquo;answered&rdquo; means for your business before anything goes live,
+                so the count measures your standard rather than mine.
               </p>
             </div>
           </div>
@@ -198,24 +205,21 @@ export default function TheRecord() {
 
       <div className="divider" />
 
-      {/* ------------------------------------------------------------ the moat */}
       <section className="sec">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">The moat</span>
+            <span className="eyebrow">Where this sits</span>
             <h2>
-              Ranking can be bought from anyone.{' '}
-              <span className="em">This cannot.</span>
+              More calls is the point.{' '}
+              <span className="em">This is how you know you got them.</span>
             </h2>
             <p className="lead">
-              A defensible record of every contact your firm has received, structured for a board
-              table, is a different category of thing - and once a firm has twelve months of it, it
-              is not going back. That is the honest reason this engine ships with every
-              configuration rather than being sold as an upgrade.{' '}
-              <Link to="/services/">See what it ships alongside</Link>.
+              {FOUNDATION.see[2]}. It sits inside{' '}
+              <Link to={FOUNDATION.href}>The Foundation</Link> with the profile, the social pages and
+              the desk, and comes with The Storefront too. The whole order is on{' '}
+              <Link to="/how-it-works/">how it works</Link>.
             </p>
           </div>
-          <p className="note reveal">{RECORD_LOCK}</p>
         </div>
       </section>
 
@@ -232,8 +236,8 @@ export default function TheRecord() {
       </section>
 
       <CTAStrip
-        head={<>Ask me what your firm could prove today.</>}
-        sub="Nine minutes. If a board asked you tonight how fast the last thirty contacts were answered, could you tell them? That question is the whole pitch, and the answer is usually no."
+        head={<>Find out what your phone <span className="em">is missing now.</span></>}
+        sub="Nine minutes. I will already have called you as a customer, and I will read you what happened."
       />
     </main>
   );

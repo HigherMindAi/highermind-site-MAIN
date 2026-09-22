@@ -36,7 +36,7 @@ export default function ServiceAreaMap({ c }: { c: City }) {
         role="img"
         aria-label={`Service area chart centred on ${c.city}, ${rfull}${
           pts.length
-            ? `, showing the nearest markets I also rank in: ${pts
+            ? `, showing the nearest towns I also work in: ${pts
                 .map((p) => p.n.city.city)
                 .join(', ')}.`
             : '.'
@@ -91,7 +91,7 @@ export default function ServiceAreaMap({ c }: { c: City }) {
 
       <div className="samap-legend">
         <span className="samap-key samap-key-here">{c.city}, {c.region}</span>
-        {pts.length > 0 && <span className="samap-key samap-key-near">Markets I also rank in</span>}
+        {pts.length > 0 && <span className="samap-key samap-key-near">Nearby towns I also work in</span>}
       </div>
     </div>
   );

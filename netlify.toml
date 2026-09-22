@@ -10,6 +10,31 @@
 
 # SEPTEMBER 2026 - legal book retired. These three were live, indexed pages.
 # Never a blanket redirect to the homepage: Google reads that as a soft 404.
+# v15 - the ladder. Mirrors public/_redirects.
+[[redirects]]
+  from = "/services"
+  to = "/how-it-works/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/"
+  to = "/how-it-works/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/answers/what-is-an-ai-receptionist/"
+  to = "/answers/what-is-a-virtual-receptionist/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/answers/what-is-an-ai-receptionist"
+  to = "/answers/what-is-a-virtual-receptionist/"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/the-watershed"
   to = "/who-i-help/"
@@ -52,25 +77,25 @@
 # REPOINTED at /services/ rather than chained through the retired slug.
 [[redirects]]
   from = "/the-keystone"
-  to = "/services/"
+  to = "/how-it-works/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/the-keystone/"
-  to = "/services/"
+  to = "/how-it-works/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/the-whole-operation"
-  to = "/services/"
+  to = "/how-it-works/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/the-whole-operation/"
-  to = "/services/"
+  to = "/how-it-works/"
   status = 301
   force = true
 

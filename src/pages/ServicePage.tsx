@@ -4,12 +4,23 @@ import FAQ from '../components/FAQ';
 import CTAStrip from '../components/CTAStrip';
 import NotFound from './NotFound';
 import { Arrow } from '../components/Icons';
-import { SERVICES, LADDER, SERVICE_PAGES, PHASE_LABELS, serviceHref } from '../lib/services';
-import { CITIES, cityPath } from '../lib/cities';
-import { PHONE_E164, PHONE_DISP } from '../lib/site';
+import { SERVICES, SERVICE_PAGES, PHASE_LABELS } from '../lib/services';
+import { LINE_TO_STEP, CTA_LABEL, CTA_HREF } from '../lib/ladder';
 import { serviceSchema, featurePageSchema, breadcrumbs, faqSchema } from '../lib/schema';
 
-const accentTeal = { color: 'var(--teal)' } as const;
+/**
+ * One delivery line, shown as what it is: a part of a step, never a thing to
+ * pick on its own. The page opens on the step it sits inside (from
+ * LINE_TO_STEP, keyed by slug), links that tag to the step on /how-it-works/,
+ * and closes on the nine minutes. No menu of the other lines, no second CTA.
+ */
+
+/** The tag above the H1. The Tap and the add-ons read differently on purpose. */
+function stepTag(step: string): string {
+  if (step === 'The Tap') return 'The Tap - last, always';
+  if (step === 'After you have chosen') return 'After you have chosen';
+  return `Inside ${step}`;
+}
 
 export default function ServicePage() {
   const { slug = '' } = useParams();
@@ -19,6 +30,9 @@ export default function ServicePage() {
 
   const name = meta.name;
   const url = `/services/${slug}/`;
+  const where = LINE_TO_STEP[slug] ?? { step: 'The Foundation', href: '/how-it-works/#the-foundation' };
+  const tag = stepTag(where.step);
+  const isAfter = where.step === 'After you have chosen';
 
   return (
     <main>
@@ -27,12 +41,12 @@ export default function ServicePage() {
         desc={d.desc}
         path={url}
         schema={[
-          /* A line retired from the ladder keeps its page and its rankings
-             but stops claiming to be an offer. */
+          /* A line retired as its own offer keeps its page and its rankings
+             but stops claiming to be one. */
           meta.hidden
             ? featurePageSchema(`${name} - how it is carried`, d.desc, url)
             : serviceSchema(name, d.desc, url),
-          breadcrumbs([['Home', '/'], ['Services', '/services/'], [name, url]]),
+          breadcrumbs([['Home', '/'], ['How it works', '/how-it-works/'], [name, url]]),
           faqSchema(d.faq),
         ]}
       />
@@ -41,21 +55,20 @@ export default function ServicePage() {
         <div className="wrap">
           <div className="reveal">
             <div className="crumb">
-              <Link to="/">Home</Link> &nbsp;/&nbsp; <Link to="/services/">Services</Link> &nbsp;/&nbsp; {name}
+              <Link to="/">Home</Link> &nbsp;/&nbsp; <Link to="/how-it-works/">How it works</Link> &nbsp;/&nbsp; {name}
             </div>
-            <span className="eyebrow">{d.eyebrow}</span>
+            <Link to={where.href} className="eyebrow">
+              {tag}
+            </Link>
             <h1>
               {d.h1Lead}
               <span className="em">{d.h1Em}</span>
             </h1>
             <p className="sub">{d.sub}</p>
-            <div className="ctas" style={{ marginTop: 34, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-              <Link to="/book/" className="btn btn-primary">
-                Book a call <Arrow />
+            <div className="ctas" style={{ marginTop: 34 }}>
+              <Link to={CTA_HREF} className="btn btn-primary">
+                {CTA_LABEL} <Arrow />
               </Link>
-              <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
-                Call {PHONE_DISP}
-              </a>
             </div>
           </div>
         </div>
@@ -66,8 +79,8 @@ export default function ServicePage() {
       <section className="sec">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">Why it works</span>
-            <h2>What you&rsquo;re actually getting.</h2>
+            <span className="eyebrow">{d.eyebrow}</span>
+            <h2>What sits inside it.</h2>
           </div>
           <div className="vgrid">
             {d.values.map(([t, p], i) => (
@@ -86,9 +99,9 @@ export default function ServicePage() {
       <section className="sec">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">The process</span>
+            <span className="eyebrow">The work</span>
             <h2>
-              A repeatable system - <span style={accentTeal}>not a one-off push.</span>
+              Done in order, <span className="em">then held.</span>
             </h2>
           </div>
           <div className="steps reveal">
@@ -109,7 +122,7 @@ export default function ServicePage() {
         <div className="wrap">
           <div className="sec-head reveal">
             <span className="eyebrow center">Questions</span>
-            <h2>Before you call.</h2>
+            <h2>Before the nine minutes.</h2>
           </div>
           <FAQ items={d.faq} />
         </div>
@@ -117,38 +130,32 @@ export default function ServicePage() {
 
       <div className="divider" />
 
-      {/* The reverse mesh: every service page feeds the city pages, and they feed back. */}
       <section className="sec-sm">
-        <div className="wrap">
+        <div className="wrap narrow">
           <div className="reveal">
-            <span className="eyebrow">Where I work</span>
-            <h2 style={{ marginTop: 24, fontSize: 'clamp(26px,3.2vw,38px)' }}>
-              Based in Erin. <span className="em">Ranking businesses across Canada.</span>
-            </h2>
-          </div>
-          <div className="mesh reveal">
-            <span className="mesh-lab">Local SEO by city</span>
-            {CITIES.map((c) => (
-              <Link key={c.slug} to={cityPath(c.slug)}>
-                {c.city}
-              </Link>
-            ))}
-          </div>
-          <div className="mesh reveal">
-            <span className="mesh-lab">The rest of the system</span>
-            {LADDER.filter((x) => x.slug !== slug).map((x) => (
-              <Link key={x.slug} to={serviceHref(x)}>
-                {x.name}
-              </Link>
-            ))}
-            <Link to="/proof/">Proof</Link>
+            <span className="eyebrow">Where this sits</span>
+            <p className="sub" style={{ marginTop: 18 }}>
+              {isAfter ? (
+                <>
+                  This is offered after you have chosen a step, never as the step itself. The
+                  order - The Read, The Pin, The Foundation, The Storefront, and The Tap last - is
+                  on <Link to="/how-it-works/#after">how it works</Link>.
+                </>
+              ) : (
+                <>
+                  {name} is not sold on its own. It sits inside{' '}
+                  <Link to={where.href}>{where.step}</Link>, and the whole order is on{' '}
+                  <Link to="/how-it-works/">how it works</Link>.
+                </>
+              )}
+            </p>
           </div>
         </div>
       </section>
 
       <CTAStrip
-        head={<>Ready to put <span className="em">{name}</span> to work?</>}
-        sub="Tell me your business and your city. I will tell you the most direct path to the result - and whether I can win it."
+        head={<>Which step fits <span className="em">where you are.</span></>}
+        sub="Nine minutes. I will already have looked at what you have, and each step has a fixed price, said plainly once I have seen it."
       />
     </main>
   );

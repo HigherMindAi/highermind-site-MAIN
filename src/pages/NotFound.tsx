@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import { Arrow } from '../components/Icons';
+import { CTA_LABEL, CTA_HREF } from '../lib/ladder';
 
 export default function NotFound() {
   return (
@@ -15,24 +16,16 @@ export default function NotFound() {
           <div className="reveal">
             <span className="eyebrow">404</span>
             <h1>
-              That page isn&rsquo;t <span className="em">ranking here.</span>
+              That page is not <span className="em">here any more.</span>
             </h1>
             <p className="sub">
-              The link you followed has moved or never existed. Let&rsquo;s get you back to something
-              useful.
+              The link you followed has moved or never existed. Go back to the{' '}
+              <Link to="/">home page</Link>, or see the order the work is done in on{' '}
+              <Link to="/how-it-works/">how it works</Link>.
             </p>
-            <div className="ctas" style={{ marginTop: 34, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-              <Link to="/" className="btn btn-primary">
-                Back home <Arrow />
-              </Link>
-              <Link to="/services/" className="btn btn-ghost">
-                Every line
-              </Link>
-              <Link to="/who-i-help/" className="btn btn-ghost">
-                Who I help
-              </Link>
-              <Link to="/book/" className="btn btn-ghost">
-                Book a call
+            <div className="ctas" style={{ marginTop: 34 }}>
+              <Link to={CTA_HREF} className="btn btn-primary">
+                {CTA_LABEL} <Arrow />
               </Link>
             </div>
           </div>

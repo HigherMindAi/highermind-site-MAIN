@@ -2,71 +2,36 @@ import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import FAQ from '../components/FAQ';
 import CTAStrip from '../components/CTAStrip';
-import { Arrow } from '../components/Icons';
-import { PHONE_E164, PHONE_DISP } from '../lib/site';
+import Plate from '../components/Plate';
+import { Arrow, Go } from '../components/Icons';
 import {
-  PROPERTY_FAQ, PROPERTY_PROOF,
-  RANK_LOCK, LAUNCH_LOCK, RECORD_LOCK, NO_DOORS_PROMISE, LAUNCH_WINDOW,
+  PROPERTY_FAQ, RANK_LOCK, LAUNCH_LOCK, NO_DOORS_PROMISE,
 } from '../lib/property';
-import { TrustStage } from '../components/Stages';
+import {
+  CTA_LABEL, CTA_HREF, STEPS, READ, TAP, TAP_LINE, FLIP, PIN, FOUNDATION, PROOF_PLAIN, LADDER_FAQ,
+} from '../lib/ladder';
+import { TrustStage, NightShiftStage } from '../components/Stages';
 import { CITIES, cityPath, LOCATIONS_HUB } from '../lib/cities';
 import { orgSchema, serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
+
+// ---------------------------------------------------------------------------
+// /property-management/ - a live vertical, secondary to the three the outreach
+// dials. v15: the four old "engines" are now shown as what sits INSIDE the
+// ladder steps - visibility and reviews inside The Pin, the desk and the record
+// inside The Foundation. The empty story (they cannot find you) and the leaky
+// story (nobody answers) each get their own section and never share one.
+// ---------------------------------------------------------------------------
 
 const URL = '/property-management/';
 
 const DESC =
-  'Ranking, intake, records and reviews for property management firms across the US and Canada. Own the channel instead of renting leads. One firm per market.';
+  'Local SEO, reviews and an intake desk for property management firms. Found by owners, answered when you cannot, every enquiry counted. Own the channel.';
 
-// Schema description carries NO rate. A figure in structured data can be cached
-// into a rich result against me; visible copy changes in one deploy. See property.ts.
+// Schema description carries NO rate. See property.ts.
 const SCHEMA_DESC =
-  'Ranking, intake, records and reviews for property and community association management firms across the United States and Canada. Local visibility, an intake desk that answers and qualifies every owner enquiry, a timestamped record of every contact, and reputation work.';
+  'Local search, reviews and intake for property and community association management firms across Canada and the United States. The Google profile rebuilt and held, an intake desk that answers and qualifies every owner enquiry, and every call and form counted.';
 
-const ENGINES: [string, string, string, string][] = [
-  [
-    'Visibility',
-    'Visibility. Where you actually come up.',
-    'The traffic half, with two ways into it. Organic is your Google Business Profile claimed and rebuilt, every service named the way owners actually search for it, your real service area mapped properly, and a site you own. Paid is the tap, layered over the top when volume is needed faster than ranking can deliver. Organic first because it compounds and you keep it.',
-    '/property-management-seo/',
-  ],
-  [
-    'Intake',
-    'Intake. One desk, two channels.',
-    'Ranking creates enquiries. It does not answer them, and in this industry that gap is wider than in almost any other, because a large share of your inbound arrives outside office hours from people who have a problem rather than a question. Answered and qualified from your own documents, triaged on your criteria, logged, and routed to a licensed manager.',
-    '/property-management-intake/',
-  ],
-  [
-    'The Record',
-    'The Record. Timestamped logs and board reports.',
-    'Every contact with the time it arrived and the time it was answered, plus a monthly report written to be forwarded to an owner or tabled at a board meeting without editing. In property management your exposure is almost never the event. It is the account of the event.',
-    '/the-record/',
-  ],
-  [
-    'Reputation',
-    'Reputation. Reviews and response, carried inside the visibility work.',
-    'Property management has a structural reputation problem almost no other industry shares: the people most motivated to review you are not the people who pay you. A tenant with a maintenance complaint writes four paragraphs. A satisfied owner collecting rent quietly for three years writes nothing at all. The engine is volume, timing and response quality - and it is carried inside the visibility engagement rather than billed as a line of its own.',
-    '/services/reputation-management/',
-  ],
-];
-
-const LEAKS: [string, string][] = [
-  [
-    'They cannot find you',
-    'An owner with a rental to hand over searches, reads the first three results, and calls two of them. If you are not in that pack you were never in the running, and you will never know the enquiry existed.',
-  ],
-  [
-    'They find you and nobody answers',
-    'The enquiry lands after six, or during a showing, or while you are on the phone to a contractor. It goes to voicemail. He does not leave one. He calls the next firm, who does answer, and that door is gone permanently.',
-  ],
-  [
-    'You cannot prove what happened',
-    'A resident says he called three times. A board wants to know who was told what and when. An owner wants to know why his unit sat empty for six weeks. Without a record you are defending your firm from memory.',
-  ],
-  [
-    'Your reputation is written by the wrong people',
-    'Your reviews come from tenants during their worst week, not from the owners who are happy. An average built from complaints costs you owners who never contacted you at all, and it costs you board work outright.',
-  ],
-];
+const FAQS: [string, string][] = [...PROPERTY_FAQ, LADDER_FAQ[0]];
 
 export default function PropertyManagement() {
   return (
@@ -78,12 +43,12 @@ export default function PropertyManagement() {
         schema={[
           orgSchema(),
           serviceSchema(
-            'Marketing, Ranking and AI Intake for Property Management Companies',
+            'Local Search, Reviews and Intake for Property Management Companies',
             SCHEMA_DESC,
             URL
           ),
           breadcrumbs([['Home', '/'], ['Property Management', URL]]),
-          faqSchema(PROPERTY_FAQ),
+          faqSchema(FAQS),
         ]}
       />
 
@@ -94,22 +59,20 @@ export default function PropertyManagement() {
             You are renting leads. <span className="em">I build the position you keep.</span>
           </h1>
           <p className="sub reveal">
-            Most firms your size buy owner leads from a pay-per-lead service. They are frequently
-            shared with your competitors, they cost the same every month forever, and the day you
-            stop paying they stop completely. Three years of payments leaves nothing behind. Same
-            budget line, different ending.
+            For property and condominium management firms. Most firms your size buy owner leads from
+            a pay-per-lead service. They are frequently shared with your competitors, they cost the
+            same every month forever, and the day you stop paying they stop completely. I get your
+            firm found by owners searching for a manager, answered when you cannot pick up, and
+            every enquiry counted. <b>Same budget line, different ending.</b>
           </p>
           <div className="ctas reveal">
-            <Link to="/book/" className="btn btn-primary">
-              Book a call <Arrow />
+            <Link to={CTA_HREF} className="btn btn-primary">
+              {CTA_LABEL} <Arrow />
             </Link>
-            <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
-              Call {PHONE_DISP}
-            </a>
           </div>
           <p className="trustline reveal">
-            Answered and qualified &middot; {LAUNCH_WINDOW} &middot; Built from inside a property
-            operation.
+            Found by owners &middot; Answered when you cannot &middot; Built from inside a property
+            operation
           </p>
         </div>
       </section>
@@ -129,9 +92,9 @@ export default function PropertyManagement() {
               Almost every business I could work with sells a job. You sell a relationship that
               renews every month for years. That single difference is why this is built the way it
               is, and why buying one-off campaigns has never worked properly for firms like yours.
-              Full residential management runs eight to twelve percent of collected rent, and
-              roughly ten percent is common across the GTA. Tenant placement is charged separately
-              at half to a full month&rsquo;s rent every time a unit turns.
+              Full management is a share of collected rent, and placement is charged again every
+              time a unit turns - so one owner kept for years is worth far more than the first month
+              suggests.
             </p>
           </div>
 
@@ -143,8 +106,7 @@ export default function PropertyManagement() {
                   <b>What one door is worth to you</b>
                   <br />
                   <span style={{ opacity: 0.62 }}>
-                    Your fee percentage, your average rent, your placement fee. Yours, not a market
-                    average.
+                    Your fee, your average rent, your placement fee. Yours, not a market average.
                   </span>
                 </li>
                 <li>
@@ -156,7 +118,7 @@ export default function PropertyManagement() {
                   </span>
                 </li>
                 <li>
-                  <b>What the system has to return to be worth it</b>
+                  <b>What the work has to return to be worth it</b>
                   <br />
                   <span style={{ opacity: 0.62 }}>
                     Worked out live, on your figures, so you can challenge any number as it goes in.
@@ -164,10 +126,10 @@ export default function PropertyManagement() {
                 </li>
               </ul>
               <p className="tp-note">
-                I do not publish a rate here on purpose. A price before a diagnosis invites a
-                comparison against a quote for something else, and anchors the conversation to a
-                figure chosen before anything was known about your firm. Nine minutes and you have
-                the number.
+                Each step has a fixed price, said plainly on the nine minutes once I have seen what
+                you have. A price before a diagnosis invites a comparison against a quote for
+                something else, and anchors the conversation to a figure chosen before anything was
+                known about your firm.
               </p>
             </div>
             <div className="vcard reveal">
@@ -183,82 +145,139 @@ export default function PropertyManagement() {
 
       <div className="divider" />
 
-      {/* ---------------------------------------------------- where it leaks */}
-      <section className="sec">
+      {/* -------------------------------------------------------- the ladder */}
+      <section className="sec" id="engines">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">Where it goes</span>
-            <h2>Where a firm like yours actually leaks.</h2>
+            <span className="eyebrow">Three steps, in order</span>
+            <h2>
+              Found, then answered, <span className="em">then the site, then the ads.</span>
+            </h2>
             <p className="lead">
-              The losses are never in one place. They are in four, and fixing one while the other
-              three stay open is why agency work so often produces nothing you can feel.
+              The way in is <Link to={READ.href}>{READ.name}</Link>: everything your firm has online,
+              gone through properly in a week, with what is wrong ranked by what it costs you. Then
+              three steps, always in this order. Visibility and reviews sit inside The Pin. The
+              intake desk and the record of every call and form sit inside The Foundation. The site
+              is The Storefront.
             </p>
           </div>
-          <div className="vgrid four">
-            {LEAKS.map(([h, b], i) => (
-              <div className="vtile reveal" key={h}>
-                <div className="vt-n">{String(i + 1).padStart(2, '0')}</div>
-                <h3>{h}</h3>
-                <p>{b}</p>
-              </div>
+          <div className="ladder">
+            {STEPS.map((s, i) => (
+              <Link key={s.key} to={s.href} className="svc reveal">
+                <div className="si">{String(i + 1).padStart(2, '0')}</div>
+                <div className="sbody">
+                  <span className="sn">{s.position}</span>
+                  <h3>{s.name}</h3>
+                  <p>{s.line}</p>
+                </div>
+                <Go />
+              </Link>
             ))}
           </div>
-          <p className="note reveal">
-            Why these four and not a longer list: because they are sequential, and each one wastes
-            the one before it. Ranking without intake means paying to generate calls nobody
-            answers. Intake without a record means solving the problem and still losing the
-            argument. A record without reputation means running a tight firm that boards screen out
-            on a star rating.
+          <p className="lead reveal">
+            <Link to={TAP.href}>{TAP.name}</Link> comes last, always. {TAP_LINE}
           </p>
         </div>
       </section>
 
       <div className="divider" />
 
-      {/* --------------------------------------------------- the four engines */}
-      <section className="sec" id="engines">
+      {/* --------------------------------------------- empty: nobody finds you */}
+      <section className="sec">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">The four engines</span>
+            <span className="eyebrow">
+              <span className="n">01</span> Well run, and owners cannot find you &middot; inside {PIN.name}
+            </span>
             <h2>
-              Four places a firm like yours loses an owner.{' '}
-              <span className="em">One engine each.</span>
+              {FLIP.empty.hook.split('. ')[0]}.{' '}
+              <span className="em">Almost nobody does.</span>
             </h2>
+            <p className="lead">
+              An owner with a rental to hand over searches, reads the first few results, and calls
+              two of them. If you are not in that pack you were never in the running, and you will
+              never know the enquiry existed. Your reviews make it worse: they come from tenants
+              during their worst week, not from the owners who are happy. An average built from
+              complaints costs you owners who never contacted you at all.
+            </p>
           </div>
-          <div className="steps">
-            {ENGINES.map(([name, job, body, href], i) => (
-              <div className="step reveal" key={name}>
-                <div className="sn">Engine {String(i + 1).padStart(2, '0')}</div>
-                <h3>{name}</h3>
-                <p style={{ color: 'var(--faint)', marginBottom: 10 }}>{job}</p>
-                <p>{body}</p>
-                <p style={{ marginTop: 16 }}>
-                  <Link to={href}>
-                    {i === 3 ? 'See it inside the Keystone' : `See ${name}`}
-                  </Link>
-                </p>
-              </div>
-            ))}
-          </div>
-          <div className="prod-cols" style={{ margin: '36px 0 4px' }}>
+          <div className="prod-cols">
+            <div>
+              <ul className="plist reveal">
+                <li>
+                  Your Google profile claimed and rebuilt against the firms above you, every service
+                  named the way owners actually search for it, and your real service area mapped
+                  properly.
+                </li>
+                <li>
+                  Every review answered, and new ones asked for properly from the owners and quiet
+                  residents who never think to leave one. Carried inside The Pin, never billed
+                  beside it.
+                </li>
+                <li>{RANK_LOCK}</li>
+              </ul>
+              <p className="lead reveal">
+                <Link to="/property-management-seo/">How visibility is built for a management firm</Link>.
+              </p>
+            </div>
             <div className="stg-wrap reveal">
               <TrustStage />
             </div>
-            <div className="vcard reveal">
-              <div className="vlab">Engine 04, drawn</div>
-              <div className="vbig">
-                Eleven reviews means one bad month defines you.{' '}
-                <b>A hundred and forty means it does not.</b> The engine does not change who wrote
-                the first eleven - it changes who writes the next hundred.
-              </div>
+          </div>
+          <div className="vcard reveal" style={{ marginTop: 32 }}>
+            <div className="vlab">Reviews, drawn</div>
+            <div className="vbig">
+              Eleven reviews means one bad month defines you.{' '}
+              <b>A hundred and forty means it does not.</b> The work does not change who wrote the
+              first eleven - it changes who writes the next hundred.
             </div>
           </div>
-          <p className="note reveal">
-            Visibility is the half that gets bought first, and that is fine - everybody
-            understands what page one is worth. It is also the least valuable of the four on its
-            own, which is the honest thing to tell you at the start rather than at renewal. Organic
-            is a well and paid is a tap. I build the well first.
-          </p>
+        </div>
+      </section>
+
+      <div className="divider" />
+
+      {/* ------------------------------------------------ leaky: nobody answers */}
+      <section className="sec">
+        <div className="wrap">
+          <div className="prod-cols">
+            <div className="stg-wrap reveal">
+              <NightShiftStage />
+            </div>
+            <div>
+              <div className="sec-head left reveal">
+                <span className="eyebrow leak">
+                  <span className="n">02</span> Busy, and it rings out &middot; inside {FOUNDATION.name}
+                </span>
+                <h2>
+                  {FLIP.leaky.hook.replace(/\.$/, '')}{' '}
+                  <span className="em">- after six, and during every showing.</span>
+                </h2>
+                <p className="lead">
+                  The enquiry lands after six, or during a showing, or while you are on the phone to
+                  a contractor. It goes to voicemail. He does not leave one. He calls the next firm,
+                  who does answer, and that door is gone permanently. Then a resident says he called
+                  three times, a board wants to know who was told what and when, and without a record
+                  you are defending your firm from memory.
+                </p>
+              </div>
+              <ul className="plist reveal">
+                <li>
+                  A desk that answers on your site and on your phone line, from your own documents,
+                  triaged on your criteria and routed to a licensed manager.
+                </li>
+                <li>
+                  Every call and form counted, with the time it arrived and what happened to it - a
+                  record you can forward to an owner or table at a board meeting.{' '}
+                  <Link to="/the-record/">How that is evidenced</Link>.
+                </li>
+                <li>{LAUNCH_LOCK}</li>
+              </ul>
+              <p className="lead reveal">
+                <Link to="/property-management-intake/">How the desk works for a management firm</Link>.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -291,9 +310,9 @@ export default function PropertyManagement() {
                   <td>Not search. Boards run an RFP through a selection committee.</td>
                 </tr>
                 <tr>
-                  <td>Lead engine</td>
-                  <td>Visibility</td>
-                  <td>Reputation and The Record</td>
+                  <td>What does the work</td>
+                  <td>Visibility, inside The Pin</td>
+                  <td>Reviews and the record</td>
                 </tr>
                 <tr>
                   <td>The decision</td>
@@ -306,9 +325,9 @@ export default function PropertyManagement() {
                   <td>CMRAO-licensed in Ontario, equivalents elsewhere.</td>
                 </tr>
                 <tr>
-                  <td>Order of build</td>
-                  <td>Visibility, intake, reputation, record</td>
-                  <td>Reputation, record, visibility, intake</td>
+                  <td>Weight inside the steps</td>
+                  <td>The profile first, then the desk</td>
+                  <td>Reviews and the record first, then the profile</td>
                 </tr>
               </tbody>
             </table>
@@ -322,18 +341,19 @@ export default function PropertyManagement() {
             </div>
           </div>
 
-          <p className="note reveal">
-            Most firms are both. A mixed firm gets both tracks in one build, sequenced
-            rental-first, because rental produces a number you can feel inside ninety days - and
-            that number is what buys the patience for the board side.{' '}
-            <Link to="/condominium-management-marketing/">See the condominium track</Link>.
+          <p className="lead reveal">
+            Most firms are both. A mixed firm gets both tracks in one build, sequenced rental-first,
+            because rental produces owner enquiries you can see first - and that is what buys the
+            patience for the board side.{' '}
+            <Link to="/condominium-management-marketing/">The condominium track</Link> is laid out
+            on its own page.
           </p>
         </div>
       </section>
 
       <div className="divider" />
 
-      {/* ------------------------------------------------- what it is, guaranteed */}
+      {/* ------------------------------------------------- what it is, in writing */}
       <section className="sec" id="terms">
         <div className="wrap">
           <div className="sec-head left reveal">
@@ -345,54 +365,48 @@ export default function PropertyManagement() {
               <div className="tp-label">What gets built</div>
               <ul className="tp-list">
                 <li>
-                  <b>Visibility</b> &nbsp;&middot;&nbsp; The Pin
+                  <b>The profile and the reviews</b> &nbsp;&middot;&nbsp; inside The Pin
                   <br />
                   <span style={{ opacity: 0.62 }}>
-                    Managed and held, or rebuilt once and handed over. Both exist; which one fits
-                    depends on the size of the portfolio.
+                    Rebuilt against the firms above you, then held. Every review answered and new
+                    ones asked for properly.
                   </span>
                 </li>
                 <li>
-                  <b>Intake</b> &nbsp;&middot;&nbsp; The Line
+                  <b>The desk</b> &nbsp;&middot;&nbsp; inside The Foundation
                   <br />
                   <span style={{ opacity: 0.62 }}>
-                    Web channel, voice channel, or both. Start on one and add the other at what it
-                    would have cost on day one.
+                    On the web, on your phone line, or both. Start on one and add the other at what
+                    it would have cost on day one.
                   </span>
                 </li>
                 <li>
-                  <b>Reputation</b> &nbsp;&middot;&nbsp; inside Visibility
+                  <b>The record</b> &nbsp;&middot;&nbsp; inside The Foundation
                   <br />
                   <span style={{ opacity: 0.62 }}>
-                    The review wall a director reads at night. Carried inside the visibility
-                    monthly, never billed as a second line.
+                    Every call and form counted, so you see exactly what the work did.
                   </span>
                 </li>
               </ul>
               <p className="tp-note">
-                No rates on this page. What it comes to depends on how many corporations the desk
-                carries and how far behind the profile is starting, and that is arithmetic I do with you
-                on the call rather than a number I guess at here.
+                Each step has a fixed price, said plainly on the nine minutes once I have seen what
+                you have - how many corporations the desk carries and how far behind the profile is
+                starting.
               </p>
             </div>
             <div className="termpanel reveal">
-              <div className="tp-label">What is guaranteed</div>
+              <div className="tp-label">What is in writing</div>
               <ul className="tp-list">
-                <li>
-                  <b>The Rank Lock.</b> {RANK_LOCK}
-                </li>
+                <li>{RANK_LOCK}</li>
                 <li>
                   <b>The Launch Lock.</b> {LAUNCH_LOCK}
                 </li>
                 <li>
-                  <b>The Record.</b> {RECORD_LOCK}
+                  Month to month, fourteen days notice either way, and you own every account from
+                  day one.
                 </li>
               </ul>
               <p className="tp-note">{NO_DOORS_PROMISE}</p>
-              <p className="tp-note">
-                <Link to="/services/">See every line</Link> - each one bought on its own, built in
-                the order your side of the business actually leaks.
-              </p>
             </div>
           </div>
         </div>
@@ -403,35 +417,31 @@ export default function PropertyManagement() {
       {/* -------------------------------------------------------------- proof */}
       <section className="sec" id="proof">
         <div className="wrap">
-          <div className="sec-head left reveal">
-            <span className="eyebrow">Why you should believe any of this</span>
-            <h2>
-              Not a portfolio. Two builds I can show you the dashboards for,{' '}
-              <span className="em">including the number that is going the wrong way.</span>
-            </h2>
-          </div>
-          <div className="vgrid">
-            {PROPERTY_PROOF.map((p) => (
-              <div className="vtile reveal" key={p.head}>
-                <h3>{p.head}</h3>
-                <p>{p.body}</p>
-                <p style={{ marginTop: 14, color: 'var(--faint)' }}>{p.note}</p>
+          <div className="chap">
+            <div className="chap-copy reveal">
+              <div className="sec-head left">
+                <span className="eyebrow">Why you should believe any of this</span>
+                <h2>
+                  Built from inside the work, <span className="em">not from a blog about it.</span>
+                </h2>
               </div>
-            ))}
+              <p className="lead">
+                I was general manager inside a property management and maintenance operation. Owner
+                enquiries arriving at the wrong moment, work orders, trades coordinated against units
+                that had to turn before the month closed. That is why this page talks about doors and
+                work orders instead of impressions and engagement. I have never held a CMRAO licence
+                or managed a condominium corporation, and I say so plainly rather than let a title do
+                work it cannot do. <Link to="/about/">The full story</Link>.
+              </p>
+              <p className="lead">
+                One build sits on the work page, described as what was built. {PROOF_PLAIN}{' '}
+                <Link to="/work/">What was built</Link>.
+              </p>
+            </div>
+            <div className="chap-media reveal">
+              <Plate image="office" filmKey="office" ratio="4 / 3" scrim="soft" />
+            </div>
           </div>
-          <p className="note reveal">
-            I do not name clients on my own website - a client did not ask to be a case study, and
-            his competitors read the internet too. That rule protects him, and it is the same rule
-            that will protect you. I would also rather show you two builds I can stand behind than
-            pad this out with logos: former clients come off this page, they do not stay on it as
-            decoration. Every figure above comes out of Google Business Profile insights and I will
-            walk you through the screens on a call. Before any of this I spent ten
-            months contracted inside a property management operation, on the enquiry and CRM side,
-            which is why this page talks about doors and work orders instead of impressions and
-            engagement. I have never held a licence or managed a corporation, and I say so plainly
-            rather than let a title do work it cannot do.{' '}
-            <Link to="/about/">The full story</Link>.
-          </p>
         </div>
       </section>
 
@@ -448,9 +458,10 @@ export default function PropertyManagement() {
             </h2>
             <p className="lead">
               &ldquo;Property management company&rdquo; plus a city name is what an owner actually
-              types, and it is the term the Rank Lock is measured on. Each town is built and
-              measured separately, so you own more than one pin. Search your own city and see where
-              you currently sit.
+              types, and it is the term the Rank Lock is measured on. Your home town is built inside
+              The Pin. The next towns over are built as their own ranked units{' '}
+              <Link to="/how-it-works/#after">after you have chosen</Link>, once the first one holds.
+              Search your own city and see where you currently sit.
             </p>
           </div>
           <div className="loclist reveal">
@@ -460,10 +471,10 @@ export default function PropertyManagement() {
               </Link>
             ))}
           </div>
-          <p className="note reveal">
+          <p className="lead reveal">
             I also work firms across the Prairies, Alberta and Atlantic Canada. The work is
             delivered to your Google profile, so distance is no barrier to it.{' '}
-            <Link to={LOCATIONS_HUB}>See every city</Link>.
+            <Link to={LOCATIONS_HUB}>Every city I have written up</Link>.
           </p>
         </div>
       </section>
@@ -476,13 +487,13 @@ export default function PropertyManagement() {
             <span className="eyebrow">Questions</span>
             <h2>Answered plainly.</h2>
           </div>
-          <FAQ items={PROPERTY_FAQ} />
+          <FAQ items={FAQS} />
         </div>
       </section>
 
       <CTAStrip
         head={<>Nine minutes, and you will know exactly where you sit.</>}
-        sub="Not a proposal, not an audit, not a deck. I will show you your current position, the three firms above you, the review gap between you, and what happens to an enquiry that arrives at your office at seven in the evening. Then you decide whether the rest is worth a longer conversation."
+        sub="Not a proposal and not a deck. Your current position, the three firms above you, the review gap between you, and what happens to an enquiry that arrives at your office at seven in the evening. Then you decide which step fits."
       />
     </main>
   );

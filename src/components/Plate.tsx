@@ -107,7 +107,7 @@ export default function Plate({
              browser to DEPRIORITISE the one image the score is measured on -
              a textbook own goal. Chapter plates below the fold stay lazy. */
           loading={priority ? 'eager' : 'lazy'}
-          fetchPriority={priority ? 'high' : undefined}
+          {...(priority ? ({ fetchpriority: 'high' } as Record<string, string>) : {})}
           decoding={priority ? 'sync' : 'async'}
           aria-hidden={alt ? undefined : true}
           onError={() => setImgFailed(true)}
@@ -123,7 +123,9 @@ export default function Plate({
           muted
           loop={!meta.startAt}
           playsInline
-          preload={motionBudget().preload}
+          /* Chapter loops fetch nothing until the shared observer plays them in
+             view - a page of twelve plates must not preload twelve films. */
+          preload={priority ? motionBudget().preload : 'none'}
           aria-hidden="true"
           tabIndex={-1}
         />

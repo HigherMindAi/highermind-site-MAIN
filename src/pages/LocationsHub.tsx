@@ -32,7 +32,7 @@ export default function LocationsHub() {
               Home turf is the Headwaters - Erin, Orangeville, Caledon. From there I rank firms across
               Ontario and into the Maritimes. The work is delivered to your Google profile, so distance
               is no barrier - what matters is whether I can out-rank the firms around you. These are the
-              Canadian cities I have built a page for; the full market list, including the eight US
+              Canadian cities I have built a page for; the full market list, including the eight American
               states, is on the <Link to="/coverage/">coverage page</Link>. Search your own city term
               and see where you sit.
             </p>
@@ -71,8 +71,8 @@ export default function LocationsHub() {
       </section>
 
       <CTAStrip
-        head={<>Don&rsquo;t see <span className="em">your city?</span></>}
-        sub="A city without a page here is not a city I cannot work - it is one I have not written up yet. I work firms across eight US states and five Canadian regions. Tell me your city and how many doors you carry, and I will tell you straight whether I can win it."
+        head={<>Your city is not listed. <span className="em">It can still be won.</span></>}
+        sub="A city without a page here is not a city I cannot work - it is one I have not written up yet. I work firms across eight American states and five Canadian regions. Tell me your city and how many doors you carry, and I will tell you straight whether I can win it."
       />
     </main>
   );

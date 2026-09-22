@@ -1,31 +1,35 @@
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
+import FAQ from '../components/FAQ';
 import CTAStrip from '../components/CTAStrip';
 import { Arrow } from '../components/Icons';
-import { PHONE_E164, PHONE_DISP } from '../lib/site';
+import { CTA_LABEL, CTA_HREF, PROOF_PLAIN, STOREFRONT, FOUNDATION } from '../lib/ladder';
 import { breadcrumbs, faqSchema, personSchema } from '../lib/schema';
 
 /**
  * The proof page.
  *
- * The client is never named. The numbers are real and they are cited raw. The
- * honest turn is the point of the page: this is a genuine result with a genuine
- * hole in it, and saying so out loud is what makes every other number on the
- * page believable.
+ * v15: proof is shown as the WORK, never as a result. The Brampton auto parts
+ * build is described in PROOF_PLAIN's words with no number, ranking or revenue
+ * attached. The first profile build is kept as the story of why The
+ * Foundation exists - and it is told without figures, because the honest part
+ * of it was never the figures.
+ *
+ * No client is ever named.
  */
 
 const PROOF_FAQ: [string, string][] = [
   [
     'Why will you not name the client?',
-    'Because he did not ask to be a case study, and his competitors read the internet too. My own numbers publish raw. A client\u2019s numbers stay anonymous unless he tells me otherwise. That rule protects him, and it is the same rule that will protect you.',
+    'Because he did not ask to be a case study, and his competitors read the internet too. A client stays anonymous unless he tells me otherwise. That rule protects him, and it is the same rule that will protect you.',
   ],
   [
-    'Can I verify any of this?',
-    'The profile is live and public, and I will walk you through it on a call along with the insights screenshots and their dates. I do not publish a number I cannot show you the source of.',
+    'Can I see the build?',
+    'Yes. I will open it on the nine minutes and walk you through what it does: the part matcher, the vehicle pages, and a request arriving at the counter already carrying what is needed to quote it. I show the work rather than describe it.',
   ],
   [
-    'Only one case?',
-    'I have ranked eight businesses and most of them reached the top three. What I learned across all of them is the reason this business changed shape. I am not going to pad this page with logos to hide that. One case, told honestly, and the reason a ranking on its own was not enough.',
+    'Why no results figures on this page?',
+    'Because a figure on somebody else’s business tells you almost nothing about yours, and it is the easiest thing on the internet to dress up. The only outcome I put in writing is the Rank Lock, and it goes in the agreement rather than on a proof page.',
   ],
 ];
 
@@ -33,8 +37,8 @@ export default function Proof() {
   return (
     <main>
       <Seo
-        title="Proof: A New Profile, Ranked #1 | HigherMindAI"
-        desc="From a Google profile that did not exist to first for both money keywords in five months. Real numbers, and the honest hole in them."
+        title="Proof: The Work, Shown as Builds | HigherMindAI"
+        desc="What gets built, shown plainly: an auto parts site with a part matcher and a page per vehicle, and the first profile build that shaped The Foundation."
         path="/proof/"
         schema={[
           breadcrumbs([
@@ -52,24 +56,18 @@ export default function Proof() {
             <div className="crumb">
               <Link to="/">Home</Link> &nbsp;/&nbsp; Proof
             </div>
-            <span className="eyebrow">Proof, not promises</span>
+            <Link to={STOREFRONT.href} className="eyebrow">
+              The Storefront &middot; a build, not a result
+            </Link>
             <h1>
-              A profile that did not exist.{' '}
-              <span className="em">Number one in five months.</span>
+              The work, shown plainly.{' '}
+              <span className="em">Not a results page.</span>
             </h1>
-            <p className="sub">
-              A security systems installer in Atlantic Canada. No history, no reviews, no rankings, no
-              profile at all on day one. Built from zero on the same clock and the same levers every
-              client runs on. These are his real numbers, straight off Google, and I am not going to
-              round any of them up.
-            </p>
+            <p className="sub">{PROOF_PLAIN}</p>
             <div className="ctas">
-              <Link to="/#contact" className="btn btn-primary">
-                Book a call <Arrow />
+              <Link to={CTA_HREF} className="btn btn-primary">
+                {CTA_LABEL} <Arrow />
               </Link>
-              <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
-                Call {PHONE_DISP}
-              </a>
             </div>
           </div>
         </div>
@@ -77,109 +75,134 @@ export default function Proof() {
 
       <div className="divider" />
 
-      <section className="sec-sm">
+      <section className="sec">
         <div className="wrap">
-          <div className="stats reveal">
-            <div className="s">
-              <div className="n">18 &rarr; 96</div>
-              <div className="l">monthly profile interactions, Feb to Jun</div>
+          <div className="sec-head left reveal">
+            <span className="eyebrow">01 &middot; What was built</span>
+            <h2>
+              A phone number and an address,{' '}
+              <span className="em">turned into a counter that quotes.</span>
+            </h2>
+            <p className="lead">
+              An auto parts business in Brampton. The site was a phone number and an address. The
+              work was a site built around how its customers actually buy a part and how the counter
+              actually closes one.
+            </p>
+          </div>
+          <div className="steps">
+            <div className="step reveal">
+              <div className="sn">The matcher</div>
+              <h3>Year, make, model and trim</h3>
+              <p>
+                A part matcher that starts where the customer starts: the vehicle. Four fields, in the
+                order a person at the counter would ask them.
+              </p>
             </div>
-            <div className="s">
-              <div className="n">44</div>
-              <div className="l">calls straight off the profile</div>
+            <div className="step reveal">
+              <div className="sn">The pages</div>
+              <h3>A page for each vehicle it stocks for</h3>
+              <p>
+                Every vehicle the business stocks for gets its own page, written the way somebody
+                searching for that part would describe the car. Each one is a surface the business
+                can be found on.
+              </p>
             </div>
-            <div className="s">
-              <div className="n">184</div>
-              <div className="l">clicks through to the site</div>
+            <div className="step reveal">
+              <div className="sn">The request</div>
+              <h3>At the counter, by text, ready to quote</h3>
+              <p>
+                A request reaches the counter by text already carrying everything needed to quote it,
+                so nobody has to phone the customer back to ask what car it was.
+              </p>
             </div>
-            <div className="s">
-              <div className="n">
-                <em>#1</em>
-              </div>
-              <div className="l">both money keywords, and holding</div>
+            <div className="step reveal">
+              <div className="sn">Where it sits</div>
+              <h3>Inside The Storefront</h3>
+              <p>
+                {STOREFRONT.promise} The order it sits in is on{' '}
+                <Link to="/how-it-works/">how it works</Link>.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
+      {/* The honest turn. It is why The Foundation exists. */}
+      <section className="gband">
+        <div className="wrap narrow reveal">
+          <span className="eyebrow center">02 &middot; The build that changed what I sell</span>
+          <h2>
+            I made his phone ring.{' '}
+            <span className="em">Nobody knew how many of those calls were answered.</span>
+          </h2>
+          <p>
+            A security installer in Atlantic Canada, with no Google profile at all on day one. I built
+            it from nothing on the same levers I use now: the category, the services, real photos of
+            real work, the site tuned underneath it, reviews asked for properly. The calls came.
+          </p>
+          <p>
+            Some were picked up. Some rang out at seven in the evening, or while somebody was up a
+            ladder. Nobody knows which, because there was nothing catching them and nothing was ever
+            counted. <b>A phone ringing in an empty room is not the job done.</b>
+          </p>
+          <p>
+            So I stopped selling the ring on its own. The Foundation is the answer to that build:{' '}
+            <Link to={FOUNDATION.href}>{FOUNDATION.line.toLowerCase()}</Link>
+          </p>
+        </div>
+      </section>
+
+      <div className="divider" />
+
       <section className="sec">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">01 &middot; What was actually done</span>
+            <span className="eyebrow">03 &middot; How the profile work is done</span>
             <h2>
               No tricks. <span className="em">The levers Google actually rewards, worked in order.</span>
             </h2>
             <p className="lead">
-              Nothing on this page came from a shortcut. No name-stuffing, no fake geotags, no bought
-              citations, no mass-published AI pages. Those things risk a profile, and a profile is the
-              asset.
+              No name-stuffing, no fake geotags, no bought listings, no mass-produced pages. Those
+              things risk a profile, and a profile is the asset.
             </p>
           </div>
           <div className="steps">
             <div className="step reveal">
               <div className="sn">The heavy levers</div>
-              <h3>The profile, rebuilt from nothing</h3>
+              <h3>The profile, rebuilt properly</h3>
               <p>
-                Primary category set to the most specific accurate one - the single biggest factor, and
-                the fastest to act. Services built out with real descriptions. Completeness to green.
-                Real photographs of real work, on a weekly cadence. Exact hours.
+                Primary category set to the most specific accurate one - the single biggest factor,
+                and the fastest to act. Services built out with real descriptions. Every field
+                complete. Real photographs of real work, on a weekly rhythm. Exact hours.
               </p>
             </div>
             <div className="step reveal">
               <div className="sn">The hour most skip</div>
               <h3>The site tuned underneath it</h3>
               <p>
-                Title front-loaded with the service and the area. NAP exact-matched to the profile, site
-                wide. LocalBusiness schema, validated. A dedicated page per service, which is also the
-                heaviest lever for getting named when somebody asks an AI instead of Google.
+                Title front-loaded with the service and the area. Name, address and phone matched
+                exactly to the profile, site wide. LocalBusiness schema, validated. A dedicated page
+                per service, which is also what an assistant reads when somebody asks one instead of
+                searching.
               </p>
             </div>
             <div className="step reveal">
               <div className="sn">The measurement</div>
               <h3>A locked heatmap, never moved</h3>
               <p>
-                Same grid, same radius, same term, same centre point, run at day 0, 30, 40 and 60. The
-                config does not change mid-cycle, because a measurement you can move is not a
+                Same grid, same radius, same term, same centre point, recorded before anything is
+                touched and run again on the same settings. A measurement you can move is not a
                 measurement. The trend is the story, not a single pin.
               </p>
             </div>
             <div className="step reveal">
-              <div className="sn">The compounding</div>
-              <h3>Reviews and the answer layer</h3>
+              <div className="sn">What holds it</div>
+              <h3>Reviews, asked for properly</h3>
               <p>
-                Policy-clean review velocity - every satisfied customer asked the same way, never gated,
-                never incentivised. Then the citations that feed the AI surfaces, because a growing share
-                of buyers now ask a model instead of a search bar.
+                Every satisfied customer asked the same way, never gated, never paid for. Then the
+                listings the assistants read, kept consistent with everything else.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* The honest turn. It is the whole reason this page is credible. */}
-      <section className="gband">
-        <div className="wrap narrow reveal">
-          <span className="eyebrow center">The part nobody else puts on their proof page</span>
-          <h2>
-            I made his phone ring.{' '}
-            <span className="em">I have no idea how many of those calls were answered.</span>
-          </h2>
-          <p>
-            Forty-four calls arrived at a small business with a small team. Some were picked up. Some
-            rang out at seven in the evening, or while somebody was up a ladder. Nobody knows which,
-            because there was no system catching them and nothing was ever counted.{' '}
-            <b>That is a real result with a real hole in it.</b>
-          </p>
-          <p>
-            I ranked eight businesses. Most of them reached the top three. Every one of them was happy
-            with the ranking, and a ranking on its own is still a phone ringing in an empty room. So I
-            stopped selling the ring on its own.{' '}
-            <b>Now I make it ring, and then I answer it.</b>
-          </p>
-          <div className="ctas">
-            <Link to="/book/" className="btn btn-primary">
-              What I sell now <Arrow />
-            </Link>
           </div>
         </div>
       </section>
@@ -187,35 +210,22 @@ export default function Proof() {
       <div className="divider" />
 
       <section className="sec">
-        <div className="wrap">
+        <div className="wrap narrow">
           <div className="sec-head left reveal">
-            <span className="eyebrow">02 &middot; What you get instead</span>
-            <h2>
-              I would rather hand you evidence{' '}
-              <span className="em">than a case study about somebody else.</span>
-            </h2>
-            <p className="lead">
-              His numbers are his. Yours are the ones that matter, and I go and get them before I ever
-              quote you. On the call I read you where your firm actually shows across its service area,
-              and what happened when I contacted you as a customer. Nine minutes, and you keep
-              whatever I find whether or not you ever hire me.
-            </p>
-            <div className="ctas" style={{ marginTop: 30 }}>
-              <Link to="/book/" className="btn btn-ghost">
-                Book a call <Arrow />
-              </Link>
-            </div>
+            <span className="eyebrow">Questions</span>
+            <h2>Asked about this page.</h2>
           </div>
+          <FAQ items={PROOF_FAQ} />
         </div>
       </section>
 
       <CTAStrip
         head={
           <>
-            Find out what <span className="em">your</span> profile is really doing.
+            Your own numbers <span className="em">are the ones that matter.</span>
           </>
         }
-        sub="Tell me your firm and your city. I will read you where you actually show, and what happens to an enquiry that lands after hours. No pitch attached."
+        sub="Nine minutes. I will already have looked at where you show and called you as a customer, and I will read you what I found. You keep it whether or not you ever hire me."
       />
     </main>
   );

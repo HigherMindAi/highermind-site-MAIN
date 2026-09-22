@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { PHONE_E164, PHONE_DISP } from '../lib/site';
+import { CTA_LABEL, CTA_HREF } from '../lib/ladder';
 import { Arrow } from './Icons';
 
 interface CtaStripProps {
@@ -8,6 +9,11 @@ interface CtaStripProps {
   sub: string;
 }
 
+/**
+ * The close on every page. ONE call to action - Take the nine minutes - and
+ * the phone number as plain text beneath it, never as a second button. The
+ * Spine: "There is no second CTA. Every surface ends on the nine minutes."
+ */
 export default function CTAStrip({ head, sub }: CtaStripProps) {
   return (
     <>
@@ -17,13 +23,13 @@ export default function CTAStrip({ head, sub }: CtaStripProps) {
           <h2>{head}</h2>
           <p>{sub}</p>
           <div className="ctas">
-            <Link to="/book/" className="btn btn-primary">
-              Take the nine minutes <Arrow />
+            <Link to={CTA_HREF} className="btn btn-primary">
+              {CTA_LABEL} <Arrow />
             </Link>
-            <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
-              Call {PHONE_DISP}
-            </a>
           </div>
+          <p className="cta-or">
+            or call <a href={`tel:${PHONE_E164}`}>{PHONE_DISP}</a>
+          </p>
         </div>
       </section>
     </>

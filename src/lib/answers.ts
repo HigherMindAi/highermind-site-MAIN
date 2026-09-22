@@ -20,9 +20,12 @@
 //   4. No pricing. Ever. The arithmetic is done live.
 //
 // These are not blog posts and they do not get dated. They are reference
-// pages, and each one ends by pointing at the line that actually fixes the
-// thing it just explained.
+// pages, and each one ends with a plain text link to the step that fixes the
+// thing it explained (never a second button - the page closes on the
+// nine minutes).
 // ---------------------------------------------------------------------------
+
+import { LAUNCH_LOCK } from './ladder';
 
 export interface Answer {
   slug: string;
@@ -40,7 +43,7 @@ export interface Answer {
   body: [string, string][];
   /** Follow-ups a person asks next. Feeds FAQ schema. */
   more: [string, string][];
-  /** Where to send somebody who now wants it fixed. */
+  /** The step that fixes it. Rendered as an inline text link, not a button. */
   cta: { label: string; href: string };
 }
 
@@ -85,7 +88,7 @@ export const ANSWERS: Answer[] = [
         'Yes, less directly than people assume. The local pack is its own system, but the site supports it - a page per service in the language customers use, consistent name and phone with the profile, and pages that load quickly on a phone. A site alone will not win the pack, and a profile with nothing behind it struggles to hold a position once it has one.',
       ],
     ],
-    cta: { label: 'How visibility is built', href: '/property-management-seo/' },
+    cta: { label: 'The Pin, where the profile is rebuilt and held', href: '/how-it-works/#the-pin' },
   },
 
   {
@@ -111,7 +114,7 @@ export const ANSWERS: Answer[] = [
       ],
       [
         'Then check whether the phone is answered',
-        'Being found is half of it. A driver whose car is undrivable rings three shops and takes whoever answers, and a shop counter is one person who is also writing estimates in a building with air tools running. Fixing the category and leaving the phone as it is produces more missed calls rather than more work, which is why the honest order is usually intake first on a busy shop and visibility alongside it.',
+        'Being found is half of it. A driver whose car is undrivable rings three shops and takes whoever answers, and a shop counter is one person who is also writing estimates in a building with air tools running. Fixing the category and leaving the phone as it is produces more missed calls rather than more work, which is why a busy shop usually starts with The Foundation, where the desk sits beside the profile work.',
       ],
     ],
     more: [
@@ -125,53 +128,53 @@ export const ANSWERS: Answer[] = [
       ],
       [
         'I am booked three weeks out. Should I still fix this?',
-        'Fix the category anyway, because it costs nothing and it changes what you are eligible for whenever you do want the work. Do not buy ranking work while you are at capacity with no plan to add a bay or a tech - more calls you cannot take produces a worse review profile than you started with. Sort the intake first so the calls you do take stop leaking.',
+        'Fix the category anyway, because it costs nothing and it changes what you are eligible for whenever you do want the work. Do not buy ranking work while you are at capacity with no plan to add a bay or a tech - more calls you cannot take produces a worse review profile than you started with. Sort out who answers first, so the calls you do take stop going nowhere.',
       ],
     ],
-    cta: { label: 'Built for auto service and collision', href: '/auto-service-collision/' },
+    cta: { label: 'How this is set up for auto service and collision', href: '/auto-service-collision/' },
   },
 
   {
-    slug: 'what-is-an-ai-receptionist',
-    q: 'What is an AI receptionist, and does it actually work?',
-    title: 'What Is an AI Receptionist and Does It Work?',
-    desc: 'It answers your line and your site in your business’s own words, qualifies the enquiry and routes it to a person. Where it works, and where it does not.',
-    short: 'What an AI receptionist actually does',
+    slug: 'what-is-a-virtual-receptionist',
+    q: 'What is a virtual receptionist for a trades business?',
+    title: 'What Is a Virtual Receptionist for Trades?',
+    desc: 'The desk that answers your line and your site when you cannot, takes the enquiry down properly and routes it to a person. What it does and where it stops.',
+    short: 'What a virtual receptionist does',
     answer:
-      'An AI receptionist answers your phone line and your website in your own business’s words, at the hours you cannot. A properly built one answers the routine question from your own documents, qualifies the enquiry against criteria you set, books what should be booked, logs the contact, and hands anything real to a person on your escalation order. It works on the overflow and the after-hours - the calls that currently become nothing. It does not work, and should not be used, for anything requiring judgement: a price, a diagnosis, whether something is covered by insurance, or any function a licence is reserved for. A good one is built to hand those over rather than to have an opinion.',
+      'A virtual receptionist is the desk that answers when you cannot - on your phone line, on your website, or both - while you are on a roof, under a sink or asleep. A properly set up one answers the routine question in your own words, takes the enquiry down against the criteria you set (what the job is, which town, how urgent), books what should be booked, logs the contact, and routes anything real to a person on your own escalation order. It does administrative intake and nothing else. It never quotes a price, never diagnoses a problem, never says whether something is covered by insurance, and never does anything a licence is reserved for. Those go straight to a person. It earns its place on the calls that currently become nothing: the overflow, the nights and the weekends.',
     body: [
       [
         'It is not a voicemail box with a better greeting',
-        'The thing it replaces is usually an answering service that takes a name and a number and passes it on in the morning, or a voicemail nobody leaves. The difference is qualification: what kind of job, which town, how urgent, and is this a real enquiry or somebody shopping a price. An enquiry that arrives already sorted is a different object from a message that says "call John back".',
+        'What it replaces is usually an answering service that takes a name and a number and passes it on in the morning, or a voicemail nobody leaves. The difference is the questions it asks: what kind of job, which town, how urgent, and whether this is a real enquiry or somebody shopping a price. An enquiry that arrives already sorted is a different thing from a message that says "call John back". For a trades business, that is the difference between a van rolling to the right job first and a morning spent phoning people back to find out what they wanted.',
       ],
       [
-        'The web channel and the voice channel are one desk',
-        'Most businesses have a form that goes to an inbox and a phone that goes to voicemail, and the two know nothing about each other. Run properly it is one desk with one set of knowledge, one set of screening rules and one escalation order, so a customer gets the same answer whether he types it or says it, and nothing arrives twice.',
+        'The web and the phone are one desk',
+        'Most trades businesses have a form that goes to an inbox and a phone that goes to voicemail, and the two know nothing about each other. Set up properly it is one desk with one set of answers, one set of screening questions and one escalation order, so a customer gets the same answer whether he types it or says it, and nothing arrives twice.',
       ],
       [
-        'Where it genuinely does not work',
-        'Anything where a wrong answer is expensive. It should never quote a price, never estimate a job, never tell somebody whether damage is covered by a policy, never commit a crew or a completion date nobody authorised, and never perform a function reserved to a licensed person. Those are not soft guidelines, they are configured as hard escalations, and a vendor who will not publish where the desk stops is telling you something.',
+        'Where it stops',
+        'Anything where a wrong answer is expensive. It never quotes a price, never estimates a job, never tells somebody whether damage is covered by a policy, never commits a crew or a completion date nobody authorised, and never performs a function reserved to a licensed person. Those are not soft guidelines. They are set up as hard handoffs to a person, and anybody selling you a desk who will not write down where it stops is telling you something.',
       ],
       [
         'What decides whether it is worth it',
-        'One number: what a won job is worth to you. If a signed job is worth real money and enquiries arrive while nobody can answer them, the arithmetic is usually obvious and it is your arithmetic rather than a vendor’s. If your work is low-value and high-volume, or somebody already answers reliably at the hours enquiries actually arrive, it probably is not worth it and anybody honest will say so.',
+        'One number: what a won job is worth to you. If a signed job is worth real money and enquiries arrive while nobody can answer them, the arithmetic is usually obvious, and it is your arithmetic rather than a vendor’s. If your work is low-value and high-volume, or somebody already answers reliably at the hours enquiries actually arrive, it probably is not worth it, and anybody honest will say so.',
       ],
     ],
     more: [
       [
-        'Will customers know they are talking to an AI?',
-        'They should not be deceived about it, and a well-built desk does not pretend to be a person who has a name and a life. In practice most callers care about whether they got an answer and whether somebody is coming, not about what answered. The place it goes wrong is a desk that oversells its own competence and tries to handle something it should have handed over.',
+        'Will callers know it is not me answering?',
+        'Nobody is deceived about it. The desk does not pretend to be you or to be somebody it is not. In practice most callers care whether they got an answer and whether somebody is coming, not who took the details down. Where it goes wrong is a desk that oversells itself and tries to handle something it should have handed over.',
       ],
       [
         'Does it replace my staff?',
-        'No. It covers the hours and the overflow your staff cannot, and hands everything real to a person. What it usually replaces is the voicemail box and the answering service already being paid for - one that transcribes rather than triages and leaves nothing behind.',
+        'No. It covers the hours and the overflow your people cannot, and hands everything real to a person. What it usually replaces is the voicemail box and the answering service already being paid for - one that writes down a message rather than sorting it, and leaves nothing behind.',
       ],
       [
         'How long does it take to set up?',
-        'Two to three weeks for most businesses, and the voice channel takes longer than the web channel for a good reason: every escalation rule has to be loaded and tested before a phone answers. An emergency at eleven at night is not a thing to get approximately right, so it is better to be a week later than to answer that call wrong.',
+        `${LAUNCH_LOCK} The phone takes longer than the web for a good reason: every escalation rule has to be loaded and tested before a phone answers. A burst pipe at eleven at night is not a thing to get approximately right.`,
       ],
     ],
-    cta: { label: 'How the intake desk is built', href: '/property-management-intake/' },
+    cta: { label: 'The Foundation, where the desk sits', href: '/how-it-works/#the-foundation' },
   },
 
   {
@@ -214,7 +217,7 @@ export const ANSWERS: Answer[] = [
         'Only if it is a real location with real staff. A virtual office or a mailbox used to claim a second profile is against platform rules, it is detectable, and the penalty is losing the listing rather than losing a position. It is not a shortcut, it is a risk taken with the asset the whole business depends on.',
       ],
     ],
-    cta: { label: 'How more cities is built', href: '/services/service-area-expansion/' },
+    cta: { label: 'More Cities, offered once the home town holds', href: '/services/service-area-expansion/' },
   },
 ];
 

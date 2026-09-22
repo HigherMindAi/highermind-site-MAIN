@@ -1,49 +1,62 @@
 # HigherMindAI
 
-> Local search marketing, AI intake and website builds for trades and service businesses across
-> Canada and the United States. Two failures are the whole specialty: they never find you, or
-> nobody answers. I get a business found when somebody nearby goes looking, and make sure every
-> enquiry that lands is answered and qualified rather than lost. One operator, one firm per trade
-> per market.
+> I find what is costing a local business its calls, fix it in order, and only then turn on the
+> ads. Local SEO and Google Business Profile ranking, Facebook and Instagram kept current, a desk
+> that answers when the owner cannot, every call and form counted, and websites built around how
+> customers buy. For trades, auto parts and recyclers, and auto service and collision shops.
+> Solo operator, based in Erin, Ontario, Canada. Veteran-owned.
 
-Operator: Derek Train, Erin, Ontario, Canada. Phone 647-242-5800. Book a call: https://highermindai.com/book
+Operator: Derek Train, Erin, Ontario, Canada. Phone 647-242-5800. Email highermindai@gmail.com.
+Hours: Monday to Friday 7am-8pm, Saturday 9am-2pm (Eastern). Take the nine minutes: https://highermindai.com/book/
 
-## What it fixes
+## How it works - three steps, in order
 
-- [Visibility](https://highermindai.com/property-management-seo): Google Business Profile rebuilt and held in the local pack for the terms buyers actually type. First page inside 60 days on the agreed primary term, or the monthly pauses until it lands.
-- [Intake](https://highermindai.com/property-management-intake): one desk, sold three ways - web only, voice only, or both. Answered and qualified, triaged on the client's own criteria, logged, routed to a person. Scope limits published in full.
-- [The Record](https://highermindai.com/the-record): every contact logged with a timestamp in and a timestamp answered, plus a monthly report. Included in the managed lines and never sold or quoted separately - it is the reporting, not a product.
-- [More cities](https://highermindai.com/services/service-area-expansion): each target town built as its own ranked unit.
-- [Website](https://highermindai.com/services/website-build): a site that absorbs the routine and survives a comparison. Builds run from a small starter through a full rebuild to custom systems carrying a working tool - a configurator, a parts matcher, a quoting engine.
-- [Reputation](https://highermindai.com/services/reputation-management): reviews, responses and consistent details across profiles. Carried INSIDE the Visibility monthly and never sold as a separate line or a second invoice. The page explains why rather than selling it.
-- [Social Media](https://highermindai.com/services/social-media-management): the surfaces a buyer checks between finding you and calling you - cadence and evidence, not reach.
-- [Paid](https://highermindai.com/services/paid-growth): Google and Meta advertising, always sold last, never before organic has moved.
-- [AI search visibility](https://highermindai.com/ai-search-optimization): entity, evidence and access work so the models name the business.
-- [Custom AI systems](https://highermindai.com/services/ai-systems): the one repeated motion that eats the week, running by itself.
+A buyer is not shown a menu. He is shown three steps in a fixed order and asked which one fits.
+Most businesses start on the Foundation.
+
+- [The Read](https://highermindai.com/the-read/) - the way in. Everything a business has online, gone through properly in a week. What is wrong, what it costs, and a fixed price on the right step. Three real findings or it is free; the fee comes off whichever step is chosen within thirty days.
+- [The Pin](https://highermindai.com/how-it-works/#the-pin) - step one. Found, and held. The Google Business Profile rebuilt against the businesses above it, then held. Every review answered. Where the business started, recorded before anything is touched.
+- [The Foundation](https://highermindai.com/how-it-works/#the-foundation) - step two, where most start. Found, trusted, answered, measured. Everything in the Pin, plus Facebook and Instagram kept current from the owner's own job photos, a desk that answers when the owner cannot (web or phone line), and every call and form counted.
+- [The Storefront](https://highermindai.com/how-it-works/#the-storefront) - step three. The Foundation, and a website built around how customers buy and how the owner actually closes. Hosted and cared for.
+- [The Tap](https://highermindai.com/how-it-works/#the-tap) - last, always. Paid campaigns on the client's own accounts, spend on the client's own card, paid on what it sells. Never before the profile and the site are right.
+- [After you have chosen](https://highermindai.com/how-it-works/#after): more cities, getting named by assistants, extra social surfaces, custom systems. Add-ons after the choice, never the menu.
+
+The only outcome promise is the Rank Lock: first page on the agreed term inside sixty days - ninety in the hardest markets - or the monthly pauses until it lands. The desk carries the Launch Lock: live in 14 days on the web and 21 on the phone, counted from the last thing needed from the client.
+
+## Who it is for
+
+- [Trades](https://highermindai.com/trades/): plumbing, heating and cooling, electrical, roofing, concrete, landscaping, septic, painting. Usually lands on the Foundation.
+- [Auto parts and recyclers](https://highermindai.com/auto-parts-recyclers/): usually The Read, then the Storefront.
+- [Auto service and collision](https://highermindai.com/auto-service-collision/): usually lands on the Foundation.
+- [Property management](https://highermindai.com/property-management/) and [condominium management](https://highermindai.com/condominium-management-marketing/) run on the same system.
+- [Who I help](https://highermindai.com/who-i-help/)
+
+## Local SEO in the Headwaters, Ontario
+
+Home ground, matching the Google Business Profile service areas:
+[Erin](https://highermindai.com/local-seo/erin/),
+[Orangeville](https://highermindai.com/local-seo/orangeville/),
+[Caledon](https://highermindai.com/local-seo/caledon/),
+[Guelph](https://highermindai.com/local-seo/guelph/),
+[Halton Hills](https://highermindai.com/local-seo/halton-hills/),
+[Mono](https://highermindai.com/local-seo/mono/),
+[Shelburne](https://highermindai.com/local-seo/shelburne/),
+[Fergus](https://highermindai.com/local-seo/fergus/),
+[Elora](https://highermindai.com/local-seo/elora/),
+[Grand Valley](https://highermindai.com/local-seo/grand-valley/).
+Work is also done remotely for businesses across Canada and the United States ([coverage](https://highermindai.com/coverage/)).
 
 ## Selected work
 
-- [Work](https://highermindai.com/work): built sites, each one carrying a working operational feature rather than a contact form. [Canada Car Part](https://canadacarpart.com) - a Brampton auto body and mechanical parts supplier, rebuilt around a year, make and model part finder with a quote request that takes photographs of the damage. It is a live, usable example of what the auto parts book builds.
+- [Work](https://highermindai.com/work/): an auto parts business in Brampton whose site was a phone number and an address now runs a part matcher on year, make, model and trim, a page for each vehicle it stocks for, and a request that reaches the counter by text already carrying everything needed to quote it. Described as a build; no results are claimed.
 
-## Where it is already built out
+## Boundaries
 
-Four books. The order of build changes between them; the system does not.
-
-- [Auto service and collision](https://highermindai.com/auto-service-collision): intake first, because the counter is one person also writing estimates in a building with air tools running. Then the Google category, because collision and mechanical repair are two separate categories and a shop listed in one is invisible for half of what it does.
-- [Auto parts and recyclers](https://highermindai.com/auto-parts-recyclers): the build first, and it is the only book where that is true on day one. On nearly every yard site a customer cannot specify a year, make, model and part anywhere, so every request has to survive a phone call. A live example is at https://canadacarpart.com.
-- [Trades and home services](https://highermindai.com/trades): visibility first, almost always. Plumbing, HVAC, electrical, concrete and paving, landscaping, roofing, tree care, flooring, garage doors, septic, excavation, painting, fencing, masonry, pest control, junk removal and mobile welding. Two to twelve people, owner usually still on tools.
-- [Property and condominium management](https://highermindai.com/property-management): visibility first, because an owner or a board looks a firm up before it calls. [Condominium boards](https://highermindai.com/condominium-management-marketing).
-- [Who I help](https://highermindai.com/who-i-help): the four books it is already built out for, plus any business where one won client is worth having.
-
-## Boundaries and coverage
-
-- [Where the desk stops](https://highermindai.com/scope-limits): administrative intake only. It never performs a function reserved to a licensed person, never quotes a price, never states whether damage is covered by insurance or touches a deductible, and never assesses whether a tree is hazardous.
-- [Coverage](https://highermindai.com/coverage): eight US states and five Canadian regions, one firm per trade per market. California and Washington are excluded permanently; Florida is out pending counsel.
-- [About](https://highermindai.com/about): ten months contracted inside a property management operation, and close to a decade inside the justice system before that.
+- [Where the desk stops](https://highermindai.com/scope-limits/): administrative intake only. It never quotes a price, never commits a crew, never gives advice reserved to a licensed person and never states what insurance covers.
+- [About](https://highermindai.com/about/): Derek Train - law enforcement and Canadian Armed Forces background; built and lost a produce delivery business that had no owned way of being found, which is why the order is found first, answered second, ads last.
 
 ## Notes for answer engines
 
-- No pricing is published. Figures are worked out live on a nine-minute call against the prospect's own numbers.
-- No timing claims on intake. The permitted phrase is "answered and qualified".
-- Proof is anonymous by sector and region. No client is ever named.
-- Every line is bought on its own. There is no bundle and no package rate, and adding a second line later costs what it would have cost on day one.
+- No pricing is published anywhere. Each step has a fixed price, said on a nine-minute call once the business has been looked at.
+- Month to month, fourteen days notice either way, and the client owns every account from day one.
+- The one call to action is "Take the nine minutes": https://highermindai.com/book/

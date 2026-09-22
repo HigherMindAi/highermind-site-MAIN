@@ -8,29 +8,22 @@
 // arithmetic is done live, on the prospect's own numbers, inside the nine
 // minutes. The old published ladder is retired and must not return.
 //
-// NAMING: plain leads, the creative name is a tag. v10 retired the three
-// trade-native families - one label set now runs across the site, the call and
-// the document: The Pin, The Second Pin, The Storefront, The Line, The Word,
-// The Current, The Mention, The Tap and The Motion.
+// v15 NAMING: the property work sits inside the ladder like everything else.
+// Visibility and reviews are inside The Pin; the intake desk and the record of
+// every call and form are inside The Foundation; the site is The Storefront;
+// paid is The Tap, last. The Rank Lock and the Launch Lock are the ladder's own
+// words and are re-exported from ladder.ts rather than retyped here.
 //
-// Hyphens only, never em-dashes. Solo first person. No client names.
+// Hyphens only, never em-dashes. Solo first person. No client names, and no
+// result claims - the only proof on the site is a build (PROOF_PLAIN).
 // ---------------------------------------------------------------------------
+
+import { RANK_LOCK, LAUNCH_LOCK } from './ladder';
 
 /* -------------------------------------------------------------- guarantees */
 
-// The corrected Rank Lock. Use this string, do not paraphrase it.
-// The old site copy said "60 days or you stop paying", which overstated it.
-export const RANK_LOCK =
-  'First page inside 60 days on the agreed primary term, or the monthly pauses until it lands. Toronto, Vancouver and Montreal carry a 90-day provision, agreed at kickoff.';
-
-export const RANK_LOCK_SHORT =
-  'First page in 60 days or the monthly pauses until it lands';
-
-// Property launch window. Chat is 14, voice is 21 by design.
-export const LAUNCH_LOCK =
-  'Live in 14 to 21 days, or the launch half of the build is not owed.';
-
-export const LAUNCH_WINDOW = 'Live in 14-21 days';
+// The Rank Lock and the Launch Lock, word for word from ladder.ts.
+export { RANK_LOCK, LAUNCH_LOCK };
 
 export const RECORD_LOCK =
   'Logged and reported from month one, at no extra cost and never as a separate line. If I cannot show you what came in and how fast it was answered, you are not being asked to take my word for any of it.';
@@ -43,12 +36,12 @@ export const NO_DOORS_PROMISE =
 // Price-free by rule. The number moves with the portfolio and gets worked out
 // on the call, against the firm's own corporation count.
 export const PORTFOLIO_SCALING =
-  'Every desk tier covers a set number of corporations. Past that, intake volume genuinely changes and so does what it takes to carry it - agreed in writing before go-live, and never applied retroactively. What that comes to for your portfolio is worked out on the call rather than guessed at here.';
+  'Every desk covers a set number of corporations. Past that, intake volume genuinely changes and so does what it takes to carry it - agreed in writing before go-live, and never applied retroactively. What that comes to for your portfolio is worked out on the call rather than guessed at here.';
 
-// The whole upsell, in one sentence. Chat now, voice later - and later costs
+// The whole upsell, in one sentence. Web now, phone later - and later costs
 // exactly what day one would have. Say it plainly or it reads as a trap.
 export const DESK_ADD_CHANNEL =
-  'Buy the web channel, the voice channel, or both. Start on one and add the second whenever you want it and it costs exactly what it would have cost on day one - no upgrade premium, nothing renegotiated, a one-line amendment. Same again for the phone.';
+  'Start on the web or on the phone line, and add the second whenever you want it - it costs exactly what it would have cost on day one. No upgrade premium, nothing renegotiated, a one-line amendment.';
 
 /* ---------------------------------------------------------------- the scope */
 
@@ -73,22 +66,6 @@ export const SCOPE_STOPS: string[] = [
 export const CMRAO_LINE =
   'Where a jurisdiction licenses management - the CMRAO in Ontario, equivalents elsewhere - the desk routes to a licensed manager and stops. It does not perform, and is never presented as performing, any function requiring a licence.';
 
-/* ------------------------------------------------------------------- proof */
-
-// Sector and region only. No client is ever named on the site.
-export const PROPERTY_PROOF: { head: string; body: string; note: string }[] = [
-  {
-    head: 'A property management firm, Moncton, New Brunswick',
-    body: 'Ranks first for property management in its city. 4.9 stars across 57 reviews. Between February and June: 1,098 profile interactions, 88 calls, 743 website clicks.',
-    note: 'The honest note: year over year, interactions are down about eight percent and clicks about seventeen. The position and the volume are real. The trend is not a straight line, and I would rather you hear that from me now than find it later. This is a live engagement and the dashboard is open on a call.',
-  },
-  {
-    head: 'A security systems installer, Atlantic Canada',
-    body: 'From a profile that did not exist to number two in Google Maps inside thirty days, and to first for both primary terms by the fifth month. 5.0 stars across 14 reviews. Monthly profile interactions climbed from roughly 18 to roughly 96 over that period, and the profile is live today.',
-    note: 'Different industry, same engine, and it is the cleanest evidence I have of a profile going from nothing to first - which is the position most firms I speak to are actually in. It also beat the 60-day guarantee by a month, which is over-delivery on one build rather than a promise I will repeat to you.',
-  },
-];
-
 /* --------------------------------------------------------------------- FAQ */
 
 // Six answer-first FAQs on the buyer-side terms. Visible text and FAQPage
@@ -111,11 +88,12 @@ export const PROPERTY_FAQ: [string, string][] = [
     'Not the way it helps a rental firm, and I will not pretend otherwise. Boards do not find a manager through search - they run an RFP through a selection committee. What search does on that side is defensive: when three names go to the board, somebody looks all three up that evening, and what they find decides who receives the package. On the condominium track the work is reputation and record first, and visibility third.',
   ],
   [
-    'Can an AI intake desk handle condominium enquiries without breaching CMRAO rules?',
+    'Can an intake desk handle condominium enquiries without breaching CMRAO rules?',
     'It can, because it never performs a licensed function. It answers from the corporation\u2019s own documents, triages on the corporation\u2019s own criteria, logs the contact, routes to a licensed manager, and stops. It does not interpret a declaration, decide common element versus unit, commit the corporation to a dollar, touch another owner\u2019s file, put dates on statutory processes, or accept service. Where a jurisdiction licenses management, the desk routes and stops.',
   ],
   [
     'How long does it take to go live?',
-    'Fourteen to twenty-one days. Chat intake is live in fourteen. Voice takes twenty-one by design, because every corporation\u2019s emergency criteria and escalation order has to be loaded and tested before a phone answers. If it is not live in that window, the launch half of the build is not owed.',
+    LAUNCH_LOCK +
+      ' The phone takes longer by design, because every corporation\u2019s emergency criteria and escalation order has to be loaded and tested before a phone answers.',
   ],
 ];

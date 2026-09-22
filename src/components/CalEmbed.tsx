@@ -11,8 +11,19 @@ import { CAL_INTRO, calUrl } from '../lib/site';
  * minutes; the service pages pass their own. The namespace is derived from the
  * slug so two different event types can never collide in Cal's global state.
  */
-export default function CalEmbed({ link = CAL_INTRO }: { link?: string }) {
+export default function CalEmbed({
+  link = CAL_INTRO,
+  prefill = {},
+}: {
+  link?: string;
+  /** Booking-form prefill + UTM passthrough. Keys become Cal query params. */
+  prefill?: Record<string, string>;
+}) {
+  const pre = JSON.stringify(prefill);
   useEffect(() => {
+    const extra = JSON.parse(pre) as Record<string, string>;
+    const host = document.getElementById('cal-inline');
+    if (host) host.innerHTML = '';
     const ns = link.replace(/[^a-z0-9]/gi, '');
     const w = window as any;
     if (!w.Cal) {
@@ -52,7 +63,7 @@ export default function CalEmbed({ link = CAL_INTRO }: { link?: string }) {
     w.Cal('init', ns, { origin: 'https://app.cal.com' });
     w.Cal.ns[ns]('inline', {
       elementOrSelector: '#cal-inline',
-      config: { layout: 'month_view', theme: 'dark' },
+      config: { layout: 'month_view', theme: 'dark', ...extra },
       calLink: link,
     });
     w.Cal.ns[ns]('ui', {
@@ -61,14 +72,14 @@ export default function CalEmbed({ link = CAL_INTRO }: { link?: string }) {
       hideEventTypeDetails: false,
       layout: 'month_view',
     });
-  }, [link]);
+  }, [link, pre]);
 
   return (
     <div className="calwrap reveal">
       <div id="cal-inline" style={{ minHeight: 620, width: '100%', overflow: 'auto' }} />
       <p className="cal-fallback">
         If the calendar does not load,{' '}
-        <a href={calUrl(link)} target="_blank" rel="noreferrer">
+        <a href={calUrl(link) + (Object.keys(prefill).length ? '?' + new URLSearchParams(prefill).toString() : '')} target="_blank" rel="noreferrer">
           book directly at {calUrl(link).replace('https://', '')}
         </a>
         .

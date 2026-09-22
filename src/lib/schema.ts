@@ -11,6 +11,9 @@ import {
 } from './site';
 import { City, REGION_FULL, HOME_AREA_SERVED, cityPath } from './cities';
 import { AREA_SERVED } from './coverage';
+import { OPENING_HOURS } from './site';
+import { LADDER_ORDER, ONE_LINE } from './ladder';
+import { TOWNS, type Town } from './towns';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 type Json = Record<string, any>;
@@ -67,11 +70,31 @@ export function orgSchema(): Json {
       {
         '@type': 'ProfessionalService',
         '@id': SERVICE_ID,
-        name: 'HigherMindAI - Local Search Marketing & AI Intake',
+        name: 'HigherMindAI - Local SEO, Google Business Profile and Call Answering',
         url: BASE + '/',
         image: `${BASE}/og.png`,
         description:
-          'Local search marketing, AI intake and website builds for trades and service businesses across Canada and the United States. Four named books - auto service and collision, auto parts and recyclers, trades and home services, and property and condominium management - and any business where one won client is worth having. I get a business found when somebody nearby goes looking, and make sure every enquiry that lands is answered and qualified rather than lost. One firm per trade, per market.',
+          'I find what is costing a local business its calls, fix it in order, and only then turn on the ads. Google Business Profile ranking, Facebook and Instagram kept current, a desk that answers when the owner cannot, every call and form counted, and websites built around how customers buy. For trades, auto parts and recyclers, and auto service and collision shops across the Headwaters, Canada and the United States. Solo operator, based in Erin, Ontario.',
+        slogan: ONE_LINE,
+        openingHoursSpecification: OPENING_HOURS.map((h) => ({
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: h.days,
+          opens: h.opens,
+          closes: h.closes,
+        })),
+        hasOfferCatalog: {
+          '@type': 'OfferCatalog',
+          name: 'The ladder - three steps, in order',
+          itemListElement: LADDER_ORDER.map((st) => ({
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: st.name,
+              description: st.promise,
+              url: BASE + st.href,
+            },
+          })),
+        },
         telephone: PHONE_E164,
         email: EMAIL,
         // The NAMED towns first, then the wider markets. Waypoint doctrine is
@@ -80,7 +103,12 @@ export function orgSchema(): Json {
         // anchor, the visible coverage page and the listing all assert one
         // service area rather than three overlapping ones.
         areaServed: [
-          ...HOME_AREA_SERVED.map((t) => ({
+          ...TOWNS.map((t) => ({
+            '@type': 'City',
+            name: t.name,
+            containedInPlace: { '@type': 'AdministrativeArea', name: `${t.area}, Ontario, Canada` },
+          })),
+          ...HOME_AREA_SERVED.filter((h) => !TOWNS.some((t) => t.name === h)).map((t) => ({
             '@type': 'City',
             name: t,
             containedInPlace: { '@type': 'AdministrativeArea', name: 'Ontario, Canada' },
@@ -135,13 +163,13 @@ export function personSchema(): Json {
       'local search marketing',
       'local SEO',
       'Google Business Profile ranking',
-      'AI intake and answering services',
-      'AI voice agents',
-      'AI receptionist',
+      'after-hours call answering',
+      'website design for local businesses',
+      'Google Ads for local businesses',
       'the justice system',
     ],
     description:
-      'Founder of HigherMindAI. Spent ten months contracted inside a property management operation on the sales, CRM and maintenance side, and close to a decade inside the justice system before that, in courtrooms and federal casework. Now builds local search visibility, AI intake and websites for trades and service businesses across Canada and the United States, with named books for auto service and collision, auto parts and recyclers, trades and home services, and property and condominium management. Based in Erin, Ontario, Canada.',
+      'Founder of HigherMindAI. Built and ran a produce delivery business across twenty-six cities, then worked as general manager inside a property management and maintenance operation. Background in law enforcement and the Canadian Armed Forces. Now builds local search visibility, call answering desks and websites for trades and service businesses across Canada and the United States, with named books for auto service and collision, auto parts and recyclers, trades and home services, and property and condominium management. Based in Erin, Ontario, Canada.',
   };
 }
 
@@ -265,13 +293,13 @@ export function locationSchema(c: City, url: string): Json {
       },
       geo: { '@type': 'GeoCoordinates', latitude: c.geo[0], longitude: c.geo[1] },
       areaServed: HOME_AREA_SERVED.map((t) => ({ '@type': 'City', name: t })),
-      description: `Google ranking and AI intake systems for property management firms in ${c.city} and across ${rfull}.`,
+      description: `Google ranking and a call answering desk for property management firms in ${c.city} and across ${rfull}.`,
     };
   }
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    serviceType: 'Local search marketing and AI intake',
+    serviceType: 'Local search marketing and call answering',
     name: `Property management lead generation in ${c.city}, ${c.region}`,
     url: BASE + url,
     areaServed: {
@@ -279,7 +307,7 @@ export function locationSchema(c: City, url: string): Json {
       name: c.city,
       containedInPlace: { '@type': 'AdministrativeArea', name: rfull },
     },
-    description: `Google ranking and a 24/7 AI intake desk for property management firms in ${c.city}, ${rfull}. First page in 60 days on the agreed primary term, or the monthly pauses until it lands.`,
+    description: `Google ranking and a desk that answers when the office cannot, for property management firms in ${c.city}, ${rfull}. The Rank Lock: first page on the agreed term inside sixty days - ninety in the hardest markets - or the monthly pauses until it lands.`,
     provider: { '@id': ORG_ID },
   };
 }
@@ -336,6 +364,48 @@ export function workSchema(
           keywords: w.built.join(', '),
         },
       })),
+    },
+  };
+}
+
+/** The ladder as an ItemList - what this business sells, in order. */
+export function ladderSchema(): Json {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `How ${BIZ_NAME} works - three steps, in order`,
+    numberOfItems: LADDER_ORDER.length,
+    itemListElement: LADDER_ORDER.map((st, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'Service',
+        name: st.name,
+        description: `${st.line} ${st.promise}`,
+        url: BASE + st.href,
+        provider: { '@id': ORG_ID },
+        areaServed: AREA_SERVED,
+      },
+    })),
+  };
+}
+
+/** A Headwaters town page: local SEO offered in that town, by the org. */
+export function townServiceSchema(t: Town, url: string): Json {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: `Local SEO in ${t.name}`,
+    serviceType: 'Local SEO',
+    alternateName: [t.term, `Google Maps ranking ${t.name}`, `Google Business Profile ${t.name}`],
+    description: `Google map pack ranking, a desk that answers when the owner cannot, and every call and form counted, for businesses in ${t.name} and ${t.places.filter((p) => p !== t.name).join(', ')}.`,
+    url: BASE + url,
+    provider: { '@id': ORG_ID },
+    areaServed: {
+      '@type': 'City',
+      name: t.name,
+      geo: { '@type': 'GeoCoordinates', latitude: t.geo[0], longitude: t.geo[1] },
+      containedInPlace: { '@type': 'AdministrativeArea', name: `${t.area}, Ontario, Canada` },
     },
   };
 }

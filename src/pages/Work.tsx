@@ -2,8 +2,9 @@ import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import WorkCard from '../components/WorkCard';
 import Plate from '../components/Plate';
-import { Arrow } from '../components/Icons';
+import CTAStrip from '../components/CTAStrip';
 import { WORK } from '../lib/work';
+import { STOREFRONT } from '../lib/ladder';
 import { orgSchema, breadcrumbs, workSchema } from '../lib/schema';
 
 /**
@@ -11,15 +12,15 @@ import { orgSchema, breadcrumbs, workSchema } from '../lib/schema';
  *
  * Honest by construction. What was built and what it does, never a performance
  * figure, because a performance figure on a portfolio is the one claim a
- * prospect can check and the one nobody ever sources. A site that overclaims
- * here loses the argument the whole rest of the site is making.
+ * prospect can check and the one nobody ever sources. v15: each build is tagged
+ * with the ladder step it sits in, and the page closes on the one CTA.
  */
 export default function Work() {
   return (
     <main>
       <Seo
         title="Selected Work | Website Builds by HigherMindAI"
-        desc="Websites built to do a job rather than sit there - a part finder, an intake path, a quote flow. Selected builds by HigherMindAI, Erin, Ontario."
+        desc="Websites built to do a job rather than sit there - a part finder on year, make, model and trim. Selected builds by HigherMindAI, Erin, Ontario."
         path="/work/"
         schema={[
           orgSchema(),
@@ -42,8 +43,9 @@ export default function Work() {
               Almost every local business is running one process by hand every day - reading a part
               number down the phone, taking a booking on paper, chasing a quote through a text
               thread. <b>I find that process and build the thing that eats it</b>, then wrap it in a
-              site worth arriving at. The design gets you in the room. The working part is what gets
-              used on the Monday.
+              site worth arriving at. That is{' '}
+              <Link to={STOREFRONT.href}>{STOREFRONT.name}</Link>, the third step: the Foundation,
+              and a site that sells.
             </p>
           </div>
         </div>
@@ -74,11 +76,13 @@ export default function Work() {
                 <ul className="plist" style={{ marginTop: 26 }}>
                   {w.built.map((b) => <li key={b}>{b}</li>)}
                 </ul>
-                <div className="pfoot">
-                  <a href={w.href} className="btn btn-primary" target="_blank" rel="noreferrer">
-                    Visit {w.url} <Arrow />
+                <p className="lead">
+                  The build is live at{' '}
+                  <a href={w.href} target="_blank" rel="noreferrer">
+                    {w.url}
                   </a>
-                </div>
+                  .
+                </p>
               </div>
               <div className="chap-media reveal">
                 {w.shot ? (
@@ -86,7 +90,7 @@ export default function Work() {
                     <img src={w.shot} alt={`The ${w.name} website`} loading="lazy" decoding="async" />
                   </figure>
                 ) : (
-                  <Plate image="storefront" filmKey="storefront" ratio="4 / 3" scrim="soft" />
+                  <Plate image="sStorefront" filmKey="sStorefront" ratio="4 / 3" scrim="soft" />
                 )}
               </div>
             </div>
@@ -94,24 +98,10 @@ export default function Work() {
         </section>
       ))}
 
-      <div className="divider" />
-
-      <section className="ctastrip">
-        <div className="wrap">
-          <div className="sec-head reveal">
-            <h2>Nine minutes. <span className="em">No pitch.</span></h2>
-            <p className="lead" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
-              I will open your site on a phone while we talk and time how long it takes to become
-              useful, then read your homepage title tag back to you exactly as it appears in a
-              search result. If it does what it should, I will tell you and we are done.
-            </p>
-          </div>
-          <div className="ctas reveal">
-            <Link to="/book/" className="btn btn-primary">Take the nine minutes <Arrow /></Link>
-            <Link to="/services/website-build/" className="btn btn-ghost">How a build runs</Link>
-          </div>
-        </div>
-      </section>
+      <CTAStrip
+        head={<>Nine minutes. <span className="em">No pitch.</span></>}
+        sub="I open your site on a phone during the call and time how long it takes to become useful, then read your homepage title back to you exactly as it appears in a search result. If it does what it should, I will say so and that is the end of it."
+      />
     </main>
   );
 }

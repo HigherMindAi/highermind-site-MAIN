@@ -1,11 +1,16 @@
 import { Link } from 'react-router-dom';
 import {
-  BRAND, BIZ_NAME, PHONE_E164, PHONE_DISP, EMAIL, LOCALITY, REGION,
+  BRAND, BIZ_NAME, PHONE_E164, PHONE_DISP, EMAIL, LOCALITY, REGION, HOURS_DISPLAY,
 } from '../lib/site';
-import { LADDER, serviceHref } from '../lib/services';
+import { ONE_LINE, CTA_LABEL, CTA_HREF } from '../lib/ladder';
+import { TOWNS, townPath } from '../lib/towns';
 import { Wordmark } from './Icons';
-import { LOCATIONS_HUB } from '../lib/cities';
 
+/**
+ * The footer carries the ladder in order, never a menu of lines, plus the
+ * Headwaters town pages - every one internally linked from every page, which
+ * is most of what a new local page needs to get crawled and trusted.
+ */
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
@@ -16,11 +21,7 @@ export default function Footer() {
             <Link to="/" className="mark">
               <Wordmark />
             </Link>
-            <p>
-              I get you found when somebody nearby goes looking, answer and qualify every enquiry
-              that lands, then hand you a record of what came in and how fast it was answered.
-              One system, one operator, one loop.
-            </p>
+            <p>{ONE_LINE}</p>
             <div className="op">
               <img
                 src="/derek-sm.webp"
@@ -28,51 +29,52 @@ export default function Footer() {
                 height={46}
                 loading="lazy"
                 decoding="async"
-                alt="Derek, founder, HigherMindAI"
+                alt="Derek Train, founder, HigherMindAI"
               />
               <div>
-                <b>Derek</b>
-                Founder &middot; Ontario, Canada
+                <b>Derek Train</b>
+                Founder &middot; Erin, Ontario
               </div>
             </div>
+            <p style={{ marginTop: 18 }}>
+              <Link to={CTA_HREF} className="btn btn-primary">{CTA_LABEL}</Link>
+            </p>
           </div>
           <div className="foot-links">
             <div className="foot-col">
+              <h4>How it works</h4>
+              <Link to="/the-read/">The Read - the way in</Link>
+              <Link to="/how-it-works/#the-pin">The Pin</Link>
+              <Link to="/how-it-works/#the-foundation">The Foundation</Link>
+              <Link to="/how-it-works/#the-storefront">The Storefront</Link>
+              <Link to="/how-it-works/#the-tap">The Tap - last</Link>
+              <Link to="/how-it-works/#after">After you have chosen</Link>
+            </div>
+            <div className="foot-col">
               <h4>Who I help</h4>
-              <Link to="/auto-service-collision/">Auto service &amp; collision</Link>
-              <Link to="/auto-parts-recyclers/">Auto parts &amp; recyclers</Link>
               <Link to="/trades/">Trades</Link>
+              <Link to="/auto-parts-recyclers/">Auto parts and recyclers</Link>
+              <Link to="/auto-service-collision/">Auto service and collision</Link>
               <Link to="/property-management/">Property management</Link>
-              <Link to="/condominium-management-marketing/">Condominium boards</Link>
-              <Link to="/who-i-help/">Who I help</Link>
+              <Link to="/condominium-management-marketing/">Condominium management</Link>
               <Link to="/answers/">Straight answers</Link>
             </div>
             <div className="foot-col">
-              <h4>Services</h4>
-              {LADDER.map((s) => (
-                <Link key={s.slug} to={serviceHref(s)}>
-                  {s.name}
-                </Link>
+              <h4>Local SEO</h4>
+              {TOWNS.map((t) => (
+                <Link key={t.slug} to={townPath(t.slug)}>{t.name}</Link>
               ))}
-              <Link to="/services/">Every service</Link>
             </div>
             <div className="foot-col">
-              <h4>Company</h4>
+              <h4>HigherMindAI</h4>
               <Link to="/about/">About</Link>
               <Link to="/work/">Work</Link>
               <Link to="/coverage/">Coverage</Link>
-              <Link to={LOCATIONS_HUB}>Cities I rank in</Link>
-              <Link to="/the-record/">How delivery is evidenced</Link>
               <Link to="/scope-limits/">Where the desk stops</Link>
               <Link to="/contact/">Contact</Link>
-              <Link to="/book/">Take the nine minutes</Link>
-            </div>
-            <div className="foot-col">
-              <h4>Contact</h4>
               <a href={`tel:${PHONE_E164}`}>{PHONE_DISP}</a>
               <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
-              <span>{LOCALITY}, {REGION}, Canada</span>
-              <Link to="/book/">Take the nine minutes</Link>
+              <span>{HOURS_DISPLAY}</span>
             </div>
           </div>
         </div>
@@ -82,8 +84,9 @@ export default function Footer() {
             {PHONE_DISP} &nbsp;&middot;&nbsp; {EMAIL}
           </span>
           <span>
-            &copy; {year} {BRAND}. Local search, AI intake and marketing systems for trades
-            and service businesses across Canada and the United States.
+            &copy; {year} {BRAND}. Local SEO, Google Business Profile management and call answering
+            for trades and auto businesses across the Headwaters, Canada and the United States.
+            Veteran-owned.
           </span>
         </div>
       </div>

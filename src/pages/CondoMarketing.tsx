@@ -2,12 +2,20 @@ import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import FAQ from '../components/FAQ';
 import CTAStrip from '../components/CTAStrip';
+import Plate from '../components/Plate';
 import { Arrow } from '../components/Icons';
-import { PHONE_E164, PHONE_DISP } from '../lib/site';
-import { SCOPE_DOES, SCOPE_STOPS, CMRAO_LINE, LAUNCH_WINDOW } from '../lib/property';
+import { SCOPE_DOES, SCOPE_STOPS, CMRAO_LINE } from '../lib/property';
+import { CTA_LABEL, CTA_HREF, PIN, FOUNDATION, LADDER_FAQ } from '../lib/ladder';
 import { TrustStage } from '../components/Stages';
 import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
 import { LOCATIONS_HUB } from '../lib/cities';
+
+// ---------------------------------------------------------------------------
+// /condominium-management-marketing/ - the condominium track of the property
+// vertical. v15: reviews and the record carry this track. Both sit inside the
+// ladder steps (reviews inside The Pin, the record inside The Foundation) and
+// are never presented as lines to pick from.
+// ---------------------------------------------------------------------------
 
 const URL = '/condominium-management-marketing/';
 
@@ -17,11 +25,11 @@ const DESC =
 const CONDO_FAQ: [string, string][] = [
   [
     'Does Google ranking win condominium management contracts?',
-    'No, and I will not pretend otherwise. Boards run an RFP through a selection committee, usually working from names put forward by a director, a lawyer or an engineer. What search does on this track is defensive: somebody looks all three names up that evening, and what they find decides who receives the package. Ranking matters here, it just is not the lead engine.',
+    'No, and I will not pretend otherwise. Boards run an RFP through a selection committee, usually working from names put forward by a director, a lawyer or an engineer. What search does on this track is defensive: somebody looks all three names up that evening, and what they find decides who receives the package. Ranking matters here, but it is not what wins the package.',
   ],
   [
     'What does a board actually check before it sends a package?',
-    'Public reviews and rating. How long the firm has managed their type of property. How many properties it currently manages. Licensing status. Named references. Manager tenure and client retention. Almost all of that is checked before anybody meets anybody, which is why reputation and record do the work on this track.',
+    'Public reviews and rating. How long the firm has managed their type of property. How many properties it currently manages. Licensing status. Named references. Manager tenure and client retention. Almost all of that is checked before anybody meets anybody, which is why reviews and the record do the work on this track.',
   ],
   [
     'My rating is low because of tenant complaints. Can that be fixed?',
@@ -31,6 +39,7 @@ const CONDO_FAQ: [string, string][] = [
     'Can an intake desk touch condominium work without breaching CMRAO rules?',
     'It can, because it never performs a licensed function. It answers from the corporation\u2019s own documents, triages on the corporation\u2019s own criteria, logs the contact, routes to a licensed manager, and stops. It does not interpret a declaration, decide common element versus unit, commit the corporation to a dollar, touch another owner\u2019s file, put dates on statutory processes, or accept service.',
   ],
+  LADDER_FAQ[0],
   [
     'If you work with my firm, will you approach my boards?',
     'No. Once a management firm is my client, its boards are not my prospects. A board that approaches me goes back to the manager first, in writing. I say that early rather than when asked, because the firms worth having do ask.',
@@ -43,8 +52,8 @@ const CHECKS: [string, string][] = [
     'Public reviews and rating. How long the firm has managed their type of property. How many properties it currently manages. Licensing status. Named references. Manager tenure and client retention.',
   ],
   [
-    'Which engines answer that list',
-    'The reputation work answers the rating. The Record answers retention and responsiveness with numbers instead of adjectives. The visibility work makes sure the search finds you rather than a stale directory listing from four years ago.',
+    'What answers that list',
+    'The review work inside The Pin answers the rating. The record inside The Foundation answers retention and responsiveness with numbers instead of adjectives. The profile work makes sure the search finds you rather than a stale directory listing from four years ago.',
   ],
   [
     'The season is real and it is short',
@@ -52,7 +61,7 @@ const CHECKS: [string, string][] = [
   ],
   [
     'The rule that protects the relationship',
-    'Once a management firm is my client, its boards are not my prospects. A board that approaches me goes back to the manager first, in writing. It is in the agreement, not just on this page.',
+    'Once a management firm is my client, its boards are not my prospects. A board that approaches me goes back to the manager first, in writing. It is in the agreement, not only on this page.',
   ],
 ];
 
@@ -89,16 +98,12 @@ export default function CondoMarketing() {
             learning it was in contention.
           </p>
           <div className="ctas reveal">
-            <Link to="/book/" className="btn btn-primary">
-              Book a call <Arrow />
+            <Link to={CTA_HREF} className="btn btn-primary">
+              {CTA_LABEL} <Arrow />
             </Link>
-            <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
-              Call {PHONE_DISP}
-            </a>
           </div>
           <p className="trustline reveal">
-            Reputation and record first &middot; {LAUNCH_WINDOW} &middot; Your boards are never my
-            prospects.
+            Reviews and the record first &middot; Your boards are never my prospects
           </p>
         </div>
       </section>
@@ -108,6 +113,25 @@ export default function CondoMarketing() {
       {/* --------------------------------------------------------- the reframe */}
       <section className="sec">
         <div className="wrap">
+          <div className="chap" style={{ marginBottom: 32 }}>
+            <div className="chap-copy reveal">
+              <div className="sec-head left">
+                <span className="eyebrow">Who this is for</span>
+                <h2>
+                  Condominium management firms{' '}
+                  <span className="em">that win work by shortlist.</span>
+                </h2>
+                <p className="lead">
+                  I make sure the firm a board looks up that evening is the one it expected to find:
+                  a rating that reflects the owners you serve, a record of every call and form, and a
+                  desk that answers when you cannot.
+                </p>
+              </div>
+            </div>
+            <div className="chap-media reveal">
+              <Plate image="hTrusted" filmKey="hTrusted" ratio="4 / 3" scrim="soft" />
+            </div>
+          </div>
           <div className="vcard reveal">
             <div className="vlab">The reframe this whole track runs on</div>
             <div className="vbig">
@@ -115,7 +139,7 @@ export default function CondoMarketing() {
               <b>stop you losing an RFP you were already shortlisted for.</b>
             </div>
           </div>
-          <p className="note reveal">
+          <p className="lead reveal">
             If somebody has told you that ranking wins board work, they have not sold to a
             condominium firm. You already know how you get work: referrals, reputation, and an RFP
             run through a selection committee. What I am selling on this track is the thing that
@@ -162,16 +186,20 @@ export default function CondoMarketing() {
       <section className="sec">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">Order of build on this track</span>
+            <span className="eyebrow">Weight inside the steps on this track</span>
             <h2>
-              Trust, then Record, then visibility.{' '}
-              <span className="em">In that order, and not the other one.</span>
+              Reviews and the record carry it.{' '}
+              <span className="em">Visibility is defensive.</span>
             </h2>
+            <p className="lead">
+              The steps are the same on every track - {PIN.name}, then {FOUNDATION.name}. What
+              changes on the condominium side is where the weight sits inside them.
+            </p>
           </div>
           <div className="steps">
             <div className="step reveal">
-              <div className="sn">First</div>
-              <h3>The Trust</h3>
+              <div className="sn">Inside {PIN.name}</div>
+              <h3>The reviews</h3>
               <p>
                 The rating is the first thing checked and the cheapest thing to lose on. The people
                 most motivated to review a management firm are not the people who pay it - a resident
@@ -180,8 +208,8 @@ export default function CondoMarketing() {
               </p>
             </div>
             <div className="step reveal">
-              <div className="sn">Second</div>
-              <h3>The Record</h3>
+              <div className="sn">Inside {FOUNDATION.name}</div>
+              <h3>The record</h3>
               <p>
                 Retention and responsiveness are on every board&rsquo;s list and almost nobody can
                 answer them with a number. A monthly report written to be tabled at a board meeting
@@ -190,22 +218,22 @@ export default function CondoMarketing() {
               </p>
             </div>
             <div className="step reveal">
-              <div className="sn">Third</div>
+              <div className="sn">Inside {PIN.name}</div>
               <h3>Visibility</h3>
               <p>
                 Defensive, on this track. The search has to find your firm rather than a stale
                 directory listing, a wrong phone number, or nothing at all. Worth doing, and worth
-                being honest that it is third.{' '}
-                <Link to="/property-management-seo/">See how visibility is built</Link>.
+                being honest that on this track it is not the lead.{' '}
+                <Link to="/property-management-seo/">How visibility is built</Link>.
               </p>
             </div>
             <div className="step reveal">
-              <div className="sn">Fourth</div>
-              <h3>The Intake</h3>
+              <div className="sn">Inside {FOUNDATION.name}</div>
+              <h3>The desk</h3>
               <p>
                 The after-hours contact from a resident, logged and routed on your escalation order.
                 Administrative only, and the limits are below.{' '}
-                <Link to="/property-management-intake/">See The Intake</Link>.
+                <Link to="/property-management-intake/">How the desk works</Link>.
               </p>
             </div>
           </div>
@@ -239,12 +267,12 @@ export default function CondoMarketing() {
               </ul>
             </div>
           </div>
-          <p className="note reveal">{CMRAO_LINE}</p>
-          <p className="note reveal">
+          <p className="lead reveal">{CMRAO_LINE}</p>
+          <p className="lead reveal">
             Board work is regional, and so is the search that follows a shortlist.{' '}
-            <Link to={LOCATIONS_HUB}>See the cities I build in</Link>, or read how the{' '}
-            <Link to="/the-record/">record</Link> answers the retention and
-            responsiveness questions a selection committee actually asks.
+            <Link to={LOCATIONS_HUB}>The cities I build in</Link> are written up one by one, and{' '}
+            <Link to="/the-record/">the record</Link> answers the retention and responsiveness
+            questions a selection committee actually asks.
           </p>
         </div>
       </section>

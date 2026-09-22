@@ -72,13 +72,13 @@ export default function RecordTicker({ variant = 'mixed' }: Props) {
   return (
     <div
       className="rec reveal"
-      aria-label="Illustrative log of enquiries answered, routed and booked"
+      aria-label="Illustrative count of calls and forms: answered, routed and booked"
     >
       <div className="rec-head">
         <span className="rec-lab">The Record</span>
         <span className="rec-live">
           <span className="rec-dot" />
-          24/7
+          counting
         </span>
       </div>
       <div className="rec-rows">
@@ -100,8 +100,8 @@ export default function RecordTicker({ variant = 'mixed' }: Props) {
         ))}
       </div>
       <div className="rec-note">
-        Sample month &middot; every contact logged with the time it came in and the time it was
-        answered
+        Sample month &middot; every call and form counted, with the time it came in and what
+        happened next
       </div>
     </div>
   );

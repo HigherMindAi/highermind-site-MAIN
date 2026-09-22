@@ -15,22 +15,22 @@ export const LOCALITY = 'Erin';
 export const REGION = 'ON';
 export const COUNTRY = 'CA';
 
-// SEPTEMBER 2026 - plain leads, the creative name is a tag.
-// The site specialises in a failure, not an industry: they never find you, or
-// nobody answers. Nav carries plain labels only. Nobody navigates by a
-// sentence, and nobody navigates by a proper noun he has not learned yet.
-//
-// v10: AI Search takes a nav slot of its own. It was live, indexed and
-// reachable only from the footer, which is why it kept reading as missing.
-// Website and More Cities move behind Services, which now carries every line
-// on one page rather than five of them.
+// v15 (22 September 2026) - THE LADDER. The nav shows how it works, not a
+// menu of lines. "AI Search" and "Custom AI" are gone from the nav by rule:
+// the sales vocabulary never says AI. The one CTA is the nine minutes.
 export const NAV: ReadonlyArray<{ label: string; href: string }> = [
-  { label: 'Visibility', href: '/property-management-seo/' },
-  { label: 'Intake', href: '/property-management-intake/' },
-  { label: 'AI Search', href: '/ai-search-optimization/' },
-  { label: 'Services', href: '/services/' },
+  { label: 'How it works', href: '/how-it-works/' },
+  { label: 'The Read', href: '/the-read/' },
   { label: 'Who I Help', href: '/who-i-help/' },
+  { label: 'Work', href: '/work/' },
   { label: 'About', href: '/about/' },
+];
+
+/** Hours as published on the Google Business Profile. NAP + hours must match. */
+export const HOURS_DISPLAY = 'Mon-Fri 7am-8pm, Sat 9am-2pm';
+export const OPENING_HOURS = [
+  { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '07:00', closes: '20:00' },
+  { days: ['Saturday'], opens: '09:00', closes: '14:00' },
 ];
 
 export const FOUNDER = 'Derek Train';

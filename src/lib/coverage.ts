@@ -1,7 +1,7 @@
 // ---------------------------------------------------------------------------
 // HigherMindAI - coverage
 //
-// One page answers "do you work in my market" in three seconds. This is the
+// One page answers "do you work in my market" at a glance. This is the
 // data behind it, and it is also the single source for schema areaServed so the
 // entity graph and the visible page can never disagree.
 //
@@ -54,7 +54,7 @@ export const AREA_SERVED = [
 ];
 
 export const COVERAGE_INTRO =
-  'I take one firm per trade, per market. A collision shop and a property manager in the same city are not competitors; two collision shops are. That means the honest answer to \u201cdo you work in my area\u201d is sometimes no, and I would rather tell you that in three seconds than in three emails.';
+  'I take one firm per trade, per market. A collision shop and a property manager in the same city are not competitors; two collision shops are. That means the honest answer to \u201cdo you work in my area\u201d is sometimes no, and I would rather tell you that up front than in three emails.';
 
 export const COVERAGE_EXCLUSIONS =
   'Two states are excluded permanently rather than for capacity. California and Washington both give a private right of action with statutory damages per message, which is a risk I will not carry on a client\u2019s behalf or my own. Florida is out of the trades books until state licensing and telemarketing registration are settled with counsel. I would rather name those out loud than have you find out when you ask.';
@@ -63,7 +63,7 @@ export const COVERAGE_QUEBEC =
   'Quebec is the one place I say no on capability rather than capacity. The syndicate framework and the OACIQ regime are different enough that I would rather decline than do it badly.';
 
 export const COVERAGE_NOT_LISTED =
-  'If your state or province is not on this list, it usually means I have not opened it yet rather than that I have ruled it out. Ask. I will tell you straight whether I can help, and if I cannot I will say so on the first call rather than after you have spent an hour.';
+  'If your state or province is not on this list, it usually means I have not opened it yet rather than that I have ruled it out. Ask. I will tell you straight whether I can help, and if I cannot I will say so in the nine minutes rather than after you have spent an hour.';
 
 export const COVERAGE_WHY_ONE =
-  'Because I am one operator rather than an agency with a roster, and because the business two towns over should not be buying the same visibility work I just built for you. One seat per trade in each market: taking a collision centre does not close the market to a plumber, and it does close it to the next collision centre. If your seat is taken, you hear it on the first call.';
+  'Because I am one operator rather than an agency with a roster, and because the business two towns over should not be buying the same visibility work I built for you. One seat per trade in each market: taking a collision centre does not close the market to a plumber, and it does close it to the next collision centre. If your seat is taken, you hear it in the nine minutes.';

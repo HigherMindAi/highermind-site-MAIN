@@ -1,102 +1,95 @@
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import Seo from '../components/Seo';
-import ContactForm from '../components/ContactForm';
 import CalEmbed from '../components/CalEmbed';
-import { PHONE_E164, PHONE_DISP, EMAIL } from '../lib/site';
+import { PHONE_E164, PHONE_DISP, EMAIL, CAL_INTRO, CAL_LISTING, CAL_WEBSITE, HOURS_DISPLAY } from '../lib/site';
+import { BOOKING_SOURCES } from '../lib/ladder';
 import { orgSchema, breadcrumbs } from '../lib/schema';
 
 /**
- * /book/ is the Google Business Profile appointment link. The URL never changes.
- * Rewritten to lead with the call rather than the audit, and to speak with the
- * confidence of someone who already knows what he is going to find.
+ * /book/ - the Google Business Profile appointment link, and where every
+ * surface of the outreach lands. The URL never changes.
+ *
+ * THE FUNNEL (HANDOFF v6.0 section 8)
+ *   - One question: "Where did you find me?" The answer is passed into the Cal
+ *     booking as `source`, which prefills the booking question of the same
+ *     identifier. It maps onto the Source column of The Choice.
+ *   - Every UTM on the inbound link (utm_source, utm_medium, utm_campaign) is
+ *     passed straight through to Cal so it is stored on the booking. The
+ *     question is the backstop when a link arrives without one.
+ *   - ?on=google-listing / ?on=9-minute-website-review still open the named
+ *     Cal event types, because printed documents point at them.
  */
+
+const UTM_TO_SOURCE: Record<string, string> = {
+  phone: 'Phone call',
+  milena: 'Phone call',
+  undertow: 'Email',
+  email: 'Email',
+  website: 'Website',
+  google: 'Google',
+  meta: 'Facebook or Instagram',
+  facebook: 'Facebook or Instagram',
+  instagram: 'Facebook or Instagram',
+  linkedin: 'LinkedIn',
+  x: 'X',
+  whatsapp: 'WhatsApp',
+  referral: 'Referral',
+  warm: 'Already know Derek',
+};
+
+const ON_TO_CAL: Record<string, string> = {
+  'google-listing': CAL_LISTING,
+  '9-minute-website-review': CAL_WEBSITE,
+};
+
 export default function Book() {
-  // One conversation, one calendar. The three-tab picker that used to live
-  // here is gone: it broke the embed, and the call is the same nine minutes
-  // whichever door you come through. Sorting which half is broken is what the
-  // call is FOR - making a prospect diagnose himself before he can book is
-  // friction on the one page that cannot afford any.
+  const { search } = useLocation();
+  const [source, setSource] = useState('');
+  const [utm, setUtm] = useState<Record<string, string>>({});
+  const [link, setLink] = useState(CAL_INTRO);
+
+  useEffect(() => {
+    const q = new URLSearchParams(search);
+    const u: Record<string, string> = {};
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach((k) => {
+      const v = q.get(k);
+      if (v) u[k] = v;
+    });
+    setUtm(u);
+    const pre = UTM_TO_SOURCE[(u.utm_source || '').toLowerCase()];
+    if (pre) setSource(pre);
+    const on = q.get('on') || '';
+    if (ON_TO_CAL[on]) setLink(ON_TO_CAL[on]);
+  }, [search]);
+
+  const prefill: Record<string, string> = { ...utm };
+  if (source) prefill.source = source;
+
   return (
     <main>
       <Seo
-        title="Book a Call | HigherMindAI"
-        desc="Book a nine-minute call. I will tell you what is costing you clients, what I would build, and how fast it goes live. No pitch, no obligation."
+        title="Take the Nine Minutes - Book with Derek | HigherMindAI"
+        desc="Book nine minutes with Derek. I look at your Google profile, your site and the businesses above you first, then tell you which step fits and the fixed price on it."
         path="/book/"
-        schema={[orgSchema(), breadcrumbs([['Home', '/'], ['Book a call', '/book/']])]}
+        schema={[orgSchema(), breadcrumbs([['Home', '/'], ['Take the nine minutes', '/book/']])]}
       />
 
       <section className="phero">
         <div className="wrap">
           <div className="reveal">
             <div className="crumb">
-              <Link to="/">Home</Link> &nbsp;/&nbsp; Book a call
+              <Link to="/">Home</Link> &nbsp;/&nbsp; Take the nine minutes
             </div>
-            <span className="eyebrow">Book a call</span>
+            <span className="eyebrow">Take the nine minutes</span>
             <h1>
-              Nine minutes. <span className="em">You will know exactly where you stand.</span>
+              Nine minutes. <span className="em">Then you know which step fits.</span>
             </h1>
             <p className="sub">
-              I have already seen what your market looks like, because I look before every call. So
-              there is no discovery theatre. I will tell you what a missed enquiry is costing you,
-              what I would build, and how fast it goes live. <b>Then you decide.</b>
+              I look before every call - your Google profile, your site, and the businesses above you
+              in the map. So the nine minutes is me showing you what I found, which step fits, and
+              the fixed price on it. <b>Then you decide.</b>
             </p>
-            <div className="ctas">
-              <a href="#book-cal" className="btn btn-primary">
-                Pick a time
-              </a>
-              <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
-                Call {PHONE_DISP}
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="divider" />
-
-      <section className="sec-sm">
-        <div className="wrap">
-          <div className="sec-head left reveal">
-            <span className="eyebrow">What happens on it</span>
-            <h2>
-              Three questions, straight answers,{' '}
-              <span className="em">and a decision either way.</span>
-            </h2>
-          </div>
-          <div className="steps">
-            <div className="step reveal">
-              <div className="sn">The number</div>
-              <h3>What a client is worth</h3>
-              <p>
-                One question sets the whole conversation. If a signed file is worth real money to
-                you, everything after this is arithmetic rather than opinion.
-              </p>
-            </div>
-            <div className="step reveal">
-              <div className="sn">The gap</div>
-              <h3>What happens at seven at night</h3>
-              <p>
-                Where the enquiries currently go when nobody is there, and where you appear when
-                somebody nearby goes looking - on Google and inside the AI systems they now ask.
-              </p>
-            </div>
-            <div className="step reveal">
-              <div className="sn">The build</div>
-              <h3>What I would put in, and when</h3>
-              <p>
-                Exactly what I would build, in what order, and the date it goes live. Fourteen days
-                from a yes, and the guarantees are on my side of the table, not yours.
-              </p>
-            </div>
-            <div className="step reveal">
-              <div className="sn">The answer</div>
-              <h3>Yes, or a clean no</h3>
-              <p>
-                If your market is not winnable, or the numbers do not work, I will say so on the call
-                and tell you what I would do instead. A fast no is worth more to you and to me than a
-                slow maybe.
-              </p>
-            </div>
           </div>
         </div>
       </section>
@@ -105,35 +98,32 @@ export default function Book() {
 
       <section className="sec-sm" id="book-cal">
         <div className="wrap">
-          <div className="sec-head left reveal">
-            <span className="eyebrow"><span className="n">01</span> Pick the nine minutes</span>
-            <h2 style={{ marginTop: 22 }}>
-              Straight into my calendar. <span className="em">No back and forth.</span>
-            </h2>
-            <p className="lead">
-              Pick a time and I will have your listing, your site and your market pulled up before
-              you join, so none of the nine minutes gets spent on setup.
-            </p>
-          </div>
+          <div className="book-grid">
+            <div className="book-side reveal">
+              <span className="eyebrow"><span className="n">01</span> One question</span>
+              <label className="book-q" htmlFor="book-source">
+                Where did you find me?
+              </label>
+              <select
+                id="book-source"
+                className="book-select"
+                value={source}
+                onChange={(e) => setSource(e.target.value)}
+              >
+                <option value="">Choose one</option>
+                {BOOKING_SOURCES.map((s) => (
+                  <option key={s} value={s}>{s}</option>
+                ))}
+              </select>
+              <p className="book-note">Then pick a time. Nothing to prepare, nothing to send first.</p>
 
-          <CalEmbed />
-        </div>
-      </section>
+              <ol className="book-steps">
+                <li><b>Minute one.</b> Which market you are in, and what a job is worth to you.</li>
+                <li><b>Minutes two to five.</b> What I found on your profile, your site and your phone.</li>
+                <li><b>Minute six.</b> The three steps, the one I would pick, and the fixed price on each.</li>
+                <li><b>Minutes seven to nine.</b> Which one fits. If none can be priced from outside, The Read.</li>
+              </ol>
 
-      <div className="divider" />
-
-      <section className="sec" id="contact">
-        <div className="wrap">
-          <div className="contact-grid">
-            <div className="reveal">
-              <span className="eyebrow">Direct line</span>
-              <h2 style={{ marginTop: 24 }}>
-                One operator. <span className="em">One number.</span>
-              </h2>
-              <p className="lead">
-                You deal with the person doing the work. No account manager, no junior team learning
-                on your profile, no handoff after you sign. I reply personally, usually the same day.
-              </p>
               <div className="contactline">
                 <a href={`tel:${PHONE_E164}`}>
                   <span className="ic">&#9742;</span> {PHONE_DISP}
@@ -141,13 +131,14 @@ export default function Book() {
                 <a href={`mailto:${EMAIL}`}>
                   <span className="ic">&#9993;</span> {EMAIL}
                 </a>
-                <Link to="/who-i-help/">
-                  <span className="ic">&#9678;</span> Erin, Ontario &middot; serving firms across the
-                  US and Canada
-                </Link>
+                <span>
+                  <span className="ic">&#9678;</span> Erin, Ontario &middot; {HOURS_DISPLAY}
+                </span>
               </div>
             </div>
-            <ContactForm />
+            <div className="book-cal">
+              <CalEmbed link={link} prefill={prefill} />
+            </div>
           </div>
         </div>
       </section>

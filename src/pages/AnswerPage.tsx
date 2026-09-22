@@ -3,7 +3,6 @@ import Seo from '../components/Seo';
 import FAQ from '../components/FAQ';
 import CTAStrip from '../components/CTAStrip';
 import NotFound from './NotFound';
-import { Arrow } from '../components/Icons';
 import { ANSWERS, answerPath } from '../lib/answers';
 import { orgSchema, faqSchema, breadcrumbs, featurePageSchema } from '../lib/schema';
 
@@ -69,14 +68,10 @@ export default function AnswerPage() {
               <p>{p}</p>
             </div>
           ))}
-          <div className="pfoot reveal" style={{ marginTop: 40 }}>
-            <Link to={a.cta.href} className="btn btn-primary">
-              {a.cta.label} <Arrow />
-            </Link>
-            <Link to="/book/" className="btn btn-ghost">
-              Have me check yours
-            </Link>
-          </div>
+          <p className="reveal" style={{ marginTop: 40 }}>
+            Where this gets fixed: <Link to={a.cta.href}>{a.cta.label}</Link>. The whole order is
+            on <Link to="/how-it-works/">how it works</Link>.
+          </p>
         </div>
       </section>
 
@@ -111,8 +106,8 @@ export default function AnswerPage() {
       </section>
 
       <CTAStrip
-        head={<>Want me to check <span className="em">your own listing?</span></>}
-        sub="Nine minutes. I will run the search your customer runs, read you what I find, and tell you which setting is costing you the most. If it is already right, I will say so and we are done."
+        head={<>I will check <span className="em">your own listing.</span></>}
+        sub="Nine minutes. I run the search your customer runs, read you what I find, and tell you which setting is costing you the most. If it is already right, I say so and that is the end of it."
       />
     </main>
   );

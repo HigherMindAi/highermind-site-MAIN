@@ -27,6 +27,8 @@ import { motionBudget, observeFilm } from '../lib/motion';
 interface Scene {
   image: StillKey;
   filmKey?: string;
+  /** Portrait still + film for phones held upright. Without one, a phone gets the still only. */
+  imageV?: StillKey;
 }
 
 /**
@@ -35,32 +37,37 @@ interface Scene {
  * it builds its own hero.
  */
 const SCENES: ReadonlyArray<[string, Scene]> = [
-  ['/property-management-seo', { image: 'twoTowns', filmKey: 'twoTowns' }],
-  ['/property-management-intake', { image: 'reception', filmKey: 'reception' }],
-  ['/ai-search-optimization', { image: 'oneNamed', filmKey: 'oneNamed' }],
-  ['/the-record', { image: 'theRecord' }],
-  ['/services/website-build', { image: 'storefront', filmKey: 'storefront' }],
-  ['/services/paid-growth', { image: 'theTap' }],
-  ['/services/ai-systems', { image: 'inOrder' }],
-  ['/services/service-area-expansion', { image: 'twoTowns', filmKey: 'twoTowns' }],
-  ['/services/social-media-management', { image: 'theBench' }],
-  ['/services/reputation-management', { image: 'checked' }],
-  ['/services/property-management-seo', { image: 'twoTowns', filmKey: 'twoTowns' }],
-  ['/services', { image: 'theWayIn', filmKey: 'theWayIn' }],
-  ['/work', { image: 'storefront', filmKey: 'storefront' }],
-  ['/book', { image: 'theWayIn', filmKey: 'theWayIn' }],
-  ['/contact', { image: 'theLine' }],
-  ['/about', { image: 'firstLight' }],
-  ['/who-i-help', { image: 'catchment', filmKey: 'catchment' }],
-  ['/property-management', { image: 'oneNamed', filmKey: 'oneNamed' }],
-  ['/condominium-management-marketing', { image: 'oneNamed' }],
-  ['/answers', { image: 'theWayIn' }],
-  ['/trades', { image: 'theCab' }],
-  ['/auto-service-collision', { image: 'theBench' }],
-  ['/auto-parts-recyclers', { image: 'inOrder' }],
-  ['/coverage', { image: 'twoTowns', filmKey: 'twoTowns' }],
-  ['/scope-limits', { image: 'theRecord' }],
-  ['/proof', { image: 'theRecord' }],
+  // v15 "show the work" keys. filmKey always equals the image key; film()
+  // returns null safely for any key without a film yet.
+  ['/property-management-seo', { image: 'sPin', filmKey: 'sPin' }],
+  ['/property-management-intake', { image: 'hAnswered', filmKey: 'hAnswered' }],
+  ['/ai-search-optimization', { image: 'assistant', filmKey: 'assistant' }],
+  ['/the-record', { image: 'hMeasured', filmKey: 'hMeasured' }],
+  ['/services/website-build', { image: 'sStorefront', filmKey: 'sStorefront' }],
+  ['/services/paid-growth', { image: 'sTap', filmKey: 'sTap' }],
+  ['/services/ai-systems', { image: 'office', filmKey: 'office' }],
+  ['/services/service-area-expansion', { image: 'aerial', filmKey: 'aerial' }],
+  ['/services/social-media-management', { image: 'sFoundation', filmKey: 'sFoundation' }],
+  ['/services/reputation-management', { image: 'hTrusted', filmKey: 'hTrusted' }],
+  ['/services/property-management-seo', { image: 'sPin', filmKey: 'sPin' }],
+  ['/services', { image: 'sRead', filmKey: 'sRead' }],
+  ['/how-it-works', { image: 'sFoundation', filmKey: 'sFoundation' }],
+  ['/the-read', { image: 'sRead', filmKey: 'sRead', imageV: 'sReadV' }],
+  ['/local-seo', { image: 'mainStreet', filmKey: 'mainStreet' }],
+  ['/work', { image: 'sStorefront', filmKey: 'sStorefront' }],
+  ['/book', { image: 'nine', filmKey: 'nine' }],
+  ['/contact', { image: 'nine', filmKey: 'nine' }],
+  ['/about', { image: 'office', filmKey: 'office' }],
+  ['/who-i-help', { image: 'mainStreet', filmKey: 'mainStreet' }],
+  ['/property-management', { image: 'vProperty', filmKey: 'vProperty' }],
+  ['/condominium-management-marketing', { image: 'vProperty', filmKey: 'vProperty' }],
+  ['/answers', { image: 'sRead', filmKey: 'sRead' }],
+  ['/trades', { image: 'vTrades', filmKey: 'vTrades', imageV: 'vTradesV' }],
+  ['/auto-service-collision', { image: 'vAutoService', filmKey: 'vAutoService', imageV: 'vAutoServiceV' }],
+  ['/auto-parts-recyclers', { image: 'vAutoParts', filmKey: 'vAutoParts', imageV: 'vAutoPartsV' }],
+  ['/coverage', { image: 'aerial', filmKey: 'aerial' }],
+  ['/scope-limits', { image: 'hAnswered', filmKey: 'hAnswered' }],
+  ['/proof', { image: 'sStorefront', filmKey: 'sStorefront' }],
 ];
 
 function sceneFor(pathname: string): Scene | null {
@@ -84,8 +91,18 @@ export default function PageFilm() {
   const [runFilm, setRunFilm] = useState(false);
   const [imgFailed, setImgFailed] = useState(false);
 
-  const src = scene?.filmKey ? film(scene.filmKey) : null;
-  const meta = filmMeta(scene?.filmKey || '');
+  const [portrait, setPortrait] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia('(orientation: portrait) and (max-width: 900px)');
+    setPortrait(mq.matches);
+  }, [pathname]);
+  const small = typeof window !== 'undefined' && window.matchMedia?.('(max-width: 900px)').matches;
+  // Phones: a portrait film if the scene has one, otherwise the still only -
+  // the landscape chapter films are desktop weight and never go to a phone.
+  const useV = !!(portrait && scene?.imageV && film(scene.imageV));
+  const src = !scene?.filmKey ? null : useV ? film(scene.imageV as string) : small ? null : film(scene.filmKey);
+  const meta = filmMeta(useV ? (scene?.imageV as string) : scene?.filmKey || '');
+  const poster = scene ? (useV ? still(scene.imageV as StillKey) : still(scene.image)) : '';
 
   // Route changed: re-evaluate. The film is a hero, so it runs on the hero
   // budget - a phone gets this one and no chapter loops.
@@ -122,11 +139,11 @@ export default function PageFilm() {
       {imgFailed ? null : (
         <img
           className="pagefilm-img"
-          src={still(scene.image)}
+          src={useV ? poster : still(scene.image)}
           alt=""
           /* Hero of every inner page, so it is that page's LCP element. */
           loading="eager"
-          fetchPriority="high"
+          {...({ fetchpriority: "high" } as Record<string, string>)}
           decoding="sync"
           onError={() => setImgFailed(true)}
         />
@@ -137,7 +154,7 @@ export default function PageFilm() {
           key={pathname}
           className="pagefilm-vid"
           src={src}
-          poster={still(scene.image)}
+          poster={poster}
           style={meta.zoom > 1 ? { transform: `scale(${meta.zoom})` } : undefined}
           muted
           loop={!meta.startAt}

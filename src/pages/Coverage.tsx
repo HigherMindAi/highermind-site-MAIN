@@ -3,7 +3,7 @@ import Seo from '../components/Seo';
 import FAQ from '../components/FAQ';
 import CTAStrip from '../components/CTAStrip';
 import { Arrow } from '../components/Icons';
-import { PHONE_E164, PHONE_DISP } from '../lib/site';
+import { CTA_LABEL, CTA_HREF } from '../lib/ladder';
 import {
   US_MARKETS,
   CA_MARKETS,
@@ -20,12 +20,12 @@ import { LOCATIONS_HUB } from '../lib/cities';
 const URL = '/coverage/';
 
 const DESC =
-  'Where I work: eight US states and five Canadian regions, one firm per trade per market. Property management, roofing, and arborists and tree care.';
+  'Where I work: Erin, Ontario and the towns around it, plus eight American states and five Canadian regions. One business per trade, per market.';
 
 const COVERAGE_FAQ: [string, string][] = [
   [
     'Do you actually work in the United States, or is this a Canadian firm claiming to?',
-    'I am a Canadian operator working American firms, and I would rather you hear that from me than work it out later. I am based in Erin, Ontario, I call from Eastern time, and the eight states I work were chosen partly because I can reach them properly on that clock. The work itself - the profile, the citations, the reviews, the intake desk - is delivered remotely, which is how every firm in this category operates whether they say so or not.',
+    'I am a Canadian operator working American firms, and I would rather you hear that from me than work it out later. I am based in Erin, Ontario, I call from Eastern time, and the eight states I work were chosen partly because I can reach them properly on that clock. The work itself - the profile, the listings, the reviews, the desk - is delivered remotely, which is how every firm in this category operates whether they say so or not.',
   ],
   [
     'What does one firm per market actually mean?',
@@ -33,11 +33,11 @@ const COVERAGE_FAQ: [string, string][] = [
   ],
   [
     'Do American firms pay the same as Canadian ones?',
-    'No. US firms are priced separately in USD - different market, different rate - and neither number is published on this site. You get the one that applies to you on the call, worked out against your own figures rather than converted from somebody else\u2019s.',
+    'No. American businesses are priced separately, in American dollars, and no figure for either country is published on this site. Each step has a fixed price, said plainly on the nine minutes once I have seen what you have, worked out against your own figures rather than converted from somebody else\u2019s.',
   ],
   [
     'My state is not listed. Is that a no?',
-    'Usually not. It generally means I have not opened it yet rather than that I have ruled it out, and there are a small number I decline for regulatory reasons rather than capacity. Ask directly and I will tell you which of those it is on the first call. Quebec is the one I say no to outright, and the reason is on this page.',
+    'Usually not. It generally means I have not opened it yet rather than that I have ruled it out, and there are a small number I decline for regulatory reasons rather than capacity. Ask directly and I will tell you which of those it is in the nine minutes. Quebec is the one I say no to outright, and the reason is on this page.',
   ],
 ];
 
@@ -72,7 +72,7 @@ export default function Coverage() {
         desc={DESC}
         path={URL}
         schema={[
-          serviceSchema('Local search marketing and AI intake - coverage', DESC, URL),
+          serviceSchema('Local search marketing and intake - coverage', DESC, URL),
           breadcrumbs([
             ['Home', '/'],
             ['Coverage', URL],
@@ -94,16 +94,13 @@ export default function Coverage() {
             </h1>
             <p className="sub">{COVERAGE_INTRO}</p>
             <div className="ctas">
-              <Link to="/book/" className="btn btn-primary">
-                Check your market <Arrow />
+              <Link to={CTA_HREF} className="btn btn-primary">
+                {CTA_LABEL} <Arrow />
               </Link>
-              <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
-                Call {PHONE_DISP}
-              </a>
             </div>
             <p className="trustline">
-              Every trade in every market &middot; Property and condominium management, roofing,
-              arborists &middot; Scope configured to your licensing regime
+              Trades &middot; Auto service and collision &middot; Auto parts and recyclers &middot;
+              Property management &middot; The desk set to your licensing regime
             </p>
           </div>
         </div>
@@ -173,20 +170,21 @@ export default function Coverage() {
               <span className="em">That is not a disclaimer, it is the model.</span>
             </h2>
             <p className="lead">
-              There is no office in Columbus and I am not going to invent one. The ranking work is
-              delivered to the Google profile your firm already holds, the intake desk runs wherever
-              your phone rings, and the record arrives in your inbox - none of which improves by being
-              done from inside your city. What you get instead of a local address is a single person
+              There is no office in Columbus and I am not going to invent one. The profile work is
+              done on the Google profile you already hold, the desk answers wherever your phone
+              rings, and every call and form is counted wherever it lands - none of which improves by
+              being done from inside your city. What you get instead of a local address is one person
               who answers his own phone, publishes where the desk stops before you ask, and tells you
-              on the first call if your market is already gone.
+              in the nine minutes if your market is already gone.
             </p>
           </div>
           <div className="mesh reveal">
             <span className="mesh-lab">What runs in every market</span>
-            <Link to="/services/">Everything I build</Link>
-            <Link to="/property-management-seo/">Ranking &amp; visibility</Link>
-            <Link to="/property-management-intake/">The intake desk</Link>
-            <Link to="/the-record/">How delivery is evidenced</Link>
+            <Link to="/how-it-works/">How it works</Link>
+            <Link to="/local-seo/">Local SEO around Erin</Link>
+            <Link to="/property-management-seo/">Local search</Link>
+            <Link to="/property-management-intake/">The desk</Link>
+            <Link to="/the-record/">Every call and form counted</Link>
             <Link to="/scope-limits/">Where the desk stops</Link>
             <Link to="/condominium-management-marketing/">Condominium boards</Link>
             <Link to={LOCATIONS_HUB}>Cities I build in</Link>
@@ -209,10 +207,10 @@ export default function Coverage() {
       <CTAStrip
         head={
           <>
-            Is your market <span className="em">still open?</span>
+            Find out whether your market <span className="em">is still open.</span>
           </>
         }
-        sub="Nine minutes. Tell me your city and how many doors you carry, and I will tell you whether the seat is free, where you currently sit against the firms around you, and what happens to an owner enquiry that lands at seven in the evening."
+        sub="Nine minutes. Tell me your town and your trade, and I will tell you whether the seat is free and where you currently sit against the businesses around you."
       />
     </main>
   );

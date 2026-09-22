@@ -1,3 +1,21 @@
+# v15 (22 September 2026) - THE LADDER. /services/ was a menu of eight; the
+# site now shows three steps in order. The hub 301s to /how-it-works/. The
+# eight line pages under /services/<slug>/ stay live - they rank.
+/services                          /how-it-works/                         301!
+/services/                         /how-it-works/                         301!
+/ladder                            /how-it-works/                         301!
+/ladder/                           /how-it-works/                         301!
+/the-pin                           /how-it-works/                         301!
+/the-pin/                          /how-it-works/                         301!
+/the-foundation                    /how-it-works/                         301!
+/the-foundation/                   /how-it-works/                         301!
+/the-storefront                    /how-it-works/                         301!
+/the-storefront/                   /how-it-works/                         301!
+/read                              /the-read/                             301!
+/read/                             /the-read/                             301!
+/answers/what-is-an-ai-receptionist   /answers/what-is-a-virtual-receptionist/   301!
+/answers/what-is-an-ai-receptionist/  /answers/what-is-a-virtual-receptionist/   301!
+
 # ---------------------------------------------------------------------------
 # HigherMindAI redirect map. Duplicated in netlify.toml ON PURPOSE - whichever
 # file Netlify resolves first, the rule fires. Do not 'clean up' the
@@ -27,10 +45,10 @@
 # which is also where somebody choosing between lines is standing. /the-keystone
 # pointed at the retired bundle and is REPOINTED here rather than chained through it -
 # a 301 to a 301 leaks equity and Google only follows so many hops.
-/the-keystone                      /services/                             301!
-/the-keystone/                     /services/                             301!
-/the-whole-operation               /services/                             301!
-/the-whole-operation/              /services/                             301!
+/the-keystone                      /how-it-works/                             301!
+/the-keystone/                     /how-it-works/                             301!
+/the-whole-operation               /how-it-works/                             301!
+/the-whole-operation/              /how-it-works/                             301!
 
 # SEPTEMBER 2026 - The Record moved up to the root. It covers all three
 # books now, so it no longer belongs under the property path. The old

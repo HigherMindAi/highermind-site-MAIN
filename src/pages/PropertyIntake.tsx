@@ -2,75 +2,92 @@ import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import FAQ from '../components/FAQ';
 import CTAStrip from '../components/CTAStrip';
+import Plate from '../components/Plate';
 import { Arrow } from '../components/Icons';
-import { PHONE_E164, PHONE_DISP } from '../lib/site';
 import {
   SCOPE_DOES, SCOPE_STOPS, CMRAO_LINE,
-  PORTFOLIO_SCALING, DESK_ADD_CHANNEL, LAUNCH_LOCK, LAUNCH_WINDOW,
+  PORTFOLIO_SCALING, DESK_ADD_CHANNEL, LAUNCH_LOCK,
 } from '../lib/property';
+import { CTA_LABEL, CTA_HREF, FOUNDATION, FLIP, LADDER_FAQ } from '../lib/ladder';
 import { NightShiftStage } from '../components/Stages';
 import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
+
+// ---------------------------------------------------------------------------
+// /property-management-intake/ - the desk, which sits inside The Foundation.
+//
+// The slug is kept because it ranks. The page is the desk for any local
+// business, with property management as the deepest example. It tells the
+// leaky story only - calls the business already gets, ringing out - and keeps
+// the empty story off the page.
+//
+// The scope line is kept word for word: administrative intake only, never
+// quotes, never commits a crew. Launch timing reads exactly LAUNCH_LOCK.
+// ---------------------------------------------------------------------------
 
 const URL = '/property-management-intake/';
 
 const DESC =
-  'An AI receptionist for your site and your phone line. Every enquiry and after-hours call answered, qualified and routed to a person on your own order.';
+  'An intake desk for your site and your phone line. Every enquiry and after-hours call answered, qualified and routed to a person on your own order.';
 
 // No rate in schema. See property.ts.
 const SCHEMA_DESC = DESC;
 
+const SCOPE_LINE = 'Administrative intake only, never quotes, never commits a crew.';
+
 const INTAKE_FAQ: [string, string][] = [
   [
-    'What is an AI receptionist, and does it actually work?',
-    'It answers your line and your site, in your business\u2019s own words, at the hours you cannot. It is not a robot reading a script and it is not a voicemail box with a nicer greeting. It answers the routine question from your own documents, qualifies the enquiry against criteria you set, books what should be booked, logs the contact with a timestamp in and a timestamp answered, and hands anything real to a person on your escalation order. Where it works is the overflow and the after-hours - the calls that currently become nothing. Where it does not is anything requiring judgement, and it is built to hand those over rather than have an opinion.',
+    'What is an intake desk, and does it actually work?',
+    'It answers your line and your site, in your business’s own words, at the hours you cannot. It is not a script read by a stranger and it is not a voicemail box with a nicer greeting. It answers the routine question from your own documents, qualifies the enquiry against criteria you set, books what should be booked, logs the contact with the time it arrived and what happened to it, and hands anything real to a person on your escalation order. Where it works is the overflow and the after-hours - the calls that currently become nothing. Where it does not is anything requiring judgement, and it is built to hand those over rather than have an opinion.',
   ],
   [
     'What happens to a call to my business at seven in the evening right now?',
-    'Usually it goes to voicemail and he does not leave one. He calls the next name on the list, who answers, and that job is gone permanently - and the part that costs you is that you never learn it existed. There is no gap in your day where a missed enquiry announces itself. That is the whole reason this line exists, and it is why I will ring your own office line after hours before the call rather than ask you what happens.',
+    'Usually it goes to voicemail and he does not leave one. He calls the next name on the list, who answers, and that job is gone permanently - and the part that costs you is that you never learn it existed. There is no gap in your day where a missed enquiry announces itself. That is the whole reason the desk exists, and it is why I will ring your own office line after hours before the call rather than ask you what happens.',
   ],
   [
     'Does this work for a roofer, an arborist or a trade that is out on site all day?',
-    'That is the version of this that pays for itself fastest. A business where the owner is on a roof, up a tree or under a sink is the business least able to answer a phone at the moment it rings, and most able to tell you to the dollar what one missed job is worth. The desk covers the hours you are working with both hands, qualifies whether it is a real job or a price shopper, and books the ones worth booking.',
+    'That is where it matters most. A business where the owner is on a roof, up a tree or under a sink is the business least able to answer a phone at the moment it rings, and most able to tell you to the dollar what one missed job is worth. The desk covers the hours you are working with both hands, qualifies whether it is a real job or a price shopper, and books the ones worth booking.',
   ],
   [
     'What does a property management answering service actually do after hours?',
-    'Most take a name and a number and pass it on in the morning. The desk I build answers and qualifies the contact, triages it against the criteria you set, books owner enquiries straight into your calendar, logs everything with a timestamp in and a timestamp answered, and routes anything real to a licensed manager on your own escalation order. It is administrative intake and nothing else.',
+    'Most take a name and a number and pass it on in the morning. The desk I build answers and qualifies the contact, triages it against the criteria you set, books owner enquiries straight into your calendar, logs everything with the time it arrived and what happened to it, and routes anything real to a licensed manager on your own escalation order. It is administrative intake and nothing else.',
   ],
   [
-    'Can an AI intake desk handle condominium enquiries without breaching CMRAO rules?',
-    'It can, because it never performs a licensed function. It answers from the corporation\u2019s own documents, triages on the corporation\u2019s own criteria, logs the contact, routes to a licensed manager, and stops. It does not interpret a declaration, decide common element versus unit, commit the corporation to a dollar, touch another owner\u2019s file, put dates on statutory processes, or accept service.',
+    'Can an intake desk handle condominium enquiries without breaching CMRAO rules?',
+    'It can, because it never performs a licensed function. It answers from the corporation’s own documents, triages on the corporation’s own criteria, logs the contact, routes to a licensed manager, and stops. It does not interpret a declaration, decide common element versus unit, commit the corporation to a dollar, touch another owner’s file, put dates on statutory processes, or accept service.',
   ],
   [
-    'Why does voice take 21 days when chat takes 14?',
-    'Because every corporation\u2019s emergency criteria and escalation order has to be loaded and tested before a phone answers. A burst pipe at eleven at night is not a thing to get approximately right. I would rather be a week later than answer that call wrong, and if it is not live inside the window the launch half of the build is not owed.',
+    'Why does the phone take longer than the web?',
+    LAUNCH_LOCK +
+      ' The phone takes longer on purpose, because every emergency criterion and the escalation order has to be loaded and tested before a phone answers. A burst pipe at eleven at night is not a thing to get approximately right, and I would rather be a week later than answer that call wrong.',
   ],
   [
     'How many corporations does one desk cover?',
-    'Every desk tier covers a set number of corporations, and most firms sit comfortably inside it. Past that, intake volume genuinely changes and so does what it takes to carry it - agreed in writing before go-live, never applied retroactively, and worked out against your actual portfolio on the call.',
+    'Every desk covers a set number of corporations, and most firms sit comfortably inside it. Past that, intake volume genuinely changes and so does what it takes to carry it - agreed in writing before go-live, never applied retroactively, and worked out against your actual portfolio on the call.',
   ],
   [
-    'Do I have to take both channels?',
-    'No. There are three ways to buy this and all three are real products: web only, voice only, or both. Web only suits a business whose site form is where enquiries land. Voice only suits one with a working form and a phone ringing out at seven in the evening - that used to have nothing to buy, and now it does. And if you start on one, adding the second later costs exactly what it would have cost on day one. No upgrade premium, nothing renegotiated, a one-line amendment.',
+    'Do I need both the web and the phone?',
+    'Not on day one. Inside The Foundation the desk runs on the web, on your phone line, or both. The web suits a business whose site form is where enquiries land. The phone suits one with a working form and a line ringing out at seven in the evening. And if you start on one, adding the second later costs exactly what it would have cost on day one. No upgrade premium, nothing renegotiated, a one-line amendment.',
   ],
   [
     'Does it replace my staff?',
     'No. It covers the hours and the overflow your staff cannot, and it hands everything real to a person. What it replaces is the voicemail box and, usually, the answering service you are already paying for - one that transcribes rather than triages and leaves no record behind.',
   ],
+  LADDER_FAQ[0],
 ];
 
 export default function PropertyIntake() {
   return (
     <main>
       <Seo
-        title="AI Phone and Web Intake for Local Businesses | HigherMindAI"
+        title="Phone and Web Intake Desk for Local Business | HigherMindAI"
         desc={DESC}
         path={URL}
         schema={[
-          serviceSchema('AI phone and web intake and answering service', SCHEMA_DESC, URL),
+          serviceSchema('Phone and web intake and answering desk', SCHEMA_DESC, URL),
           breadcrumbs([
             ['Home', '/'],
-            ['Services', '/services/'],
-            ['Intake', URL],
+            ['How It Works', '/how-it-works/'],
+            ['The Desk', URL],
           ]),
           faqSchema(INTAKE_FAQ),
         ]}
@@ -78,47 +95,43 @@ export default function PropertyIntake() {
 
       <section className="phero">
         <div className="wrap">
-          <span className="eyebrow reveal">Intake &middot; The Line</span>
+          <span className="eyebrow reveal">The desk &middot; inside {FOUNDATION.name}</span>
           <h1 className="reveal">
             The enquiry that arrives{' '}
             <span className="em">at seven in the evening.</span>
           </h1>
           <p className="sub reveal">
-            It goes to voicemail. He does not leave one. He calls the next firm, who answers, and
-            that job is gone permanently - and you never learn it existed. One desk answers on
-            your site and on your line. Answered and qualified, triaged against your criteria,
-            logged with a timestamp, and routed to a person on your own escalation order.
+            For property managers, trades and shops whose calls ring out while they are working.
+            One desk answers on your site and on your phone line when you cannot - answered and
+            qualified, triaged against your criteria, and routed to a person on your own escalation
+            order. Every call and form counted, so you see exactly what it did.
           </p>
           <div className="ctas reveal">
-            <Link to="/book/" className="btn btn-primary">
-              Book a call <Arrow />
+            <Link to={CTA_HREF} className="btn btn-primary">
+              {CTA_LABEL} <Arrow />
             </Link>
-            <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
-              Call {PHONE_DISP}
-            </a>
           </div>
-          <p className="trustline reveal">
-            Answered and qualified &middot; {LAUNCH_WINDOW} &middot; Administrative intake only, and
-            the limits are published below.
-          </p>
+          <p className="trustline reveal">{SCOPE_LINE} The limits are published below.</p>
         </div>
       </section>
 
       <div className="divider" />
 
-      {/* ---------------------------------------------------------- components */}
+      {/* ------------------------------------------------------ leaky story */}
       <section className="sec">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">One desk, three ways in</span>
+            <span className="eyebrow leak">Where the calls go</span>
             <h2>
-              Ranking creates enquiries.{' '}
-              <span className="em">It does not answer them.</span>
+              {FLIP.leaky.hook.replace(/\.$/, '')}{' '}
+              <span className="em">- and never hear about it.</span>
             </h2>
             <p className="lead">
-              The gap is widest in the trades and service businesses, because a large share of your
-              inbound arrives outside office hours from people who have a problem rather than a
-              question.
+              It goes to voicemail. He does not leave one. He calls the next firm, who answers, and
+              that job is gone permanently - and you never learn it existed. The gap is widest in
+              property management and the trades, because a large share of the inbound arrives
+              outside office hours from people who have a problem rather than a question. The desk
+              sits inside {FOUNDATION.name}: {FOUNDATION.line.toLowerCase()}
             </p>
           </div>
           <div className="prod-cols" style={{ marginBottom: 36 }}>
@@ -136,25 +149,24 @@ export default function PropertyIntake() {
           </div>
           <div className="steps">
             <div className="step reveal">
-              <div className="sn">Channel</div>
-              <h3>The web channel</h3>
+              <div className="sn">On the web</div>
+              <h3>The desk on your site</h3>
               <p>
                 Sits on your site and one more messaging channel. Answers from your own documents,
-                qualifies the enquiry, books the conversation, and hands you the transcript. Live in
-                14 days.
+                qualifies the enquiry, books the conversation, and hands you the transcript.
               </p>
             </div>
             <div className="step reveal">
-              <div className="sn">Channel</div>
-              <h3>The voice channel</h3>
+              <div className="sn">On the phone</div>
+              <h3>The desk on your line</h3>
               <p>
-                Answers the line you cannot get to, triages against your criteria, logs it with a
-                timestamp, and routes anything real to a person on your escalation order. Live in 21
-                days, longer on purpose. It stands on its own - a business with a working form and a
-                phone ringing out in the evening can buy this and nothing else.
+                Answers the line you cannot get to, triages against your criteria, logs the call,
+                and routes anything real to a person on your escalation order. Longer to launch, on
+                purpose, because the emergency criteria are tested before a phone answers.
               </p>
             </div>
           </div>
+          <p className="lead reveal">{LAUNCH_LOCK}</p>
         </div>
       </section>
 
@@ -167,9 +179,9 @@ export default function PropertyIntake() {
             <span className="eyebrow">The scope line, in writing, before you ask for it</span>
             <h2>What the desk does, and exactly where it stops.</h2>
             <p className="lead">
-              A system that does not know where it stops is a liability rather than a service. This
-              is administrative intake and nothing else, and I would rather put the limits on a
-              public page than have you discover them later.
+              A desk that does not know where it stops is a liability rather than a service.{' '}
+              <b>{SCOPE_LINE}</b> I would rather put the limits on a public page than have you
+              discover them later.
             </p>
           </div>
           <div className="prod-cols">
@@ -194,7 +206,7 @@ export default function PropertyIntake() {
             <div className="vlab">Licensed and regulated trades</div>
             <div className="vbig">{CMRAO_LINE}</div>
           </div>
-          <p className="note reveal">
+          <p className="lead reveal">
             The same rule holds wherever the work is regulated. The desk never tells a caller
             whether damage is covered by insurance, never quotes a price, and never assesses whether
             a tree is hazardous - it takes the contact and routes it. I put the limits in writing
@@ -210,16 +222,27 @@ export default function PropertyIntake() {
       {/* --------------------------------------------------- what changes */}
       <section className="sec">
         <div className="wrap">
-          <div className="sec-head left reveal">
-            <span className="eyebrow">On the ground</span>
-            <h2>What actually changes.</h2>
+          <div className="chap" style={{ marginBottom: 36 }}>
+            <div className="chap-copy reveal">
+              <div className="sec-head left">
+                <span className="eyebrow">On the ground</span>
+                <h2>What actually changes.</h2>
+                <p className="lead">
+                  The calls you already get stop leaking. More of them turn into booked work, and
+                  you get your evenings back from the callback list.
+                </p>
+              </div>
+            </div>
+            <div className="chap-media reveal">
+              <Plate image="vProperty" filmKey="vProperty" ratio="4 / 3" scrim="soft" />
+            </div>
           </div>
           <div className="vgrid">
             <div className="vtile reveal">
               <h3>The after-hours call stops being a message</h3>
               <p>
-                It becomes a logged, triaged contact with a time on it and a route out, instead of a
-                name on a pad that somebody means to type up in the morning.
+                It becomes a triaged contact with a route out, instead of a name on a pad that
+                somebody means to type up in the morning.
               </p>
             </div>
             <div className="vtile reveal">
@@ -231,10 +254,10 @@ export default function PropertyIntake() {
               </p>
             </div>
             <div className="vtile reveal">
-              <h3>Your after-hours line becomes reviewable</h3>
+              <h3>You see what it did</h3>
               <p>
-                Every contact carries a timestamp in and a timestamp answered, which means
-                responsiveness stops being a thing you claim and becomes a number.{' '}
+                Every call and form counted, with the time it arrived and what happened to it, so
+                what the desk did stops being a thing anyone claims.{' '}
                 <Link to="/the-record/">How that is evidenced</Link>.
               </p>
             </div>
@@ -253,44 +276,42 @@ export default function PropertyIntake() {
 
       <div className="divider" />
 
-      {/* ------------------------------------------------- channels + guarantees */}
+      {/* ------------------------------------------------- channels + terms */}
       <section className="sec" id="channels">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">Three ways to buy it</span>
-            <h2>Web, voice, or both. And you can add the other later.</h2>
+            <span className="eyebrow">Inside {FOUNDATION.name}</span>
+            <h2>The web, the phone, or both. And you can add the other later.</h2>
           </div>
           <div className="prod-cols">
             <div className="termpanel reveal">
-              <div className="tp-label">Three ways to buy it</div>
+              <div className="tp-label">How the desk runs</div>
               <ul className="tp-list">
                 <li>
-                  <b>The web channel</b>
+                  <b>On the web</b>
                   <br />
                   <span style={{ opacity: 0.62 }}>
-                    Answers on your site, day and night. Live in 14 days.
+                    Answers on your site, including nights and weekends.
                   </span>
                 </li>
                 <li>
-                  <b>The voice channel</b>
+                  <b>On the phone</b>
                   <br />
                   <span style={{ opacity: 0.62 }}>
-                    Answers your line. Live in 21 days, because the emergency criteria and
-                    escalation order have to be loaded and tested before a phone answers.
+                    Answers your line when you cannot. The emergency criteria and escalation order
+                    are loaded and tested before a phone answers.
                   </span>
                 </li>
                 <li>
-                  <b>Both channels</b>
+                  <b>Both</b>
                   <br />
                   <span style={{ opacity: 0.62 }}>The whole desk, one build, one record.</span>
                 </li>
               </ul>
-              <p className="tp-note">
-                <b>All three are real products.</b> {DESK_ADD_CHANNEL}
-              </p>
+              <p className="tp-note">{DESK_ADD_CHANNEL}</p>
             </div>
             <div className="termpanel reveal">
-              <div className="tp-label">Scaling and the launch window</div>
+              <div className="tp-label">Scaling and the launch</div>
               <ul className="tp-list">
                 <li>{PORTFOLIO_SCALING}</li>
                 <li>
@@ -298,10 +319,9 @@ export default function PropertyIntake() {
                 </li>
               </ul>
               <p className="tp-note">
-                No rate on this page on purpose. What the desk costs depends on how much it has to
-                carry, and that gets worked out on the call against your own numbers rather than
-                guessed at here. Usage is included to a set monthly allowance and charged at cost
-                above it - I do not mark up usage.
+                Each step has a fixed price, said plainly on the nine minutes once I have seen what
+                you have. Usage is included to a set monthly allowance and charged at cost above it -
+                I do not mark up usage.
               </p>
             </div>
           </div>
@@ -322,7 +342,7 @@ export default function PropertyIntake() {
 
       <CTAStrip
         head={<>Find out what happens to a call at seven in the evening.</>}
-        sub="On a nine-minute call I will tell you what I found when I rang your own line after hours, what an enquiry meets when it lands on your site, and what I would build."
+        sub="On a nine-minute call I will tell you what I found when I rang your own line after hours, what an enquiry meets when it lands on your site, and which step fits."
       />
     </main>
   );

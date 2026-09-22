@@ -6,7 +6,7 @@ import ServiceAreaMap from '../components/ServiceAreaMap';
 import NotFound from './NotFound';
 import { Arrow } from '../components/Icons';
 import { cityBySlug, locFaq, REGION_FULL, cityPath, LOCATIONS_HUB } from '../lib/cities';
-import { PHONE_E164, PHONE_DISP } from '../lib/site';
+import { CTA_LABEL, CTA_HREF, PIN, FOUNDATION } from '../lib/ladder';
 import { nearestCities } from '../lib/geo';
 import { locationSchema, breadcrumbs, faqSchema } from '../lib/schema';
 
@@ -50,7 +50,7 @@ export default function LocationPage() {
     <main>
       <Seo
         title={`Property Management SEO in ${c.city} | HigherMindAI`}
-        desc={`Rank for "property management company ${c.city}" and get found by owners looking for a manager. First page in 60 days, or the monthly pauses.`}
+        desc={`Rank for "property management company ${c.city}" and get found by owners looking for a manager. Your profile rebuilt and held, backed by the Rank Lock.`}
         path={url}
         schema={[
           locationSchema(c, url),
@@ -72,12 +72,9 @@ export default function LocationPage() {
             </h1>
             <p className="sub">{c.sub}</p>
             <div className="ctas" style={{ marginTop: 34, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-              <Link to="/book/" className="btn btn-primary">
-                Book a call <Arrow />
+              <Link to={CTA_HREF} className="btn btn-primary">
+                {CTA_LABEL} <Arrow />
               </Link>
-              <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
-                Call {PHONE_DISP}
-              </a>
             </div>
             <div className="townrow">
               {c.nearby.map((t) => (
@@ -143,28 +140,29 @@ export default function LocationPage() {
           <div className="reveal">
             <span className="eyebrow">The rest of the system</span>
             <h2 style={{ marginTop: 24, fontSize: 'clamp(26px,3.2vw,38px)' }}>
-              Ranking is half of it. <span className="em">Answering is the half that pays.</span>
+              Found is the first step. <span className="em">Answered is the one that pays.</span>
             </h2>
             <p className="lead">
-              Getting a firm into the top three is what I am known for. It is also only the inflow - an
-              owner enquiry that arrives at seven in the evening and rings out is a door lost
-              permanently, and you never learn it existed. Ranking and intake together weld the position to a desk
-              that answers and qualifies every enquiry it brings in, then hands you the record of it.
+              Ranking in {c.city} sits inside {PIN.name}, and it is only the inflow - an owner enquiry
+              that arrives at seven in the evening and rings out is a door lost permanently, and you
+              never learn it existed. {FOUNDATION.name} welds the position to a desk that answers and
+              qualifies every enquiry it brings in, and counts every call and form so you see what it
+              did.
             </p>
           </div>
           <div className="mesh reveal">
-            <span className="mesh-lab">The system</span>
-            <Link to="/services/">Everything I build</Link>
-            <Link to="/property-management-seo/">Ranking &amp; visibility</Link>
-            <Link to="/property-management-intake/">The intake desk</Link>
+            <span className="mesh-lab">The rest of it</span>
+            <Link to="/how-it-works/">How it works</Link>
+            <Link to="/property-management-seo/">Visibility, inside {PIN.name}</Link>
+            <Link to="/property-management-intake/">The desk, inside {FOUNDATION.name}</Link>
             <Link to="/the-record/">How delivery is evidenced</Link>
             <Link to="/condominium-management-marketing/">Condominium boards</Link>
-            <Link to="/services/service-area-expansion/">More cities</Link>
+            <Link to="/how-it-works/#after">More cities, after you have chosen</Link>
             <Link to="/proof/">Proof</Link>
           </div>
           {near.length > 0 && (
             <div className="mesh reveal">
-              <span className="mesh-lab">Nearby markets I also rank in</span>
+              <span className="mesh-lab">Nearby markets I also work</span>
               {near.map((n) => (
                 <Link key={n.city.slug} to={cityPath(n.city.slug)}>
                   {n.city.city} <span style={{ color: 'var(--faint)', fontSize: 12 }}>{Math.round(n.km)} km</span>
@@ -188,7 +186,7 @@ export default function LocationPage() {
       </section>
 
       <CTAStrip
-        head={<>Get your {c.city} firm <span className="em">into the top 3.</span></>}
+        head={<>Put your {c.city} firm <span className="em">in front of the owners searching.</span></>}
         sub={`Nine minutes. I will read you where you actually show across the ${c.city} area, which three firms sit above you, and what happens to an owner enquiry that lands at seven in the evening.`}
       />
     </main>

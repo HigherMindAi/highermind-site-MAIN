@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import CTAStrip from '../components/CTAStrip';
-import { Arrow } from '../components/Icons';
 import { ANSWERS, answerPath } from '../lib/answers';
 import { orgSchema, breadcrumbs, featurePageSchema, faqSchema } from '../lib/schema';
 
@@ -17,12 +16,12 @@ export default function AnswersHub() {
     <main>
       <Seo
         title="Straight Answers on Local Search and Intake | HigherMindAI"
-        desc="Plain answers to what business owners actually ask about Google Maps ranking, service areas, AI receptionists and being found. No pitch."
+        desc="Plain answers to what business owners actually ask about Google Maps ranking, service areas, virtual receptionists and being found. No pitch."
         path="/answers/"
         schema={[
           orgSchema(),
           featurePageSchema(
-            'Straight answers on local search, Google Business Profiles and AI intake',
+            'Straight answers on local search, Google Business Profiles and intake',
             'Plain answers to the questions business owners actually ask about ranking, service areas and intake.',
             '/answers/'
           ),
@@ -42,8 +41,8 @@ export default function AnswersHub() {
               The questions owners actually ask, <span className="em">answered plainly.</span>
             </h1>
             <p className="sub">
-              Every one of these is a question I get asked on calls, answered the way I would answer
-              it on the phone rather than the way a marketing page would.{' '}
+              Every one of these is a question I get asked on calls, answered the way I answer it
+              on the phone rather than the way a marketing page would.{' '}
               <b>Several of them end with a reason not to hire me</b>, which is the point - if the
               answer only works when it sells something, it is not an answer.
             </p>
@@ -61,19 +60,17 @@ export default function AnswersHub() {
                 <Link to={answerPath(a.slug)}>{a.q}</Link>
               </h2>
               <p>{a.answer}</p>
-              <div className="pfoot" style={{ marginTop: 18 }}>
-                <Link to={answerPath(a.slug)} className="btn btn-ghost">
-                  The longer answer <Arrow />
-                </Link>
-              </div>
+              <p style={{ marginTop: 18 }}>
+                <Link to={answerPath(a.slug)}>The longer answer</Link>
+              </p>
             </div>
           ))}
         </div>
       </section>
 
       <CTAStrip
-        head={<>Not the question <span className="em">you came with?</span></>}
-        sub="Ask me on a call. Nine minutes, and if the honest answer is that you do not need me yet, that is the answer you will get."
+        head={<>Bring the question <span className="em">you came with.</span></>}
+        sub="Ask it in the nine minutes. If the honest answer is that you do not need me yet, that is the answer you will get."
       />
     </main>
   );

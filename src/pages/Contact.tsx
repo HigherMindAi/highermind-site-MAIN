@@ -1,20 +1,28 @@
+import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import FAQ from '../components/FAQ';
-import ContactForm from '../components/ContactForm';
+import { Arrow } from '../components/Icons';
 import { PHONE_E164, PHONE_DISP, EMAIL } from '../lib/site';
+import { CTA_LABEL, CTA_HREF, ONE_LINE } from '../lib/ladder';
 import { GENERAL_FAQ } from '../lib/services';
 import { faqSchema, breadcrumbs, orgSchema } from '../lib/schema';
+
+/*
+ * Contact. Phone, email and the booking page, as plain lines. The ONLY button
+ * is Take the nine minutes - the written form lives on /book/, so this page
+ * carries no second submit button beside it.
+ */
 
 const URL = '/contact/';
 
 const DESC =
-  'Book a call with HigherMindAI. Phone 647-242-5800, or send a message. Local search visibility, AI intake and the record of both - live in 14 to 21 days.';
+  'Reach Derek Train at HigherMindAI in Erin, Ontario. Call 647-242-5800, email, or take the nine minutes. One operator, and he answers his own phone.';
 
 export default function Contact() {
   return (
     <main>
       <Seo
-        title="Contact - Book a Call | HigherMindAI"
+        title="Contact Derek Train | HigherMindAI"
         desc={DESC}
         path={URL}
         schema={[
@@ -28,17 +36,17 @@ export default function Contact() {
         <div className="wrap">
           <span className="eyebrow reveal">Contact</span>
           <h1 className="reveal">
-            Book a call. <span className="em">Nine minutes, no pitch.</span>
+            Nine minutes. <span className="em">No pitch.</span>
           </h1>
           <p className="sub reveal">
-            I will show you where your firm ranks across its service area, and the log of what
-            happened when I contacted your firm as a client - the call, the chat, the form, and how
-            long it took anyone to come back. You will know exactly how much work is draining to the
-            firm that answered first, before you decide anything.
+            {ONE_LINE} Before the nine minutes I will already have looked at where you show and
+            called you as a customer. On it, I read you what I found, and tell you which step fits
+            where you are. Nothing to prepare, nothing to send me first.
           </p>
-          <div className="contact-lines reveal">
-            <a href={`tel:${PHONE_E164}`}>{PHONE_DISP}</a>
-            <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+          <div className="ctas reveal" style={{ marginTop: 30 }}>
+            <Link to={CTA_HREF} className="btn btn-primary">
+              {CTA_LABEL} <Arrow />
+            </Link>
           </div>
         </div>
       </section>
@@ -47,7 +55,21 @@ export default function Contact() {
 
       <section className="sec" id="contact">
         <div className="wrap narrow">
-          <ContactForm />
+          <div className="sec-head left reveal">
+            <span className="eyebrow">Or reach me directly</span>
+            <h2>One operator, in Erin, Ontario.</h2>
+          </div>
+          <div className="contact-lines reveal">
+            <p>
+              Phone: <a href={`tel:${PHONE_E164}`}>{PHONE_DISP}</a>
+            </p>
+            <p>
+              Email: <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+            </p>
+            <p>
+              Booking: <Link to={CTA_HREF}>pick a time for the nine minutes</Link>
+            </p>
+          </div>
         </div>
       </section>
 

@@ -1,204 +1,136 @@
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import FAQ from '../components/FAQ';
+import Plate from '../components/Plate';
 import CTAStrip from '../components/CTAStrip';
 import { Arrow } from '../components/Icons';
-import { PHONE_E164, PHONE_DISP } from '../lib/site';
-import { serviceSchema, faqSchema, breadcrumbs } from '../lib/schema';
+import type { StillKey } from '../lib/media';
+import { orgSchema, faqSchema, breadcrumbs } from '../lib/schema';
 
 const URL = '/who-i-help/';
 
 const DESC =
-  'One visibility and intake system, built out for auto service and collision, auto parts and recyclers, trades and home services, and property management.';
+  'Trades, auto parts and recyclers, and auto service and collision shops - found on Google, answered when the owner cannot pick up, every call counted. Property management too.';
 
-const SOL_FAQ: [string, string][] = [
+interface Book {
+  name: string;
+  href: string;
+  img: StillKey;
+  lands: string;
+  wound: string;
+  body: string;
+}
+
+const BOOKS: Book[] = [
+  {
+    name: 'Trades',
+    href: '/trades/',
+    img: 'vTrades',
+    lands: 'Most start on the Foundation',
+    wound: 'On the tools all day, and the call at seven in the evening rings out.',
+    body: 'Plumbing, heating and cooling, electrical, roofing, concrete, landscaping, septic, painting - two to twelve people and the owner still on the tools. The work is good and the phone is the leak. The Foundation puts you in the map, keeps your pages alive with your own job photos, answers when you cannot, and counts every call.',
+  },
+  {
+    name: 'Auto Parts and Recyclers',
+    href: '/auto-parts-recyclers/',
+    img: 'vAutoParts',
+    lands: 'The Read, then the Storefront',
+    wound: 'Nobody can tell from the site whether the part fits their car.',
+    body: 'So every request has to survive a phone call, and the counter is one person answering all of them. A parts business is the one place the site does the heavy lifting: a matcher on year, make, model and trim, a page for each vehicle you stock for, and a request that reaches the counter complete. It usually starts with The Read, because the mess cannot be priced from outside.',
+  },
+  {
+    name: 'Auto Service and Collision',
+    href: '/auto-service-collision/',
+    img: 'vAutoService',
+    lands: 'Most start on the Foundation',
+    wound: 'Bays full, hands dirty, and the booking goes to the shop that answered.',
+    body: 'The counter is one person also writing estimates in a building with air tools running. Collision and mechanical are two different searches and most shops only show up for one. The Foundation fixes the profile for both, answers the calls the counter cannot take, and counts them.',
+  },
+];
+
+const FAQ_ITEMS: [string, string][] = [
   [
-    'Do you only work with the four books?',
-    'No. It is one system, and four books already have the scripts and the vocabulary worked out because I built for them first - auto service and collision, auto parts and recyclers, trades and home services, and property and condominium management. Every other business runs on the same two failures: they never find you, or nobody answers. If one won client is worth having in your business, the arithmetic works.',
-  ],
-  [
-    'Why build books at all instead of one generic system?',
-    'Because depth beats breadth on the parts that get a business in trouble. A shop desk that tells a driver whether damage is covered by his policy is a problem, and one that touches a deductible is a worse one. A parts desk that confirms stock the shelf does not have costs a customer and a reputation. A property desk that answers a question reserved to a licensed manager is worse again. Building each book separately means the screening questions, the language and the handoffs are right on day one instead of after three months of correction.',
+    'Do you only work with trades and auto?',
+    'Those three are the ones I build for every week, so the vocabulary, the questions the desk asks and the boundaries are already worked out. Property and condominium management runs on the same system. Any business where one won customer is worth real money and the phone rings when nobody can answer fits the same three steps.',
   ],
   [
     'What makes a business a good fit?',
-    'One new client is worth real money rather than a few hundred dollars, enquiries arrive outside business hours, and there is nobody who can reliably answer them. If a missed call costs you a job, the system pays for itself. If your work is low-value and high-volume, it probably does not.',
+    'One new customer is worth real money, enquiries arrive when nobody can answer them, and the business is either losing the calls it already gets or not being found at all. If a missed call costs you a job, the Foundation earns its keep.',
   ],
   [
-    'My trade is not one of the four. Will the copy say the wrong thing?',
-    'No. The desk is built on your knowledge, your screening rules and your words. The books I have already built shape how carefully I build intake and where I know the boundaries bite - they do not decide what your version says.',
+    'Do you work outside the Headwaters?',
+    'Yes. I am based in Erin and work with businesses across Canada and the United States. The profile, the desk and the counting are all done remotely.',
   ],
-];
-
-const BOOKS: [string, string, string, string][] = [
-  [
-    'Auto service & collision',
-    'Intake first',
-    'Intake first, because the leak is loud and provable in one phone call. The counter is one person also writing estimates, in a building with air tools running. Then the category, because collision and mechanical are two of them and most shops are in one.',
-    '/auto-service-collision/',
-  ],
-  [
-    'Auto parts & recyclers',
-    'The build first',
-    'The build first, and it is the one book where that is true on day one. A customer cannot specify a year, make, model and part anywhere on most yard sites, so every request has to survive a phone call. There is a live one you can go and use.',
-    '/auto-parts-recyclers/',
-  ],
-  [
-    'Trades & home services',
-    'Visibility first',
-    'Visibility first, almost always. Plumbing, HVAC, electrical, concrete, landscaping, septic, painting and the rest - two to twelve people and the owner still on tools. The site is the second conversation, never the first.',
-    '/trades/',
-  ],
-  [
-    'Property & condominium management',
-    'Visibility first',
-    'Visibility first. An owner deciding to stop managing it themselves is already searching, and when three names go to a board somebody looks all three up that evening.',
-    '/property-management/',
-  ],
-];
-
-const OTHERS: string[] = [
-  'Roofing',
-  'Tree care & arborists',
-  'Restoration',
-  'Towing & recovery',
-  'Tyre & wheel',
-  'Fleet & commercial service',
-  'Accountants & bookkeepers',
-  'Medical & specialist clinics',
-  'Veterinary',
-  'Insurance brokers',
-  'Any appointment-led business',
 ];
 
 export default function WhoIHelp() {
   return (
     <main>
       <Seo
-        title="Who I Help - Auto, Trades and Property Management | HigherMindAI"
+        title="Who I Help - Trades, Auto Parts, Auto Service | HigherMindAI"
         desc={DESC}
         path={URL}
-        schema={[
-          serviceSchema('Local search, AI intake and website builds by trade', DESC, URL),
-          breadcrumbs([['Home', '/'], ['Who I Help', URL]]),
-          faqSchema(SOL_FAQ),
-        ]}
+        schema={[orgSchema(), breadcrumbs([['Home', '/'], ['Who I help', URL]]), faqSchema(FAQ_ITEMS)]}
       />
 
       <section className="phero">
         <div className="wrap">
-          <span className="eyebrow reveal">Who I help</span>
-          <h1 className="reveal">
-            One system, <span className="em">four books it is already built for.</span>
-          </h1>
-          <p className="sub reveal">
-            Auto service and collision, auto parts and recyclers, trades and home services, and
-            property and condominium management already have the scripts and the vocabulary worked
-            out, because I built for them first. <b>If you are none of the four, the system does not
-            change shape.</b> It is built on your knowledge, your screening rules, and your words.
-          </p>
-          <div className="ctas reveal">
-            <Link to="/book/" className="btn btn-primary">
-              Book a call <Arrow />
-            </Link>
-            <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
-              Call {PHONE_DISP}
-            </a>
+          <div className="reveal">
+            <div className="crumb">
+              <Link to="/">Home</Link> &nbsp;/&nbsp; Who I help
+            </div>
+            <span className="eyebrow">Who I help</span>
+            <h1>
+              Trades, auto parts, auto service. <span className="em">Found, answered, counted.</span>
+            </h1>
+            <p className="sub">
+              Three kinds of business I build for every week. The same two failures show up in all
+              of them: they never find you, or nobody answers. Which one is yours decides the step.
+            </p>
           </div>
         </div>
       </section>
 
-      <div className="divider" />
-
-      <section className="sec">
-        <div className="wrap">
-          <div className="sec-head left reveal">
-            <span className="eyebrow">Where it is already built out</span>
-            <h2>
-              Same two failures. <span className="em">Different order of build.</span>
-            </h2>
-            <p className="lead">
-              Every business here loses work the same two ways - they never find you, or nobody
-              answers. What changes between books is which end is bleeding faster, and that decides
-              what I build first. It is the first thing settled on the call and it is settled with
-              your numbers, not mine.
-            </p>
-          </div>
-          <div className="vgrid reveal">
-            {BOOKS.map(([h, tag, b, href]) => (
-              <div className="vtile" key={h}>
-                <span className="sn">{tag}</span>
-                <h3>{h}</h3>
-                <p>{b}</p>
-                <p style={{ marginTop: 14 }}>
-                  <Link to={href}>See the detail</Link>
-                </p>
+      {BOOKS.map((b, i) => (
+        <div key={b.name}>
+          <div className="divider" />
+          <section className="sec">
+            <div className="wrap">
+              <div className={'chap' + (i % 2 ? ' flip' : '')}>
+                <div className="chap-copy reveal">
+                  <span className="eyebrow"><span className="n">0{i + 1}</span> {b.lands}</span>
+                  <h2 style={{ marginTop: 22 }}>
+                    {b.name}. <span className="em">{b.wound}</span>
+                  </h2>
+                  <p className="lead">{b.body}</p>
+                  <p className="lead">
+                    <Link to={b.href}>How it works for {b.name.toLowerCase()} <Arrow /></Link>
+                  </p>
+                </div>
+                <div className="chap-media reveal">
+                  <Plate image={b.img} filmKey={b.img} ratio="4 / 3" scrim="soft" />
+                </div>
               </div>
-            ))}
-          </div>
+            </div>
+          </section>
         </div>
-      </section>
+      ))}
 
       <div className="divider" />
 
-      <section className="sec">
+      <section className="sec-sm">
         <div className="wrap">
           <div className="sec-head left reveal">
-            <span className="eyebrow">Everyone else</span>
-            <h2>
-              The problem is not the trade.{' '}
-              <span className="em">It is that nobody answers after five.</span>
+            <span className="eyebrow">Also on the same system</span>
+            <h2 style={{ marginTop: 22, fontSize: 'clamp(26px,3.2vw,38px)' }}>
+              Property and condominium management.
             </h2>
             <p className="lead">
-              Demand arriving when there is nobody to catch it is a universal problem with a
-              universal cost. If one new client is worth real money to you and your phone rings when
-              you cannot reach it, this is built for you too.
+              An owner deciding to stop managing it themselves is already searching, and when three
+              names go to a board somebody looks all three up that evening. See{' '}
+              <Link to="/property-management/">property management</Link> and{' '}
+              <Link to="/condominium-management-marketing/">condominium management</Link>.
             </p>
-          </div>
-          <div className="inds reveal">
-            <span className="ind lead-ind">Property &amp; condominium management</span>
-            <span className="ind lead-ind">Roofing</span>
-            <span className="ind lead-ind">Arborists &amp; tree care</span>
-            {OTHERS.map((o) => (
-              <span className="ind" key={o}>
-                {o}
-              </span>
-            ))}
-          </div>
-          <p className="note reveal">
-            Not on the list is not a no. If a missed enquiry costs you real money, tell me what you
-            do and I will tell you straight whether I can help.
-          </p>
-        </div>
-      </section>
-
-      <div className="divider" />
-
-      <section className="sec">
-        <div className="wrap">
-          <div className="sec-head left reveal">
-            <span className="eyebrow">The honest filter</span>
-            <h2>A no is a good answer, and it is faster than a bad yes.</h2>
-          </div>
-          <div className="steps reveal">
-            <div className="step">
-              <div className="sn">This is for you if</div>
-              <ul className="plist" style={{ marginTop: 16 }}>
-                <li>One new client is worth real money, not a few hundred dollars</li>
-                <li>Enquiries arrive after hours and nobody reliably catches them</li>
-                <li>You want booked work, not a dashboard of impressions</li>
-                <li>You would rather own the channel than rent leads from an aggregator</li>
-              </ul>
-            </div>
-            <div className="step">
-              <div className="sn">This is not for you if</div>
-              <ul className="plist" style={{ marginTop: 16 }}>
-                <li>You are shopping purely on price</li>
-                <li>You would rather not know how many enquiries you are missing</li>
-                <li>Your work is low-value and high-volume</li>
-                <li>You want page one overnight, before the work compounds</li>
-              </ul>
-            </div>
           </div>
         </div>
       </section>
@@ -209,15 +141,15 @@ export default function WhoIHelp() {
         <div className="wrap narrow">
           <div className="sec-head left reveal">
             <span className="eyebrow">Questions</span>
-            <h2>Answered plainly.</h2>
+            <h2 style={{ marginTop: 22 }}>Answered plainly.</h2>
           </div>
-          <FAQ items={SOL_FAQ} />
+          <FAQ items={FAQ_ITEMS} />
         </div>
       </section>
 
       <CTAStrip
-        head={<>Tell me what you do. I will tell you if I can help.</>}
-        sub="Nine minutes on the phone, no pitch. If your market is taken or the numbers do not work, I will say so on the call rather than sell you something."
+        head={<>Take the nine minutes. <span className="em">I will tell you which step fits.</span></>}
+        sub="Before the call I look at your profile, your site and the businesses above you. On it, I show you what I found and the fixed price on the step that fits."
       />
     </main>
   );

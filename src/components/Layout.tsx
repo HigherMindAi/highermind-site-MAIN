@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Nav from './Nav';
 import ScrollProgress from './ScrollProgress';
-import DigitalRain from './DigitalRain';
 import Footer from './Footer';
 import PageFilm from './PageFilm';
 import { useReveal } from '../lib/useReveal';
@@ -57,7 +56,6 @@ export default function Layout() {
       <div className="deep" aria-hidden="true">
         <span className="caustic ca" />
         <span className="caustic cb" />
-        <DigitalRain fixed />
       </div>
       <div className="page">
         <ScrollManager />

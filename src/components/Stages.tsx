@@ -41,9 +41,9 @@ function usePlayhead(steps: number, ms: number, rest = 4200) {
 
 /* ---------------------------------------- the ai search answer, typing */
 const SEG: ReadonlyArray<readonly [string, boolean]> = [
-  ['For after-hours response and owner reviews, ', false],
+  ['For property management near you with strong owner reviews, ', false],
   ['your firm', true],
-  [' is where I would start - every enquiry answered and qualified, and the owner call booked on the first contact.', false],
+  [' is a good place to start - it names the exact work, lists your town, and its recent reviews say the same thing.', false],
 ];
 const FULL = SEG.reduce((a, [t]) => a + t.length, 0);
 
@@ -77,9 +77,9 @@ export function SearchStage() {
   }, []);
   let used = 0;
   return (
-    <div className="stg" aria-label="Illustrative AI answer naming your firm">
+    <div className="stg" aria-label="Illustrative assistant answer naming your firm">
       <div className="stg-top">
-        <span className="stg-lab">ai assistant</span>
+        <span className="stg-lab">assistant</span>
         <span className="stg-chip">one answer</span>
       </div>
       <div className="stg-q">who manages rental property near me and actually answers?</div>
@@ -103,7 +103,7 @@ const NODES = ['Enquiry', 'Screen', 'Book', 'Follow up'];
 
 export function SystemsStage() {
   return (
-    <div className="stg" aria-label="Illustrative automated workflow">
+    <div className="stg" aria-label="Illustrative custom system carrying one repeated job">
       <div className="stg-top">
         <span className="stg-lab">your signature motion</span>
         <span className="stg-chip">running</span>
@@ -246,7 +246,7 @@ export function NightShiftStage() {
               );
             })}
           </div>
-          <span className="nsh-out">{n >= 2 ? `${ARRIVALS.length - AFTER} caught` : '\u2014'}</span>
+          <span className="nsh-out">{n >= 2 ? `${ARRIVALS.length - AFTER} caught` : '-'}</span>
         </div>
 
         <div className="nsh-row">
@@ -262,7 +262,7 @@ export function NightShiftStage() {
             ))}
           </div>
           <span className={'nsh-out' + (n >= 3 ? ' ok' : '')}>
-            {n >= 3 ? `${ARRIVALS.length} caught` : '\u2014'}
+            {n >= 3 ? `${ARRIVALS.length} caught` : '-'}
           </span>
         </div>
 
@@ -295,10 +295,10 @@ export function RecordStage() {
   const n = usePlayhead(HIST.length + 2, 105, 4200);
   const max = Math.max(...HIST);
   return (
-    <div className="stg" aria-label="Illustrative monthly report: arrivals by hour, totals, and the record of every contact">
+    <div className="stg" aria-label="Illustrative count: every call and form by the hour it arrived, with the totals">
       <div className="stg-top">
-        <span className="stg-lab">the keystone report &middot; monthly</span>
-        <span className="stg-chip">forwarded unedited</span>
+        <span className="stg-lab">every call and form &middot; counted</span>
+        <span className="stg-chip">what it did</span>
       </div>
 
       <div className="rcd">
@@ -339,12 +339,12 @@ export function RecordStage() {
         </div>
 
         <div className={'rcd-stamp' + (n >= HIST.length + 2 ? ' on' : '')}>
-          On the record
+          Counted
         </div>
       </div>
 
       <div className="stg-note">
-        Illustrative &middot; written to be tabled at a board meeting without editing
+        Illustrative &middot; every call and form counted, so you see what it did
       </div>
     </div>
   );
@@ -476,7 +476,7 @@ export function KeystoneArchStage() {
         </p>
       </div>
 
-      <div className="stg-note">Illustrative &middot; ranking, intake, the record, the trust</div>
+      <div className="stg-note">Illustrative &middot; found, trusted, answered, measured</div>
     </div>
   );
 }

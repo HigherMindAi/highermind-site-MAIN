@@ -3,19 +3,19 @@ import Seo from '../components/Seo';
 import FAQ from '../components/FAQ';
 import CTAStrip from '../components/CTAStrip';
 import { Arrow } from '../components/Icons';
-import { PHONE_E164, PHONE_DISP } from '../lib/site';
+import { CTA_LABEL, CTA_HREF, FOUNDATION } from '../lib/ladder';
 import { SCOPE_DOES, SCOPE_STOPS, CMRAO_LINE } from '../lib/property';
 import { breadcrumbs, featurePageSchema, faqSchema } from '../lib/schema';
 
 const URL = '/scope-limits/';
 
 const DESC =
-  'Exactly what the intake desk does and where it stops, published before you ask. It routes to a person and never performs a function reserved to a licensed one.';
+  'Exactly what the desk inside The Foundation does and where it stops, published before you ask. It routes to a person and never does what a licence is for.';
 
 const SCOPE_FAQ: [string, string][] = [
   [
     'Why publish this at all?',
-    'Because every firm I speak to is quietly worried about the same thing, and almost nobody selling AI intake will answer it in writing. A limit you only hear about after something goes wrong is not a limit, it is a surprise. Publishing it costs me nothing I was entitled to and gives you something you can forward to a board or a lawyer without asking me for it first.',
+    'Because every owner I speak to is quietly worried about the same thing, and almost nobody selling an answering desk will answer it in writing. A limit you only hear about after something goes wrong is not a limit, it is a surprise. Publishing it costs me nothing I was entitled to and gives you something you can forward to a board or a lawyer without asking me for it first.',
   ],
   [
     'Does the desk ever give a resident an answer about their own unit?',
@@ -39,11 +39,11 @@ export default function ScopeLimits() {
   return (
     <main>
       <Seo
-        title="Where the AI Intake Desk Stops | HigherMindAI"
+        title="Where the Desk Stops: Published Scope | HigherMindAI"
         desc={DESC}
         path={URL}
         schema={[
-          featurePageSchema('AI Intake Desk - Published Scope Limits', DESC, URL),
+          featurePageSchema('The desk - published scope limits', DESC, URL),
           breadcrumbs([
             ['Home', '/'],
             ['Who I Help', '/who-i-help/'],
@@ -60,24 +60,24 @@ export default function ScopeLimits() {
               <Link to="/">Home</Link> &nbsp;/&nbsp;{' '}
               <Link to="/property-management/">Property Management</Link> &nbsp;/&nbsp; Scope Limits
             </div>
-            <span className="eyebrow">Scope limits &middot; published, not buried</span>
+            <Link to={FOUNDATION.href} className="eyebrow">
+              Inside The Foundation &middot; where the desk stops
+            </Link>
             <h1>
               Everyone sells you what the desk does.{' '}
               <span className="em">This is where it stops.</span>
             </h1>
             <p className="sub">
-              The question every principal is too polite to ask on a first call is what happens when
-              the thing answers something it had no business answering. Here is the answer, in
-              advance, on a page you can forward to your board or your lawyer without asking me for
+              The desk sits inside The Foundation and answers when you cannot, on the web or on your
+              phone line. The question every owner is too polite to ask is what happens when it
+              answers something it had no business answering. Here is the answer, in advance, on a
+              page you can forward to your partner, your board or your lawyer without asking me for
               it. Nothing on this list moves later because the relationship has warmed up.
             </p>
             <div className="ctas">
-              <Link to="/book/" className="btn btn-primary">
-                Book a call <Arrow />
+              <Link to={CTA_HREF} className="btn btn-primary">
+                {CTA_LABEL} <Arrow />
               </Link>
-              <a href={`tel:${PHONE_E164}`} className="btn btn-ghost">
-                Call {PHONE_DISP}
-              </a>
             </div>
           </div>
         </div>
@@ -205,10 +205,10 @@ export default function ScopeLimits() {
             </p>
           </div>
           <div className="mesh reveal">
-            <span className="mesh-lab">The rest of it</span>
-            <Link to="/property-management-intake/">The intake desk</Link>
-            <Link to="/the-record/">How delivery is evidenced</Link>
-            <Link to="/services/">Everything I build</Link>
+            <span className="mesh-lab">Where this sits</span>
+            <Link to={FOUNDATION.href}>The Foundation</Link>
+            <Link to="/property-management-intake/">The desk</Link>
+            <Link to="/the-record/">Every call and form counted</Link>
             <Link to="/trades/">Trades</Link>
             <Link to="/auto-service-collision/">Auto service &amp; collision</Link>
             <Link to="/auto-parts-recyclers/">Auto parts &amp; recyclers</Link>

@@ -8,7 +8,13 @@
 // `shot` points at a real screenshot under /work/. If the file is not there the
 // card falls back to a designed frame rather than a broken box, so the page is
 // never wrong-looking while a screenshot is pending.
+//
+// v15: every build here is described as a BUILD, never a result. The Brampton
+// parts build carries PROOF_PLAIN from ladder.ts word for word, and is tagged
+// with the ladder step it belongs to (The Storefront).
 // ---------------------------------------------------------------------------
+
+import { PROOF_PLAIN, STOREFRONT } from './ladder';
 
 export interface WorkItem {
   slug: string;
@@ -41,15 +47,16 @@ export const WORK: WorkItem[] = [
     name: 'Canada Car Parts',
     url: 'canadacarpart.com',
     href: 'https://canadacarpart.com/',
-    tag: 'Website - The Storefront',
-    line: 'An auto parts counter, rebuilt as a part finder.',
+    tag: STOREFRONT.name,
+    line: 'An auto parts counter in Brampton, rebuilt as a part finder.',
     body:
-      'A Brampton auto body and mechanical parts supplier whose whole business ran through somebody reading a year, make and model down the phone and going to look. The site now does that part. A buyer picks the vehicle, sees what fits it, and sends the request with photographs of the damage attached - so the first call is about price and fitment rather than about what car it is.',
+      PROOF_PLAIN +
+      ' A buyer picks the vehicle, sees what fits it, and sends the request with photographs attached where the part depends on the damage - so the first call is about the part rather than about what car it is.',
     built: [
-      'Year, make and model part finder',
-      'A page per vehicle and per part',
-      'Quote request with damage photos',
-      'Painting, installation and delivery',
+      'Year, make, model and trim part matcher',
+      'A page for each vehicle it stocks for',
+      'Requests to the counter by text',
+      'Photographs attached where the damage decides the part',
       'LocalBusiness and catalogue schema',
     ],
     shot: '/work/canadacarpart.webp',
