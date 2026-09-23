@@ -39,25 +39,25 @@ const BEATS: Beat[] = [
     n: '01',
     word: 'Found',
     head: 'I get you found on Google.',
-    line: 'Someone nearby has a problem tonight. When they search, your business is the pin in the map - not the one below it.',
+    line: 'Someone nearby has a problem tonight. Your pin is the one they see first.',
   },
   {
     n: '02',
     word: 'Trusted',
     head: 'I make you the one they trust.',
-    line: 'They check you before they call. Your own job photos, every review answered, Facebook and Instagram kept current.',
+    line: 'Your own job photos, every review answered, pages that look alive.',
   },
   {
     n: '03',
     word: 'Answered',
     head: 'I answer when you cannot.',
-    line: 'It is 7:04pm and you are on a job. The desk answers on the web or on your phone line, takes the details and sends them to you.',
+    line: '7:04pm and you are on a job. The desk answers and sends you the details.',
   },
   {
     n: '04',
     word: 'Measured',
     head: 'And I count every call.',
-    line: 'Every call and form counted, so you see exactly what it did - and where you started, recorded before anything was touched.',
+    line: 'Every call and form counted, so you see exactly what it did.',
   },
 ];
 
@@ -88,12 +88,8 @@ function FoundCard() {
           <span className="pin" aria-hidden="true" />
           <span className="nm"><b>The one below you</b><small>Closes soon</small></span>
         </li>
-        <li>
-          <span className="pin" aria-hidden="true" />
-          <span className="nm"><b>The one below that</b><small>Hours not listed</small></span>
-        </li>
       </ol>
-      <p className="shc-foot">The map pack - three names, and the call goes to the top one.</p>
+      <p className="shc-foot">The map pack. The call goes to the top one.</p>
     </div>
   );
 }
@@ -109,10 +105,7 @@ function TrustedCard() {
           <span>Thank you - glad the heat is back on. Call me any time.</span>
         </div>
       </div>
-      <div className="shc-grid" aria-hidden="true">
-        <span /><span /><span /><span /><span /><span />
-      </div>
-      <p className="shc-foot">Your own job photos, posted weekly. Every review answered.</p>
+      <p className="shc-foot">Every review answered, for the next person reading it.</p>
     </div>
   );
 }
@@ -123,10 +116,9 @@ function AnsweredCard() {
       <ul className="shc-log">
         <li><span className="t">7:04pm</span><span>Call to your line - you are on a job</span></li>
         <li className="ok"><span className="t">7:04pm</span><span>Answered by the desk</span></li>
-        <li className="ok"><span className="t">7:06pm</span><span>Job captured: no heat, Erin, tomorrow morning</span></li>
-        <li className="ok"><span className="t">7:06pm</span><span>Sent to your phone by text</span></li>
+        <li className="ok"><span className="t">7:06pm</span><span>No heat, Erin - sent to you by text</span></li>
       </ul>
-      <p className="shc-foot">Administrative intake only. It never quotes and never commits a crew.</p>
+      <p className="shc-foot">It never quotes and never commits a crew.</p>
     </div>
   );
 }
@@ -139,12 +131,7 @@ function MeasuredCard() {
         <div><span>Forms</span><b>counted</b></div>
         <div><span>Reviews</span><b>answered</b></div>
       </div>
-      <ul className="shc-log compact">
-        <li className="ok"><span className="t">Mon</span><span>Call from the map - booked</span></li>
-        <li className="ok"><span className="t">Tue</span><span>Form from the site - answered</span></li>
-        <li className="ok"><span className="t">Wed</span><span>Call after hours - answered, sent to you</span></li>
-      </ul>
-      <p className="shc-foot">Where you started, recorded first. So you see exactly what it did.</p>
+      <p className="shc-foot">Where you started, recorded before anything is touched.</p>
     </div>
   );
 }
@@ -281,7 +268,6 @@ export default function ScrollHero() {
 
         <div className="wrap sh-in">
           <div className="sh-copy">
-            <span className="eyebrow">Local SEO &middot; Google Business Profile &middot; Call answering</span>
             <h1>
               Found on Google. <span className="em">Answered when you cannot pick up.</span>
             </h1>
@@ -308,7 +294,6 @@ export default function ScrollHero() {
                 <C />
               </div>
             ))}
-            <span className="sh-illus">Illustration</span>
           </div>
         </div>
 

@@ -1854,3 +1854,46 @@ a.town:hover{border-color:var(--teal);color:#fff}
 .chap-copy h2{font-size:clamp(28px,3.4vw,46px);line-height:1.08}
 .chap-copy h2 + .lead{margin-top:18px}
 .chap-copy .lead + .lead{margin-top:14px}
+
+/* ---- v15.1 - the hero breathes (Derek, 22 Sept): copy low and small, one
+   compact card in the corner, the top of the frame left to the film. ---- */
+.sh-in{align-items:end;padding-top:76px;padding-bottom:clamp(96px,13vh,132px);grid-template-columns:minmax(0,1fr) minmax(0,.62fr)}
+.sh-veil{background:
+  linear-gradient(90deg,rgba(6,13,31,.78) 0%,rgba(6,13,31,.42) 30%,rgba(6,13,31,0) 55%),
+  linear-gradient(0deg,rgba(6,13,31,.92) 0%,rgba(6,13,31,.45) 26%,rgba(6,13,31,0) 50%),
+  linear-gradient(180deg,rgba(6,13,31,.5) 0%,rgba(6,13,31,0) 16%)}
+.sh-copy h1{font-size:clamp(26px,2.7vw,40px);line-height:1.08;max-width:24ch;margin-top:0}
+.sh-copy h1 .em{display:inline}
+.sh-beats{min-height:108px;margin-top:clamp(12px,1.6vw,18px)}
+.sh-beat h2{font-size:clamp(18px,1.6vw,22px);margin:6px 0 4px}
+.sh-beat p{font-size:clamp(14.5px,1.1vw,16px);max-width:46ch}
+.sh-copy .ctas{margin-top:14px}
+.sh-copy .btn{padding:13px 22px;font-size:15px}
+.sh-cards{width:min(300px,100%);min-height:0;align-self:end}
+.sh-cardwrap{position:absolute;inset:auto 0 0 0}
+.sh-card{background:rgba(11,26,58,.5);padding:14px;border-radius:12px;position:relative;border-color:rgba(125,245,221,.16)}
+.sh-card::after{content:"Illustration";position:absolute;top:-18px;right:2px;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(233,245,242,.55)}
+.shc-search{padding:8px 12px;font-size:13px}
+.shc-pack{gap:6px;margin-top:10px}
+.shc-pack li{padding:8px 10px}
+.shc-pack .nm b{font-size:13.5px}
+.shc-pack .nm small{font-size:11.5px}
+.shc-rev{padding:12px}
+.shc-rev p{font-size:13px}
+.shc-reply span{font-size:12.5px}
+.shc-log{gap:6px}
+.shc-log li{padding:7px 10px;font-size:13px;grid-template-columns:54px 1fr}
+.shc-count{margin-bottom:0}
+.shc-count div{padding:9px 6px}
+.shc-foot{font-size:11.5px;margin-top:10px}
+.sh-rail{bottom:22px}
+.sh-skip{bottom:74px}
+@media (max-width:900px){
+  .sh-in{padding-bottom:84px;grid-template-columns:1fr}
+  .sh-veil{background:linear-gradient(0deg,rgba(6,13,31,.95) 0%,rgba(6,13,31,.7) 30%,rgba(6,13,31,0) 55%),linear-gradient(180deg,rgba(6,13,31,.5) 0%,rgba(6,13,31,0) 14%)}
+  .sh-copy h1{font-size:clamp(24px,6.6vw,30px)}
+  .sh-beats{min-height:96px}
+  .sh-beat h2{font-size:18px}
+  .sh-beat p{font-size:14px}
+  .sh-skip{bottom:20px}
+}
