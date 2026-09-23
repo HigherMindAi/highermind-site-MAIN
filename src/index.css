@@ -1872,7 +1872,6 @@ a.town:hover{border-color:var(--teal);color:#fff}
 .sh-cards{width:min(300px,100%);min-height:0;align-self:end}
 .sh-cardwrap{position:absolute;inset:auto 0 0 0}
 .sh-card{background:rgba(11,26,58,.5);padding:14px;border-radius:12px;position:relative;border-color:rgba(125,245,221,.16)}
-.sh-card::after{content:"Illustration";position:absolute;top:-18px;right:2px;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(233,245,242,.55)}
 .shc-search{padding:8px 12px;font-size:13px}
 .shc-pack{gap:6px;margin-top:10px}
 .shc-pack li{padding:8px 10px}
@@ -1897,3 +1896,27 @@ a.town:hover{border-color:var(--teal);color:#fff}
   .sh-beat p{font-size:14px}
   .sh-skip{bottom:20px}
 }
+
+/* ---- v15.2 - one big line per beat (Derek, 22 Sept): the headline moves
+   with the story, sized back up; the four lines stack in one grid cell so
+   the block is always as tall as the longest and nothing jumps. ---- */
+.sh-heads{display:grid}
+.sh-copy .sh-head{grid-area:1/1;margin:0;font-family:var(--f-display,inherit);font-weight:700;color:#fff;
+  font-size:clamp(32px,3.7vw,56px);line-height:1.04;letter-spacing:-.035em;max-width:22ch;text-wrap:balance;
+  opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease);pointer-events:none}
+.sh-copy .sh-head.on{opacity:1;transform:none;pointer-events:auto}
+.sh-copy .sh-head .em{display:block;margin-top:.1em;font-size:.99em;line-height:1;
+  background:linear-gradient(100deg,var(--teal) 6%,#9BF4DD 28%,#2FB99A 50%,#7FF0D2 72%,var(--teal) 94%);
+  background-size:230% 100%;-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;animation:liquid 8.5s linear infinite}
+.sh-beats{display:grid;min-height:0;margin-top:clamp(14px,1.8vw,22px)}
+.sh-beat{position:relative;grid-area:1/1;inset:auto}
+.sh-beat p{font-size:clamp(15.5px,1.25vw,18px);max-width:48ch;margin-top:6px}
+.sh-copy .ctas{margin-top:20px}
+.sh-copy .btn{padding:15px 26px;font-size:16px}
+@media (max-width:900px){
+  .sh-copy .sh-head{font-size:clamp(27px,7.6vw,36px);max-width:none}
+  .sh-beats{min-height:0;margin-top:10px}
+  .sh-beat p{font-size:14.5px;line-height:1.5}
+}
+@media (prefers-reduced-motion:reduce){ .sh-copy .sh-head{transition:none} .sh-copy .sh-head .em{animation:none} }

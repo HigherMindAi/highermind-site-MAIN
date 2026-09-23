@@ -30,7 +30,9 @@ import { Arrow } from './Icons';
 interface Beat {
   n: string;
   word: string;
+  /** The big line for this beat. Beat 01 renders as the page's <h1>. */
   head: string;
+  em: string;
   line: string;
 }
 
@@ -39,25 +41,29 @@ const BEATS: Beat[] = [
     n: '01',
     word: 'Found',
     head: 'I get you found on Google.',
-    line: 'Someone nearby has a problem tonight. Your pin is the one they see first.',
+    em: 'Your pin is the one they see first.',
+    line: 'Someone nearby has a problem tonight. They search, and the map decides who gets the call.',
   },
   {
     n: '02',
     word: 'Trusted',
-    head: 'I make you the one they trust.',
+    head: 'They check you before they call.',
+    em: 'I make sure they like what they find.',
     line: 'Your own job photos, every review answered, pages that look alive.',
   },
   {
     n: '03',
     word: 'Answered',
-    head: 'I answer when you cannot.',
-    line: '7:04pm and you are on a job. The desk answers and sends you the details.',
+    head: '7:04pm. You are on a job.',
+    em: 'The call still gets answered.',
+    line: 'The desk takes the details and sends them to you by text. It never quotes.',
   },
   {
     n: '04',
     word: 'Measured',
-    head: 'And I count every call.',
-    line: 'Every call and form counted, so you see exactly what it did.',
+    head: 'Next morning, it is all counted.',
+    em: 'Every call. Every form.',
+    line: 'Where you started is recorded first, so you see exactly what the work did.',
   },
 ];
 
@@ -268,14 +274,25 @@ export default function ScrollHero() {
 
         <div className="wrap sh-in">
           <div className="sh-copy">
-            <h1>
-              Found on Google. <span className="em">Answered when you cannot pick up.</span>
-            </h1>
+            <div className="sh-heads">
+              {BEATS.map((b, i) => {
+                const cls = 'sh-head' + (i === active ? ' on' : '');
+                const inner = (
+                  <>
+                    {b.head} <span className="em">{b.em}</span>
+                  </>
+                );
+                return i === 0 ? (
+                  <h1 key={b.n} className={cls}>{inner}</h1>
+                ) : (
+                  <p key={b.n} className={cls} aria-hidden="true">{inner}</p>
+                );
+              })}
+            </div>
             <div className="sh-beats">
               {BEATS.map((b, i) => (
                 <div key={b.n} className={'sh-beat' + (i === active ? ' on' : '')} aria-hidden={i !== active}>
                   <span className="sh-n">{b.n} &middot; {b.word}</span>
-                  <h2>{b.head}</h2>
                   <p>{b.line}</p>
                 </div>
               ))}

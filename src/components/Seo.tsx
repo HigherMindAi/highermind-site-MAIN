@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
 import { BASE, BRAND } from '../lib/site';
-import { HeadContext } from '../lib/head';
+import { HeadContext, OG_IMAGE } from '../lib/head';
 import { orgSchema } from '../lib/schema';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -62,7 +62,7 @@ export default function Seo({ title, desc, path, schema = [] }: SeoProps) {
 
   const schemaKey = JSON.stringify(full);
   useEffect(() => {
-    const og = `${BASE}/og.png`;
+    const og = OG_IMAGE;
 
     document.title = title;
     upsertMeta('name', 'description', desc);
