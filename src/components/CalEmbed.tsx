@@ -1,6 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any, prefer-rest-params */
 import { useEffect } from 'react';
 import { CAL_INTRO, calUrl } from '../lib/site';
+import { track } from '../lib/tracking';
+
+// Module-level so they survive the embed re-initialising on the same page.
+const WIRED = new Set<string>();
+const BOOKED = new Set<string>();
+const VIEWED = new Set<string>();
+let CTX: Record<string, string> = {};
 
 /**
  * Cal.com inline booking, embedded with the official loader and themed teal.
@@ -66,6 +73,44 @@ export default function CalEmbed({
       config: { layout: 'month_view', theme: 'dark', ...extra },
       calLink: link,
     });
+    // Found and counted (v15.3): the booking itself is the conversion. Cal
+    // fires these from inside its iframe; they reach GA4 as generate_lead
+    // (a key event), plus a view and a failure signal for the calendar.
+    // Listeners are registered ONCE per namespace - the embed re-inits when
+    // the source answer changes, and a second set of listeners would count
+    // one booking twice. The context they report is read live from CTX.
+    CTX = {
+      cal_event: link,
+      booking_source: extra.source || '',
+      campaign_source: extra.utm_source || '',
+      campaign_medium: extra.utm_medium || '',
+      campaign_name: extra.utm_campaign || '',
+    };
+    if (!WIRED.has(ns)) {
+      WIRED.add(ns);
+      const detail = (e: any) => (e && e.detail && e.detail.data) || {};
+      const onBooked = (e: any) => {
+        const d = detail(e);
+        const key = d.uid || d.startTime || 'booked';
+        if (BOOKED.has(key)) return; // V2 and the legacy event both fire
+        BOOKED.add(key);
+        track('generate_lead', { ...CTX, method: 'cal', booking_status: d.status || '' });
+      };
+      w.Cal.ns[ns]('on', { action: 'bookingSuccessfulV2', callback: onBooked });
+      w.Cal.ns[ns]('on', { action: 'bookingSuccessful', callback: onBooked });
+      w.Cal.ns[ns]('on', {
+        action: 'linkReady',
+        callback: () => {
+          if (VIEWED.has(ns)) return;
+          VIEWED.add(ns);
+          track('booking_view', CTX);
+        },
+      });
+      w.Cal.ns[ns]('on', {
+        action: 'linkFailed',
+        callback: (e: any) => track('booking_error', { ...CTX, error_code: String(detail(e).code || '') }),
+      });
+    }
     w.Cal.ns[ns]('ui', {
       theme: 'dark',
       cssVarsPerTheme: { dark: { 'cal-brand': '#3FE0B5' } },

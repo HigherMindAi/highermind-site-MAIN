@@ -22,6 +22,19 @@ const ORG_ID = `${BASE}/#org`;
 const SERVICE_ID = `${BASE}/#service`;
 const PERSON_ID = `${BASE}/#derek`;
 
+// v15.3 - the Foundation's visible promise is a lead-in ("Everything in the
+// Pin, plus:") that the page completes with a list. In structured data the
+// list never arrived, so the anchor step was described to every crawler as
+// "Everything in the Pin, plus:". Each offer now reads as a whole sentence.
+const OFFER_DESCRIPTION: Record<string, string> = {
+  foundation:
+    'Found, trusted, answered, measured. Everything in the Pin, plus Facebook and Instagram rebuilt properly and kept current, a desk that answers when you cannot on the web or on your phone line, and every call and form counted. Where most start.',
+};
+function offerDescription(st: { key: string; line: string; promise: string }): string {
+  if (OFFER_DESCRIPTION[st.key]) return OFFER_DESCRIPTION[st.key];
+  return st.promise.trim().endsWith(':') ? `${st.line} ${st.promise.replace(/:\s*$/, '.')}` : st.promise;
+}
+
 // Organization + ProfessionalService as a single @graph, cross-linked by @id.
 // This is the entity anchor AI engines use to confirm HigherMindAI is real.
 export function orgSchema(): Json {
@@ -90,7 +103,7 @@ export function orgSchema(): Json {
             itemOffered: {
               '@type': 'Service',
               name: st.name,
-              description: st.promise,
+              description: offerDescription(st),
               url: BASE + st.href,
             },
           })),
@@ -121,6 +134,9 @@ export function orgSchema(): Json {
           addressRegion: REGION,
           addressCountry: COUNTRY,
         },
+        // v15.3 - the listing itself, so the site entity and the Google
+        // profile resolve to one business (Waypoint G2/G5).
+        hasMap: ORG_PROFILES[0],
         provider: { '@id': ORG_ID },
       },
     ],
@@ -381,7 +397,7 @@ export function ladderSchema(): Json {
       item: {
         '@type': 'Service',
         name: st.name,
-        description: `${st.line} ${st.promise}`,
+        description: st.key === 'foundation' || st.promise.trim().endsWith(':') ? offerDescription(st) : `${st.line} ${st.promise}`,
         url: BASE + st.href,
         provider: { '@id': ORG_ID },
         areaServed: AREA_SERVED,

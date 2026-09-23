@@ -3,6 +3,10 @@ import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom/server';
 import App from './App';
 import { HeadContext, HeadSink, renderHeadTags } from './lib/head';
+import { trackingHead } from './lib/tracking';
+
+// The measurement + verification block, identical on every page (v15.3).
+export { trackingHead };
 
 // Renders a route to { appHtml, headHtml } for the prerender script.
 export function render(url: string): { appHtml: string; headHtml: string } {

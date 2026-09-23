@@ -23,9 +23,14 @@ function outFileFor(route) {
 
 async function run() {
   const template = readFileSync(join(dist, 'index.html'), 'utf8');
-  const { render } = await import(
+  const { render, trackingHead } = await import(
     pathToFileURL(join(dist, 'server', 'entry-server.js')).href
   );
+
+  // v15.3 - Found and counted. GA4, Search Console / Bing verification,
+  // Clarity and the Meta pixel, each only when its ID is set in Netlify.
+  const tracking = trackingHead();
+  console.log(tracking ? '  tracking: on' : '  tracking: no IDs set - shipping dormant');
 
   const routes = routesFromSitemap();
   // a real 404 document too (served as the SPA fallback / unknown paths)
@@ -40,7 +45,7 @@ async function run() {
     // whose job is to render $2,500 and $300, that is a landmine. A function
     // replacement disables all $-pattern interpretation. Do not revert this.
     const html = template
-      .replace('<!--app-head-->', () => headHtml)
+      .replace('<!--app-head-->', () => headHtml + (tracking ? '\n    ' + tracking : ''))
       .replace('<!--app-html-->', () => appHtml);
     mkdirSync(dirname(file), { recursive: true });
     writeFileSync(file, html);

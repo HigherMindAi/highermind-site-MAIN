@@ -72,7 +72,7 @@ export default function TheRead() {
     <main>
       <Seo
         title="The Read - Everything Online, Gone Through in a Week | HigherMindAI"
-        desc="Everything you have online, gone through properly in a week. What is wrong, what it costs, and a fixed price on the right step. Three real findings or it is free."
+        desc="Everything you have online, gone through in a week. What is wrong, what it costs, and a fixed price on the right step. Three real findings or it is free."
         path={URL}
         schema={[
           orgSchema(),

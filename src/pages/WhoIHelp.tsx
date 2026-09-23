@@ -10,7 +10,7 @@ import { orgSchema, faqSchema, breadcrumbs } from '../lib/schema';
 const URL = '/who-i-help/';
 
 const DESC =
-  'Trades, auto parts and recyclers, and auto service and collision shops - found on Google, answered when the owner cannot pick up, every call counted. Property management too.';
+  'Trades, auto parts and recyclers, auto service and collision. Found on Google, answered when you cannot pick up, every call counted. Property management too.';
 
 interface Book {
   name: string;

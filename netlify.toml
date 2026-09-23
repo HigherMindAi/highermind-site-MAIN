@@ -129,24 +129,90 @@
   force = true
 
 
-# AUGUST 2026 - /local-seo/* moved to /property-management-seo/*.
-# ORDER IS LOAD-BEARING. Everything must stay above the /* catch-all.
+# AUGUST 2026 - the property management city pages moved from /local-seo/<city>/
+# to /property-management-seo/<city>/. v15.3: the blanket /local-seo/* rule is
+# gone - it shadowed the ten live Headwaters town pages. Seven legacy cities only.
 [[redirects]]
-  from = "/local-seo"
-  to = "/property-management-seo/locations/"
+  from = "/local-seo/bolton"
+  to = "/property-management-seo/bolton/"
   status = 301
   force = true
 
 [[redirects]]
-  from = "/local-seo/"
-  to = "/property-management-seo/locations/"
+  from = "/local-seo/bolton/"
+  to = "/property-management-seo/bolton/"
   status = 301
   force = true
 
-# Splat catches every city in one rule, including any added later.
 [[redirects]]
-  from = "/local-seo/*"
-  to = "/property-management-seo/:splat"
+  from = "/local-seo/brampton"
+  to = "/property-management-seo/brampton/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/local-seo/brampton/"
+  to = "/property-management-seo/brampton/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/local-seo/mississauga"
+  to = "/property-management-seo/mississauga/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/local-seo/mississauga/"
+  to = "/property-management-seo/mississauga/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/local-seo/vaughan"
+  to = "/property-management-seo/vaughan/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/local-seo/vaughan/"
+  to = "/property-management-seo/vaughan/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/local-seo/oakville"
+  to = "/property-management-seo/oakville/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/local-seo/oakville/"
+  to = "/property-management-seo/oakville/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/local-seo/newmarket"
+  to = "/property-management-seo/newmarket/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/local-seo/newmarket/"
+  to = "/property-management-seo/newmarket/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/local-seo/moncton"
+  to = "/property-management-seo/moncton/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/local-seo/moncton/"
+  to = "/property-management-seo/moncton/"
   status = 301
   force = true
 
@@ -377,13 +443,13 @@
 # on calls, so somebody will type one. The canonical URLs stay keyword-bearing.
 [[redirects]]
   from = "/the-pin"
-  to = "/property-management-seo/"
+  to = "/how-it-works/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/the-pin/"
-  to = "/property-management-seo/"
+  to = "/how-it-works/"
   status = 301
   force = true
 
@@ -633,3 +699,8 @@
   for = "/media/*"
   [headers.values]
     Cache-Control = "public, max-age=2592000, stale-while-revalidate=86400"
+
+# v15.3 - IndexNow ping to Bing (and so Copilot / ChatGPT search) after every
+# production deploy. Local plugin; it can never fail the build.
+[[plugins]]
+  package = "/plugins/indexnow"

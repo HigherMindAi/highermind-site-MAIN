@@ -41,7 +41,7 @@ export function renderHeadTags(head: HeadData): string {
   const lines = [
     `<title>${t}</title>`,
     `<meta name="description" content="${d}" />`,
-    `<meta name="robots" content="index, follow" />`,
+    `<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />`,
     `<link rel="canonical" href="${c}" />`,
     `<meta property="og:type" content="website" />`,
     `<meta property="og:site_name" content="${esc(BRAND)}" />`,

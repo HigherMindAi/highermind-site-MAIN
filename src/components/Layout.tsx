@@ -6,6 +6,8 @@ import Footer from './Footer';
 import PageFilm from './PageFilm';
 import { useReveal } from '../lib/useReveal';
 import { useParallax } from '../lib/useParallax';
+import { trackPageView, wireClicks } from '../lib/tracking';
+import { recordTouch } from '../lib/attribution';
 
 const NAV_OFFSET = 92; // sticky-nav height + breathing room
 
@@ -31,6 +33,24 @@ function ScrollManager() {
     window.scrollTo({ top: 0 });
   }, [pathname, hash]);
 
+  return null;
+}
+
+/**
+ * Found and counted (v15.3). Renders nothing. Placed AFTER the page in the tree
+ * so its effect runs after the page's <Seo> has set the new title - otherwise
+ * GA4 would record every page under the previous page's title.
+ */
+function RouteTracker() {
+  const { pathname, search } = useLocation();
+  useEffect(() => {
+    recordTouch();
+    wireClicks();
+  }, []);
+  useEffect(() => {
+    const t = window.setTimeout(trackPageView, 0);
+    return () => window.clearTimeout(t);
+  }, [pathname, search]);
   return null;
 }
 
@@ -64,6 +84,7 @@ export default function Layout() {
         <PageFilm />
         <Outlet />
         <Footer />
+        <RouteTracker />
       </div>
     </>
   );

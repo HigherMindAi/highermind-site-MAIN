@@ -104,7 +104,7 @@ export default function HowItWorks() {
     <main>
       <Seo
         title="How It Works - The Pin, The Foundation, The Storefront | HigherMindAI"
-        desc="Three steps in order: The Pin gets you found on Google, The Foundation adds social, a desk that answers and every call counted, The Storefront adds a site that sells."
+        desc="Three steps in order. The Pin gets you found on Google. The Foundation adds social, a desk that answers and every call counted. The Storefront adds a site."
         path={URL}
         schema={[
           orgSchema(),

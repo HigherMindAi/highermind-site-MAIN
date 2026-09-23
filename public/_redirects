@@ -57,11 +57,26 @@
 /property-management/the-record    /the-record/                           301!
 /property-management/the-record/   /the-record/                           301!
 
-# AUGUST 2026 - /local-seo/* moved to /property-management-seo/*.
-# ORDER IS LOAD-BEARING. Everything must stay above the /* catch-all.
-/local-seo                         /property-management-seo/locations/    301!
-/local-seo/                        /property-management-seo/locations/    301!
-/local-seo/*                       /property-management-seo/:splat        301!
+# AUGUST 2026 - the property management city pages moved from /local-seo/<city>/
+# to /property-management-seo/<city>/. v15.3 (23 Sept 2026): the blanket
+# /local-seo/* rule is GONE - /local-seo/ is the Headwaters hub again and its ten
+# town pages are real prerendered pages. Only the seven legacy PM cities that
+# have no town page are redirected, one rule each. NEVER reinstate a splat or a
+# forced rule on /local-seo/ - it shadows the live town pages (it did, 22-23 Sept).
+/local-seo/bolton                   /property-management-seo/bolton/        301!
+/local-seo/bolton/                  /property-management-seo/bolton/        301!
+/local-seo/brampton                 /property-management-seo/brampton/      301!
+/local-seo/brampton/                /property-management-seo/brampton/      301!
+/local-seo/mississauga              /property-management-seo/mississauga/   301!
+/local-seo/mississauga/             /property-management-seo/mississauga/   301!
+/local-seo/vaughan                  /property-management-seo/vaughan/       301!
+/local-seo/vaughan/                 /property-management-seo/vaughan/       301!
+/local-seo/oakville                 /property-management-seo/oakville/      301!
+/local-seo/oakville/                /property-management-seo/oakville/      301!
+/local-seo/newmarket                /property-management-seo/newmarket/     301!
+/local-seo/newmarket/               /property-management-seo/newmarket/     301!
+/local-seo/moncton                  /property-management-seo/moncton/       301!
+/local-seo/moncton/                 /property-management-seo/moncton/       301!
 
 # Legacy service paths. Two of these previously pointed at legal pages that
 # no longer exist - repointed September 2026 so no 301 lands on a 404.
@@ -107,8 +122,7 @@
 
 # Brand aliases, September 2026 tags. These lead in Discovery documents and
 # on calls, so somebody will type one. The canonical URLs stay keyword-bearing.
-/the-pin                           /property-management-seo/              301!
-/the-pin/                          /property-management-seo/              301!
+# /the-pin is set at the top of this file (-> /how-it-works/). The Pin is step one for everybody.
 /the-line                          /property-management-intake/           301!
 /the-line/                         /property-management-intake/           301!
 /the-second-pin                    /services/service-area-expansion/      301!

@@ -178,7 +178,7 @@ export function LocalSeoHub() {
     <main>
       <Seo
         title="Local SEO in the Headwaters, Ontario | HigherMindAI"
-        desc="Google map pack ranking, call answering and tracking for businesses in Erin, Orangeville, Caledon, Guelph, Halton Hills, Mono, Shelburne, Fergus, Elora and Grand Valley."
+        desc="Google map pack ranking and call answering for businesses in Erin, Orangeville, Caledon, Guelph, Halton Hills, Mono, Shelburne, Fergus, Elora and Grand Valley."
         path={path}
         schema={[orgSchema(), breadcrumbs([['Home', '/'], ['Local SEO', path]])]}
       />

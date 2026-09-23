@@ -72,6 +72,7 @@ export default function Footer() {
               <Link to="/coverage/">Coverage</Link>
               <Link to="/scope-limits/">Where the desk stops</Link>
               <Link to="/contact/">Contact</Link>
+              <Link to="/privacy/">Privacy</Link>
               <a href={`tel:${PHONE_E164}`}>{PHONE_DISP}</a>
               <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
               <span>{HOURS_DISPLAY}</span>

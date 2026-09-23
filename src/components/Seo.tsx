@@ -66,7 +66,7 @@ export default function Seo({ title, desc, path, schema = [] }: SeoProps) {
 
     document.title = title;
     upsertMeta('name', 'description', desc);
-    upsertMeta('name', 'robots', 'index, follow');
+    upsertMeta('name', 'robots', 'index, follow, max-image-preview:large, max-snippet:-1');
     upsertLink('canonical', canonical);
 
     upsertMeta('property', 'og:type', 'website');

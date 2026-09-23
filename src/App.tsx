@@ -26,6 +26,7 @@ import PropertyIntake from './pages/PropertyIntake';
 import CondoMarketing from './pages/CondoMarketing';
 import TheRecord from './pages/TheRecord';
 import Work from './pages/Work';
+import Privacy from './pages/Privacy';
 import NotFound from './pages/NotFound';
 
 export default function App() {
@@ -60,6 +61,7 @@ export default function App() {
         <Route path="proof" element={<Proof />} />
         <Route path="work" element={<Work />} />
         <Route path="book" element={<Book />} />
+        <Route path="privacy" element={<Privacy />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

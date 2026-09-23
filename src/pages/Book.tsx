@@ -5,6 +5,8 @@ import CalEmbed from '../components/CalEmbed';
 import { PHONE_E164, PHONE_DISP, EMAIL, CAL_INTRO, CAL_LISTING, CAL_WEBSITE, HOURS_DISPLAY } from '../lib/site';
 import { BOOKING_SOURCES } from '../lib/ladder';
 import { orgSchema, breadcrumbs } from '../lib/schema';
+import { recordTouch, lastTouch, firstTouch, sourceFromReferrer, UTM_KEYS } from '../lib/attribution';
+import { track } from '../lib/tracking';
 
 /**
  * /book/ - the Google Business Profile appointment link, and where every
@@ -52,12 +54,25 @@ export default function Book() {
   useEffect(() => {
     const q = new URLSearchParams(search);
     const u: Record<string, string> = {};
-    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach((k) => {
+    UTM_KEYS.forEach((k) => {
       const v = q.get(k);
       if (v) u[k] = v;
     });
+    // v15.3: a visitor who arrived on a town page or an answer page and then
+    // clicked through has no UTM on /book/. Fall back to how they first came
+    // in, so the booking still carries its source. The question stays the
+    // backstop, and the visitor can always change the answer.
+    recordTouch();
+    const last = lastTouch();
+    const first = firstTouch();
+    if (!Object.keys(u).length && last) Object.assign(u, last.utm);
+    const ref = (last && last.referrer) || (first && first.referrer) || '';
+    if (first) {
+      u.landing_page = first.landing;
+      if (first.referrer) u.first_referrer = first.referrer;
+    }
     setUtm(u);
-    const pre = UTM_TO_SOURCE[(u.utm_source || '').toLowerCase()];
+    const pre = UTM_TO_SOURCE[(u.utm_source || '').toLowerCase()] || sourceFromReferrer(ref);
     if (pre) setSource(pre);
     const on = q.get('on') || '';
     if (ON_TO_CAL[on]) setLink(ON_TO_CAL[on]);
@@ -70,7 +85,7 @@ export default function Book() {
     <main>
       <Seo
         title="Take the Nine Minutes - Book with Derek | HigherMindAI"
-        desc="Book nine minutes with Derek. I look at your Google profile, your site and the businesses above you first, then tell you which step fits and the fixed price on it."
+        desc="Book nine minutes with Derek. I look at your Google profile, your site and the businesses above you first, then tell you which step fits and its fixed price."
         path="/book/"
         schema={[orgSchema(), breadcrumbs([['Home', '/'], ['Take the nine minutes', '/book/']])]}
       />
@@ -108,7 +123,10 @@ export default function Book() {
                 id="book-source"
                 className="book-select"
                 value={source}
-                onChange={(e) => setSource(e.target.value)}
+                onChange={(e) => {
+                  setSource(e.target.value);
+                  if (e.target.value) track('booking_source_selected', { booking_source: e.target.value });
+                }}
               >
                 <option value="">Choose one</option>
                 {BOOKING_SOURCES.map((s) => (
