@@ -63,8 +63,6 @@ export default function Footer() {
               <Link to="/trades/">Trades</Link>
               <Link to="/auto-parts-recyclers/">Auto parts and recyclers</Link>
               <Link to="/auto-service-collision/">Auto service and collision</Link>
-              <Link to="/property-management/">Property management</Link>
-              <Link to="/condominium-management-marketing/">Condominium management</Link>
               <Link to="/answers/">Straight answers</Link>
             </div>
             <div className="foot-col">

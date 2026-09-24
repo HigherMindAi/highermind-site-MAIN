@@ -180,7 +180,6 @@ export default function Home() {
             <p className="lead">
               The same two failures show up in a heating company, a salvage yard and a collision
               centre: they never find you, or nobody answers. These three I build for every week.
-              Property and condominium management runs on the same system.
             </p>
           </div>
           <div className="who3">
@@ -196,8 +195,6 @@ export default function Home() {
             ))}
           </div>
           <p className="who-more reveal">
-            Also: <Link to="/property-management/">property management</Link> and{' '}
-            <Link to="/condominium-management-marketing/">condominium management</Link>.{' '}
             <Link to="/who-i-help/">Everyone I work with</Link>.
           </p>
         </div>

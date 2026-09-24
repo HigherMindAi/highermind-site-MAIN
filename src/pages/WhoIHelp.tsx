@@ -10,7 +10,7 @@ import { orgSchema, faqSchema, breadcrumbs } from '../lib/schema';
 const URL = '/who-i-help/';
 
 const DESC =
-  'Trades, auto parts and recyclers, auto service and collision. Found on Google, answered when you cannot pick up, every call counted. Property management too.';
+  'Trades, auto parts and recyclers, auto service and collision. Found on Google, answered when you cannot pick up, every call counted.';
 
 interface Book {
   name: string;
@@ -51,7 +51,7 @@ const BOOKS: Book[] = [
 const FAQ_ITEMS: [string, string][] = [
   [
     'Do you only work with trades and auto?',
-    'Those three are the ones I build for every week, so the vocabulary, the questions the desk asks and the boundaries are already worked out. Property and condominium management runs on the same system. Any business where one won customer is worth real money and the phone rings when nobody can answer fits the same three steps.',
+    'Those three are the ones I build for every week, so the vocabulary, the questions the desk asks and the boundaries are already worked out. Any business where one won customer is worth real money and the phone rings when nobody can answer fits the same three steps.',
   ],
   [
     'What makes a business a good fit?',
@@ -116,24 +116,6 @@ export default function WhoIHelp() {
         </div>
       ))}
 
-      <div className="divider" />
-
-      <section className="sec-sm">
-        <div className="wrap">
-          <div className="sec-head left reveal">
-            <span className="eyebrow">Also on the same system</span>
-            <h2 style={{ marginTop: 22, fontSize: 'clamp(26px,3.2vw,38px)' }}>
-              Property and condominium management.
-            </h2>
-            <p className="lead">
-              An owner deciding to stop managing it themselves is already searching, and when three
-              names go to a board somebody looks all three up that evening. See{' '}
-              <Link to="/property-management/">property management</Link> and{' '}
-              <Link to="/condominium-management-marketing/">condominium management</Link>.
-            </p>
-          </div>
-        </div>
-      </section>
 
       <div className="divider" />
 

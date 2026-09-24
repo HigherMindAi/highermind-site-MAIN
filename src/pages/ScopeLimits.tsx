@@ -58,7 +58,7 @@ export default function ScopeLimits() {
           <div className="reveal">
             <div className="crumb">
               <Link to="/">Home</Link> &nbsp;/&nbsp;{' '}
-              <Link to="/property-management/">Property Management</Link> &nbsp;/&nbsp; Scope Limits
+              <Link to="/how-it-works/">How it works</Link> &nbsp;/&nbsp; Where the desk stops
             </div>
             <Link to={FOUNDATION.href} className="eyebrow">
               Inside The Foundation &middot; where the desk stops
@@ -207,7 +207,7 @@ export default function ScopeLimits() {
           <div className="mesh reveal">
             <span className="mesh-lab">Where this sits</span>
             <Link to={FOUNDATION.href}>The Foundation</Link>
-            <Link to="/property-management-intake/">The desk</Link>
+            <Link to="/answers/what-is-a-virtual-receptionist/">The desk</Link>
             <Link to="/the-record/">Every call and form counted</Link>
             <Link to="/trades/">Trades</Link>
             <Link to="/auto-service-collision/">Auto service &amp; collision</Link>

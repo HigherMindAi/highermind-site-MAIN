@@ -15,7 +15,6 @@ import {
   Market,
 } from '../lib/coverage';
 import { breadcrumbs, serviceSchema, faqSchema } from '../lib/schema';
-import { LOCATIONS_HUB } from '../lib/cities';
 
 const URL = '/coverage/';
 
@@ -100,7 +99,7 @@ export default function Coverage() {
             </div>
             <p className="trustline">
               Trades &middot; Auto service and collision &middot; Auto parts and recyclers &middot;
-              Property management &middot; The desk set to your licensing regime
+              The desk set to your licensing regime
             </p>
           </div>
         </div>
@@ -182,12 +181,10 @@ export default function Coverage() {
             <span className="mesh-lab">What runs in every market</span>
             <Link to="/how-it-works/">How it works</Link>
             <Link to="/local-seo/">Local SEO around Erin</Link>
-            <Link to="/property-management-seo/">Local search</Link>
-            <Link to="/property-management-intake/">The desk</Link>
+            <Link to="/how-it-works/#the-pin">The Pin</Link>
+            <Link to="/answers/what-is-a-virtual-receptionist/">The desk</Link>
             <Link to="/the-record/">Every call and form counted</Link>
             <Link to="/scope-limits/">Where the desk stops</Link>
-            <Link to="/condominium-management-marketing/">Condominium boards</Link>
-            <Link to={LOCATIONS_HUB}>Cities I build in</Link>
           </div>
         </div>
       </section>
