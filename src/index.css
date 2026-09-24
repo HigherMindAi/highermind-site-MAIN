@@ -1682,10 +1682,6 @@ h1 .em,h2 .em{font-size:.99em;line-height:1}
 .sh-rail button{background:none;border:0;cursor:pointer;padding:8px 4px;color:var(--faint);font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
 .sh-rail button span{display:block;border-top:2px solid rgba(255,255,255,.18);padding-top:8px;min-width:74px;text-align:left;transition:border-color .4s,color .4s}
 .sh-rail button.on span{border-color:var(--teal);color:#fff}
-.sh-skip{position:absolute;z-index:4;right:clamp(16px,3vw,40px);bottom:30px;background:rgba(6,13,31,.55);border:1px solid var(--line);
-  color:var(--muted);font-size:13px;padding:8px 14px;border-radius:20px;cursor:pointer;backdrop-filter:blur(8px)}
-.sh-skip:hover{color:#fff;border-color:var(--teal)}
-.sh.done .sh-skip{opacity:0;pointer-events:none}
 @media (max-width:900px){
   .sh{height:250vh;height:250svh}
   .sh-in{grid-template-columns:1fr;align-content:end;padding-bottom:92px;gap:14px}
@@ -1700,7 +1696,6 @@ h1 .em,h2 .em{font-size:.99em;line-height:1}
   .sh-cards{display:none}
   .sh-rail{left:16px;transform:none;bottom:22px}
   .sh-rail button span{min-width:0;width:54px;font-size:0;padding-top:0;height:0}
-  .sh-skip{bottom:18px;right:16px}
 }
 @media (max-width:420px){ .sh-beats{min-height:150px} }
 @media (prefers-reduced-motion:reduce){ .sh-layer img{transform:none} }
@@ -1886,7 +1881,6 @@ a.town:hover{border-color:var(--teal);color:#fff}
 .shc-count div{padding:9px 6px}
 .shc-foot{font-size:11.5px;margin-top:10px}
 .sh-rail{bottom:22px}
-.sh-skip{bottom:74px}
 @media (max-width:900px){
   .sh-in{padding-bottom:84px;grid-template-columns:1fr}
   .sh-veil{background:linear-gradient(0deg,rgba(6,13,31,.95) 0%,rgba(6,13,31,.7) 30%,rgba(6,13,31,0) 55%),linear-gradient(180deg,rgba(6,13,31,.5) 0%,rgba(6,13,31,0) 14%)}
@@ -1894,7 +1888,6 @@ a.town:hover{border-color:var(--teal);color:#fff}
   .sh-beats{min-height:96px}
   .sh-beat h2{font-size:18px}
   .sh-beat p{font-size:14px}
-  .sh-skip{bottom:20px}
 }
 
 /* ---- v15.2 - one big line per beat (Derek, 22 Sept): the headline moves
@@ -1920,3 +1913,24 @@ a.town:hover{border-color:var(--teal);color:#fff}
   .sh-beat p{font-size:14.5px;line-height:1.5}
 }
 @media (prefers-reduced-motion:reduce){ .sh-copy .sh-head{transition:none} .sh-copy .sh-head .em{animation:none} }
+
+/* ---- v15.5 - the hero runs on a timer (Derek, 24 Sept): one screen tall,
+   never pinned, no Skip intro. Each beat holds var(--beat) and the rail
+   fills as it goes. ---- */
+.sh{height:auto}
+.sh-stage{position:relative;height:100vh;height:100svh;min-height:560px}
+.sh-layer img{transform:scale(1.07);transition:transform 6s linear}
+.sh-layer.on img{transform:scale(1)}
+.sh-rail button span{position:relative}
+.sh-rail button.on span{border-color:rgba(255,255,255,.18);color:#fff}
+.sh-fill{position:absolute;left:0;top:-2px;height:2px;width:0;background:var(--teal);box-shadow:0 0 8px rgba(63,224,181,.5)}
+.sh-rail button.on .sh-fill{animation:shfill var(--beat,2800ms) linear forwards}
+.sh.paused .sh-rail button.on .sh-fill{animation-play-state:paused}
+.sh.still .sh-rail button.on .sh-fill{animation:none;width:100%}
+@keyframes shfill{from{width:0}to{width:100%}}
+@media (max-width:900px){
+  .sh{height:auto}
+  .sh-rail button span{height:2px}
+  .sh-fill{top:-2px}
+}
+@media (prefers-reduced-motion:reduce){ .sh-layer img{transform:none;transition:none} }
