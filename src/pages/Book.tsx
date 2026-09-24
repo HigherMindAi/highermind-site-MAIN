@@ -83,8 +83,10 @@ export default function Book() {
   }, [search]);
 
   const prefill: Record<string, string> = { ...utm };
-  if (source) prefill.source = source;
-  if (sentBy && source === 'Referral') prefill.referred_by = sentBy;
+  // One Cal question carries both answers: "Who sent you, or how did you find
+  // me?" (identifier `source`, short text). A referral arrives as
+  // "Referral - <name>" so the booking reads in one line.
+  if (source) prefill.source = source === 'Referral' && sentBy ? `Referral - ${sentBy}` : source;
 
   return (
     <main>
