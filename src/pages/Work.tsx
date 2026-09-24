@@ -20,7 +20,7 @@ export default function Work() {
     <main>
       <Seo
         title="Selected Work | Website Builds by HigherMindAI"
-        desc="Websites built to do a job rather than sit there - a part finder on year, make, model and trim. Selected builds by HigherMindAI, Erin, Ontario."
+        desc="Sites built to do a job - a part finder on year, make, model and trim, and a window cleaning quote builder that sends by text. Selected builds."
         path="/work/"
         schema={[
           orgSchema(),

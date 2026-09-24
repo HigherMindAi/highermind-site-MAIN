@@ -49,6 +49,7 @@ Work is also done remotely for businesses across Canada and the United States ([
 ## Selected work
 
 - [Work](https://highermindai.com/work/): an auto parts business in Brampton whose site was a phone number and an address now runs a part matcher on year, make, model and trim, a page for each vehicle it stocks for, and a request that reaches the counter by text already carrying everything needed to quote it. Described as a build; no results are claimed.
+- [Bubbles Window Cleaning](https://bubblescleaningservices.com/): a window and eavestrough cleaner in East York, Toronto, rebuilt with a price guide set out by storey, a three-step quote builder that sends by text, and a page for each neighbourhood it serves. Described as a build.
 
 ## Boundaries
 
