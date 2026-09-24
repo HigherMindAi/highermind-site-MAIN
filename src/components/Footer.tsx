@@ -1,7 +1,15 @@
 import { Link } from 'react-router-dom';
 import {
   BRAND, BIZ_NAME, PHONE_E164, PHONE_DISP, EMAIL, LOCALITY, REGION, HOURS_DISPLAY,
+  ORG_PROFILES, PERSON_PROFILES,
 } from '../lib/site';
+
+// The same profiles the schema asserts (Organization.sameAs + Person.sameAs),
+// shown to people too. rel="me" ties them back to this site.
+const PROFILE_LABEL = (u: string) =>
+  u.includes('maps.google') ? 'Google' : u.includes('facebook') ? 'Facebook'
+  : u.includes('instagram') ? 'Instagram' : u.includes('linkedin') ? 'LinkedIn' : u;
+const PROFILES = [...ORG_PROFILES, ...PERSON_PROFILES];
 import { ONE_LINE, CTA_LABEL, CTA_HREF } from '../lib/ladder';
 import { TOWNS, townPath } from '../lib/towns';
 import { Wordmark } from './Icons';
@@ -76,6 +84,14 @@ export default function Footer() {
               <a href={`tel:${PHONE_E164}`}>{PHONE_DISP}</a>
               <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
               <span>{HOURS_DISPLAY}</span>
+            </div>
+            <div className="foot-col">
+              <h4>Find me</h4>
+              {PROFILES.map((u) => (
+                <a key={u} href={u} target="_blank" rel="me noopener" data-track="profile_click">
+                  {PROFILE_LABEL(u)}
+                </a>
+              ))}
             </div>
           </div>
         </div>

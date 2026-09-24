@@ -53,7 +53,7 @@ const ROWS: Row[] = [
     intro:
       'Your Google profile rebuilt against the businesses above you, then held. This is the part that decides whether you are one of the three names in the map when someone nearby looks.',
     inside: [
-      { name: 'Local search', line: 'The profile rebuilt: category, every service named the way people type it, the service area drawn properly, consistent details everywhere you appear.', href: '/property-management-seo/' },
+      { name: 'Local search', line: 'The profile rebuilt: category, every service named the way people type it, the service area drawn properly, consistent details everywhere you appear.', href: '/local-seo/' },
       { name: 'Reviews', line: 'Every review answered, and new ones asked for properly - never bought, never filtered.', href: '/services/reputation-management/' },
       { name: 'The Day 0 record', line: 'Where you started, recorded before anything is touched, so the change is measured and not remembered.' },
     ],
@@ -68,7 +68,7 @@ const ROWS: Row[] = [
     inside: [
       { name: 'Everything in the Pin', line: 'The profile, the reviews, the Day 0 record.' },
       { name: 'Facebook and Instagram', line: 'Rebuilt properly and kept current from your own job photos.', href: '/services/social-media-management/' },
-      { name: 'The desk', line: `Answers when you cannot, on the web or on your phone line. Administrative intake only - it never quotes and never commits a crew. ${LAUNCH_LOCK}`, href: '/property-management-intake/' },
+      { name: 'The desk', line: `Answers when you cannot, on the web or on your phone line. Administrative intake only - it never quotes and never commits a crew. ${LAUNCH_LOCK}`, href: '/answers/what-is-a-virtual-receptionist/' },
       { name: 'Every call and form counted', line: 'So you see exactly what it did.', href: '/the-record/' },
     ],
   },

@@ -150,7 +150,6 @@ export const AFTER_YOU_CHOOSE: { name: string; line: string; href?: string }[] =
   {
     name: 'Custom systems',
     line: 'Custom systems for the job that eats your week. Scoped on its own.',
-    href: '/services/ai-systems/',
   },
 ];
 

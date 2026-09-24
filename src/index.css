@@ -1934,3 +1934,10 @@ a.town:hover{border-color:var(--teal);color:#fff}
   .sh-fill{top:-2px}
 }
 @media (prefers-reduced-motion:reduce){ .sh-layer img{transform:none;transition:none} }
+
+/* ---- v15.6 - Who sent you? on /book/, profiles in the footer ---- */
+.book-sent{margin-top:18px}
+.book-q-sm{font-size:clamp(17px,1.5vw,20px)}
+.book-input{font:inherit;font-size:15px;border:1px solid var(--line)}
+.book-input::placeholder{color:var(--faint)}
+.book-input:focus{outline:none;border-color:var(--teal)}

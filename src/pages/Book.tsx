@@ -48,6 +48,10 @@ const ON_TO_CAL: Record<string, string> = {
 export default function Book() {
   const { search } = useLocation();
   const [source, setSource] = useState('');
+  // The Word: who sent them. Typed into a draft, committed on blur so the Cal
+  // embed is not rebuilt on every keystroke.
+  const [sentByDraft, setSentByDraft] = useState('');
+  const [sentBy, setSentBy] = useState('');
   const [utm, setUtm] = useState<Record<string, string>>({});
   const [link, setLink] = useState(CAL_INTRO);
 
@@ -80,6 +84,7 @@ export default function Book() {
 
   const prefill: Record<string, string> = { ...utm };
   if (source) prefill.source = source;
+  if (sentBy && source === 'Referral') prefill.referred_by = sentBy;
 
   return (
     <main>
@@ -133,6 +138,30 @@ export default function Book() {
                   <option key={s} value={s}>{s}</option>
                 ))}
               </select>
+              {source === 'Referral' ? (
+                <div className="book-sent">
+                  <label className="book-q book-q-sm" htmlFor="book-sent-by">
+                    Who sent you?
+                  </label>
+                  <input
+                    id="book-sent-by"
+                    className="book-select book-input"
+                    type="text"
+                    autoComplete="off"
+                    placeholder="Their name or business"
+                    value={sentByDraft}
+                    onChange={(e) => setSentByDraft(e.target.value)}
+                    onBlur={() => {
+                      const v = sentByDraft.trim();
+                      if (v !== sentBy) {
+                        setSentBy(v);
+                        if (v) track('booking_referred_by', { booking_source: 'Referral' });
+                      }
+                    }}
+                  />
+                  <p className="book-note">So I can thank them properly.</p>
+                </div>
+              ) : null}
               <p className="book-note">Then pick a time. Nothing to prepare, nothing to send first.</p>
 
               <ol className="book-steps">
