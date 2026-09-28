@@ -57,7 +57,7 @@ export default function Proof() {
               <Link to="/">Home</Link> &nbsp;/&nbsp; Proof
             </div>
             <Link to={STOREFRONT.href} className="eyebrow">
-              The Storefront &middot; a build, not a result
+              A website build &middot; not a result
             </Link>
             <h1>
               The work, shown plainly.{' '}
@@ -117,7 +117,7 @@ export default function Proof() {
             </div>
             <div className="step reveal">
               <div className="sn">Where it sits</div>
-              <h3>Inside The Storefront</h3>
+              <h3>Where a site like this sits</h3>
               <p>
                 {STOREFRONT.promise} The order it sits in is on{' '}
                 <Link to="/how-it-works/">how it works</Link>.

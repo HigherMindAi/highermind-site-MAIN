@@ -149,8 +149,8 @@ export default function About() {
               <Link to="/how-it-works/#the-foundation">The Foundation</Link> and{' '}
               <Link to="/how-it-works/#the-storefront">The Storefront</Link> - with{' '}
               <Link to="/the-read/">The Read</Link> as the way in. The businesses I build for are
-              trades, auto service and collision shops, auto parts suppliers and recyclers, and
-              property managers: good at the work, busy on the tools, and depending on referral the
+              trades, auto service and collision shops, and auto parts suppliers and recyclers:
+              good at the work, busy on the tools, and depending on referral the
               way I did.
             </p>
             <p className="lead">

@@ -28,7 +28,7 @@ const PERSON_ID = `${BASE}/#derek`;
 // "Everything in the Pin, plus:". Each offer now reads as a whole sentence.
 const OFFER_DESCRIPTION: Record<string, string> = {
   foundation:
-    'Found, trusted, answered, measured. Everything in the Pin, plus Facebook and Instagram rebuilt properly and kept current, a desk that answers when you cannot on the web or on your phone line, and every call and form counted. Where most start.',
+    'Found, trusted, answered, measured. Everything in the Pin, plus Facebook and Instagram rebuilt properly and kept current, a desk that answers when you cannot on the web or on your phone line, and every call and form counted. Where I start most businesses.',
 };
 function offerDescription(st: { key: string; line: string; promise: string }): string {
   if (OFFER_DESCRIPTION[st.key]) return OFFER_DESCRIPTION[st.key];

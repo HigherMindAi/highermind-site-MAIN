@@ -10,11 +10,13 @@
 // never wrong-looking while a screenshot is pending.
 //
 // v15: every build here is described as a BUILD, never a result. The Brampton
-// parts build carries PROOF_PLAIN from ladder.ts word for word, and is tagged
-// with the ladder step it belongs to (The Storefront).
+// parts build carries PROOF_PLAIN from ladder.ts word for word.
+// v15.9: tagged "Website build", not "The Storefront". Both clients bought the
+// website only; The Storefront is the full step (profile, desk, Meta,
+// tracking and site), and a prospect's own assistant will check the claim.
 // ---------------------------------------------------------------------------
 
-import { PROOF_PLAIN, STOREFRONT } from './ladder';
+import { PROOF_PLAIN } from './ladder';
 
 export interface WorkItem {
   slug: string;
@@ -47,7 +49,7 @@ export const WORK: WorkItem[] = [
     name: 'Canada Car Parts',
     url: 'canadacarpart.com',
     href: 'https://canadacarpart.com/',
-    tag: STOREFRONT.name,
+    tag: 'Website build',
     line: 'An auto parts counter in Brampton, rebuilt as a part finder.',
     body:
       PROOF_PLAIN +
@@ -68,7 +70,7 @@ export const WORK: WorkItem[] = [
     name: 'Bubbles Window Cleaning',
     url: 'bubblescleaningservices.com',
     href: 'https://bubblescleaningservices.com/',
-    tag: STOREFRONT.name,
+    tag: 'Website build',
     line: 'A window cleaner in East York, rebuilt so the price and the quote come first.',
     body:
       'A window and eavestrough cleaner in East York serving the Greater Toronto Area, rebuilt around the two things a homeowner wants before they call: roughly what it costs for a house like theirs, and a quote without the back and forth. The price guide is set out by storey, a three-step quote builder sends the request by text, and every neighbourhood it serves has its own page. The glass on the site is real job photography, not stock.',

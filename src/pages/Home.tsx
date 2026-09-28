@@ -30,7 +30,7 @@ const WHO = [
     href: '/trades/',
     img: 'vTrades',
     line: 'Plumbing, heating, electrical, roofing, landscaping. On the tools all day, and the evening call rings out.',
-    lands: 'Most start on the Foundation',
+    lands: 'I usually start these on the Foundation',
   },
   {
     name: 'Auto Parts and Recyclers',
@@ -44,7 +44,7 @@ const WHO = [
     href: '/auto-service-collision/',
     img: 'vAutoService',
     line: 'Bays full, hands dirty, phone ringing. The booking goes to the shop that answered.',
-    lands: 'Most start on the Foundation',
+    lands: 'I usually start these on the Foundation',
   },
 ] as const;
 
@@ -82,7 +82,7 @@ export default function Home() {
           <div className="sec-head left reveal">
             <span className="eyebrow"><span className="n">02</span> Three steps, in order</span>
             <h2 style={{ marginTop: 22 }}>
-              Three steps, in order. <span className="em">Most businesses start on the Foundation.</span>
+              Three steps, in order. <span className="em">I start most businesses on the Foundation.</span>
             </h2>
             <p className="lead">{THE_QUESTION}</p>
           </div>
@@ -149,7 +149,7 @@ export default function Home() {
             <p>
               Each piece makes the next one worth more. A profile in the map sends the call; the
               photos and reviews make them pick you; the desk catches it when you cannot; the count
-              shows you it happened. That is the Foundation, and it is why most start there.
+              shows you it happened. That is the Foundation, and it is why I start most businesses there.
             </p>
           </div>
           <div className="loop4">

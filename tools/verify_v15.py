@@ -38,7 +38,7 @@ for p in pages:
     if 'Rank Lock:' in vis and 'first page on the agreed term inside sixty days' not in vis and 'first page on the agreed' not in vis:
         fails.append((rel, 'Rank Lock without its exact words'))
 home = text_of((ROOT / 'index.html').read_text())
-for must in ['The Pin', 'The Foundation', 'The Storefront', 'Where most start', 'Three steps, in order', 'The Read', 'The Tap']:
+for must in ['The Pin', 'The Foundation', 'The Storefront', 'Where I start most', 'Three steps, in order', 'The Read', 'The Tap']:
     if must not in home: fails.append(('/', f'home missing "{must}"'))
 print(f'checked {len(pages)} pages')
 for r, m in fails: print(f'FAIL {r}: {m}')

@@ -334,7 +334,7 @@ export const PHASE_LABELS = ['Phase one', 'Phase two', 'Phase three', 'Phase fou
 export const GENERAL_FAQ: [string, string][] = [
   [
     'What does HigherMindAI actually do?',
-    'I find what is costing a local business its calls, fix it in order, and only then turn on the ads. In practice that is three steps. The Pin gets your Google profile into the map for the term people type and holds it there. The Foundation adds Facebook and Instagram kept current from your own job photos, a desk that answers when you cannot, and every call and form counted. The Storefront adds a website built around how your customers buy. Most businesses start on the Foundation.',
+    'I find what is costing a local business its calls, fix it in order, and only then turn on the ads. In practice that is three steps. The Pin gets your Google profile into the map for the term people type and holds it there. The Foundation adds Facebook and Instagram kept current from your own job photos, a desk that answers when you cannot, and every call and form counted. The Storefront adds a website built around how your customers buy. I start most businesses on the Foundation.',
   ],
   [
     'How do local businesses get more calls from Google?',

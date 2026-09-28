@@ -59,7 +59,7 @@ const FAQS: [string, string][] = [
   ],
   [
     'Should I buy a new website first?',
-    'Almost never, and I will talk you out of it if the profile work is not in hand. A better site that nobody reaches is a more expensive version of the problem you already have, and you would be right to blame me for it. The Pin first, The Foundation next, The Storefront third. The exception is a site so slow or so broken that it is losing the traffic you already get, and I will tell you if that is what I find.',
+    'Almost never, and I will talk you out of it if the profile work is not in hand. A better site that nobody reaches is a more expensive version of the problem you already have, and you would be right to blame me for it. The Pin first, The Foundation next, The Storefront third. The exception is a site so slow or so broken that it is losing the traffic you already get, or no site at all - then the site and the profile go up together. I will tell you which one I find.',
   ],
   [
     'I already buy leads. Why change?',

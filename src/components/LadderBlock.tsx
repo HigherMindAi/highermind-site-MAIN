@@ -14,7 +14,7 @@ const IMG: Record<Step['key'], StillKey> = {
 
 /**
  * The ladder block - HANDOFF v6.0 section 4, set as written.
- * Three steps in a fixed order, the Foundation badged as where most start,
+ * Three steps in a fixed order, the Foundation badged as where I start most (Derek, 28 Sept - a recommendation, not a statistic),
  * The Read beneath as the way in, The Tap last. Never a menu of eight.
  */
 export default function LadderBlock({
@@ -38,7 +38,7 @@ export default function LadderBlock({
             <div className="lad-media">
               <Plate image={IMG[s.key]} filmKey={IMG[s.key]} ratio="16 / 10" light scrim="soft" />
               <span className="lad-pos">Step {i + 1}</span>
-              {s.anchor ? <span className="lad-badge">Where most start</span> : null}
+              {s.anchor ? <span className="lad-badge">Where I start most</span> : null}
             </div>
             <div className="lad-body">
               <h3>{s.name}</h3>

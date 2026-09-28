@@ -62,7 +62,7 @@ const ROWS: Row[] = [
     step: FOUNDATION,
     id: 'the-foundation',
     img: 'sFoundation',
-    n: 'Step two - where most start',
+    n: 'Step two - where I start most',
     intro:
       'Found, trusted, answered, measured. The Pin gets you the call; the Foundation makes sure it is picked, answered and counted. Bought as separate pieces, what is inside it costs more every month than it does here.',
     inside: [
@@ -122,7 +122,7 @@ export default function HowItWorks() {
             </div>
             <span className="eyebrow">How it works</span>
             <h1>
-              Three steps, in order. <span className="em">Most businesses start on the Foundation.</span>
+              Three steps, in order. <span className="em">I start most businesses on the Foundation.</span>
             </h1>
             <p className="sub">{ONE_LINE} {THE_QUESTION}</p>
             <div className="ctas">
@@ -165,7 +165,7 @@ export default function HowItWorks() {
                 </div>
                 <div className="chap-media reveal">
                   <Plate image={r.img} filmKey={r.img} ratio="4 / 3" scrim="soft" />
-                  {r.step.anchor ? <span className="lad-badge big">Where most start</span> : null}
+                  {r.step.anchor ? <span className="lad-badge big">Where I start most</span> : null}
                 </div>
               </div>
               <div className="hiw-grid">
