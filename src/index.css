@@ -1966,3 +1966,8 @@ a.town:hover{border-color:var(--teal);color:#fff}
 }
 .work-shot.is-still img{top:30px;height:calc(100% - 30px);object-fit:cover}
 .shotfull.is-still{padding-top:30px}
+/* v15.11 - one lead concept spans both columns: screenshot left, copy right */
+@media (min-width:760px){
+  .work--wide{grid-column:1 / -1;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);align-items:center}
+  .work--wide .work-shot{aspect-ratio:1.55;height:100%}
+}

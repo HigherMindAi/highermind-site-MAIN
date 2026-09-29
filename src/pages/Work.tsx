@@ -3,7 +3,7 @@ import Seo from '../components/Seo';
 import WorkCard, { BrowserBar } from '../components/WorkCard';
 import Plate from '../components/Plate';
 import CTAStrip from '../components/CTAStrip';
-import { WORK } from '../lib/work';
+import { WORK, shotAlt } from '../lib/work';
 import { STOREFRONT } from '../lib/ladder';
 import { orgSchema, breadcrumbs, workSchema } from '../lib/schema';
 
@@ -103,7 +103,7 @@ export default function Work() {
                     {w.still && <BrowserBar url={w.url} />}
                     <img
                       src={w.shot}
-                      alt={w.still ? `A still from the ${w.name} site` : `The ${w.name} website`}
+                      alt={shotAlt(w)}
                       loading="lazy"
                       decoding="async"
                     />

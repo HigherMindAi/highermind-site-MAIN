@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { WorkItem } from '../lib/work';
+import { shotAlt, type WorkItem } from '../lib/work';
 
 /**
  * One piece of work.
@@ -33,7 +33,7 @@ export default function WorkCard({ item }: { item: WorkItem }) {
 
   return (
     <a
-      className="work reveal"
+      className={`work reveal${item.wide ? ' work--wide' : ''}`}
       href={item.href}
       target="_blank"
       rel="noreferrer"
@@ -49,7 +49,7 @@ export default function WorkCard({ item }: { item: WorkItem }) {
             {item.still && <BrowserBar url={item.url} />}
             <img
               src={item.shot}
-              alt={item.still ? `A still from the ${item.name} site` : `The ${item.name} website`}
+              alt={shotAlt(item)}
               loading="lazy"
               decoding="async"
               onError={() => setShotFailed(true)}
