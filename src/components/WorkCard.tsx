@@ -9,6 +9,21 @@ import type { WorkItem } from '../lib/work';
  * carrying the live URL rather than showing a broken image. A portfolio with a
  * broken box on it argues against itself.
  */
+/**
+ * A slim browser bar carrying the site's address. Sits over a film still so the
+ * still reads as the site it came from - never as a screen capture.
+ */
+export function BrowserBar({ url }: { url: string }) {
+  return (
+    <span className="browserbar" aria-hidden="true">
+      <i />
+      <i />
+      <i />
+      <span className="browserbar-url">{url}</span>
+    </span>
+  );
+}
+
 export default function WorkCard({ item }: { item: WorkItem }) {
   // Second line of defence only. The primary guard is an empty `shot`, because
   // on a prerendered page an image error fires before hydration and this
@@ -24,19 +39,22 @@ export default function WorkCard({ item }: { item: WorkItem }) {
       rel="noreferrer"
       aria-label={`${item.name} - opens ${item.url} in a new tab`}
     >
-      <div className="work-shot" style={{ background: item.tone }}>
+      <div className={`work-shot${item.still && hasShot ? ' is-still' : ''}`} style={{ background: item.tone }}>
         {!hasShot ? (
           <div className="work-frame">
             <span className="work-frame-url">{item.url}</span>
           </div>
         ) : (
-          <img
-            src={item.shot}
-            alt={`The ${item.name} website`}
-            loading="lazy"
-            decoding="async"
-            onError={() => setShotFailed(true)}
-          />
+          <>
+            {item.still && <BrowserBar url={item.url} />}
+            <img
+              src={item.shot}
+              alt={item.still ? `A still from the ${item.name} site` : `The ${item.name} website`}
+              loading="lazy"
+              decoding="async"
+              onError={() => setShotFailed(true)}
+            />
+          </>
         )}
       </div>
 

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
-import WorkCard from '../components/WorkCard';
+import WorkCard, { BrowserBar } from '../components/WorkCard';
 import Plate from '../components/Plate';
 import CTAStrip from '../components/CTAStrip';
 import { WORK } from '../lib/work';
@@ -14,6 +14,9 @@ import { orgSchema, breadcrumbs, workSchema } from '../lib/schema';
  * figure, because a performance figure on a portfolio is the one claim a
  * prospect can check and the one nobody ever sources. v15: each build is tagged
  * with the ladder step it sits in, and the page closes on the one CTA.
+ * v15.10: concept builds (kind: 'concept') sit after the client builds, tagged
+ * "Concept build" and closing on "The demo is live at" - named plainly, not
+ * apologised for. Two columns on desktop so four cards never leave an orphan.
  */
 export default function Work() {
   return (
@@ -55,7 +58,7 @@ export default function Work() {
 
       <section className="sec">
         <div className="wrap">
-          <div className="workgrid">
+          <div className="workgrid workgrid--pairs">
             {WORK.map((w) => (
               <WorkCard key={w.slug} item={w} />
             ))}
@@ -76,18 +79,34 @@ export default function Work() {
                 <ul className="plist" style={{ marginTop: 26 }}>
                   {w.built.map((b) => <li key={b}>{b}</li>)}
                 </ul>
-                <p className="lead">
-                  The build is live at{' '}
-                  <a href={w.href} target="_blank" rel="noreferrer">
-                    {w.url}
-                  </a>
-                  .
-                </p>
+                {w.kind === 'concept' ? (
+                  <p className="lead">
+                    The demo is live at{' '}
+                    <a href={w.href} target="_blank" rel="noreferrer">
+                      {w.url}
+                    </a>
+                    . Open it on your phone and use it the way a customer would.
+                  </p>
+                ) : (
+                  <p className="lead">
+                    The build is live at{' '}
+                    <a href={w.href} target="_blank" rel="noreferrer">
+                      {w.url}
+                    </a>
+                    .
+                  </p>
+                )}
               </div>
               <div className="chap-media reveal">
                 {w.shot ? (
-                  <figure className="shotfull">
-                    <img src={w.shot} alt={`The ${w.name} website`} loading="lazy" decoding="async" />
+                  <figure className={`shotfull${w.still ? ' is-still' : ''}`}>
+                    {w.still && <BrowserBar url={w.url} />}
+                    <img
+                      src={w.shot}
+                      alt={w.still ? `A still from the ${w.name} site` : `The ${w.name} website`}
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </figure>
                 ) : (
                   <Plate image="sStorefront" filmKey="sStorefront" ratio="4 / 3" scrim="soft" />
