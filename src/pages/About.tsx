@@ -69,14 +69,13 @@ export default function About() {
             </div>
             <div className="who-copy">
               <p>
-                My background is law enforcement and the Canadian Armed Forces, and HigherMindAI is
-                listed as veteran-owned. I spent the better part of ten years as a sworn officer,
-                across a number of units, in courtrooms and in federal case files. That is where I
+                My background is policing. I spent ten years with the RCMP, across several special
+                units, in courtrooms and in federal case files. That is where I
                 learned that an incident is only ever as good as the record of it, which is why everything I build counts what came in and
                 what happened to it. It is also where I learned what a real intake looks like, and
                 why the first one to pick up is usually the one that gets the job.
               </p>
-              <p className="credential">Former RCMP. Canadian Armed Forces veteran.</p>
+              <p className="credential">Former RCMP. Ten years of policing across several special units.</p>
               <p>
                 After that I built Temple, a produce delivery business. It began with me selling
                 apples and avocados in Orangeville and it grew to twenty-six cities, with delivery

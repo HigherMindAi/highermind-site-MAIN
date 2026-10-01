@@ -101,7 +101,6 @@ export default function Footer() {
           <span>
             &copy; {year} {BRAND}. Local SEO, Google Business Profile management and call answering
             for trades and auto businesses across the Headwaters, Canada and the United States.
-            Veteran-owned.
           </span>
         </div>
       </div>

@@ -185,7 +185,7 @@ export function personSchema(): Json {
       'the justice system',
     ],
     description:
-      'Founder of HigherMindAI. Built and ran a produce delivery business across twenty-six cities, then worked as general manager inside a property management and maintenance operation. Background in law enforcement and the Canadian Armed Forces. Now builds local search visibility, call answering desks and websites for trades and service businesses across Canada and the United States, with named books for auto service and collision, auto parts and recyclers, trades and home services, and property and condominium management. Based in Erin, Ontario, Canada.',
+      'Founder of HigherMindAI. Built and ran a produce delivery business across twenty-six cities, then worked as general manager inside a property management and maintenance operation. Ten years of policing with the RCMP, across several special units. Now builds local search visibility, call answering desks and websites for trades and service businesses across Canada and the United States, with named books for auto service and collision, auto parts and recyclers, trades and home services, and property and condominium management. Based in Erin, Ontario, Canada.',
   };
 }
 

@@ -272,8 +272,8 @@ export default function Home() {
                 I built a produce delivery business to twenty-six cities, a warehouse and delivery
                 teams - all of it on referrals, with no owned way of being found. When COVID took the
                 referrals, it took the business with it. That is why the order here never changes:
-                found first, answered second, and the ads last. Before that, law enforcement and the
-                Canadian Armed Forces. I do the work myself, start to finish.
+                found first, answered second, and the ads last. Before that, ten years of policing with
+                the RCMP. I do the work myself, start to finish.
               </p>
               <p style={{ marginTop: 18 }}>
                 <Link to="/about/">The full story</Link>
