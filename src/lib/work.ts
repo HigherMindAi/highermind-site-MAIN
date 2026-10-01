@@ -60,10 +60,13 @@ export interface WorkItem {
    * one. Phones render it as an ordinary card.
    */
   wide?: boolean;
+  /** Overrides the generated alt text when a card needs its own wording. */
+  alt?: string;
 }
 
 /** Alt text that never calls a film still or a concept a client's website. */
 export function shotAlt(w: WorkItem): string {
+  if (w.alt) return w.alt;
   if (w.still) return `A still from the ${w.name} site`;
   if (w.kind === 'concept') return `The ${w.name} concept site`;
   return `The ${w.name} website`;
@@ -117,14 +120,14 @@ export const WORK: WorkItem[] = [
   // Built on spec, not bought. Every feature named here was read off the live
   // demo on 28 Sept 2026. The stills are the demos' own Higgsfield hero frames.
   {
-    slug: 'enduralite',
-    name: 'Enduralite',
-    url: 'enduralite-preview.netlify.app',
-    href: 'https://enduralite-preview.netlify.app/',
+    slug: 'halvorn-industrial-lighting',
+    name: 'Halvorn Industrial Lighting',
+    url: 'halvorn-lighting.netlify.app',
+    href: 'https://halvorn-lighting.netlify.app',
     tag: 'Concept build',
-    line: 'A commercial LED lighting concept where the buyer plans the job before asking for a quote.',
+    line: 'An industrial LED lighting concept where the buyer plans the job before asking for a quote.',
     body:
-      'A concept I built for a commercial LED lighting manufacturer whose fixtures go into showrooms, service bays, paint booths, lots, mines and off-grid sites. The centre of it is a lighting planner: pick the space, enter the size and the mounting height, and it returns a fixture count, the series to use, the energy saving against what is there today and any flag the site raises, worked on the standard lumen method. The quote request goes in with a reference number, and a quote desk behind the site follows every request from new to quoted to won against a two-hour call-back window.',
+      'A concept I built on a fictional brand, for the kind of industrial LED lighting maker whose fixtures go into showrooms, service bays, paint booths, lots, mines and off-grid sites. The centre of it is a lighting planner: pick the space, enter the size and the mounting height, and it returns a fixture count, the series to use, the energy saving against what is there today and any flag the site raises, worked on the standard lumen method. The quote request goes in with a reference number, and a quote desk behind the site follows every request from new to quoted to won against a two-hour call-back window.',
     built: [
       'Lighting planner: fixture count, series and energy saving',
       'Quote requests with a reference number',
@@ -133,14 +136,16 @@ export const WORK: WorkItem[] = [
       'Ten application pages, showroom to off-grid',
       'The night shift, a film from the showroom to the open pit',
     ],
-    // The demo's own hero frame (Higgsfield 45aeda6d, "Enduralite - Storefront
-    // film" project): the showroom sedan under the LED grid, without the UI.
+    // The demo's own hero frame (Higgsfield 45aeda6d): the showroom sedan under
+    // the LED grid, without the UI. No brand name or logo in the frame.
+    // Halvorn is a fictional brand - never describe it as a client.
     shot: 'https://d8j0ntlcm91z4.cloudfront.net/user_2vxHkVim9pDZL3FfvXCfzWCkqG7/hf_20260929_004338_45aeda6d-dea2-453b-aeec-5a35eca97a94_min.webp',
     still: true,
     tone: 'linear-gradient(160deg,#1E1E22,#0F0F12 58%,#07070A)',
     feature: false,
     kind: 'concept',
     wide: true,
+    alt: 'Halvorn Industrial Lighting concept site - showroom hero',
   },
   {
     slug: 'emberline-heating-cooling',
