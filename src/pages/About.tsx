@@ -69,13 +69,11 @@ export default function About() {
             </div>
             <div className="who-copy">
               <p>
-                My background is policing. I spent ten years with the RCMP, across several special
-                units, in courtrooms and in federal case files. That is where I
-                learned that an incident is only ever as good as the record of it, which is why everything I build counts what came in and
-                what happened to it. It is also where I learned what a real intake looks like, and
-                why the first one to pick up is usually the one that gets the job.
+                I spent ten years in policing with the RCMP, across several special units. It taught
+                me that a record is only as good as what it captures - which is why everything I build
+                counts what came in and what happened to it - and that the first one to pick up is
+                usually the one that gets the job.
               </p>
-              <p className="credential">Former RCMP. Ten years of policing across several special units.</p>
               <p>
                 After that I built Temple, a produce delivery business. It began with me selling
                 apples and avocados in Orangeville and it grew to twenty-six cities, with delivery
