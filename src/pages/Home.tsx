@@ -269,11 +269,12 @@ export default function Home() {
                 One operator. <span className="em">No account manager between you and the work.</span>
               </h2>
               <p>
-                I built a produce delivery business to twenty-six cities, a warehouse and delivery
-                teams - all of it on referrals, with no owned way of being found. When COVID took the
-                referrals, it took the business with it. That is why the order here never changes:
-                found first, answered second, and the ads last. Before that, ten years of policing with
-                the RCMP. I do the work myself, start to finish.
+                I built a produce delivery business from selling apples in Orangeville to twenty-six
+                cities, with delivery teams and a warehouse - every customer by referral. When COVID cut
+                the referrals, I learned what it costs a good business not to own its way of being
+                found. That is why the order here never changes: found first, answered second, and the
+                ads last. Before that, ten years of policing with the RCMP. I do the work myself, start
+                to finish.
               </p>
               <p style={{ marginTop: 18 }}>
                 <Link to="/about/">The full story</Link>

@@ -11,12 +11,17 @@ import { personSchema, orgSchema, breadcrumbs } from '../lib/schema';
 // Every fact on this page was stated by Derek. No invented numbers, clients or
 // results. The lesson is the reason for the order: found first, answered
 // second, then ads.
+//
+// v15.14 (Derek's call): told as a builder's record, not a hard-luck story.
+// Temple leads as the business he built; COVID is the lesson, not the loss -
+// the warehouse, vehicles and home are NOT mentioned. Policing stays one short
+// paragraph. Keep it that way in any rewrite.
 // ---------------------------------------------------------------------------
 
 const URL = '/about/';
 
 const DESC =
-  'Derek Train, founder and solo operator of HigherMindAI in Erin, Ontario. Why the order is found first, answered second, then ads - learned the hard way.';
+  'Derek Train, founder of HigherMindAI in Erin, Ontario. Built a business to twenty-six cities, ran operations, and now builds how local businesses get found.';
 
 export default function About() {
   return (
@@ -36,12 +41,13 @@ export default function About() {
         <div className="wrap">
           <span className="eyebrow reveal">About HigherMindAI</span>
           <h1 className="reveal">
-            I lost a business to having no way of being found.{' '}
-            <span className="em">That is why I do this in order.</span>
+            From selling apples in Orangeville to twenty-six cities.{' '}
+            <span className="em">I build like an owner, because I have been one.</span>
           </h1>
           <p className="sub reveal">
-            I am {FOUNDER}, founder and solo operator of HigherMindAI, based in Erin, Ontario. When
-            you work with me, you deal with the person doing the work.
+            I am {FOUNDER}, founder and solo operator of HigherMindAI, based in Erin, Ontario. I have
+            built businesses, run teams and managed operations - and when you work with me, you deal
+            with the person doing the work.
           </p>
         </div>
       </section>
@@ -69,22 +75,23 @@ export default function About() {
             </div>
             <div className="who-copy">
               <p>
-                I spent ten years in policing with the RCMP, across several special units. It taught
-                me that a record is only as good as what it captures - which is why everything I build
-                counts what came in and what happened to it - and that the first one to pick up is
-                usually the one that gets the job.
+                I built Temple, a produce delivery business, from the ground up. It began with me
+                selling apples and avocados in Orangeville and grew to twenty-six cities, with delivery
+                teams, vehicles on the road and a 16,000 square foot warehouse with a drive-in fridge.
+                Running it taught me what a business at that size actually takes - the people, the
+                logistics and the customers who keep coming back.
               </p>
               <p>
-                After that I built Temple, a produce delivery business. It began with me selling
-                apples and avocados in Orangeville and it grew to twenty-six cities, with delivery
-                teams and a 16,000 square foot warehouse. Every bit of that demand came through
-                referral and community. I never owned a single way of being found.
+                Every bit of that demand came through referral and community, and it taught me the
+                most valuable lesson I have. When COVID cut the referrals off, I saw exactly what
+                happens to a good business that does not own its way of being found. That lesson is
+                the reason the order here never changes.
               </p>
               <p>
-                When COVID came, that demand went, and over about three years the business
-                collapsed. I lost the warehouse, the vehicles and my home. Nothing I had built could
-                bring a customer back, because none of it was mine - it was goodwill, and goodwill
-                does not show up on a map.
+                Before Temple, I spent ten years in policing with the RCMP, across several special
+                units. It taught me that a record is only as good as what it captures - which is why
+                everything I build counts what came in and what happened to it - and that the first
+                one to pick up is usually the one that gets the job.
               </p>
             </div>
           </div>
@@ -100,26 +107,53 @@ export default function About() {
               <div className="sec-head left">
                 <span className="eyebrow">What came next</span>
                 <h2>
-                  Nights on a cleaning crew. <span className="em">Days learning the craft.</span>
+                  A second business. <span className="em">Then the operator's seat.</span>
                 </h2>
               </div>
               <p className="lead">
-                For about two years I ran a cleaning company at night and learned digital marketing
-                by day - how a Google profile actually ranks, why a site that looks fine does not
-                sell, and what happens to a call nobody picks up.
+                After Temple I built again. For two years I ran a cleaning company while I learned
+                digital marketing properly - how a Google profile actually ranks, why a site that
+                looks fine does not sell, and what happens to a call nobody picks up.
               </p>
               <p className="lead">
-                Then I went inside a property management and maintenance operation as general
-                manager. Owner enquiries arriving at the wrong moment, work orders, coordinating
-                trades against units that had to turn before the month closed, and the paperwork that
-                had to hold up afterwards. It is the reason I talk about calls, jobs and work orders
-                instead of impressions and engagement. I have never held a CMRAO licence and never
-                managed a condominium corporation, and I will not dress it up as more than it was.
+                Then I was brought in as general manager of a property management and maintenance
+                operation: owner enquiries arriving at the wrong moment, work orders, and trades
+                coordinated against units that had to turn before the month closed. It is the reason
+                I talk about calls, jobs and work orders instead of impressions and engagement. It was
+                the operations side, not the licensed condominium side, and I describe it exactly that
+                way.
               </p>
             </div>
             <div className="chap-media reveal">
               <Plate image="office" filmKey="office" ratio="4 / 3" scrim="soft" />
             </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="divider" />
+
+      <section className="sec">
+        <div className="wrap narrow">
+          <div className="sec-head left reveal">
+            <span className="eyebrow">What I care about</span>
+            <h2>
+              Work done properly. <span className="em">Built to last.</span>
+            </h2>
+            <p className="lead">
+              I have a deep respect for real craftsmanship and for things with history behind them.
+              It is why I build for people who make and fix things for a living, and why I hold my
+              own work to the same standard. I have stood on the owner's side of the counter, so I
+              build what an owner wants: more of the right calls, fewer of them missed, and a clear
+              count of both.
+            </p>
+            <ul className="plist" style={{ marginTop: 26 }}>
+              <li>Built a business to twenty-six cities, with teams, vehicles and a warehouse</li>
+              <li>Built and ran a second business, a cleaning company</li>
+              <li>General manager on the operations side of property management and maintenance</li>
+              <li>Ten years of policing with the RCMP</li>
+              <li>Every profile, site and call desk built by me, start to finish</li>
+            </ul>
           </div>
         </div>
       </section>
