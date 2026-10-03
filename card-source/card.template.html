@@ -209,6 +209,9 @@ footer a{text-decoration:none}
   *{animation:none!important;transition:none!important}
   .js .rv{opacity:1;transform:none}
 }
+/* v1.1 - faces switched by angle, not by backface-visibility (Safari showed the front through the back) */
+.card.is-back .front,.card:not(.is-back) .back{visibility:hidden}
+.card{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -258,7 +261,7 @@ footer a{text-decoration:none}
         </div>
       </div>
     </div>
-    <p class="hint">Drag to tilt &middot; Tap to turn it over</p>
+    <p class="hint">Tap to flip &middot; Swipe to spin</p>
 
     <a class="btn" id="save" href="{{VCF_HREF}}">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-3.9 3.1-7 7-7s7 3.1 7 7"/><path d="M19 8v6M16 11h6"/></svg>
@@ -358,54 +361,81 @@ footer a{text-decoration:none}
   function tick(){try{ck.textContent='· '+new Intl.DateTimeFormat('en-CA',{timeZone:'America/Toronto',hour:'numeric',minute:'2-digit',hour12:true}).format(new Date()).replace(/\./g,'').toUpperCase()}catch(e){}}
   tick();setInterval(tick,20000);
 
-  /* card: tilt, light, flip */
-  var card=document.getElementById('card'), flipped=false;
-  var cur={x:0,y:0,f:0}, tgt={x:0,y:0}, drag=null, gyro=null, g0=null, lastInput=0;
+  /* card: spin, tilt, light (v1.1) */
+  var card=document.getElementById('card');
+  var base=0, ang=0, tAng=0, rx=0, tRx=0, drag=null, hover=null, look=null, gyro=null, g0=null, lastInput=0, wasBack=false;
+  var sY=window.scrollY||0, sT=performance.now(), sImp=0;
   function clamp(v,a,b){return v<a?a:v>b?b:v}
+  function turn(dir){base+=180*dir;buzz(10);ev('card_flip',{side:(Math.round(base/180)%2)?'back':'front'})}
+  function toward(e,ky,kx){var r=card.getBoundingClientRect(), px=(e.clientX-(r.left+r.width/2))/r.width, py=(e.clientY-(r.top+r.height/2))/r.height;
+    return {y:clamp(px*ky,-18,18),x:clamp(-py*kx,-12,12),near:Math.abs(px)<1.2&&Math.abs(py)<1.2}}
   card.addEventListener('pointerdown',function(e){
     if(e.target.closest('#share'))return;
-    drag={x:e.clientX,y:e.clientY,t:Date.now(),moved:0,id:e.pointerId};
+    var n=Date.now();drag={x:e.clientX,y:e.clientY,t:n,moved:0,id:e.pointerId,dx:0,dy:0,lx:e.clientX,lt:n,v:0};
   });
+  /* a phone has no hover: any touch on the screen turns the card toward the finger for a moment */
+  window.addEventListener('pointerdown',function(e){
+    if(e.pointerType==='mouse')return;
+    var l=toward(e,34,16);look={y:l.y,x:l.x,t:Date.now()};
+  },{passive:true});
   window.addEventListener('pointermove',function(e){
     if(drag&&e.pointerId===drag.id){
-      var dx=e.clientX-drag.x, dy=e.clientY-drag.y; drag.moved=Math.max(drag.moved,Math.abs(dx)+Math.abs(dy));
-      tgt.y=clamp(dx*.28,-26,26); tgt.x=clamp(-dy*.2,-16,16); lastInput=Date.now();
+      var n=Date.now(), dx=e.clientX-drag.x, dy=e.clientY-drag.y;
+      drag.moved=Math.max(drag.moved,Math.abs(dx)+Math.abs(dy));
+      if(n>drag.lt){drag.v=.6*drag.v+.4*((e.clientX-drag.lx)/(n-drag.lt));drag.lx=e.clientX;drag.lt=n}
+      drag.dx=clamp(dx*.6,-200,200); drag.dy=clamp(-dy*.2,-16,16); lastInput=n;
     }else if(e.pointerType==='mouse'){
-      var r=card.getBoundingClientRect(), px=(e.clientX-(r.left+r.width/2))/r.width, py=(e.clientY-(r.top+r.height/2))/r.height;
-      if(Math.abs(px)<1.2&&Math.abs(py)<1.2){tgt.y=clamp(px*26,-18,18);tgt.x=clamp(-py*18,-12,12);lastInput=Date.now()}
+      var h=toward(e,26,18);hover=h.near?h:null;if(hover)lastInput=Date.now();
     }
   },{passive:true});
   function endDrag(e){
     if(!drag||e.pointerId!==drag.id)return;
-    var tap=drag.moved<9&&Date.now()-drag.t<450; drag=null;
-    if(tap&&e.type==='pointerup')flip();
+    var d=drag; drag=null;
+    if(e.type!=='pointerup')return;                       /* the page took the gesture to scroll */
+    if(d.moved<9&&Date.now()-d.t<450){turn(1);return}     /* a tap turns it over */
+    var p=d.dx+clamp(d.v*140,-90,90);                     /* a swipe spins it to the nearer face */
+    if(p>70)turn(1);else if(p<-70)turn(-1);
   }
   window.addEventListener('pointerup',endDrag);window.addEventListener('pointercancel',endDrag);
-  card.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();flip()}});
-  function flip(){flipped=!flipped;buzz(10);ev('card_flip',{side:flipped?'back':'front'});
-    card.setAttribute('aria-label',flipped?'Back of the card, with a QR code to pass it on. Press to turn it over.':"Derek Train's card. Press to turn it over.")}
+  card.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();turn(1)}});
+  /* scrolling: the card tips with the speed of the scroll */
+  window.addEventListener('scroll',function(){
+    var n=performance.now(), y=window.scrollY||0, dt=n-sT>120?16:Math.max(8,n-sT);   /* first event after a pause counts as one frame */
+    sImp=clamp(sImp+((y-sY)/dt)*7,-15,15); sY=y; sT=n;
+  },{passive:true});
   /* phones that report tilt without asking (Android): the card follows the hand */
-  if(!IOS&&'DeviceOrientationEvent' in window){
+  var DO=window.DeviceOrientationEvent;
+  if(DO&&typeof DO.requestPermission!=='function'){
     window.addEventListener('deviceorientation',function(e){
       if(e.gamma==null||e.beta==null)return;
       if(!g0)g0={b:e.beta,g:e.gamma};
-      gyro={y:clamp((e.gamma-g0.g)*.55,-16,16),x:clamp(-(e.beta-g0.b)*.4,-11,11)};
+      gyro={y:clamp((e.gamma-g0.g)*.6,-18,18),x:clamp(-(e.beta-g0.b)*.4,-11,11)};
+      g0.g+=(e.gamma-g0.g)*.004; g0.b+=(e.beta-g0.b)*.004;  /* settles back so it never sticks at an angle */
     },{passive:true});
   }
   var t0=performance.now();
   function frame(now){
-    var t=(now-t0)/1000;
-    if(!drag&&Date.now()-lastInput>900){
-      if(gyro){tgt.x=gyro.x+Math.sin(t*.7)*1.2;tgt.y=gyro.y+Math.sin(t*.5)*2}
-      else{tgt.x=Math.sin(t*.62)*4.2;tgt.y=Math.sin(t*.43+.6)*8.5}
+    var t=(now-t0)/1000, k=.09, n=Date.now();
+    if(drag){tAng=base+drag.dx;tRx=drag.dy;k=.34}
+    else if(hover&&n-lastInput<1500){tAng=base+hover.y;tRx=hover.x;k=.1}
+    else{
+      var fy=gyro?gyro.y+Math.sin(t*.5)*2:Math.sin(t*.43+.6)*8.5, fx=gyro?gyro.x+Math.sin(t*.7)*1.2:Math.sin(t*.62)*4.2;
+      var la=look?n-look.t:9e9, lw=la<1100?1:la<1700?1-(la-1100)/600:0;          /* the look fades out */
+      var r=card.getBoundingClientRect(), p=clamp((window.scrollY||0)/Math.max(200,r.height+120),0,1);
+      tAng=base+fy*(1-lw)+(look?look.y*lw:0)+p*26;
+      tRx=fx*(1-lw)+(look?look.x*lw:0)+p*7+sImp;
+      k=lw>0||Math.abs(sImp)>.5?.14:.09;
     }
-    if(RM){if(!drag){tgt.x=0;tgt.y=0}cur.f=flipped?180:0;cur.x=tgt.x;cur.y=tgt.y}
-    else{cur.x+=(tgt.x-cur.x)*.09; cur.y+=(tgt.y-cur.y)*.09; cur.f+=((flipped?180:0)-cur.f)*.11}
+    sImp*=.93;
+    if(RM){ang=drag?tAng:base;rx=drag?tRx:0}else{ang+=(tAng-ang)*k;rx+=(tRx-rx)*k}
+    var back=Math.cos(ang*Math.PI/180)<0;
+    if(back!==wasBack){wasBack=back;card.classList.toggle('is-back',back);
+      card.setAttribute('aria-label',back?'Back of the card, with a QR code to pass it on. Press to turn it over.':"Derek Train's card. Press to turn it over.")}
+    var loc=((ang%180)+180)%180; if(loc>90)loc-=180;      /* angle off the facing side, -90 to 90 */
     var s=card.style;
-    s.setProperty('--rx',cur.x.toFixed(2)+'deg'); s.setProperty('--ry',(cur.y+cur.f).toFixed(2)+'deg');
-    var sign=cur.f>90?-1:1;
-    s.setProperty('--gx',(50+sign*cur.y*2.6).toFixed(1)+'%'); s.setProperty('--gy',(34-cur.x*2.8).toFixed(1)+'%');
-    par.x=cur.y; par.y=cur.x;
+    s.setProperty('--rx',rx.toFixed(2)+'deg'); s.setProperty('--ry',ang.toFixed(2)+'deg');
+    s.setProperty('--gx',clamp(50+loc*2.6,-30,130).toFixed(1)+'%'); s.setProperty('--gy',(34-rx*2.8).toFixed(1)+'%');
+    par.x=Math.sin(ang*Math.PI/90)*22; par.y=rx;
     requestAnimationFrame(frame);
   }
 

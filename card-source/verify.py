@@ -91,8 +91,9 @@ async def run():
         await pg.screenshot(path='out/back-check.png')
         v=decode('out/back-check.png'); check('QR on the back of the card decodes from a screenshot', v=='https://highermindai.com/card', v)
         await pg.touchscreen.tap(r[0],r[1]-120); await pg.wait_for_timeout(1400)
-        ry=await pg.evaluate("parseFloat(document.getElementById('card').style.getPropertyValue('--ry'))")
-        check('tap turns it back', -30<ry<30, ry)
+        # v1.1: a second tap keeps turning the same way (ry ends near 360, not 0), so test the face shown, not the angle
+        back=await pg.evaluate("document.getElementById('card').classList.contains('is-back')")
+        check('tap turns it back', not back, 'is-back' if back else 'front')
         # form guard + message
         await pg.evaluate("document.getElementById('ff').scrollIntoView()"); await pg.wait_for_timeout(600)
         await pg.evaluate("document.getElementById('wa').click()")
