@@ -1968,6 +1968,9 @@ a.town:hover{border-color:var(--teal);color:#fff}
 .shotfull.is-still{padding-top:30px}
 /* v15.11 - one lead concept spans both columns: screenshot left, copy right */
 @media (min-width:760px){
-  .work--wide{grid-column:1 / -1;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);align-items:center}
-  .work--wide .work-shot{aspect-ratio:1.55;height:100%}
+  .workgrid--pairs .work--wide{grid-column:1 / -1;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);align-items:center}
+  .workgrid--pairs .work--wide .work-shot{aspect-ratio:1.55;height:100%}
+  /* v15.18 - a second wide card sits image-right so two in a row do not repeat */
+  .workgrid--pairs .work--wide.work--flip{grid-template-columns:minmax(0,1fr) minmax(0,1.35fr)}
+  .workgrid--pairs .work--wide.work--flip .work-shot{order:2}
 }

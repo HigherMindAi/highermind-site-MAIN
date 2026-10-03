@@ -33,7 +33,7 @@ export default function WorkCard({ item }: { item: WorkItem }) {
 
   return (
     <a
-      className={`work reveal${item.wide ? ' work--wide' : ''}`}
+      className={`work reveal${item.wide ? ' work--wide' : ''}${item.wide && item.flip ? ' work--flip' : ''}`}
       href={item.href}
       target="_blank"
       rel="noreferrer"

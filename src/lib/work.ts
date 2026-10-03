@@ -60,6 +60,8 @@ export interface WorkItem {
    * one. Phones render it as an ordinary card.
    */
   wide?: boolean;
+  /** With `wide`: image on the right instead of the left. */
+  flip?: boolean;
   /** Overrides the generated alt text when a card needs its own wording. */
   alt?: string;
 }
@@ -116,6 +118,33 @@ export const WORK: WorkItem[] = [
     feature: true,
   },
 
+  // Signed 3 Oct 2026: the Honeydew concept went live for the client at
+  // honeydewltd.ca. Every feature named here was read off the live site that
+  // day. The owner's lead board from the concept is NOT on the live site, so it
+  // is not claimed. The image is the site's own Higgsfield kitchen frame.
+  {
+    slug: 'honeydew-contracting',
+    name: 'Honeydew Contracting',
+    url: 'honeydewltd.ca',
+    href: 'https://honeydewltd.ca/',
+    tag: 'Website build',
+    line: 'A renovator in Erin, Mono and Caledon, built so the project arrives planned before the first call.',
+    body:
+      'A basement, bathroom and kitchen renovator working Erin, Mono and Caledon. The site is built around the consultation: a homeowner tells the planner the room, the size and the finish they have in mind, adds a few photos of the space, and it goes straight to the owner, with a permit check by town built in. There is no price guessing on the page by design - the number comes after he has seen the space - and the way a job runs is set out in four steps, from consultation to walkthrough.',
+    built: [
+      'Project planner: room, size, finish and photos',
+      'Permit check by town, built into the planner',
+      'How a job runs, in four steps',
+      'Basement finishing and Erin pages',
+      'A short film on the home page',
+    ],
+    shot: 'https://d8j0ntlcm91z4.cloudfront.net/user_2vxHkVim9pDZL3FfvXCfzWCkqG7/hf_20260928_181658_3fa1ef1f-65a0-4f07-8546-eccb72cd68ec_min.webp',
+    still: true,
+    tone: 'linear-gradient(160deg,#2A2418,#141210 58%,#0A0908)',
+    feature: true,
+    wide: true,
+  },
+
   // --- Concept builds (28 Sept 2026) ---------------------------------------
   // Built on spec, not bought. Every feature named here was read off the live
   // demo on 28 Sept 2026. The stills are the demos' own Higgsfield hero frames.
@@ -145,6 +174,7 @@ export const WORK: WorkItem[] = [
     feature: false,
     kind: 'concept',
     wide: true,
+    flip: true,
     alt: 'Halvorn Industrial Lighting concept site - showroom hero',
   },
   {
@@ -170,25 +200,33 @@ export const WORK: WorkItem[] = [
     feature: false,
     kind: 'concept',
   },
+  // Added 3 Oct 2026. S Gill Tire Services is a real business and this is a
+  // pitch demo (its own banner says "Concept demo - prepared for S Gill Tire
+  // Services by HigherMindAI"). Features read off the live demo that day. If
+  // they do not go ahead, do what was done for Enduralite: take the name off.
   {
-    slug: 'honeydew-contracting',
-    name: 'Honeydew Contracting',
-    url: 'contractorwebdesign.netlify.app',
-    href: 'https://contractorwebdesign.netlify.app/',
+    slug: 'sgill-tire-services',
+    name: 'S Gill Tire Services',
+    url: 'sgill-preview.netlify.app',
+    href: 'https://sgill-preview.netlify.app/',
     tag: 'Concept build',
-    line: 'A renovation concept where the project arrives planned, photos attached, before the first call.',
+    line: 'A mobile tire service concept where a truck down becomes one message with the whole ticket in it.',
     body:
-      'A concept I built for a kitchen, bathroom and basement renovator working Erin, Mono and Caledon. The homeowner spends two minutes in the project planner - the room, the size, the finish they have in mind and a few photos of the space - and it lands on the owner\'s phone as a text. The page carries no prices by design; it sells the consultation. Behind it sits a lead board that lists every request oldest first against a two-hour call-back clock, with permit checks and out-of-area jobs flagged.',
+      'A concept I built for a mobile tire service covering the Greater Toronto Area, trucks and trailers first. A driver on the shoulder answers three things - where they are, the size on the sidewall and which wheel, picked off a diagram - and it arrives as a text or a WhatsApp message with the whole ticket in it. A tire size reader turns the sidewall size back into width, profile and rim. Behind the site, a board puts every call-out in a lane with a clock on it, and one load list adds up every tire size on the open tickets.',
     built: [
-      'Two-minute project planner with photos, sent by text',
-      'Lead board with a two-hour call-back clock',
-      'A four-step process, consultation to walkthrough',
-      'Permit checks and out-of-area jobs flagged',
-      'Erin and basement finishing landing pages',
+      'Three-step call-out: location, tire size, which wheel',
+      'Tire size reader for the sidewall',
+      'Owner board with lanes, clocks and a load list',
+      'Seven service pages, roadside to brakes',
+      'A page for each of eight towns it covers',
+      'Official sources quoted in place of made-up reviews',
+      'One night on the road, a film in chapters',
     ],
-    shot: 'https://d8j0ntlcm91z4.cloudfront.net/user_2vxHkVim9pDZL3FfvXCfzWCkqG7/hf_20260928_181658_3fa1ef1f-65a0-4f07-8546-eccb72cd68ec_min.webp',
+    // The demo's own hero frame (Higgsfield fd0129ed): a semi-trailer on a wet
+    // shoulder at night with a flat. No lettering or plates in the frame.
+    shot: 'https://d8j0ntlcm91z4.cloudfront.net/user_2vxHkVim9pDZL3FfvXCfzWCkqG7/hf_20261002_012326_fd0129ed-db8a-48d9-a739-4ee8fcdf32f5_min.webp',
     still: true,
-    tone: 'linear-gradient(160deg,#2A2418,#141210 58%,#0A0908)',
+    tone: 'linear-gradient(160deg,#1B1D21,#0B0C0E 58%,#050506)',
     feature: false,
     kind: 'concept',
   },
