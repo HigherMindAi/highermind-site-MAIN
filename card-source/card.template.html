@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Derek Train - HigherMindAI</title>
+<meta name="description" content="Derek Train, founder of HigherMindAI. Save my name, number, email and site without typing a thing.">
+<meta name="robots" content="noindex, follow">
+<!-- Site analytics: the same GA4 property and consent defaults as every other page (src/lib/tracking.ts).
+     This page has no React router, so GA4 sends its own page_view here. -->
+<link rel="preconnect" href="https://www.googletagmanager.com" />
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',region:["AT","BE","BG","HR","CY","CZ","DK","EE","FI","FR","DE","GR","HU","IS","IE","IT","LV","LI","LT","LU","MT","NL","NO","PL","PT","RO","SK","SI","ES","SE","GB","CH"],wait_for_update:500});gtag('consent','default',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted'});(function(){var q=location.search,i=false,d=/[?&]hm_debug=1/.test(q);try{if(/[?&]hm_internal=1/.test(q))localStorage.setItem('hm_internal','1');if(/[?&]hm_internal=0/.test(q))localStorage.removeItem('hm_internal');i=localStorage.getItem('hm_internal')==='1';}catch(e){}var c={};if(i)c.traffic_type='internal';if(d)c.debug_mode=true;window.__hmInternal=i;gtag('js',new Date());gtag('config','G-JE24G76TLQ',c);})();</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JE24G76TLQ"></script>
+<link rel="canonical" href="https://highermindai.com/card/">
+<meta name="theme-color" content="#0B1A3A">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Derek Train - HigherMindAI">
+<meta property="og:description" content="I do not carry paper. Save my name, number, email and site without typing a thing.">
+<meta property="og:url" content="https://highermindai.com/card/">
+<meta property="og:image" content="https://highermindai.com/card/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+@font-face{font-family:"Montserrat";font-style:normal;font-weight:100 900;font-display:swap;src:url(data:font/woff2;base64,{{FONT_B64}}) format("woff2")}
+:root{
+  --navy:#0B1A3A;--ink:#0F1729;--deep:#080F20;
+  --teal:#3FE0B5;--teal2:#0D9488;
+  --white:#F4F8FB;--soft:#C9D6E6;--mute:#8FA2BD;--hair:#1B4048;
+  --rx:0deg;--ry:0deg;--gx:50%;--gy:30%;
+  --ch:clamp(372px,calc(100svh - 318px),456px);
+}
+*{box-sizing:border-box}
+html{background:var(--deep);-webkit-text-size-adjust:100%;overflow-x:hidden}
+body{margin:0;font-family:"Montserrat",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--white);
+  background:#0B1530;min-height:100svh;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-tap-highlight-color:transparent}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(120% 60% at 100% 0%,rgba(63,224,181,.16),transparent 60%),
+    radial-gradient(90% 50% at 0% 100%,rgba(13,148,136,.18),transparent 62%),
+    linear-gradient(180deg,#0F1729 0%,#0B1A3A 46%,#080F20 100%)}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
+  background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:44px 44px;
+  -webkit-mask-image:radial-gradient(80% 60% at 50% 30%,#000,transparent 85%);mask-image:radial-gradient(80% 60% at 50% 30%,#000,transparent 85%)}
+#field{position:fixed;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+a{color:inherit}
+.wrap{position:relative;z-index:2;max-width:460px;margin:0 auto;padding:0 20px}
+
+/* wordmark */
+.wm{display:inline-flex;align-items:center;gap:.42em;font-weight:800;letter-spacing:-.01em;color:#fff;line-height:1}
+.wm i{width:.5em;height:.5em;border-radius:50%;background:var(--teal);box-shadow:0 0 .7em rgba(63,224,181,.9),0 0 1.6em rgba(63,224,181,.45);display:inline-block}
+.wm b{font-weight:800;color:var(--teal)}
+
+/* top line */
+.top{display:flex;justify-content:center;align-items:center;gap:9px;padding:calc(14px + env(safe-area-inset-top)) 0 0;
+  font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 0 rgba(63,224,181,.6);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(63,224,181,.55)}70%{box-shadow:0 0 0 9px rgba(63,224,181,0)}100%{box-shadow:0 0 0 0 rgba(63,224,181,0)}}
+
+/* hero */
+.hero{display:flex;flex-direction:column;align-items:center;padding:14px 0 8px}
+h1{margin:0 0 16px;font-size:clamp(25px,7.3vw,33px);font-weight:800;letter-spacing:-.025em;line-height:1.08;text-align:center}
+h1 em{font-style:normal;color:var(--teal)}
+.stage{perspective:1200px;width:min(calc(var(--ch) * .76),88vw);height:var(--ch);position:relative}
+.card{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(var(--rx)) rotateY(var(--ry));
+  cursor:pointer;touch-action:pan-y;outline:none;border-radius:24px}
+.card:focus-visible{box-shadow:0 0 0 3px rgba(63,224,181,.7)}
+.face{position:absolute;inset:0;border-radius:24px;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  background:linear-gradient(165deg,#12254B 0%,#0B1A3A 48%,#081329 100%);
+  border:1px solid #1E4A52;
+  box-shadow:0 30px 60px -18px rgba(0,0,0,.75),0 0 0 1px rgba(63,224,181,.06),0 0 48px -6px rgba(63,224,181,.28)}
+.back{transform:rotateY(180deg)}
+/* light that follows the tilt */
+.face::before{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;border-radius:inherit;
+  background:radial-gradient(60% 46% at var(--gx) var(--gy),rgba(255,255,255,.26),rgba(255,255,255,.06) 42%,transparent 68%);mix-blend-mode:screen}
+.face::after{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;border-radius:inherit;opacity:.5;
+  background:linear-gradient(115deg,transparent 22%,rgba(63,224,181,.20) 38%,rgba(120,150,255,.16) 50%,rgba(63,224,181,.18) 62%,transparent 78%);
+  background-size:260% 260%;background-position:var(--gx) var(--gy);mix-blend-mode:screen}
+.rim{position:absolute;left:0;right:0;top:0;height:2px;z-index:5;background:linear-gradient(90deg,transparent,var(--teal),transparent);opacity:.9}
+
+/* front */
+.photo{position:absolute;left:0;right:0;top:40px;height:66%;
+  background:url(data:image/jpeg;base64,{{PHOTO_B64}}) center 0/cover no-repeat;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 9%,#000 56%,rgba(0,0,0,.5) 78%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 9%,#000 56%,rgba(0,0,0,.5) 78%,transparent 100%)}
+.photo::after{content:"";position:absolute;inset:0;background:
+  radial-gradient(86% 72% at 50% 42%,transparent 52%,rgba(11,26,58,.8) 100%),
+  linear-gradient(180deg,rgba(13,148,136,.08),rgba(11,26,58,.14))}
+.c-top{position:absolute;left:18px;right:18px;top:16px;z-index:3;display:flex;justify-content:space-between;align-items:center}
+.c-top .wm{font-size:14.5px}
+.tag{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);
+  border:1px solid rgba(63,224,181,.42);border-radius:999px;padding:5px 9px;background:rgba(8,19,41,.5)}
+.c-bot{position:absolute;left:20px;right:20px;bottom:18px;z-index:3}
+.name{font-size:clamp(28px,8.4vw,34px);font-weight:800;letter-spacing:-.03em;line-height:1;margin:0}
+.role{margin:8px 0 0;font-size:clamp(8.5px,2.5vw,10px);font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);white-space:nowrap}
+.rule{height:1px;margin:13px 0 11px;background:linear-gradient(90deg,rgba(63,224,181,.7),rgba(63,224,181,0))}
+.line{margin:0;font-size:12.5px;line-height:1.5;font-weight:500;color:var(--soft)}
+.c-meta{display:flex;justify-content:space-between;gap:8px;margin-top:12px;font-size:11px;font-weight:700;letter-spacing:.04em;color:#fff}
+.c-meta span:last-child{color:var(--teal)}
+
+/* back */
+.b-in{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:18px 20px 20px;text-align:center}
+.b-in .wm{font-size:14.5px;align-self:flex-start}
+.qr{width:min(64%,208px);aspect-ratio:1;background:#fff;border-radius:18px;padding:11px;box-shadow:0 0 0 1px rgba(63,224,181,.5),0 0 44px -4px rgba(63,224,181,.5)}
+.qr svg{display:block;width:100%;height:100%}
+.b-h{margin:0;font-size:21px;font-weight:800;letter-spacing:-.02em}
+.b-p{margin:6px auto 0;font-size:12.5px;line-height:1.5;color:var(--soft);font-weight:500;max-width:24ch}
+.share{margin-top:12px;appearance:none;border:1px solid rgba(63,224,181,.55);background:rgba(63,224,181,.1);color:var(--teal);
+  font:700 12px/1 "Montserrat",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:12px 18px;cursor:pointer}
+
+.hint{margin:12px 0 14px;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+
+/* buttons */
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:58px;border-radius:16px;text-decoration:none;
+  font-weight:800;font-size:16px;letter-spacing:-.005em;color:#04201C;border:0;cursor:pointer;font-family:inherit;
+  background:linear-gradient(135deg,#5BEBC6 0%,#3FE0B5 40%,#12A594 100%);
+  box-shadow:0 14px 34px -10px rgba(63,224,181,.65),inset 0 1px 0 rgba(255,255,255,.5);transition:transform .15s ease,box-shadow .2s ease}
+.btn:active{transform:scale(.975)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn.ghost{background:rgba(63,224,181,.08);color:var(--teal);border:1px solid rgba(63,224,181,.5);box-shadow:none}
+.hero .btn{max-width:min(calc(var(--ch) * .76),88vw)}
+.sub{margin:10px 0 0;font-size:12.5px;color:var(--mute);font-weight:500;text-align:center;min-height:1.5em}
+
+/* tiles */
+.reach{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:26px 0 0}
+.tile{display:flex;flex-direction:column;gap:9px;padding:15px 14px;border-radius:16px;text-decoration:none;min-width:0;
+  background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.09)}
+.tile svg{width:19px;height:19px;color:var(--teal)}
+.tile small{display:block;font-size:9.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.tile strong{display:block;margin-top:3px;font-size:13px;font-weight:700;overflow-wrap:anywhere;line-height:1.25}
+.tile.wide{grid-column:1/-1;flex-direction:row;align-items:center;gap:14px}
+.tile.wide strong{font-size:14px}
+
+.op{margin:22px 0 0;padding:18px 18px 18px 20px;border-left:2px solid var(--teal);background:linear-gradient(90deg,rgba(63,224,181,.09),transparent);border-radius:0 14px 14px 0}
+.op p{margin:0;font-size:15px;line-height:1.5;font-weight:600}
+
+/* sections */
+section.s{position:relative;padding:64px 0 0}
+.ghostn{position:absolute;right:0;top:30px;font-size:150px;font-weight:900;line-height:1;letter-spacing:-.06em;color:rgba(63,224,181,.06);pointer-events:none;user-select:none}
+.eb{display:flex;align-items:center;gap:9px;font-size:10.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin:0 0 14px}
+.eb i{width:6px;height:6px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal)}
+h1,h2{text-wrap:balance}
+h2{margin:0 0 14px;font-size:clamp(27px,7.6vw,34px);font-weight:800;letter-spacing:-.03em;line-height:1.08}
+.s p{font-size:15.5px;line-height:1.6;color:var(--soft);font-weight:500;margin:0 0 14px;text-wrap:pretty}
+.s p strong{color:#fff;font-weight:700}
+.s p.kick{margin:0 0 6px;font-size:17px;font-weight:700;color:var(--soft);letter-spacing:-.01em}
+
+.panel{margin-top:20px;padding:18px;border-radius:20px;background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.025));
+  border:1px solid rgba(63,224,181,.22);box-shadow:0 0 50px -18px rgba(63,224,181,.4),inset 0 1px 0 rgba(255,255,255,.08)}
+label{display:block;font-size:9.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin:0 0 7px}
+input{width:100%;height:52px;border-radius:13px;border:1px solid rgba(255,255,255,.14);background:rgba(8,15,32,.6);color:#fff;
+  font:600 16px/1 "Montserrat",system-ui,sans-serif;padding:0 14px;outline:none;margin:0 0 14px;-webkit-appearance:none;appearance:none}
+input::placeholder{color:#5F7290;font-weight:500}
+input:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(63,224,181,.18)}
+.bubble{position:relative;margin:4px 0 16px auto;max-width:92%;padding:12px 14px;border-radius:18px 18px 5px 18px;
+  background:linear-gradient(135deg,#17B79F,#0D9488);color:#fff;font-size:14px;line-height:1.45;font-weight:500;white-space:pre-line;overflow-wrap:anywhere}
+.bubble b{font-weight:700}
+.bubble .ph{opacity:.6}
+.alt{display:block;text-align:center;margin:14px 0 0;font-size:13px;font-weight:600;color:var(--teal);text-decoration:none}
+.fine{margin:12px 0 0!important;font-size:12px!important;color:var(--mute)!important;text-align:center}
+.shake{animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+ul.get{list-style:none;margin:18px 0 0;padding:0}
+ul.get li{position:relative;padding:13px 0 13px 26px;border-top:1px solid rgba(255,255,255,.09);font-size:14.5px;line-height:1.45;font-weight:600;color:#fff}
+ul.get li::before{content:"";position:absolute;left:2px;top:19px;width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px rgba(63,224,181,.8)}
+.promise{margin:20px 0 0;padding:20px;border-radius:18px;text-align:center;background:linear-gradient(135deg,#3FE0B5,#0D9488);box-shadow:0 0 56px -12px rgba(63,224,181,.7)}
+.promise p{margin:0;color:#04201C;font-size:19px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+.after{margin:14px 0 0!important;font-size:13.5px!important}
+
+.close{text-align:center;padding-bottom:10px}
+.close .eb{justify-content:center}
+.close h2{font-size:clamp(34px,10vw,44px)}
+.call{display:block;margin:16px 0 0;font-size:14px;font-weight:600;color:var(--soft);text-decoration:none}
+.call b{color:#fff}
+footer{position:relative;z-index:2;margin:56px 0 0;padding:22px 20px calc(26px + env(safe-area-inset-bottom));border-top:1px solid rgba(255,255,255,.08);
+  text-align:center;font-size:11px;line-height:1.7;color:var(--mute);font-weight:500}
+footer .wm{font-size:15px;margin-bottom:10px}
+footer a{text-decoration:none}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+
+/* boot */
+#boot{display:none}
+.js #boot{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;
+  background:radial-gradient(70% 50% at 50% 50%,#0F2148,#080F20 75%);transition:opacity .55s ease,visibility .55s}
+.js.ready #boot{opacity:0;visibility:hidden;pointer-events:none}
+.b-dot{position:relative;width:14px;height:14px;border-radius:50%;background:var(--teal);box-shadow:0 0 22px rgba(63,224,181,.95),0 0 60px rgba(63,224,181,.5);animation:bdot .5s cubic-bezier(.2,1.6,.4,1) both}
+.b-dot::before,.b-dot::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;border:1px solid var(--teal);animation:bring 1.5s .25s ease-out both}
+.b-dot::after{animation-delay:.6s}
+@keyframes bdot{from{transform:scale(0)}to{transform:scale(1)}}
+@keyframes bring{from{transform:scale(1);opacity:.9}to{transform:scale(22);opacity:0}}
+.b-wm{font-size:26px;animation:bup .6s .55s ease both}
+.b-wm i{display:none}
+.b-nm{font-size:10.5px;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--mute);animation:bup .6s .85s ease both}
+@keyframes bup{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.js .stage{opacity:0;transform:translateY(46px) scale(.9);transition:opacity .8s ease,transform 1s cubic-bezier(.16,.9,.2,1)}
+.js.ready .stage{opacity:1;transform:none}
+.js h1,.js .top,.js .hero .btn,.js .hint,.js .sub{opacity:0;transition:opacity .8s ease .35s}
+.js.ready h1,.js.ready .top,.js.ready .hero .btn,.js.ready .hint,.js.ready .sub{opacity:1}
+
+@media (max-height:600px){:root{--ch:352px}h1{margin-bottom:11px}.hint{margin:9px 0 10px}.hero{padding-top:10px}.c-meta{display:none}.role{letter-spacing:.13em}.line{font-size:12px}.name{font-size:28px}.rule{margin:10px 0 9px}}
+@media (min-width:700px){.wrap{max-width:480px}}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .js .rv{opacity:1;transform:none}
+}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<div id="boot" aria-hidden="true">
+  <div class="b-dot"></div>
+  <div class="wm b-wm"><i></i><span>HigherMind<b>AI</b></span></div>
+  <div class="b-nm">Derek Train</div>
+</div>
+<canvas id="field" aria-hidden="true"></canvas>
+
+<div class="wrap">
+  <div class="top"><span class="pulse"></span><span>Erin, Ontario <span id="clock"></span></span></div>
+
+  <main>
+  <section class="hero">
+    <h1>I do not carry <em>paper.</em></h1>
+
+    <div class="stage">
+      <div class="card" id="card" role="button" tabindex="0" aria-label="Derek Train's card. Press to turn it over.">
+        <div class="face front">
+          <div class="rim"></div>
+          <div class="photo" role="img" aria-label="Derek Train"></div>
+          <div class="c-top">
+            <span class="wm"><i></i><span>HigherMind<b>AI</b></span></span>
+            <span class="tag">Founder</span>
+          </div>
+          <div class="c-bot">
+            <p class="name">Derek Train</p>
+            <p class="role">One operator, start to finish</p>
+            <div class="rule"></div>
+            <p class="line">I find what is costing a local business its calls, fix it in order, and only then turn on the ads.</p>
+            <div class="c-meta"><span>647-242-5800</span><span>highermindai.com</span></div>
+          </div>
+        </div>
+        <div class="face back">
+          <div class="rim"></div>
+          <div class="b-in">
+            <span class="wm"><i></i><span>HigherMind<b>AI</b></span></span>
+            <div class="qr" role="img" aria-label="QR code for highermindai.com/card">{{QR_SVG}}</div>
+            <div>
+              <p class="b-h">Pass it on.</p>
+              <p class="b-p">Point another phone here and I am in that one too.</p>
+              <button class="share" id="share" type="button">Send this card</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="hint">Drag to tilt &middot; Tap to turn it over</p>
+
+    <a class="btn" id="save" href="{{VCF_HREF}}">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-3.9 3.1-7 7-7s7 3.1 7 7"/><path d="M19 8v6M16 11h6"/></svg>
+      <span>Save me to your phone</span>
+    </a>
+    <p class="sub" id="savesub">Name, number, email and site. No typing.</p>
+  </section>
+
+  <div class="reach rv">
+    <a class="tile" href="tel:+16472425800" data-ev="card_call">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+      <span><small>Call</small><strong>647-242-5800</strong></span>
+    </a>
+    <a class="tile" href="sms:+16472425800" data-ev="card_text">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <span><small>Text</small><strong>647-242-5800</strong></span>
+    </a>
+    <a class="tile wide" href="mailto:highermindai@gmail.com" data-ev="card_email">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+      <span><small>Email</small><strong>highermindai@gmail.com</strong></span>
+    </a>
+    <a class="tile wide" href="https://highermindai.com/?utm_source=card&utm_medium=qr&utm_campaign=ladder-v6-general" data-ev="card_site">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+      <span><small>Site</small><strong>highermindai.com</strong></span>
+    </a>
+  </div>
+
+  <div class="op rv"><p>I run this as a single operator. When you work with me, you deal with the person doing the work.</p></div>
+
+  <section class="s rv" id="finding">
+    <div class="ghostn" aria-hidden="true">01</div>
+    <p class="eb"><i></i>01 &middot; One finding, free</p>
+    <h2>You have my card. Send me yours.</h2>
+    <p>Your business name is enough. I go through what you have online and text back <strong>one real finding</strong> inside 24 hours - the first thing I would fix, and why.</p>
+    <p>No charge. It is yours either way.</p>
+    <form class="panel" id="ff" novalidate>
+      <label for="biz">Business name</label>
+      <input id="biz" name="biz" type="text" autocomplete="organization" autocapitalize="words" placeholder="Your business" enterkeyhint="next">
+      <label for="town">Town</label>
+      <input id="town" name="town" type="text" autocomplete="address-level2" autocapitalize="words" placeholder="Where you work" enterkeyhint="done">
+      <div class="bubble" id="bubble" aria-live="polite"></div>
+      <button class="btn" type="submit">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg>
+        <span>Text it to me</span>
+      </button>
+      <a class="alt" id="wa" href="https://wa.me/16472425800" rel="noopener">or send it on WhatsApp</a>
+      <p class="fine">It opens your messages with the text already written. You press send.</p>
+    </form>
+  </section>
+
+  <section class="s rv" id="read">
+    <div class="ghostn" aria-hidden="true">02</div>
+    <p class="eb"><i></i>02 &middot; The Read</p>
+    <p class="kick">One finding is the start.</p>
+    <h2>The Read is all of it.</h2>
+    <p>Everything you have online, gone through properly in a week. What is wrong, what it costs, and a fixed price on the right step.</p>
+    <ul class="get">
+      <li>What is wrong, in writing, ranked by what it costs you</li>
+      <li>Where you actually stand against the businesses above you</li>
+      <li>A fixed price on the right step, and the reason it is that one</li>
+    </ul>
+    <div class="promise"><p>Three real findings or it is free.</p></div>
+    <p class="after">The findings are yours either way. The fee comes off whichever step you choose within thirty days.</p>
+  </section>
+
+  <section class="s close rv" id="next">
+    <p class="eb"><i></i>03 &middot; When you are ready</p>
+    <h2>Nine minutes.</h2>
+    <p>I show you what I found and which step fits where you are.</p>
+    <a class="btn" id="book" href="https://highermindai.com/book/?utm_source=card&utm_medium=qr&utm_campaign=ladder-v6-general">Take the nine minutes</a>
+    <a class="call" href="tel:+16472425800" data-ev="card_call">or call <b>647-242-5800</b></a>
+  </section>
+  </main>
+</div>
+
+<footer>
+  <div><span class="wm"><i></i><span>HigherMind<b>AI</b></span></span></div>
+  Erin, ON, Canada &middot; <a href="tel:+16472425800">647-242-5800</a> &middot; <a href="mailto:highermindai@gmail.com">highermindai@gmail.com</a><br>
+  &copy;2026 HigherMindAI
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement, RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var PHONE='+16472425800';
+  function ev(name,extra){try{(window.dataLayer=window.dataLayer||[]).push(Object.assign({event:name},extra||{}));if(typeof window.gtag==='function'){var p=Object.assign({},extra||{});if(window.__hmInternal)p.traffic_type='internal';window.gtag('event',name,p)}}catch(e){}}
+  function buzz(ms){try{navigator.vibrate&&navigator.vibrate(ms)}catch(e){}}
+  var ua=navigator.userAgent||'', IOS=/iPhone|iPad|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1), AND=/Android/.test(ua);
+
+  /* boot */
+  var seen=false;try{seen=sessionStorage.getItem('hm_card')==='1';sessionStorage.setItem('hm_card','1')}catch(e){}
+  function ready(){root.classList.add('ready')}
+  if(RM||seen){ready()}else{var bt=setTimeout(ready,1900);document.getElementById('boot').addEventListener('pointerdown',function(){clearTimeout(bt);ready()})}
+
+  /* local time in Erin */
+  var ck=document.getElementById('clock');
+  function tick(){try{ck.textContent='· '+new Intl.DateTimeFormat('en-CA',{timeZone:'America/Toronto',hour:'numeric',minute:'2-digit',hour12:true}).format(new Date()).replace(/\./g,'').toUpperCase()}catch(e){}}
+  tick();setInterval(tick,20000);
+
+  /* card: tilt, light, flip */
+  var card=document.getElementById('card'), flipped=false;
+  var cur={x:0,y:0,f:0}, tgt={x:0,y:0}, drag=null, gyro=null, g0=null, lastInput=0;
+  function clamp(v,a,b){return v<a?a:v>b?b:v}
+  card.addEventListener('pointerdown',function(e){
+    if(e.target.closest('#share'))return;
+    drag={x:e.clientX,y:e.clientY,t:Date.now(),moved:0,id:e.pointerId};
+  });
+  window.addEventListener('pointermove',function(e){
+    if(drag&&e.pointerId===drag.id){
+      var dx=e.clientX-drag.x, dy=e.clientY-drag.y; drag.moved=Math.max(drag.moved,Math.abs(dx)+Math.abs(dy));
+      tgt.y=clamp(dx*.28,-26,26); tgt.x=clamp(-dy*.2,-16,16); lastInput=Date.now();
+    }else if(e.pointerType==='mouse'){
+      var r=card.getBoundingClientRect(), px=(e.clientX-(r.left+r.width/2))/r.width, py=(e.clientY-(r.top+r.height/2))/r.height;
+      if(Math.abs(px)<1.2&&Math.abs(py)<1.2){tgt.y=clamp(px*26,-18,18);tgt.x=clamp(-py*18,-12,12);lastInput=Date.now()}
+    }
+  },{passive:true});
+  function endDrag(e){
+    if(!drag||e.pointerId!==drag.id)return;
+    var tap=drag.moved<9&&Date.now()-drag.t<450; drag=null;
+    if(tap&&e.type==='pointerup')flip();
+  }
+  window.addEventListener('pointerup',endDrag);window.addEventListener('pointercancel',endDrag);
+  card.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();flip()}});
+  function flip(){flipped=!flipped;buzz(10);ev('card_flip',{side:flipped?'back':'front'});
+    card.setAttribute('aria-label',flipped?'Back of the card, with a QR code to pass it on. Press to turn it over.':"Derek Train's card. Press to turn it over.")}
+  /* phones that report tilt without asking (Android): the card follows the hand */
+  if(!IOS&&'DeviceOrientationEvent' in window){
+    window.addEventListener('deviceorientation',function(e){
+      if(e.gamma==null||e.beta==null)return;
+      if(!g0)g0={b:e.beta,g:e.gamma};
+      gyro={y:clamp((e.gamma-g0.g)*.55,-16,16),x:clamp(-(e.beta-g0.b)*.4,-11,11)};
+    },{passive:true});
+  }
+  var t0=performance.now();
+  function frame(now){
+    var t=(now-t0)/1000;
+    if(!drag&&Date.now()-lastInput>900){
+      if(gyro){tgt.x=gyro.x+Math.sin(t*.7)*1.2;tgt.y=gyro.y+Math.sin(t*.5)*2}
+      else{tgt.x=Math.sin(t*.62)*4.2;tgt.y=Math.sin(t*.43+.6)*8.5}
+    }
+    if(RM){if(!drag){tgt.x=0;tgt.y=0}cur.f=flipped?180:0;cur.x=tgt.x;cur.y=tgt.y}
+    else{cur.x+=(tgt.x-cur.x)*.09; cur.y+=(tgt.y-cur.y)*.09; cur.f+=((flipped?180:0)-cur.f)*.11}
+    var s=card.style;
+    s.setProperty('--rx',cur.x.toFixed(2)+'deg'); s.setProperty('--ry',(cur.y+cur.f).toFixed(2)+'deg');
+    var sign=cur.f>90?-1:1;
+    s.setProperty('--gx',(50+sign*cur.y*2.6).toFixed(1)+'%'); s.setProperty('--gy',(34-cur.x*2.8).toFixed(1)+'%');
+    par.x=cur.y; par.y=cur.x;
+    requestAnimationFrame(frame);
+  }
+
+  /* the field: rings from the card, drifting light */
+  var cv=document.getElementById('field'), cx=cv.getContext('2d'), W=0,H=0,D=1, rings=[], motes=[], par={x:0,y:0}, lastRing=0;
+  function size(){D=Math.min(window.devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*D;cv.height=H*D;cx.setTransform(D,0,0,D,0,0)}
+  function seed(){motes=[];var n=Math.round(Math.min(46,W*H/15000));for(var i=0;i<n;i++)motes.push({x:Math.random()*W,y:Math.random()*H,z:.3+Math.random()*.9,r:.6+Math.random()*1.5,p:Math.random()*6.28})}
+  function ring(x,y,fast){rings.push({x:x,y:y,r:fast?8:30,a:fast?.7:.42,v:fast?3.4:1.05})}
+  function cardCentre(){var r=card.getBoundingClientRect();return{x:r.left+r.width/2,y:r.top+r.height/2,on:r.bottom>0&&r.top<H}}
+  function draw(now){
+    cx.clearRect(0,0,W,H);
+    if(now-lastRing>3000){lastRing=now;var c=cardCentre();if(c.on)ring(c.x,c.y)}
+    for(var i=rings.length-1;i>=0;i--){var q=rings[i];q.r+=q.v;q.a*=.991;
+      if(q.a<.012||q.r>Math.max(W,H)){rings.splice(i,1);continue}
+      cx.beginPath();cx.arc(q.x,q.y,q.r,0,6.2832);cx.strokeStyle='rgba(63,224,181,'+q.a.toFixed(3)+')';cx.lineWidth=1;cx.stroke()}
+    for(var j=0;j<motes.length;j++){var m=motes[j];m.y-=.08*m.z;m.p+=.012;if(m.y<-6){m.y=H+6;m.x=Math.random()*W}
+      var ox=par.x*m.z*1.1, oy=-par.y*m.z*1.1, al=(.18+.22*Math.sin(m.p))*m.z;
+      cx.beginPath();cx.arc(m.x+ox,m.y+oy,m.r,0,6.2832);cx.fillStyle='rgba(140,240,215,'+Math.max(0,al).toFixed(3)+')';cx.fill()}
+    if(!RM&&!document.hidden)requestAnimationFrame(draw);
+  }
+  size();seed();
+  window.addEventListener('resize',function(){var w=W;size();if(Math.abs(W-w)>40)seed()});
+  document.addEventListener('visibilitychange',function(){if(!document.hidden&&!RM)requestAnimationFrame(draw)});
+  requestAnimationFrame(frame);if(RM){draw(t0)}else{requestAnimationFrame(draw)}
+
+  /* save */
+  var save=document.getElementById('save'), sub=document.getElementById('savesub');
+  save.addEventListener('click',function(){
+    buzz([12,40,12]);ev('card_save');
+    var r=save.getBoundingClientRect();for(var i=0;i<3;i++)(function(k){setTimeout(function(){ring(r.left+r.width/2,r.top+r.height/2,true)},k*130)})(i);
+    setTimeout(function(){
+      sub.textContent=IOS?'A contact sheet opens. Tap Create New Contact.':AND?'Open the download and I am in your contacts.':'Open the file and I am in your contacts.';
+    },350);
+  });
+
+  /* share */
+  var sh=document.getElementById('share');
+  sh.addEventListener('pointerdown',function(e){e.stopPropagation()});
+  sh.addEventListener('click',function(e){
+    e.stopPropagation();ev('card_share');
+    var d={title:'Derek Train - HigherMindAI',text:'Derek Train, HigherMindAI. His card:',url:'https://highermindai.com/card/'};
+    if(navigator.share){navigator.share(d).catch(function(){})}
+    else if(navigator.clipboard){navigator.clipboard.writeText(d.url).then(function(){sh.textContent='Link copied';setTimeout(function(){sh.textContent='Send this card'},1800)}).catch(function(){})}
+  });
+
+  /* one finding, free */
+  var ff=document.getElementById('ff'), biz=document.getElementById('biz'), town=document.getElementById('town'), bub=document.getElementById('bubble'), wa=document.getElementById('wa');
+  function esc(s){return s.replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+  function msg(){var b=biz.value.trim(), t=town.value.trim();
+    return 'Derek - I have your card. Send me my finding.\nBusiness: '+(b||'')+(t?'\nTown: '+t:'')}
+  function paint(){var b=biz.value.trim(), t=town.value.trim();
+    bub.innerHTML='Derek - I have your card. Send me my finding.\nBusiness: '+(b?'<b>'+esc(b)+'</b>':'<span class="ph">your business</span>')+(t?'\nTown: <b>'+esc(t)+'</b>':'');
+    wa.href='https://wa.me/16472425800?text='+encodeURIComponent(msg())}
+  biz.addEventListener('input',paint);town.addEventListener('input',paint);paint();
+  function need(){if(biz.value.trim())return false;biz.focus();ff.classList.remove('shake');void ff.offsetWidth;ff.classList.add('shake');return true}
+  ff.addEventListener('submit',function(e){e.preventDefault();if(need())return;buzz(12);ev('card_finding',{channel:'sms'});
+    location.href='sms:'+PHONE+(IOS?'&':'?')+'body='+encodeURIComponent(msg())});
+  wa.addEventListener('click',function(e){if(need()){e.preventDefault();return}ev('card_finding',{channel:'whatsapp'})});
+
+  /* counted */
+  document.getElementById('book').addEventListener('click',function(){ev('card_book')});
+  [].forEach.call(document.querySelectorAll('[data-ev]'),function(a){a.addEventListener('click',function(){ev(a.getAttribute('data-ev'))})});
+
+  /* reveal */
+  var rv=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window&&!RM){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});rv.forEach(function(n){io.observe(n)})}
+  else rv.forEach(function(n){n.classList.add('in')});
+})();
+</script>
+</body>
+</html>

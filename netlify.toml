@@ -700,6 +700,20 @@
   [headers.values]
     Cache-Control = "public, max-age=2592000, stale-while-revalidate=86400"
 
+# The Card (/card/) - the QR on Derek's phone points here; never move it.
+# The vcf header makes Save open a contact sheet on an iPhone. The page is noindex.
+[[headers]]
+  for = "/card/derek-train.vcf"
+  [headers.values]
+    Content-Type = "text/vcard; charset=utf-8"
+    Content-Disposition = "inline; filename=\"Derek-Train-HigherMindAI.vcf\""
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/card/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
 # v15.3 - IndexNow ping to Bing (and so Copilot / ChatGPT search) after every
 # production deploy. Local plugin; it can never fail the build.
 [[plugins]]
